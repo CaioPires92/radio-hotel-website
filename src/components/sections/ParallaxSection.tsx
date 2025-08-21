@@ -12,7 +12,7 @@ const ParallaxSection = () => {
   // Parallax transforms
   const backgroundY = useTransform(scrollY, [0, 1000], [0, -200]);
   const textY = useTransform(scrollY, [0, 1000], [0, 100]);
-  const overlayOpacity = useTransform(scrollY, [0, 500], [0.4, 0.7]);
+  const overlayOpacity = useTransform(scrollY, [0, 500], [0.6, 0.8]);
 
   useEffect(() => {
     setMounted(true);
@@ -58,9 +58,12 @@ const ParallaxSection = () => {
 
       {/* Animated Overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/50 to-navy/80"
+        className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy/85"
         style={{ opacity: overlayOpacity }}
       />
+      
+      {/* Base Overlay for Better Contrast */}
+      <div className="absolute inset-0 bg-navy/40" />
 
       {/* Decorative Elements */}
       <div className="absolute inset-0">
@@ -165,7 +168,7 @@ const ParallaxSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <Button
               onClick={handleBookingClick}
