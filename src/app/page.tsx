@@ -1,103 +1,188 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Navbar from '@/components/layout/Navbar';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Events from '@/components/sections/Events';
+import Accommodations from '@/components/sections/Accommodations';
+import Highlights from '@/components/sections/Highlights';
+import ParallaxSection from '@/components/sections/ParallaxSection';
+import Footer from '@/components/layout/Footer';
+import BookingForm from '@/components/ui/custom/BookingForm';
+import { Phone, ArrowUp, Calendar } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [showEventsModal, setShowEventsModal] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      // Show back to top button after 300px
+      setShowBackToTop(scrollY > 300);
+      
+      // Show events modal after 600px scroll
+      if (scrollY > 600 && !showEventsModal) {
+        setShowEventsModal(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showEventsModal]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleWhatsAppClick = () => {
+    const message = 'Olá! Gostaria de mais informações sobre o Rádio Hotel.';
+    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Fixed Navbar */}
+      <Navbar />
+      
+      {/* Main Content */}
+      <main>
+        <section id="home">
+          <Hero />
+        </section>
+        
+        <section id="about">
+          <About />
+        </section>
+        
+        <section id="events">
+          <Events />
+        </section>
+        
+        <section id="accommodations">
+          <Accommodations />
+        </section>
+        
+        <section id="highlights">
+          <Highlights />
+        </section>
+        
+        <ParallaxSection />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      
+      {/* Footer */}
+      <Footer />
+      
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+        {/* WhatsApp Button */}
+        <motion.button
+          onClick={handleWhatsAppClick}
+          className="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Contato via WhatsApp"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Phone className="w-6 h-6 group-hover:animate-pulse" />
+        </motion.button>
+        
+        {/* Booking Form Button */}
+        <motion.button
+          onClick={() => setShowBookingForm(true)}
+          className="w-14 h-14 bg-gold hover:bg-gold/90 text-navy rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Fazer reserva"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Calendar className="w-6 h-6 group-hover:animate-pulse" />
+        </motion.button>
+        
+        {/* Back to Top Button */}
+        <AnimatePresence>
+          {showBackToTop && (
+            <motion.button
+              onClick={scrollToTop}
+              className="w-14 h-14 bg-navy hover:bg-navy/90 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Voltar ao topo"
+            >
+              <ArrowUp className="w-6 h-6" />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+      
+      {/* Events Modal */}
+      <AnimatePresence>
+        {showEventsModal && (
+          <motion.div
+            className="fixed bottom-6 left-6 z-40 max-w-sm"
+            initial={{ opacity: 0, x: -100, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -100, scale: 0.8 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          >
+            <div className="bg-white rounded-2xl shadow-2xl border border-gold/20 p-6 relative">
+              <button
+                onClick={() => setShowEventsModal(false)}
+                className="absolute top-3 right-3 w-6 h-6 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200"
+                aria-label="Fechar modal"
+              >
+                <span className="text-gray-600 text-sm">×</span>
+              </button>
+              
+              <div className="mb-4">
+                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                  <Calendar className="w-6 h-6 text-gold" />
+                </div>
+                <h3 className="text-lg font-serif font-bold text-navy mb-2">
+                  Eventos Especiais
+                </h3>
+                <p className="text-sm text-navy/70 mb-4">
+                  Descubra nossos espaços únicos para casamentos, corporativo e celebrações.
+                </p>
+              </div>
+              
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => {
+                    const element = document.querySelector('#events');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setShowEventsModal(false);
+                  }}
+                  className="flex-1 bg-gold hover:bg-gold/90 text-navy font-semibold py-2 px-3 rounded-lg text-sm transition-all duration-300 hover:scale-105"
+                >
+                  Ver Eventos
+                </button>
+                <button
+                  onClick={() => setShowEventsModal(false)}
+                  className="px-3 py-2 text-navy/60 hover:text-navy text-sm transition-colors duration-200"
+                >
+                  Depois
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {/* Booking Form Modal */}
+      <BookingForm 
+        isOpen={showBookingForm} 
+        onClose={() => setShowBookingForm(false)} 
+      />
     </div>
   );
 }
