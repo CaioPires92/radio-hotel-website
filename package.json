@@ -15,6 +15,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:a11y": "playwright test --grep=accessibility",
+    "test:contrast": "node scripts/contrast-check.js",
     "lighthouse": "lhci autorun"
   },
   "dependencies": {

@@ -70,7 +70,7 @@ const Hero = () => {
             <div
               className="w-full h-full bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `linear-gradient(rgba(10, 13, 41, 0.4), rgba(22, 68, 110, 0.3)), url(${slides[currentSlide].image})`,
+                backgroundImage: `linear-gradient(rgba(10, 13, 41, 0.7), rgba(22, 68, 110, 0.6)), url(${slides[currentSlide].image})`,
               }}
             />
           </motion.div>
