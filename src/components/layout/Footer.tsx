@@ -130,10 +130,10 @@ const Footer = () => {
                 <h3 className="text-2xl font-serif font-bold text-gold mb-2">
                   Rádio Hotel
                 </h3>
-                <p className="text-white/80 leading-relaxed">
-                  Tradição e elegância no coração de Serra Negra. 
-                  Uma experiência única em meio à natureza exuberante.
-                </p>
+                <p className="text-white leading-relaxed">
+                Tradição e elegância no coração de Serra Negra. 
+                Uma experiência única em meio à natureza exuberante.
+              </p>
               </div>
 
               {/* Social Links */}
@@ -170,7 +170,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <button
                       onClick={() => handleLinkClick(link.href)}
-                      className="text-white/80 hover:text-gold transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      className="text-white hover:text-gold transition-colors duration-300 hover:translate-x-1 transform inline-block"
                     >
                       {link.name}
                     </button>
@@ -197,7 +197,7 @@ const Footer = () => {
                       <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center group-hover:bg-gold/30 transition-colors duration-300">
                         <Icon className="w-4 h-4 text-gold" />
                       </div>
-                      <span className="text-white/80 group-hover:text-white transition-colors duration-300">
+                      <span className="text-white group-hover:text-gold transition-colors duration-300">
                         {service.name}
                       </span>
                     </li>
@@ -230,8 +230,8 @@ const Footer = () => {
                             <Icon className="w-4 h-4 text-gold" />
                           </div>
                           <div>
-                            <div className="text-sm text-white/60 mb-1">{contact.label}</div>
-                            <div className="text-white/80 whitespace-pre-line text-sm leading-relaxed">
+                            <div className="text-sm text-white/90 mb-1">{contact.label}</div>
+                            <div className="text-white whitespace-pre-line text-sm leading-relaxed">
                               {contact.value}
                             </div>
                           </div>
@@ -242,8 +242,8 @@ const Footer = () => {
                             <Icon className="w-4 h-4 text-gold" />
                           </div>
                           <div>
-                            <div className="text-sm text-white/60 mb-1">{contact.label}</div>
-                            <div className="text-white/80 whitespace-pre-line text-sm leading-relaxed">
+                            <div className="text-sm text-white/90 mb-1">{contact.label}</div>
+                            <div className="text-white whitespace-pre-line text-sm leading-relaxed">
                               {contact.value}
                             </div>
                           </div>
@@ -281,14 +281,14 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-gold mb-2">
                 Receba Nossas Ofertas Especiais
               </h4>
-              <p className="text-white/70 mb-4">
+              <p className="text-white/90 mb-4">
                 Cadastre-se e seja o primeiro a saber sobre promoções exclusivas
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Seu melhor e-mail"
-                  className="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
                 />
                 <button className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                   Cadastrar
@@ -302,11 +302,11 @@ const Footer = () => {
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-white/60 text-sm">
+              <div className="text-white/90 text-sm">
                 © {currentYear} Rádio Hotel. Todos os direitos reservados.
               </div>
               
-              <div className="flex items-center space-x-4 text-sm text-white/60">
+              <div className="flex items-center space-x-4 text-sm text-white/90">
                 <button className="hover:text-gold transition-colors duration-300">
                   Política de Privacidade
                 </button>
