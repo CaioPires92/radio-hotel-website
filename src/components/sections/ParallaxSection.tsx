@@ -50,7 +50,7 @@ const ParallaxSection = () => {
         <div 
           className="w-full h-full bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: `url('/api/placeholder/1920/1080')`,
+            backgroundImage: `url('/parallax-bg.svg')`,
             backgroundAttachment: 'fixed',
           }}
         />
