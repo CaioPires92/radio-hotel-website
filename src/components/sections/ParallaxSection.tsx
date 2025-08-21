@@ -58,12 +58,12 @@ const ParallaxSection = () => {
 
       {/* Animated Overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy/85"
+        className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/75 to-navy/90"
         style={{ opacity: overlayOpacity }}
       />
       
       {/* Base Overlay for Better Contrast */}
-      <div className="absolute inset-0 bg-navy/40" />
+      <div className="absolute inset-0 bg-navy/60" />
 
       {/* Decorative Elements */}
       <div className="absolute inset-0">
