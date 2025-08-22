@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MapPin, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
 interface HeroProps {
   onBookingClick?: () => void;
@@ -11,6 +12,18 @@ interface HeroProps {
 
 const Hero = ({ onBookingClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isBookingLoading, setIsBookingLoading] = useState(false);
+
+  // Handle keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setCurrentSlide(prev => prev === 0 ? slides.length - 1 : prev - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      setCurrentSlide(prev => prev === slides.length - 1 ? 0 : prev + 1);
+    }
+  };
 
   const slides = [
     {
@@ -52,18 +65,32 @@ const Hero = ({ onBookingClick }: HeroProps) => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleBookingClick = () => {
-    if (onBookingClick) {
-      onBookingClick();
-    } else {
-      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
+  const handleBookingClick = async () => {
+    setIsBookingLoading(true);
+    try {
+      if (onBookingClick) {
+        onBookingClick();
+      } else {
+        const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
+        const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+      // Simulate loading time for better UX
+      await new Promise(resolve => setTimeout(resolve, 300));
+    } finally {
+      setIsBookingLoading(false);
     }
   };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section 
+      id="home" 
+      className="relative h-screen overflow-hidden"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="region"
+      aria-label="Carrossel de imagens do hotel"
+    >
       {/* Background Carousel */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
@@ -136,7 +163,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
 
                 {/* Description */}
                 <motion.p
-                  className="text-lg md:text-xl mb-8 leading-relaxed max-w-2xl text-white/90"
+                  className="text-lg md:text-xl mb-8 leading-relaxed max-w-2xl text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -146,18 +173,26 @@ const Hero = ({ onBookingClick }: HeroProps) => {
 
                 {/* CTA Buttons */}
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row gap-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
                 >
                   <Button
                     onClick={handleBookingClick}
+                    disabled={isBookingLoading}
                     size="lg"
-                    className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[180px] flex items-center justify-center"
+                    aria-label="Fazer reserva no Radio Hotel"
                   >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Reservar Agora
+                    {isBookingLoading ? (
+                      <LoadingSpinner size="md" color="navy" />
+                    ) : (
+                      <>
+                        <Phone className="w-5 h-5 mr-2" />
+                        Reservar Agora
+                      </>
+                    )}
                   </Button>
                   <Button
                     variant="outline"
@@ -166,6 +201,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                     onClick={() => {
                       document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                     }}
+                    aria-label="Descobrir mais sobre o Radio Hotel"
                   >
                     Descobrir Mais
                   </Button>
@@ -179,15 +215,17 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
         aria-label="Slide anterior"
+        tabIndex={0}
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
         aria-label="Próximo slide"
+        tabIndex={0}
       >
         <ChevronRight className="w-6 h-6 text-white" />
       </button>
@@ -198,12 +236,13 @@ const Hero = ({ onBookingClick }: HeroProps) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${
               index === currentSlide
                 ? 'bg-gold scale-125'
                 : 'bg-white/50 hover:bg-white/70'
             }`}
             aria-label={`Ir para slide ${index + 1}`}
+            tabIndex={0}
           />
         ))}
       </div>

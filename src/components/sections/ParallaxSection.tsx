@@ -181,6 +181,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             <Button
               onClick={handleBookingClick}
               className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
+              aria-label="Fazer reserva no Radio Hotel"
             >
               <Phone className="w-5 h-5 mr-2 group-hover:animate-pulse" />
               Reservar Agora
@@ -190,6 +191,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
               onClick={handleCallClick}
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              aria-label="Consultar disponibilidade via telefone"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Consultar Disponibilidade

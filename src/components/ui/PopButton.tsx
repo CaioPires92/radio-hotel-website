@@ -32,6 +32,13 @@ export default function PopButton({ onClick }: PopButtonProps) {
     setIsVisible(false);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -57,9 +64,12 @@ export default function PopButton({ onClick }: PopButtonProps) {
         >
           <motion.button
             onClick={handleClick}
-            className="group relative bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy p-4 rounded-full shadow-2xl transition-all duration-300 hover:shadow-gold/25"
+            onKeyDown={handleKeyDown}
+            className="group relative bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy p-4 rounded-full shadow-2xl transition-all duration-300 hover:shadow-gold/25 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Abrir modal de eventos"
+            tabIndex={0}
           >
             {/* Pulsing Ring */}
             <motion.div

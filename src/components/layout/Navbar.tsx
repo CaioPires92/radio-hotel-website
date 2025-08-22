@@ -13,6 +13,22 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Handle keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape' && isOpen) {
+      setIsOpen(false);
+    }
+  };
+
+  const handleMenuItemKeyDown = (event: React.KeyboardEvent, href: string) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      setIsOpen(false);
+      // Navigate to the href
+      window.location.href = href;
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -104,6 +120,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             <Button
               onClick={handleBookingClick}
               className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              aria-label="Fazer reserva no Radio Hotel"
             >
               <Phone className="w-4 h-4 mr-2" />
               Reservar Agora
@@ -113,12 +130,16 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
+              onClick={() => setIsOpen(!isOpen)}
+              onKeyDown={handleKeyDown}
               variant="ghost"
               size="sm"
-              onClick={() => setIsOpen(!isOpen)}
               className={`p-2 ${
                 isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
               }`}
+              aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -128,6 +149,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
 
       {/* Mobile Menu */}
       <motion.div
+        id="mobile-menu"
         className={`md:hidden ${
           isOpen ? 'block' : 'hidden'
         } bg-white/95 backdrop-blur-md border-t border-gray-200`}
@@ -137,14 +159,17 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           height: isOpen ? 'auto' : 0 
         }}
         transition={{ duration: 0.3 }}
+        onKeyDown={handleKeyDown}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
           {menuItems.map((item, index) => (
             <motion.a
               key={item.name}
               href={item.href}
-              className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200"
+              className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
               onClick={() => setIsOpen(false)}
+              onKeyDown={(e) => handleMenuItemKeyDown(e, item.href)}
+              tabIndex={isOpen ? 0 : -1}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -158,6 +183,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 handleBookingClick();
                 setIsOpen(false);
               }}
+              aria-label="Fazer reserva no Radio Hotel"
               className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-2 rounded-full"
             >
               <Phone className="w-4 h-4 mr-2" />

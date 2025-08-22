@@ -45,6 +45,7 @@ export default function WhatsAppButton() {
             className="group relative bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:shadow-green-500/25"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Entrar em contato via WhatsApp"
           >
             {/* Pulsing Ring */}
             <motion.div

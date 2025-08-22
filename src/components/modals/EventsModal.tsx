@@ -123,7 +123,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
               
               <div className="pr-12">
                 <h2 className="text-3xl font-serif font-bold mb-2">Eventos Especiais</h2>
-                <p className="text-white/80">Experiencias unicas no Radio Hotel</p>
+                <p className="text-white/95">Experiencias unicas no Radio Hotel</p>
               </div>
             </div>
 

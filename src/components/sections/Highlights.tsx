@@ -13,6 +13,7 @@ import {
   TreePine
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 const Highlights = () => {
   const highlights = [
@@ -105,7 +106,7 @@ const Highlights = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
             Experiências Únicas
           </h2>
-          <p className="text-lg text-navy/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
             Descubra os elementos que tornam o Rádio Hotel um destino especial, 
             onde tradição, natureza e conforto se encontram em perfeita harmonia.
           </p>
@@ -131,10 +132,11 @@ const Highlights = () => {
                   <CardContent className="p-0 relative">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
-                      <img
+                      <Image
                         src={highlight.image}
-                        alt={highlight.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt={`${highlight.title} - ${highlight.description}`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/20 to-transparent" />
                       
@@ -153,7 +155,7 @@ const Highlights = () => {
                         {highlight.title}
                       </h3>
                       
-                      <p className="text-navy/70 mb-4 leading-relaxed">
+                      <p className="text-navy/80 mb-4 leading-relaxed">
                         {highlight.description}
                       </p>
 
@@ -162,7 +164,7 @@ const Highlights = () => {
                         {highlight.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                            <span className="text-sm text-navy/60">{feature}</span>
+                            <span className="text-sm text-navy/70">{feature}</span>
                           </div>
                         ))}
                       </div>
