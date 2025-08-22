@@ -21,7 +21,7 @@ const Highlights = () => {
       icon: Leaf,
       title: 'Natureza Exuberante',
       description: 'Cercado por mata atlântica preservada, oferecemos uma experiência única de conexão com a natureza.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/passeios-bosque.png',
       features: ['Trilhas ecológicas', 'Observação de aves', 'Jardins nativos'],
     },
     {
@@ -29,7 +29,7 @@ const Highlights = () => {
       icon: Waves,
       title: 'Águas Termais',
       description: 'Relaxe nas famosas águas termais de Serra Negra, conhecidas por suas propriedades terapêuticas.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/pacotes-especiais.png',
       features: ['Piscinas termais', 'Spa natural', 'Hidroterapia'],
     },
     {
@@ -37,7 +37,7 @@ const Highlights = () => {
       icon: Mountain,
       title: 'Vista Panorâmica',
       description: 'Desfrute de vistas deslumbrantes das montanhas da Serra da Mantiqueira em todos os ambientes.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/pacotes-especiais.png',
       features: ['Mirante exclusivo', 'Terraços panorâmicos', 'Pôr do sol único'],
     },
     {
@@ -45,7 +45,7 @@ const Highlights = () => {
       icon: Utensils,
       title: 'Gastronomia Regional',
       description: 'Saboreie pratos da culinária mineira e internacional preparados com ingredientes locais frescos.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/sabado-feijoada.png',
       features: ['Chef especializado', 'Ingredientes orgânicos', 'Cardápio sazonal'],
     },
     {
@@ -53,7 +53,7 @@ const Highlights = () => {
       icon: TreePine,
       title: 'Atividades ao Ar Livre',
       description: 'Diversas opções de lazer e aventura para toda a família em meio à natureza preservada.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/passeios-bosque.png',
       features: ['Caminhadas', 'Ciclismo', 'Pesca esportiva'],
     },
     {
@@ -61,7 +61,7 @@ const Highlights = () => {
       icon: Coffee,
       title: 'Tradição Mineira',
       description: 'Experimente a autêntica hospitalidade mineira com café colonial e quitutes regionais.',
-      image: '/api/placeholder/400/300',
+      image: '/images/events/sabado-feijoada.png',
       features: ['Café da manhã colonial', 'Produtos artesanais', 'Cultura local'],
     },
   ];

@@ -11,21 +11,21 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      image: '/api/placeholder/1920/1080',
+      image: '/images/hero/hero1.jpg',
       title: 'Experiência Exclusiva em Serra Negra',
       subtitle: 'Tradição, elegância e natureza em perfeita harmonia',
       description: 'Descubra o charme único do Rádio Hotel, onde a hospitalidade tradicional encontra o conforto moderno no coração de Serra Negra.',
     },
     {
       id: 2,
-      image: '/api/placeholder/1920/1080',
+      image: '/images/hero/hero2.jpg',
       title: 'Rodeado pela Natureza Exuberante',
       subtitle: 'Cachoeiras, montanhas e muito verde',
       description: 'Desfrute de momentos únicos em meio à natureza preservada, com acesso exclusivo às mais belas paisagens da região.',
     },
     {
       id: 3,
-      image: '/api/placeholder/1920/1080',
+      image: '/images/hero/hero3.jpg',
       title: 'Acomodações de Luxo e Conforto',
       subtitle: 'Quartos elegantes com vista panorâmica',
       description: 'Relaxe em nossos quartos cuidadosamente decorados, cada um oferecendo uma experiência única de conforto e sofisticação.',
