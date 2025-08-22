@@ -6,7 +6,11 @@ import { ChevronLeft, ChevronRight, Wifi, Car, Coffee, Tv, Bath, Wind, Phone } f
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-const Accommodations = () => {
+interface AccommodationsProps {
+  onBookingClick?: () => void;
+}
+
+const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
 
   const rooms = [
@@ -101,9 +105,13 @@ const Accommodations = () => {
   };
 
   const handleBookingClick = (roomName: string) => {
-    const message = `Olá! Gostaria de fazer uma reserva para: ${roomName}`;
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const message = `Olá! Gostaria de fazer uma reserva para: ${roomName}`;
+      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   return (

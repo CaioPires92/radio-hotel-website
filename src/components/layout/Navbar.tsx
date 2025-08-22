@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Navbar = () => {
+interface NavbarProps {
+  onBookingClick?: () => void;
+}
+
+const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,9 +31,13 @@ const Navbar = () => {
   ];
 
   const handleBookingClick = () => {
-    const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
+      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   return (

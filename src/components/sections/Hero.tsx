@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MapPin, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Hero = () => {
+interface HeroProps {
+  onBookingClick?: () => void;
+}
+
+const Hero = ({ onBookingClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -49,9 +53,13 @@ const Hero = () => {
   };
 
   const handleBookingClick = () => {
-    const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
+      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   return (
