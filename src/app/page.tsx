@@ -19,9 +19,15 @@ export default function Home() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
+  // Debug log
+  console.log('isBookingFormOpen:', isBookingFormOpen);
+
   return (
     <main className="min-h-screen">
-      <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
+      <Navbar onBookingClick={() => {
+        console.log('Navbar booking clicked');
+        setIsBookingFormOpen(true);
+      }} />
       <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
       <About />
       <Events />
