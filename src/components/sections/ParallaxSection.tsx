@@ -5,7 +5,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, Calendar, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const ParallaxSection = () => {
+interface ParallaxSectionProps {
+  onBookingClick?: () => void;
+}
+
+const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
   
@@ -19,9 +23,13 @@ const ParallaxSection = () => {
   }, []);
 
   const handleBookingClick = () => {
-    const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel. Podem me ajudar?';
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    if (onBookingClick) {
+      onBookingClick();
+    } else {
+      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel. Podem me ajudar?';
+      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   const handleCallClick = () => {

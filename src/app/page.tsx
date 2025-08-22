@@ -17,17 +17,21 @@ import BackToTopButton from '@/components/ui/BackToTopButton';
 
 export default function Home() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
   return (
     <main className="min-h-screen">
-      <Navbar />
-      <Hero />
+      <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
+      <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
       <About />
       <Events />
-      <Accommodations />
+      <Accommodations onBookingClick={() => setIsBookingFormOpen(true)} />
       <Highlights />
-      <ParallaxSection />
-      <BookingForm />
+      <ParallaxSection onBookingClick={() => setIsBookingFormOpen(true)} />
+      <BookingForm 
+        isOpen={isBookingFormOpen} 
+        onClose={() => setIsBookingFormOpen(false)} 
+      />
       <Footer />
       
       {/* Interactive Components */}
