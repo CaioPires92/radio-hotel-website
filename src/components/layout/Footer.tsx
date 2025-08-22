@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import {
   Phone,
   Mail,
@@ -20,6 +22,8 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -103,6 +107,24 @@ const Footer = () => {
     const message = 'Olá! Gostaria de mais informações sobre o Rádio Hotel.';
     const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && !isSubmittingNewsletter) {
+      setIsSubmittingNewsletter(true);
+      try {
+        // Here you would typically send the email to your newsletter service
+        console.log('Newsletter signup:', email);
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+        setEmail('');
+        // You could show a success message here
+      } catch (error) {
+        console.error('Newsletter signup error:', error);
+      } finally {
+        setIsSubmittingNewsletter(false);
+      }
+    }
   };
 
   return (
@@ -284,16 +306,26 @@ const Footer = () => {
               <p className="text-white/90 mb-4">
                 Cadastre-se e seja o primeiro a saber sobre promoções exclusivas
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Seu melhor e-mail"
-                  className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
                 />
-                <button className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105">
-                  Cadastrar
+                <button 
+                  type="submit"
+                  disabled={isSubmittingNewsletter || !email}
+                  className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[100px] flex items-center justify-center"
+                >
+                  {isSubmittingNewsletter ? (
+                    <LoadingSpinner size="sm" color="navy" />
+                  ) : (
+                    'Cadastrar'
+                  )}
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </motion.div>

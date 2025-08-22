@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Wifi, Car, Coffee, Tv, Bath, Wind, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 interface AccommodationsProps {
   onBookingClick?: () => void;
@@ -131,7 +132,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
             Conforto e Elegância
           </h2>
-          <p className="text-lg text-navy/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
             Escolha entre nossas acomodações cuidadosamente projetadas, cada uma oferecendo 
             uma experiência única de conforto, elegância e tranquilidade.
           </p>
@@ -151,10 +152,12 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Image Section */}
                   <div className="lg:col-span-3 relative h-96 lg:h-auto">
-                    <img
+                    <Image
                       src={rooms[currentRoom].image}
-                      alt={rooms[currentRoom].name}
-                      className="w-full h-full object-cover"
+                      alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.join(', ')}`}
+                      fill
+                      className="object-cover"
+                      priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
                     
@@ -201,9 +204,9 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       {/* Features */}
                       <div className="mb-6">
                         <h4 className="font-semibold text-navy mb-3">Características:</h4>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 gap-3">
                           {rooms[currentRoom].features.map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-2">
+                            <div key={index} className="flex items-center space-x-3">
                               <div className="w-2 h-2 bg-gold rounded-full" />
                               <span className="text-sm text-navy/70">{feature}</span>
                             </div>
@@ -233,6 +236,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       <Button
                         onClick={() => handleBookingClick(rooms[currentRoom].name)}
                         className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-full"
+                        aria-label={`Reservar ${rooms[currentRoom].name}`}
                       >
                         <Phone className="w-4 h-4 mr-2" />
                         Reservar Agora
@@ -300,11 +304,14 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                   : 'border-transparent hover:border-gold/50'
               }`}>
                 <CardContent className="p-4">
-                  <img
-                    src={room.image}
-                    alt={room.name}
-                    className="w-full h-32 object-cover rounded-lg mb-3"
-                  />
+                  <div className="relative w-full h-32 mb-3">
+                    <Image
+                      src={room.image}
+                      alt={`${room.name} - ${room.type} com ${room.size}`}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
                   <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
                   <p className="text-sm text-navy/70 mb-2">{room.type}</p>
                   <div className="flex justify-between items-center">

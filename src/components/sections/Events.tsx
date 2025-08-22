@@ -5,9 +5,23 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import Image from 'next/image';
 
 const Events = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
+  const [isContactLoading, setIsContactLoading] = useState(false);
+
+  // Handle keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      prevEvent();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      nextEvent();
+    }
+  };
 
   const events = [
     {
@@ -60,14 +74,28 @@ const Events = () => {
     setCurrentEvent((prev) => (prev - 1 + events.length) % events.length);
   };
 
-  const handleContactClick = () => {
-    const message = `Olá! Gostaria de saber mais sobre o evento: ${events[currentEvent].title}`;
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const handleContactClick = async () => {
+    setIsContactLoading(true);
+    try {
+      const message = `Olá! Gostaria de saber mais sobre o evento: ${events[currentEvent].title}`;
+      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      // Simulate loading time for better UX
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } finally {
+      setIsContactLoading(false);
+    }
   };
 
   return (
-    <section id="events" className="py-20 bg-white">
+    <section 
+      id="events" 
+      className="py-20 bg-white"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="region"
+      aria-label="Carrossel de eventos"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -83,7 +111,7 @@ const Events = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
             Momentos Inesquecíveis
           </h2>
-          <p className="text-lg text-navy/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
             Transforme seus eventos em experiências memoráveis em nossos espaços elegantes, 
             com toda a infraestrutura e atendimento personalizado que você merece.
           </p>
@@ -103,10 +131,12 @@ const Events = () => {
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Image Section */}
                   <div className="relative h-96 lg:h-auto">
-                    <img
+                    <Image
                       src={events[currentEvent].image}
-                      alt={events[currentEvent].title}
-                      className="w-full h-full object-cover"
+                      alt={`${events[currentEvent].title} - ${events[currentEvent].description}`}
+                      fill
+                      className="object-cover"
+                      priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
                     
@@ -133,18 +163,18 @@ const Events = () => {
                       </p>
 
                       {/* Event Details */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <div className="flex items-center space-x-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                        <div className="flex items-center space-x-3">
                           <Users className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/70">{events[currentEvent].capacity}</span>
+                          <span className="text-sm text-navy/80">{events[currentEvent].capacity}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-3">
                           <Clock className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/70">{events[currentEvent].duration}</span>
+                          <span className="text-sm text-navy/80">{events[currentEvent].duration}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-3">
                           <MapPin className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/70">{events[currentEvent].location}</span>
+                          <span className="text-sm text-navy/80">{events[currentEvent].location}</span>
                         </div>
                       </div>
 
@@ -164,10 +194,18 @@ const Events = () => {
                       {/* CTA Button */}
                       <Button
                         onClick={handleContactClick}
-                        className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-fit"
+                        disabled={isContactLoading}
+                        className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-fit disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[180px] flex items-center justify-center"
+                        aria-label={`Solicitar orçamento para ${events[currentEvent].title}`}
                       >
-                        <Calendar className="w-4 h-4 mr-2" />
-                        Solicitar Orçamento
+                        {isContactLoading ? (
+                          <LoadingSpinner size="sm" color="navy" />
+                        ) : (
+                          <>
+                            <Calendar className="w-4 h-4 mr-2" />
+                            Solicitar Orçamento
+                          </>
+                        )}
                       </Button>
                     </motion.div>
                   </div>
@@ -179,15 +217,17 @@ const Events = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevEvent}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
             aria-label="Evento anterior"
+            tabIndex={0}
           >
             <ChevronLeft className="w-6 h-6 text-navy" />
           </button>
           <button
             onClick={nextEvent}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
             aria-label="Próximo evento"
+            tabIndex={0}
           >
             <ChevronRight className="w-6 h-6 text-navy" />
           </button>
@@ -199,12 +239,13 @@ const Events = () => {
             <button
               key={index}
               onClick={() => setCurrentEvent(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${
                 index === currentEvent
                   ? 'bg-gold scale-125'
                   : 'bg-navy/20 hover:bg-navy/40'
               }`}
               aria-label={`Ver evento ${index + 1}`}
+              tabIndex={0}
             />
           ))}
         </div>
@@ -233,6 +274,7 @@ const Events = () => {
               }}
               variant="outline"
               className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
+              aria-label="Falar com especialista em eventos via WhatsApp"
             >
               Falar com Especialista
             </Button>

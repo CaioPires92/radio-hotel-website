@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Calendar, 
@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
 interface BookingFormProps {
   isOpen: boolean;
@@ -23,8 +24,10 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
-  // Debug log
-  console.log('BookingForm - isOpen:', isOpen);
+  // Debug log (development only)
+  if (process.env.NODE_ENV === 'development') {
+    console.log('BookingForm - isOpen:', isOpen);
+  }
   const [formData, setFormData] = useState({
     checkIn: '',
     checkOut: '',
@@ -36,6 +39,29 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Focus management - focus first input when modal opens
+      const firstInput = document.querySelector('#booking-form input, #booking-form select') as HTMLElement;
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 100);
+      }
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   const roomTypes = [
     { value: 'standard', label: 'Quarto Standard - R$ 220/noite', price: 220 },
@@ -53,12 +79,30 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       const ages = Array(childrenCount).fill('');
       setFormData(prev => ({ ...prev, childrenAges: ages }));
     }
+    
+    // Clear error for this field when user starts typing
+    if (errors[field]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
   };
 
   const handleChildAgeChange = (index: number, age: string) => {
     const newAges = [...formData.childrenAges];
     newAges[index] = age;
     setFormData(prev => ({ ...prev, childrenAges: newAges }));
+    
+    // Clear children ages error when user starts typing
+    if (errors.childrenAges) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.childrenAges;
+        return newErrors;
+      });
+    }
   };
 
   const calculateNights = () => {
@@ -90,11 +134,52 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     setIsSubmitting(true);
 
     // Validate required fields
-    if (!formData.checkIn || !formData.checkOut || !formData.roomType) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.checkIn) {
+      newErrors.checkIn = 'Data de check-in é obrigatória';
+    }
+    
+    if (!formData.checkOut) {
+      newErrors.checkOut = 'Data de check-out é obrigatória';
+    }
+    
+    if (!formData.roomType) {
+      newErrors.roomType = 'Selecione um tipo de acomodação';
+    }
+    
+    // Validate date logic
+    if (formData.checkIn && formData.checkOut) {
+      const checkInDate = new Date(formData.checkIn);
+      const checkOutDate = new Date(formData.checkOut);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      if (checkInDate < today) {
+        newErrors.checkIn = 'Data de check-in não pode ser anterior a hoje';
+      }
+      
+      if (checkOutDate <= checkInDate) {
+        newErrors.checkOut = 'Data de check-out deve ser posterior ao check-in';
+      }
+    }
+    
+    // Validate children ages if children > 0
+    if (parseInt(formData.children) > 0) {
+      const missingAges = formData.childrenAges.some(age => !age);
+      if (missingAges) {
+        newErrors.childrenAges = 'Informe a idade de todas as crianças';
+      }
+    }
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       setIsSubmitting(false);
       return;
     }
+    
+    // Clear errors if validation passes
+    setErrors({});
 
     // Create WhatsApp message
     const selectedRoom = roomTypes.find(room => room.value === formData.roomType);
@@ -174,22 +259,29 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           >
-            <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border-0">
+            <Card 
+              id="booking-form"
+              className="w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border-0"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="booking-form-title"
+            >
               <CardHeader className="bg-gradient-to-r from-navy to-blue text-white relative">
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200"
+                  className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold"
                   aria-label="Fechar formulário"
+                  tabIndex={0}
                 >
                   <X className="w-5 h-5" />
                 </button>
                 
-                <CardTitle className="text-2xl font-serif flex items-center space-x-2">
+                <CardTitle id="booking-form-title" className="text-2xl font-serif flex items-center space-x-2">
                   <Calendar className="w-6 h-6 text-gold" />
                   <span>Fazer Reserva</span>
                 </CardTitle>
                 
-                <p className="text-white/80 mt-2">
+                <p className="text-white/95 mt-2">
                   Preencha os dados abaixo e enviaremos sua solicitação via WhatsApp
                 </p>
               </CardHeader>
@@ -208,9 +300,14 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         value={formData.checkIn}
                         onChange={(e) => handleInputChange('checkIn', e.target.value)}
                         min={getTodayDate()}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${
+                          errors.checkIn ? 'border-red-500' : 'border-gray-300'
+                        }`}
                         required
                       />
+                      {errors.checkIn && (
+                        <p className="text-red-500 text-sm mt-1">{errors.checkIn}</p>
+                      )}
                     </div>
                     
                     <div>
@@ -223,9 +320,14 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         value={formData.checkOut}
                         onChange={(e) => handleInputChange('checkOut', e.target.value)}
                         min={formData.checkIn || getTomorrowDate()}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${
+                          errors.checkOut ? 'border-red-500' : 'border-gray-300'
+                        }`}
                         required
                       />
+                      {errors.checkOut && (
+                        <p className="text-red-500 text-sm mt-1">{errors.checkOut}</p>
+                      )}
                     </div>
                   </div>
 
@@ -291,10 +393,15 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                             onChange={(e) => handleChildAgeChange(index, e.target.value)}
                             min="0"
                             max="17"
-                            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-sm"
+                            className={`px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-sm ${
+                              errors.childrenAges ? 'border-red-500' : 'border-gray-300'
+                            }`}
                           />
                         ))}
                       </div>
+                      {errors.childrenAges && (
+                        <p className="text-red-500 text-sm mt-1">{errors.childrenAges}</p>
+                      )}
                     </motion.div>
                   )}
 
@@ -305,7 +412,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                       Tipo de Acomodação *
                     </label>
                     <Select value={formData.roomType} onValueChange={(value) => handleInputChange('roomType', value)}>
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger className={`w-full ${
+                        errors.roomType ? 'border-red-500' : ''
+                      }`}>
                         <SelectValue placeholder="Selecione uma acomodação" />
                       </SelectTrigger>
                       <SelectContent>
@@ -316,6 +425,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         ))}
                       </SelectContent>
                     </Select>
+                    {errors.roomType && (
+                      <p className="text-red-500 text-sm mt-1">{errors.roomType}</p>
+                    )}
                   </div>
 
                   {/* Special Requests */}
@@ -328,7 +440,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                       onChange={(e) => handleInputChange('specialRequests', e.target.value)}
                       placeholder="Alguma solicitação especial? (aniversário, lua de mel, acessibilidade, etc.)"
                       rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
                     />
                   </div>
 
@@ -375,10 +487,11 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     type="submit"
                     disabled={isSubmitting || !formData.checkIn || !formData.checkOut || !formData.roomType}
                     className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    aria-label="Enviar solicitação de reserva via WhatsApp"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center space-x-2">
-                        <div className="w-4 h-4 border-2 border-navy/30 border-t-navy rounded-full animate-spin" />
+                        <LoadingSpinner size="md" color="navy" />
                         <span>Enviando...</span>
                       </div>
                     ) : (
