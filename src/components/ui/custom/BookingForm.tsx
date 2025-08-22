@@ -23,6 +23,8 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
+  // Debug log
+  console.log('BookingForm - isOpen:', isOpen);
   const [formData, setFormData] = useState({
     checkIn: '',
     checkOut: '',
