@@ -142,21 +142,21 @@ const ParallaxSection = () => {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 max-w-4xl mx-auto px-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-center">
+            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">25+</div>
               <div className="text-white/80 text-sm uppercase tracking-wider">Anos de Tradição</div>
             </div>
-            <div className="text-center">
+            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">98%</div>
               <div className="text-white/80 text-sm uppercase tracking-wider">Satisfação dos Hóspedes</div>
             </div>
-            <div className="text-center">
+            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">4.9</div>
               <div className="text-white/80 text-sm uppercase tracking-wider">Avaliação Média</div>
             </div>

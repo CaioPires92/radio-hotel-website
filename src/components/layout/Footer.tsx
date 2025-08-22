@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Facebook, 
-  Instagram, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Instagram,
   Twitter,
   Wifi,
   Car,
@@ -106,7 +106,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-navy to-navy/95 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-black to-gray-900 text-white relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border border-gold rotate-45" />
@@ -131,9 +131,9 @@ const Footer = () => {
                   Rádio Hotel
                 </h3>
                 <p className="text-white leading-relaxed">
-                Tradição e elegância no coração de Serra Negra. 
-                Uma experiência única em meio à natureza exuberante.
-              </p>
+                  Tradição e elegância no coração de Serra Negra.
+                  Uma experiência única em meio à natureza exuberante.
+                </p>
               </div>
 
               {/* Social Links */}
@@ -305,7 +305,7 @@ const Footer = () => {
               <div className="text-white/90 text-sm">
                 © {currentYear} Rádio Hotel. Todos os direitos reservados.
               </div>
-              
+
               <div className="flex items-center space-x-4 text-sm text-white/90">
                 <button className="hover:text-gold transition-colors duration-300">
                   Política de Privacidade
