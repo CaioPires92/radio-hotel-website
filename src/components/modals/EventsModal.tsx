@@ -35,8 +35,8 @@ const events: Event[] = [
   },
   {
     id: '2',
-    title: 'Workshop de Culinaria Regional',
-    description: 'Aprenda os segredos da culinaria mineira com nosso chef executivo.',
+    title: 'Workshop de Culinaria Brasileira',
+    description: 'Aprenda os segredos da culinaria brasileira com nosso chef executivo.',
     date: '22 de Janeiro',
     time: '14:00',
     location: 'Cozinha Gourmet',
