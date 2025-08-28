@@ -191,7 +191,7 @@ const Highlights = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-6">
+          <h3 className="text-2xl md:text-3xl font-serif font-bold text-cream mb-6">
             Serviços Complementares
           </h3>
           
@@ -215,8 +215,8 @@ const Highlights = () => {
                   <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-gold/30 transition-colors duration-300">
                     <ServiceIcon className="w-8 h-8 text-gold" />
                   </div>
-                  <h4 className="font-semibold text-white mb-1">{service.name}</h4>
-                  <p className="text-sm text-white/70">{service.desc}</p>
+                  <h4 className="font-semibold text-cream mb-1">{service.name}</h4>
+                  <p className="text-sm text-cream/80">{service.desc}</p>
                 </motion.div>
               );
             })}
