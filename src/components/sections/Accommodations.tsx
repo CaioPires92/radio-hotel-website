@@ -21,10 +21,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       type: 'Melhor Custo-Benefício',
       description: 'O ponto de partida perfeito para explorar Serra Negra. Conforto e praticidade no coração da cidade, com a garantia de uma noite de sono tranquila. Equipado com janelas termoacústicas de tecnologia alemã para mitigar o ruído externo.',
       image: '/images/rooms/standard-interno.png',
-      size: '25m²',
       capacity: '2 pessoas',
-      price: 'R$ 220',
-      period: 'por noite',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
         { icon: Car, name: 'Estacionamento' },
@@ -41,10 +38,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       type: 'Tranquilidade Premium',
       description: 'Um upgrade em tranquilidade e conforto. O refúgio ideal para quem deseja desfrutar de nossa estrutura com o máximo de sossego e exclusividade. Voltado para a serena área da piscina, 8m² mais espaçoso que a categoria Standard.',
       image: '/images/rooms/suite-luxo.png',
-      size: '33m²',
       capacity: '2 pessoas',
-      price: 'R$ 320',
-      period: 'por noite',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
         { icon: Car, name: 'Estacionamento' },
@@ -61,10 +55,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       type: 'Apartamento Família',
       description: 'O espaço e a configuração ideais para criar memórias em família com todo o conforto e conveniência. Projetado especificamente para acomodar até 4 pessoas com conforto máximo.',
       image: '/images/rooms/suite-familia.png',
-      size: '40m²',
       capacity: '4 pessoas',
-      price: 'R$ 420',
-      period: 'por noite',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
         { icon: Car, name: 'Estacionamento' },
@@ -147,17 +138,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       {rooms[currentRoom].type}
                     </div>
 
-                    {/* Price Badge */}
-                    <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4">
-                      <div className="text-right">
-                        <div className="text-2xl font-serif font-bold text-navy">
-                          {rooms[currentRoom].price}
-                        </div>
-                        <div className="text-sm text-navy/70">
-                          {rooms[currentRoom].period}
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
 
                   {/* Content Section */}
@@ -173,8 +154,6 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       </h3>
                       
                       <div className="flex items-center space-x-4 mb-4 text-sm text-navy/70">
-                        <span>{rooms[currentRoom].size}</span>
-                        <span>•</span>
                         <span>{rooms[currentRoom].capacity}</span>
                       </div>
                       
@@ -296,8 +275,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                   <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
                   <p className="text-sm text-navy/70 mb-2">{room.type}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-navy/60">{room.size}</span>
-                    <span className="font-semibold text-gold">{room.price}</span>
+                    <span className="text-sm text-navy/60">{room.capacity}</span>
                   </div>
                 </CardContent>
               </Card>
