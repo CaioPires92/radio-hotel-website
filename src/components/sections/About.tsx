@@ -39,9 +39,10 @@ const features = [
 ];
 
 const stats = [
-  { number: '70+', label: 'Anos de Tradicao' },
-  { number: '50k+', label: 'Hospedes Satisfeitos' },
-  { number: '8.9', label: 'Avaliacao Media' }
+  { number: '78', label: 'Anos de Tradicao' },
+  { number: '60k', label: 'M² de Parque Natural' },
+  { number: '8.9', label: 'Avaliacao Geral' },
+  { number: '9.9', label: 'Localizacao' }
 ];
 
 export default function About() {
@@ -136,17 +137,17 @@ export default function About() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-navy/80 leading-relaxed">
-                O Radio Hotel e mais que um lugar para se hospedar - e um refugio onde a tradicao
-                encontra o conforto moderno. Localizado estrategicamente no coracao de Serra Negra,
-                a "Cidade da Saude", oferecemos uma experiencia unica em meio a natureza exuberante
-                e as famosas aguas radioativas da regiao.
+                Com 78 anos de tradicao, o Radio Hotel e mais que um lugar para se hospedar - e um
+                refugio onde a historia encontra o conforto moderno. Situado em um parque natural
+                de 60.000m² no coracao de Serra Negra, a "Cidade da Saude", oferecemos uma
+                experiencia unica em meio a natureza exuberante e as famosas aguas radioativas.
               </p>
 
               <p className="text-lg text-navy/80 leading-relaxed">
                 Desde 1928, Serra Negra e reconhecida por suas aguas minerais radioativas com
-                propriedades terapeuticas unicas. Nossa paixao pela hospitalidade se reflete em
-                cada detalhe, desde a arquitetura elegante ate o atendimento personalizado que
-                faz cada hospede se sentir especial e bem-vindo.
+                propriedades terapeuticas comprovadas. Nosso compromisso com a excelencia se
+                reflete em cada detalhe: da arquitetura elegante ao atendimento personalizado,
+                conquistando avaliacao 8.9/10 geral e impressionantes 9.9/10 em localizacao.
               </p>
             </motion.div>
 
@@ -189,7 +190,7 @@ export default function About() {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-3 gap-6 pt-6 border-t border-gold/20"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-gold/20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}

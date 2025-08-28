@@ -79,7 +79,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       id: 4,
       name: 'Suíte Família',
       type: 'Ideal para Famílias',
-      description: 'Espaço amplo e funcional, perfeito para famílias que buscam conforto e praticidade.',
+      description: 'Ampla suíte familiar projetada especialmente para proporcionar conforto e privacidade a toda família. Com espaços integrados e funcionais, oferece a experiência perfeita para criar memórias inesquecíveis em Serra Negra.',
       image: '/images/rooms/suite-familia.png',
       size: '55m²',
       capacity: '4 pessoas',
@@ -88,12 +88,12 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
         { icon: Car, name: 'Estacionamento' },
-        { icon: Coffee, name: 'Frigobar' },
-        { icon: Tv, name: 'TV 50"' },
-        { icon: Bath, name: '2 Banheiros' },
-        { icon: Wind, name: 'Ar condicionado' },
+        { icon: Coffee, name: 'Frigobar duplo' },
+        { icon: Tv, name: 'TV 50" Smart' },
+        { icon: Bath, name: '2 Banheiros completos' },
+        { icon: Wind, name: 'Climatização zoneada' },
       ],
-      features: ['2 quartos', 'Sala de estar', 'Cozinha compacta', 'Varanda ampla'],
+      features: ['2 quartos independentes', 'Sala de estar ampla', 'Cozinha compacta equipada', 'Varanda com vista', 'Área de refeições'],
     },
   ];
 
@@ -133,8 +133,9 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
             Conforto e Elegância
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Escolha entre nossas acomodações cuidadosamente projetadas, cada uma oferecendo 
-            uma experiência única de conforto, elegância e tranquilidade.
+            Com 78 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente 
+            projetadas para oferecer o máximo conforto em meio ao parque natural de 60.000m². 
+            Cada quarto reflete nossa dedicação à excelência e ao bem-estar dos hóspedes.
           </p>
         </motion.div>
 

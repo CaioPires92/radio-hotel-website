@@ -26,43 +26,33 @@ const Events = () => {
   const events = [
     {
       id: 1,
-      title: 'Casamentos de Sonho',
-      description: 'Celebre o seu grande dia em um ambiente mágico, rodeado pela natureza exuberante de Serra Negra.',
-      image: '/images/events/noite-italiana.png',
-      capacity: '150 pessoas',
-      duration: 'Dia completo',
-      location: 'Jardim Principal',
-      features: ['Decoração personalizada', 'Menu exclusivo', 'Fotógrafo profissional', 'Música ao vivo'],
+      title: 'Centro de Convenções',
+      description: 'Nosso moderno centro de convenções de 800m² oferece infraestrutura completa para eventos corporativos, conferências e convenções de grande porte.',
+      image: '/images/events/sabado-feijoada.png',
+      capacity: '300 pessoas',
+      duration: 'Flexível',
+      location: 'Centro de Convenções - 800m²',
+      features: ['Equipamentos audiovisuais HD', 'Wi-Fi de alta velocidade', 'Ar condicionado central', 'Sistema de som profissional', 'Iluminação cênica', 'Coffee break premium'],
     },
     {
       id: 2,
       title: 'Eventos Corporativos',
-      description: 'Espaços modernos e equipados para reuniões, conferências e eventos empresariais de sucesso.',
-      image: '/images/events/sabado-feijoada.png',
-      capacity: '100 pessoas',
+      description: 'Espaços versáteis e equipados para reuniões executivas, treinamentos e eventos empresariais de médio porte.',
+      image: '/images/events/ferias-julho.png',
+      capacity: '150 pessoas',
       duration: '8 horas',
       location: 'Salão Executivo',
-      features: ['Equipamentos audiovisuais', 'Wi-Fi de alta velocidade', 'Coffee break', 'Estacionamento'],
+      features: ['Projeção multimídia', 'Sistema de videoconferência', 'Coffee break', 'Estacionamento privativo', 'Suporte técnico'],
     },
     {
       id: 3,
-      title: 'Festas de Aniversário',
-      description: 'Comemore momentos especiais com elegância e sofisticação em nossos salões exclusivos.',
-      image: '/images/events/ferias-julho.png',
-      capacity: '80 pessoas',
-      duration: '6 horas',
-      location: 'Salão Íntimo',
-      features: ['Decoração temática', 'Buffet personalizado', 'Animação', 'Área kids'],
-    },
-    {
-      id: 4,
-      title: 'Retiros e Workshops',
-      description: 'Ambiente tranquilo e inspirador para retiros espirituais, workshops e eventos de desenvolvimento.',
+      title: 'Eventos Sociais',
+      description: 'Celebre momentos especiais em nossos salões elegantes, com vista para o parque de 60.000m² e atendimento personalizado.',
       image: '/api/placeholder/600/400',
-      capacity: '50 pessoas',
-      duration: 'Flexível',
-      location: 'Espaço Zen',
-      features: ['Ambiente natural', 'Silêncio garantido', 'Materiais inclusos', 'Refeições saudáveis'],
+      capacity: '120 pessoas',
+      duration: '6 horas',
+      location: 'Salão Panorâmico',
+      features: ['Vista para o parque', 'Decoração personalizada', 'Buffet gourmet', 'Animação', 'Área kids', 'Estacionamento'],
     },
   ];
 
@@ -88,8 +78,8 @@ const Events = () => {
   };
 
   return (
-    <section 
-      id="events" 
+    <section
+      id="events"
       className="py-20 bg-white"
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -106,14 +96,14 @@ const Events = () => {
           viewport={{ once: true }}
         >
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
-            Eventos Especiais
+            Eventos & MICE
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
-            Momentos Inesquecíveis
+            Centro de Convenções Premium
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Transforme seus eventos em experiências memoráveis em nossos espaços elegantes, 
-            com toda a infraestrutura e atendimento personalizado que você merece.
+            Com 78 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais. 
+            Nosso centro de convenções de 800m² comporta até 300 pessoas, em meio ao nosso parque natural de 60.000m².
           </p>
         </motion.div>
 
@@ -139,7 +129,7 @@ const Events = () => {
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
-                    
+
                     {/* Event Number */}
                     <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
                       {String(currentEvent + 1).padStart(2, '0')}
@@ -157,7 +147,7 @@ const Events = () => {
                       <h3 className="text-3xl font-serif font-bold text-navy mb-4">
                         {events[currentEvent].title}
                       </h3>
-                      
+
                       <p className="text-lg text-navy/80 mb-6 leading-relaxed">
                         {events[currentEvent].description}
                       </p>
@@ -239,11 +229,10 @@ const Events = () => {
             <button
               key={index}
               onClick={() => setCurrentEvent(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${
-                index === currentEvent
-                  ? 'bg-gold scale-125'
-                  : 'bg-navy/20 hover:bg-navy/40'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${index === currentEvent
+                ? 'bg-gold scale-125'
+                : 'bg-navy/20 hover:bg-navy/40'
+                }`}
               aria-label={`Ver evento ${index + 1}`}
               tabIndex={0}
             />
@@ -263,7 +252,7 @@ const Events = () => {
               Planejamento Personalizado
             </h3>
             <p className="text-navy/70 mb-6 max-w-2xl mx-auto">
-              Nossa equipe especializada trabalha com você para criar o evento perfeito, 
+              Nossa equipe especializada trabalha com você para criar o evento perfeito,
               cuidando de cada detalhe para garantir que tudo saia exatamente como você sonhou.
             </p>
             <Button

@@ -29,23 +29,23 @@ const Hero = ({ onBookingClick }: HeroProps) => {
     {
       id: 1,
       image: '/images/hero/hero1.jpg',
-      title: 'Experiência Exclusiva em Serra Negra',
-      subtitle: 'Tradição, elegância e natureza em perfeita harmonia',
-      description: 'Descubra o charme único do Rádio Hotel, onde a hospitalidade tradicional encontra o conforto moderno no coração de Serra Negra.',
+      title: '78 Anos de Tradição em Serra Negra',
+      subtitle: 'Um legado de hospitalidade e excelência desde 1946',
+      description: 'Descubra o charme único do Radio Hotel, uma instituição com quase oito décadas de história, onde a hospitalidade tradicional encontra o conforto moderno no coração da "Cidade da Saúde".',
     },
     {
       id: 2,
       image: '/images/hero/hero2.jpg',
-      title: 'Rodeado pela Natureza Exuberante',
-      subtitle: 'Cachoeiras, montanhas e muito verde',
-      description: 'Desfrute de momentos únicos em meio à natureza preservada, com acesso exclusivo às mais belas paisagens da região.',
+      title: 'Parque Privativo de 60.000 m²',
+      subtitle: 'Mata nativa, cachoeiras e natureza preservada',
+      description: 'Desfrute de momentos únicos em nosso vasto parque com mata nativa preservada, bosque de pinheiros e cachoeira própria - uma experiência de resort no centro da cidade.',
     },
     {
       id: 3,
       image: '/images/hero/hero3.jpg',
-      title: 'Acomodações de Luxo e Conforto',
-      subtitle: 'Quartos elegantes com vista panorâmica',
-      description: 'Relaxe em nossos quartos cuidadosamente decorados, cada um oferecendo uma experiência única de conforto e sofisticação.',
+      title: 'Águas Radioativas Terapêuticas',
+      subtitle: 'Tradição centenária das águas medicinais de Serra Negra',
+      description: 'Experimente o bem-estar único das famosas águas radioativas em nossos apartamentos, uma tradição que remonta a 1928 e fez de Serra Negra a "Cidade da Saúde".',
     },
   ];
 
