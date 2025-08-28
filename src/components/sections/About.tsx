@@ -138,13 +138,15 @@ export default function About() {
               <p className="text-lg text-navy/80 leading-relaxed">
                 O Radio Hotel e mais que um lugar para se hospedar - e um refugio onde a tradicao
                 encontra o conforto moderno. Localizado estrategicamente no coracao de Serra Negra,
-                oferecemos uma experiencia unica em meio a natureza exuberante da regiao.
+                a "Cidade da Saude", oferecemos uma experiencia unica em meio a natureza exuberante
+                e as famosas aguas radioativas da regiao.
               </p>
 
               <p className="text-lg text-navy/80 leading-relaxed">
-                Nossa paixao pela hospitalidade se reflete em cada detalhe, desde a arquitetura
-                elegante ate o atendimento personalizado que faz cada hospede se sentir especial
-                e bem-vindo.
+                Desde 1928, Serra Negra e reconhecida por suas aguas minerais radioativas com
+                propriedades terapeuticas unicas. Nossa paixao pela hospitalidade se reflete em
+                cada detalhe, desde a arquitetura elegante ate o atendimento personalizado que
+                faz cada hospede se sentir especial e bem-vindo.
               </p>
             </motion.div>
 

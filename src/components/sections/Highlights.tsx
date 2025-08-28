@@ -28,10 +28,10 @@ const Highlights = () => {
     {
       id: 2,
       icon: Waves,
-      title: 'Águas Termais',
-      description: 'Relaxe nas famosas águas termais de Serra Negra, conhecidas por suas propriedades terapêuticas.',
+      title: 'Águas Radioativas',
+      description: 'Desfrute das famosas águas radioativas de Serra Negra, reconhecidas desde 1928 por suas propriedades terapêuticas únicas.',
       image: '/images/events/pacotes-especiais.png',
-      features: ['Piscinas termais', 'Spa natural', 'Hidroterapia'],
+      features: ['Banheiras com água radioativa', 'Propriedades medicinais', 'Tradição centenária'],
     },
     {
       id: 3,
