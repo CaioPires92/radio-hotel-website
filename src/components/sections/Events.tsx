@@ -28,7 +28,7 @@ const Events = () => {
       id: 1,
       title: 'Centro de Convenções',
       description: 'Nosso moderno centro de convenções de 800m² oferece infraestrutura completa para eventos corporativos, conferências e convenções de grande porte.',
-      image: '/images/events/sabado-feijoada.png',
+      image: '/images/conventions/convention-1.jpg',
       capacity: '300 pessoas',
       duration: 'Flexível',
       location: 'Centro de Convenções - 800m²',
@@ -38,21 +38,21 @@ const Events = () => {
       id: 2,
       title: 'Eventos Corporativos',
       description: 'Espaços versáteis e equipados para reuniões executivas, treinamentos e eventos empresariais de médio porte.',
-      image: '/images/events/ferias-julho.png',
+      image: '/images/conventions/convention-4.jpg',
       capacity: '150 pessoas',
       duration: '8 horas',
-      location: 'Salão Executivo',
+      location: 'Salão Monterrey',
       features: ['Projeção multimídia', 'Sistema de videoconferência', 'Coffee break', 'Estacionamento privativo', 'Suporte técnico'],
     },
     {
       id: 3,
       title: 'Eventos Sociais',
-      description: 'Celebre momentos especiais em nossos salões elegantes, com vista para o parque de 60.000m² e atendimento personalizado.',
-      image: '/api/placeholder/600/400',
+      description: 'Celebre momentos especiais em nossos salões elegantes, com atendimento personalizado em meio ao nosso parque natural de 60.000m².',
+      image: '/images/conventions/convention-6.jpg',
       capacity: '120 pessoas',
       duration: '6 horas',
-      location: 'Salão Panorâmico',
-      features: ['Vista para o parque', 'Decoração personalizada', 'Buffet gourmet', 'Animação', 'Área kids', 'Estacionamento'],
+      location: 'Salão Monte Carlo',
+      features: ['Decoração personalizada', 'Buffet gourmet', 'Estacionamento', 'Suporte técnico', 'Equipamentos audiovisuais'],
     },
   ];
 
@@ -102,7 +102,7 @@ const Events = () => {
             Centro de Convenções Premium
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 78 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais. 
+            Com 78 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais.
             Nosso centro de convenções de 800m² comporta até 300 pessoas, em meio ao nosso parque natural de 60.000m².
           </p>
         </motion.div>
