@@ -19,17 +19,17 @@ const features = [
   {
     icon: Coffee,
     title: 'Cafe da Manha',
-    description: 'Buffet completo com produtos regionais'
+    description: 'Buffet completo com frutas frescas, paes e frios'
   },
   {
     icon: Utensils,
-    title: 'Restaurante',
-    description: 'Culinaria regional e internacional'
+    title: 'Restaurante Cinquentenario',
+    description: 'Especializado em cozinha brasileira'
   },
   {
     icon: Dumbbell,
     title: 'Academia',
-    description: 'Equipamentos modernos 24 horas'
+    description: 'Centro de fitness bem equipado'
   },
   {
     icon: Users,
@@ -144,10 +144,11 @@ export default function About() {
               </p>
 
               <p className="text-lg text-navy/80 leading-relaxed">
-                Desde 1928, Serra Negra e reconhecida por suas aguas minerais radioativas com
-                propriedades terapeuticas comprovadas. Nosso compromisso com a excelencia se
-                reflete em cada detalhe: da arquitetura elegante ao atendimento personalizado,
-                conquistando avaliacao 8.9/10 geral e impressionantes 9.9/10 em localizacao.
+                Serra Negra e reconhecida desde 1928 por suas aguas minerais radioativas com
+                propriedades terapeuticas comprovadas. Nosso hotel, com quase oito decadas de
+                historia, reflete esse compromisso com a excelencia em cada detalhe: da arquitetura
+                elegante ao atendimento personalizado, conquistando avaliacao 8.9/10 geral e
+                impressionantes 9.9/10 em localizacao.
               </p>
             </motion.div>
 
