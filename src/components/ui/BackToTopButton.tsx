@@ -100,7 +100,7 @@ export default function BackToTopButton() {
                 ease: "easeInOut" 
               }}
             >
-              <ChevronUp className="w-5 h-5 relative z-10" />
+              <ChevronUp className="w-5 h-5 relative z-10 text-gold" />
             </motion.div>
             
             {/* Tooltip */}

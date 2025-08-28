@@ -12,7 +12,7 @@ interface ParallaxSectionProps {
 const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
-  
+
   // Parallax transforms
   const backgroundY = useTransform(scrollY, [0, 1000], [0, -200]);
   const textY = useTransform(scrollY, [0, 1000], [0, 100]);
@@ -49,13 +49,13 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative min-h-screen h-screen lg:h-screen overflow-hidden mb-0">
       {/* Background Image with Parallax */}
       <motion.div
         className="absolute inset-0 w-full h-[120%]"
         style={{ y: backgroundY }}
       >
-        <div 
+        <div
           className="w-full h-full bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: `url('/parallax-bg.svg')`,
@@ -69,7 +69,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
         className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/75 to-navy/90"
         style={{ opacity: overlayOpacity }}
       />
-      
+
       {/* Base Overlay for Better Contrast */}
       <div className="absolute inset-0 bg-navy/60" />
 
@@ -106,8 +106,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 h-full flex items-center justify-center"
-        style={{ y: textY }}
+        className="relative z-10 h-full flex items-center justify-center py-8 lg:py-0"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
@@ -144,7 +143,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Desconecte-se do mundo e reconecte-se consigo mesmo em meio à natureza 
+            Desconecte-se do mundo e reconecte-se consigo mesmo em meio à natureza
             exuberante de Serra Negra. Momentos inesquecíveis começam aqui.
           </motion.p>
 
@@ -158,15 +157,15 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
           >
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">25+</div>
-              <div className="text-white/80 text-sm uppercase tracking-wider">Anos de Tradição</div>
+              <div className="text-navy text-sm uppercase tracking-wider">Anos de Tradição</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">98%</div>
-              <div className="text-white/80 text-sm uppercase tracking-wider">Satisfação dos Hóspedes</div>
+              <div className="text-navy text-sm uppercase tracking-wider">Satisfação dos Hóspedes</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">4.9</div>
-              <div className="text-white/80 text-sm uppercase tracking-wider">Avaliação Média</div>
+              <div className="text-navy text-sm uppercase tracking-wider">Avaliação Média</div>
             </div>
           </motion.div>
 
@@ -186,7 +185,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
               <Phone className="w-5 h-5 mr-2 group-hover:animate-pulse" />
               Reservar Agora
             </Button>
-            
+
             <Button
               onClick={handleCallClick}
               variant="outline"

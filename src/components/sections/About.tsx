@@ -39,9 +39,9 @@ const features = [
 ];
 
 const stats = [
-  { number: '45+', label: 'Anos de Tradicao' },
+  { number: '70+', label: 'Anos de Tradicao' },
   { number: '50k+', label: 'Hospedes Satisfeitos' },
-  { number: '4.8', label: 'Avaliacao Media' }
+  { number: '8.9', label: 'Avaliacao Media' }
 ];
 
 export default function About() {
@@ -51,11 +51,11 @@ export default function About() {
       <div className="absolute top-10 left-10 w-20 h-20 border border-gold/20 rounded-full" />
       <div className="absolute bottom-10 right-10 w-32 h-32 border border-gold/20 rounded-full" />
       <div className="absolute top-1/2 left-0 w-1 h-32 bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
-      
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Image Section - 60% */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-3 relative"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -66,14 +66,15 @@ export default function About() {
               {/* Main Image */}
               <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/about-hotel.svg"
+                  // src="/about-hotel.svg"
+                  src="/about-hotel.jpg"
                   alt="Radio Hotel - Vista Externa"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent" />
               </div>
-              
+
               {/* Floating Card */}
               <motion.div
                 className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-gold/20"
@@ -92,15 +93,15 @@ export default function About() {
                   </div>
                 </div>
               </motion.div>
-              
+
               {/* Decorative Elements */}
               <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-gold rounded-full opacity-60" />
               <div className="absolute top-10 -right-2 w-4 h-4 bg-gold rounded-full opacity-40" />
             </div>
           </motion.div>
-          
+
           {/* Content Section - 40% */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-2 space-y-8"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -119,13 +120,13 @@ export default function About() {
                 <Star className="w-4 h-4 text-gold" />
                 <span className="text-sm font-medium text-navy">Sobre o Hotel</span>
               </motion.div>
-              
+
               <h2 className="text-4xl lg:text-5xl font-serif font-bold text-navy leading-tight">
                 Tradicao e Elegancia em
                 <span className="text-gold block">Serra Negra</span>
               </h2>
             </div>
-            
+
             {/* Description */}
             <motion.div
               className="space-y-6"
@@ -135,14 +136,14 @@ export default function About() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-navy/80 leading-relaxed">
-                O Radio Hotel e mais que um lugar para se hospedar - e um refugio onde a tradicao 
-                encontra o conforto moderno. Localizado estrategicamente no coracao de Serra Negra, 
+                O Radio Hotel e mais que um lugar para se hospedar - e um refugio onde a tradicao
+                encontra o conforto moderno. Localizado estrategicamente no coracao de Serra Negra,
                 oferecemos uma experiencia unica em meio a natureza exuberante da regiao.
               </p>
-              
+
               <p className="text-lg text-navy/80 leading-relaxed">
-                Nossa paixao pela hospitalidade se reflete em cada detalhe, desde a arquitetura 
-                elegante ate o atendimento personalizado que faz cada hospede se sentir especial 
+                Nossa paixao pela hospitalidade se reflete em cada detalhe, desde a arquitetura
+                elegante ate o atendimento personalizado que faz cada hospede se sentir especial
                 e bem-vindo.
               </p>
             </motion.div>
@@ -183,7 +184,7 @@ export default function About() {
                 );
               })}
             </motion.div>
-            
+
             {/* Stats */}
             <motion.div
               className="grid grid-cols-3 gap-6 pt-6 border-t border-gold/20"

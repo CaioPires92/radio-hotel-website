@@ -119,7 +119,11 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           <div className="hidden md:block">
             <Button
               onClick={handleBookingClick}
-              className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+                isScrolled
+                  ? 'bg-gold hover:bg-gold/90 text-navy'
+                  : 'bg-white hover:bg-white/90 text-navy'
+              }`}
               aria-label="Fazer reserva no Radio Hotel"
             >
               <Phone className="w-4 h-4 mr-2" />
