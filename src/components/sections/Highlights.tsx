@@ -201,10 +201,10 @@ const Highlights = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Wifi, name: t('highlights.services.wifi.name'), desc: t('highlights.services.wifi.desc') },
-              { icon: Car, name: t('highlights.services.parking.name'), desc: t('highlights.services.parking.desc') },
-              { icon: Dumbbell, name: t('highlights.services.gym.name'), desc: t('highlights.services.gym.desc') },
-              { icon: Coffee, name: t('highlights.services.roomService.name'), desc: t('highlights.services.roomService.desc') },
+              { icon: Wifi, name: 'Wi-Fi Gratuito', desc: 'Internet de alta velocidade' },
+              { icon: Car, name: 'Estacionamento', desc: 'Vagas cobertas gratuitas' },
+              { icon: Dumbbell, name: 'Academia', desc: 'Equipamentos modernos' },
+              { icon: Coffee, name: 'Room Service', desc: 'Serviço 24 horas' },
             ].map((service, index) => {
               const ServiceIcon = service.icon;
               return (

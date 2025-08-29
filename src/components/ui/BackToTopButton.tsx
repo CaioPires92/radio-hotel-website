@@ -3,10 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 export default function BackToTopButton() {
-  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -68,7 +66,7 @@ export default function BackToTopButton() {
             transition-all duration-300 hover:shadow-navy/25 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            aria-label={t('backToTop.ariaLabel')}
+            aria-label="Voltar ao topo da página"
             tabIndex={0}
           >
             {/* Progress Ring */}
@@ -124,7 +122,7 @@ export default function BackToTopButton() {
               initial={{ opacity: 0, x: 10 }}
               whileHover={{ opacity: 1, x: 0 }}
             >
-              {t('backToTop.tooltip')}
+              Voltar ao topo
               <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-4 border-transparent border-l-white" />
             </motion.div>
           </motion.button>

@@ -39,23 +39,7 @@
     "subtitle": "Tradición, Elegancia y Naturaleza",
     "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radioactivas terapéuticas.",
     "cta": "Haz tu Reserva",
-    "scrollDown": "Desplázate hacia abajo",
-    "location": "Serra Negra, São Paulo",
-    "slide1": {
-      "title": "Radio Hotel Serra Negra",
-      "subtitle": "Tradición, Elegancia y Naturaleza",
-      "description": "Descubre un refugio de lujo en el corazón de Serra Negra"
-    },
-    "slide2": {
-      "title": "Experiencia Única",
-      "subtitle": "Aguas Radioactivas Terapéuticas",
-      "description": "Relájate y rejuvenece con nuestras aguas medicinales"
-    },
-    "slide3": {
-      "title": "Naturaleza Exuberante",
-      "subtitle": "Cascadas y Verde Infinito",
-      "description": "Conéctate con la naturaleza en un ambiente único"
-    }
+    "scrollDown": "Desplázate hacia abajo"
   },
   "about": {
     "title": "Sobre Radio Hotel",
@@ -184,10 +168,10 @@
     "title": "Ponte en Contacto",
     "subtitle": "Estamos Aquí para Ayudar",
     "address": "Dirección",
-    "phone": "(19) 99999-9999",
+    "phone": "Teléfono",
     "email": "Correo Electrónico",
-    "location": "Serra Negra, SP",
-     "socialMedia": "Redes Sociales",
+    "whatsapp": "WhatsApp",
+    "socialMedia": "Redes Sociales",
     "form": {
       "title": "Envía un Mensaje",
       "name": "Nombre",
@@ -247,88 +231,5 @@
     "openModal": "Abrir modal",
     "closeModal": "Cerrar modal",
     "scrollToTop": "Volver arriba"
-  },
-  "highlights": {
-    "services": {
-      "wifi": {
-        "name": "Wi-Fi Gratuito",
-        "desc": "Internet de alta velocidad"
-      },
-      "parking": {
-        "name": "Estacionamiento",
-        "desc": "Espacios cubiertos gratuitos"
-      },
-      "gym": {
-        "name": "Gimnasio",
-        "desc": "Equipos modernos"
-      },
-      "roomService": {
-        "name": "Room Service",
-        "desc": "Servicio 24 horas"
-      }
-    }
-  },
-  "popButton": {
-    "ariaLabel": "Abrir modal de eventos",
-    "tooltip": "¡Eventos Especiales!",
-    "floatingText": "¡Nuevos eventos!"
-  },
-  "whatsappButton": {
-    "message": "¡Hola! Me gustaría saber más información sobre Radio Hotel y hacer una reserva.",
-    "ariaLabel": "Contactar vía WhatsApp",
-    "tooltip": "¡Habla con nosotros en WhatsApp!",
-    "chatBubble": {
-      "hotelName": "Radio Hotel",
-      "greeting": "¡Hola! ¿Cómo podemos ayudarte hoy?"
-    }
-  },
-  "backToTop": {
-    "ariaLabel": "Volver al inicio de la página",
-    "tooltip": "Volver arriba"
-  },
-  "eventsModal": {
-    "title": "Eventos Especiales",
-    "subtitle": "Descubre nuestros eventos únicos",
-    "navigation": {
-      "backToEvents": "← Volver a todos los eventos"
-    },
-    "labels": {
-      "date": "Fecha",
-      "time": "Hora",
-      "location": "Ubicación"
-    },
-    "buttons": {
-      "bookWhatsApp": "Reservar vía WhatsApp"
-    },
-    "whatsapp": {
-      "bookingMessage": "¡Hola! Me gustaría reservar el evento",
-      "onDay": "el día",
-      "atTime": "a las",
-      "helpRequest": " horas. ¿Podrían ayudarme con esto?"
-    },
-    "italianNight": {
-      "title": "Noche Italiana",
-      "description": "Una noche especial con cocina italiana auténtica y música en vivo.",
-      "date": "15 de Enero",
-      "time": "19:30",
-      "location": "Restaurante Principal",
-      "category": "Gastronomía"
-    },
-    "jazzEvening": {
-      "title": "Noche de Jazz",
-      "description": "Disfruta de un ambiente íntimo con jazz en vivo y cócteles especiales.",
-      "date": "22 de Enero",
-      "time": "20:00",
-      "location": "Lounge Bar",
-      "category": "Música"
-    },
-    "wineWorkshop": {
-      "title": "Taller de Vinos",
-      "description": "Aprende sobre vinos brasileños con nuestro sommelier especializado.",
-      "date": "29 de Enero",
-      "time": "18:00",
-      "location": "Bodega",
-      "category": "Educativo"
-    }
   }
 }

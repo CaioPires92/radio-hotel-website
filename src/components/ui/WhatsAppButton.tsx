@@ -3,10 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Phone } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 export default function WhatsAppButton() {
-  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -37,7 +35,7 @@ export default function WhatsAppButton() {
   }, []);
 
   const handleClick = () => {
-    const message = t('whatsappButton.message');
+    const message = 'Olá! Gostaria de saber mais informações sobre o Radio Hotel e fazer uma reserva.';
     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -64,7 +62,7 @@ export default function WhatsAppButton() {
             className="group relative bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:shadow-green-500/25"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            aria-label={t('whatsappButton.ariaLabel')}
+            aria-label="Entrar em contato via WhatsApp"
           >
             {/* Pulsing Ring */}
             <motion.div
@@ -116,7 +114,7 @@ export default function WhatsAppButton() {
                 >
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4" />
-                    <span>{t('whatsappButton.tooltip')}</span>
+                    <span>Fale conosco no WhatsApp!</span>
                   </div>
                   <div className="absolute -bottom-2 left-10 
   border-4 border-transparent border-t-navy" />
@@ -150,9 +148,9 @@ export default function WhatsAppButton() {
                       <MessageCircle className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-800 font-medium">{t('whatsappButton.chatBubble.hotelName')}</p>
+                      <p className="text-sm text-gray-800 font-medium">Radio Hotel</p>
                       <p className="text-xs text-gray-600 mt-1">
-                        {t('whatsappButton.chatBubble.greeting')}
+                        Olá! Como podemos ajudá-lo hoje?
                       </p>
                       <p className="text-xs text-gray-400 mt-1">...</p>
                     </div>

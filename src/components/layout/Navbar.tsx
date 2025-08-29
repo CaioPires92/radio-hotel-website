@@ -80,7 +80,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             <a href="#home" className="flex items-center space-x-3">
               <img
                 src={isScrolled ? "/logo-color.png" : "/logo.png"}
-                alt={t('navbar.logo.alt')}
+                alt="Rádio Hotel Logo"
                 className="w-20  object-contain transition-all duration-300"
               />
               <div className="hidden sm:block">

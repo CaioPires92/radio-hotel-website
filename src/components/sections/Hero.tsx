@@ -135,7 +135,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <MapPin className="w-4 h-4 text-gold" />
-                  <span className="text-sm font-medium">{t('hero.location')}</span>
+                  <span className="text-sm font-medium">Serra Negra, São Paulo</span>
                   <div className="flex items-center space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3 h-3 fill-gold text-gold" />
