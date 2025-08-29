@@ -156,7 +156,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             viewport={{ once: true }}
           >
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
-              <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">78</div>
+              <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">80</div>
               <div className="text-white text-sm uppercase tracking-wider">Anos de Tradição</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">

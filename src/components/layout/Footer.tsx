@@ -149,9 +149,16 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="mb-6">
-                <h3 className="text-2xl font-serif font-bold text-gold mb-2">
-                  Rádio Hotel
-                </h3>
+                <div className="flex items-center space-x-3 mb-4">
+                  <img 
+                    src="/logo.png" 
+                    alt="Rádio Hotel Logo" 
+                    className="w-12 h-12 object-contain"
+                  />
+                  <h3 className="text-2xl font-serif font-bold text-gold">
+                    Rádio Hotel
+                  </h3>
+                </div>
                 <p className="text-white leading-relaxed">
                   Tradição e elegância no coração de Serra Negra.
                   Uma experiência única em meio à natureza exuberante.

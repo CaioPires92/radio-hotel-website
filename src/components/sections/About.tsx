@@ -39,7 +39,7 @@ const features = [
 ];
 
 const stats = [
-  { number: '78', label: 'Anos de Tradicao' },
+  { number: '80', label: 'Anos de Tradicao' },
   { number: '60k', label: 'M² de Parque Natural' },
   { number: '8.9', label: 'Avaliacao Geral' },
   { number: '9.9', label: 'Localizacao' }
@@ -89,8 +89,8 @@ export default function About() {
                     <Award className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-semibold text-navy">Certificado de</h4>
-                    <p className="text-gold font-medium">Excelencia 2024</p>
+                    <h4 className="font-serif font-semibold text-navy">80 anos de</h4>
+                    <p className="text-gold font-medium">Excelencia</p>
                   </div>
                 </div>
               </motion.div>
