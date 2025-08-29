@@ -208,12 +208,12 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
           >
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">{t('contact.phone')}</span>
+              <span className="text-sm">(19) 99999-9999</span>
             </div>
             <div className="hidden sm:block w-px h-4 bg-white/30" />
             <div className="flex items-center space-x-2">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">{t('contact.location')}</span>
+              <span className="text-sm">Serra Negra, SP</span>
             </div>
           </motion.div>
         </div>

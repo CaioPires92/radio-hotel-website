@@ -39,23 +39,7 @@
     "subtitle": "Tradition, Elegance and Nature",
     "description": "Discover a luxury retreat in the heart of Serra Negra, surrounded by lush nature and therapeutic radioactive waters.",
     "cta": "Make Your Reservation",
-    "scrollDown": "Scroll down",
-    "location": "Serra Negra, São Paulo",
-    "slide1": {
-      "title": "Radio Hotel Serra Negra",
-      "subtitle": "Tradition, Elegance and Nature",
-      "description": "Discover a luxury retreat in the heart of Serra Negra"
-    },
-    "slide2": {
-      "title": "Unique Experience",
-      "subtitle": "Therapeutic Radioactive Waters",
-      "description": "Relax and rejuvenate with our medicinal waters"
-    },
-    "slide3": {
-      "title": "Lush Nature",
-      "subtitle": "Waterfalls and Endless Green",
-      "description": "Connect with nature in a unique environment"
-    }
+    "scrollDown": "Scroll down"
   },
   "about": {
     "title": "About Radio Hotel",
@@ -184,9 +168,9 @@
     "title": "Get in Touch",
     "subtitle": "We're Here to Help",
     "address": "Address",
-    "phone": "(19) 99999-9999",
+    "phone": "Phone",
     "email": "Email",
-    "location": "Serra Negra, SP",
+    "whatsapp": "WhatsApp",
     "socialMedia": "Social Media",
     "form": {
       "title": "Send a Message",
@@ -247,88 +231,5 @@
     "openModal": "Open modal",
     "closeModal": "Close modal",
     "scrollToTop": "Back to top"
-  },
-  "highlights": {
-    "services": {
-      "wifi": {
-        "name": "Free Wi-Fi",
-        "desc": "High-speed internet"
-      },
-      "parking": {
-        "name": "Parking",
-        "desc": "Free covered spaces"
-      },
-      "gym": {
-        "name": "Gym",
-        "desc": "Modern equipment"
-      },
-      "roomService": {
-        "name": "Room Service",
-        "desc": "24-hour service"
-      }
-    }
-  },
-  "popButton": {
-    "ariaLabel": "Open events modal",
-    "tooltip": "Special Events!",
-    "floatingText": "New events!"
-  },
-  "whatsappButton": {
-    "message": "Hello! I would like to know more information about Radio Hotel and make a reservation.",
-    "ariaLabel": "Contact via WhatsApp",
-    "tooltip": "Talk to us on WhatsApp!",
-    "chatBubble": {
-      "hotelName": "Radio Hotel",
-      "greeting": "Hello! How can we help you today?"
-    }
-  },
-  "backToTop": {
-    "ariaLabel": "Back to top of page",
-    "tooltip": "Back to top"
-  },
-  "eventsModal": {
-    "title": "Special Events",
-    "subtitle": "Discover our unique events",
-    "navigation": {
-      "backToEvents": "← Back to all events"
-    },
-    "labels": {
-      "date": "Date",
-      "time": "Time",
-      "location": "Location"
-    },
-    "buttons": {
-      "bookWhatsApp": "Book via WhatsApp"
-    },
-    "whatsapp": {
-      "bookingMessage": "Hello! I would like to book the event",
-      "onDay": "on",
-      "atTime": "at",
-      "helpRequest": ". Could you help me with this?"
-    },
-    "italianNight": {
-      "title": "Italian Night",
-      "description": "A special evening with authentic Italian cuisine and live music.",
-      "date": "January 15th",
-      "time": "7:30 PM",
-      "location": "Main Restaurant",
-      "category": "Gastronomy"
-    },
-    "jazzEvening": {
-      "title": "Jazz Evening",
-      "description": "Enjoy an intimate atmosphere with live jazz and special cocktails.",
-      "date": "January 22nd",
-      "time": "8:00 PM",
-      "location": "Lounge Bar",
-      "category": "Music"
-    },
-    "wineWorkshop": {
-      "title": "Wine Workshop",
-      "description": "Learn about Brazilian wines with our specialized sommelier.",
-      "date": "January 29th",
-      "time": "6:00 PM",
-      "location": "Wine Cellar",
-      "category": "Educational"
-    }
   }
 }

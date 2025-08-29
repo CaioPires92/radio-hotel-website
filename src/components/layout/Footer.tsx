@@ -224,7 +224,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold text-gold mb-6">
-                {t('footer.services.title')}
+                Nossos Serviços
               </h4>
               <ul className="space-y-3">
                 {services.map((service) => {
@@ -251,7 +251,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold text-gold mb-6">
-                {t('footer.contact.title')}
+                Contato
               </h4>
               <ul className="space-y-4">
                 {contactInfo.map((contact) => {
@@ -299,7 +299,7 @@ const Footer = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-4 h-4" />
-                <span>{t('footer.whatsapp.button')}</span>
+                <span>Fale Conosco no WhatsApp</span>
               </motion.button>
             </motion.div>
           </div>
@@ -316,17 +316,17 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="text-center">
               <h4 className="text-lg font-semibold text-gold mb-2">
-                {t('footer.newsletter.title')}
+                Receba Nossas Ofertas Especiais
               </h4>
               <p className="text-white/90 mb-4">
-                {t('footer.newsletter.description')}
+                Cadastre-se e seja o primeiro a saber sobre promoções exclusivas
               </p>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('footer.newsletter.placeholder')}
+                  placeholder="Seu melhor e-mail"
                   className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
                 />
                 <button
@@ -337,7 +337,7 @@ const Footer = () => {
                   {isSubmittingNewsletter ? (
                     <LoadingSpinner size="sm" color="navy" />
                   ) : (
-                    t('footer.newsletter.button')
+                    'Cadastrar'
                   )}
                 </button>
               </form>
@@ -350,22 +350,22 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-white/90 text-sm">
-                {t('footer.copyright', { year: currentYear })}
+                © {currentYear} Radio Hotel. Todos os direitos reservados.
               </div>
 
               <div className="flex items-center space-x-4 text-sm text-white/90">
                 <button className="hover:text-gold transition-colors duration-300">
-                  {t('footer.legal.privacy')}
+                  Política de Privacidade
                 </button>
                 <span>•</span>
                 <button className="hover:text-gold transition-colors duration-300">
-                  {t('footer.legal.terms')}
+                  Termos de Uso
                 </button>
                 <span>•</span>
                 <div className="flex items-center space-x-1">
-                  <span>{t('footer.madeWith.text')}</span>
+                  <span>Feito com</span>
                   <Heart className="w-4 h-4 text-red-500 fill-current" />
-                  <span>{t('footer.madeWith.location')}</span>
+                  <span>em Serra Negra</span>
                 </div>
               </div>
             </div>

@@ -3,14 +3,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Sparkles } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 interface PopButtonProps {
   onClick: () => void;
 }
 
 export default function PopButton({ onClick }: PopButtonProps) {
-  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
@@ -82,7 +80,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
             className="group relative bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy p-4 rounded-full shadow-2xl transition-all duration-300 hover:shadow-gold/25 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            aria-label={t('popButton.ariaLabel')}
+            aria-label="Abrir modal de eventos"
             tabIndex={0}
           >
             {/* Pulsing Ring */}
@@ -124,7 +122,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
               initial={{ opacity: 0, x: 10 }}
               whileHover={{ opacity: 1, x: 0 }}
             >
-              {t('popButton.tooltip')}
+              Eventos Especiais!
               <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-4 border-transparent border-l-navy" />
             </motion.div>
           </motion.button>
@@ -137,7 +135,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
             transition={{ delay: 0.8, duration: 0.4 }}
           >
             <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-navy shadow-lg">
-              {t('popButton.floatingText')}
+              Novos eventos!
             </div>
           </motion.div>
         </motion.div>

@@ -19,15 +19,6 @@ interface Event {
   category: string;
 }
 
-interface EventsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
-  const { t } = useTranslation();
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-
   const events: Event[] = [
     {
       id: '1',
@@ -90,6 +81,15 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.family')
     }
   ];
+
+interface EventsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
+  const { t } = useTranslation();
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   useEffect(() => {
     if (isOpen) {
