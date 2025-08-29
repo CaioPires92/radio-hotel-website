@@ -165,9 +165,11 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                         <CardContent className="p-0">
                           {/* Event Image */}
                           <div className="relative h-48 overflow-hidden rounded-t-lg">
-                            <div className="w-full h-full bg-gradient-to-br from-gold/20 to-navy/20 flex items-center justify-center">
-                              <Calendar className="w-12 h-12 text-gold" />
-                            </div>
+                            <img 
+                              src={event.image} 
+                              alt={event.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
                             <div className="absolute top-3 left-3">
                               <Badge className="bg-gold text-navy">{event.category}</Badge>
                             </div>
@@ -224,8 +226,12 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Event Image */}
-                    <div className="relative h-80 bg-gradient-to-br from-gold/20 to-navy/20 rounded-xl flex items-center justify-center">
-                      <Calendar className="w-20 h-20 text-gold" />
+                    <div className="relative h-80 rounded-xl overflow-hidden">
+                      <img 
+                        src={selectedEvent.image} 
+                        alt={selectedEvent.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     
                     {/* Event Details */}
