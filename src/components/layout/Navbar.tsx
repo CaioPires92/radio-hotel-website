@@ -75,10 +75,12 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <a href="#home" className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue to-gold rounded-lg flex items-center justify-center">
-                <span className="text-white font-serif font-bold text-xl">RH</span>
-              </div>
+            <a href="#home" className="flex items-center space-x-3">
+              <img 
+                src="/logo-color.png" 
+                alt="Rádio Hotel Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div className="hidden sm:block">
                 <h1 className={`font-serif font-bold text-xl ${
                   isScrolled ? 'text-navy' : 'text-white'
