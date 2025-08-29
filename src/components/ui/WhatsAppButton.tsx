@@ -121,34 +121,40 @@ export default function WhatsAppButton() {
             </AnimatePresence>
           </motion.button>
 
-          {/* Floating Messages */}
-          <motion.div
-            className="absolute bottom-20 right-0 space-y-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            {/* Message Bubbles */}
-            <motion.div
-              className="bg-white rounded-lg p-3 shadow-lg max-w-xs border border-gray-100"
-              initial={{ opacity: 0, x: 20, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.4 }}
-            >
-              <div className="flex items-start gap-2">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-800 font-medium">Radio Hotel</p>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Olá! Como podemos ajudá-lo hoje?
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1">Agora</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+          {/* Floating Messages - Only show on hover */}
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                className="absolute bottom-20 right-0 space-y-2"
+                initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Message Bubbles */}
+                <motion.div
+                  className="bg-white rounded-lg p-3 shadow-lg max-w-xs border border-gray-100"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                >
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-800 font-medium">Radio Hotel</p>
+                      <p className="text-xs text-gray-600 mt-1">
+                        Olá! Como podemos ajudá-lo hoje?
+                      </p>
+                      <p className="text-xs text-gray-400 mt-1">Agora</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
