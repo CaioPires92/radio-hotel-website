@@ -123,7 +123,7 @@ export default function About() {
               </motion.div>
 
               <h2 className="text-4xl lg:text-5xl font-serif font-bold text-navy leading-tight">
-                Tradicao e Elegancia em
+                Tradição e Elegancia em
                 <span className="text-gold block">Serra Negra</span>
               </h2>
             </div>
