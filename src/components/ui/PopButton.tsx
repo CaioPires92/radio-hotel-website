@@ -16,7 +16,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      
+
       // Hide popup when in hero section (less than 600px)
       if (scrollY < 600) {
         setIsVisible(false);
@@ -29,7 +29,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
       else if (scrollY > 600 && !hasBeenClicked) {
         setIsVisible(true);
       }
-      
+
       setLastScrollPosition(scrollY);
     };
 
@@ -57,16 +57,16 @@ export default function PopButton({ onClick }: PopButtonProps) {
         <motion.div
           className="fixed top-1/2 right-6 z-40 transform -translate-y-1/2"
           initial={{ opacity: 0, x: 100, scale: 0.8 }}
-          animate={{ 
-            opacity: 1, 
-            x: 0, 
+          animate={{
+            opacity: 1,
+            x: 0,
             scale: 1,
             rotate: [0, -5, 5, -5, 0]
           }}
           exit={{ opacity: 0, x: 100, scale: 0.8 }}
-          transition={{ 
-            duration: 0.6, 
-            type: "spring", 
+          transition={{
+            duration: 0.6,
+            type: "spring",
             damping: 15,
             rotate: {
               duration: 0.8,
@@ -96,7 +96,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
                 ease: "easeInOut"
               }}
             />
-            
+
             {/* Sparkles */}
             <motion.div
               className="absolute -top-1 -right-1"
@@ -112,10 +112,10 @@ export default function PopButton({ onClick }: PopButtonProps) {
             >
               <Sparkles className="w-4 h-4 text-yellow-300" />
             </motion.div>
-            
+
             {/* Main Icon */}
             <Calendar className="w-6 h-6 relative z-10" />
-            
+
             {/* Tooltip */}
             <motion.div
               className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-navy text-white px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -126,7 +126,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
               <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-4 border-transparent border-l-navy" />
             </motion.div>
           </motion.button>
-          
+
           {/* Floating Text */}
           <motion.div
             className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-center"
