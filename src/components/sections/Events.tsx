@@ -102,7 +102,7 @@ const Events = () => {
             Centro de Convenções Premium
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 78 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais.
+            Com 80 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais.
             Nosso centro de convenções de 800m² comporta até 300 pessoas, em meio ao nosso parque natural de 60.000m².
           </p>
         </motion.div>

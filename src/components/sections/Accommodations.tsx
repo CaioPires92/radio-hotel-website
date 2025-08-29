@@ -104,7 +104,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
             Conforto e Elegância
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 78 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente
+            Com 80 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente
             projetadas para oferecer o máximo conforto em meio ao parque natural de 60.000m².
             Cada quarto reflete nossa dedicação à excelência e ao bem-estar dos hóspedes.
           </p>

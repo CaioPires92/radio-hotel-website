@@ -29,7 +29,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
     {
       id: 1,
       image: '/images/hero/hero1.jpg',
-      title: '78 Anos de Tradição em Serra Negra',
+      title: '80 Anos de Tradição em Serra Negra',
       subtitle: 'Um legado de hospitalidade e excelência desde 1946',
       description: 'Descubra o charme único do Radio Hotel, uma instituição com quase oito décadas de história, onde a hospitalidade tradicional encontra o conforto moderno no coração da "Cidade da Saúde".',
     },
