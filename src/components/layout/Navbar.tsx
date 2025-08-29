@@ -75,10 +75,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             transition={{ duration: 0.2 }}
           >
             <a href="#home" className="flex items-center space-x-3">
-              <img 
-                src="/logo-color.png" 
-                alt="Rádio Hotel Logo" 
-                className="w-16 h-16 object-contain"
+              <img
+                src={isScrolled ? "/logo-color.png" : "/logo.png"}
+                alt="Rádio Hotel Logo"
+                className="w-16 h-16 object-contain transition-all duration-300"
               />
               <div className="hidden sm:block">
               </div>
