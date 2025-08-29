@@ -37,9 +37,34 @@
   "hero": {
     "title": "Radio Hotel Serra Negra",
     "subtitle": "Tradición, Elegancia y Naturaleza",
-    "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radioactivas terapéuticas.",
+    "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapéuticas.",
     "cta": "Haz tu Reserva",
-    "scrollDown": "Desplázate hacia abajo"
+    "scrollDown": "Desplázate hacia abajo",
+    "discoverMore": "Descubre Más",
+    "previousSlide": "Diapositiva anterior",
+    "nextSlide": "Siguiente diapositiva",
+    "goToSlide": "Ir a diapositiva",
+    "slide1": {
+      "title": "Radio Hotel Serra Negra",
+      "subtitle": "Tradición, Elegancia y Naturaleza",
+      "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapéuticas."
+    },
+    "slide2": {
+      "title": "Aguas Radiactivas Terapéuticas",
+      "subtitle": "Bienestar y Relajación",
+      "description": "Disfruta de los beneficios únicos de las aguas radiactivas de Serra Negra, conocidas por sus propiedades terapéuticas y relajantes."
+    },
+    "slide3": {
+      "title": "Naturaleza Exuberante",
+      "subtitle": "Cascadas y Senderos",
+      "description": "Explora las bellezas naturales de la región, con cascadas cristalinas, senderos ecológicos y una vista impresionante de la Serra da Mantiqueira."
+    },
+    "carousel": {
+      "ariaLabel": "Carrusel de imágenes del hotel"
+    },
+    "whatsapp": {
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en el Radio Hotel Serra Negra. ¿Pueden ayudarme?"
+    }
   },
   "about": {
     "title": "Sobre Radio Hotel",
