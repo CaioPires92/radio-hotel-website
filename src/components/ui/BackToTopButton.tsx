@@ -69,12 +69,20 @@ export default function BackToTopButton() {
               className="absolute inset-0 w-full h-full transform -rotate-90" 
               viewBox="0 0 50 50"
             >
+              {/* White background circle */}
+              <circle
+                cx="25"
+                cy="25"
+                r="22"
+                fill="white"
+                stroke="none"
+              />
               <circle
                 cx="25"
                 cy="25"
                 r="20"
                 fill="none"
-                stroke="rgba(255,255,255,0.1)"
+                stroke="rgba(13,27,76,0.1)"
                 strokeWidth="2"
               />
               <motion.circle
@@ -82,7 +90,7 @@ export default function BackToTopButton() {
                 cy="25"
                 r="20"
                 fill="none"
-                stroke="#b2ab70"
+                stroke="#C5A253"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeDasharray={`${2 * Math.PI * 20}`}
