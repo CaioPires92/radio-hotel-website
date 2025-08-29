@@ -50,7 +50,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
+      const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel.';
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
@@ -58,11 +58,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-lg'
+        : 'bg-transparent'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -79,19 +78,9 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               <img 
                 src="/logo-color.png" 
                 alt="Rádio Hotel Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-16 h-16 object-contain"
               />
               <div className="hidden sm:block">
-                <h1 className={`font-serif font-bold text-xl ${
-                  isScrolled ? 'text-navy' : 'text-white'
-                }`}>
-                  Rádio Hotel
-                </h1>
-                <p className={`text-sm ${
-                  isScrolled ? 'text-navy/70' : 'text-white/80'
-                }`}>
-                  Serra Negra, SP
-                </p>
               </div>
             </a>
           </motion.div>
@@ -103,9 +92,8 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${
-                    isScrolled ? 'text-navy' : 'text-white'
-                  }`}
+                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -121,11 +109,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           <div className="hidden md:block">
             <Button
               onClick={handleBookingClick}
-              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${
-                isScrolled
-                  ? 'bg-gold hover:bg-gold/90 text-navy'
-                  : 'bg-white hover:bg-white/90 text-navy'
-              }`}
+              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${isScrolled
+                ? 'bg-gold hover:bg-gold/90 text-navy'
+                : 'bg-white hover:bg-white/90 text-navy'
+                }`}
               aria-label="Fazer reserva no Radio Hotel"
             >
               <Phone className="w-4 h-4 mr-2" />
@@ -140,9 +127,8 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               onKeyDown={handleKeyDown}
               variant="ghost"
               size="sm"
-              className={`p-2 ${
-                isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
-              }`}
+              className={`p-2 ${isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
+                }`}
               aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -156,13 +142,12 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       {/* Mobile Menu */}
       <motion.div
         id="mobile-menu"
-        className={`md:hidden ${
-          isOpen ? 'block' : 'hidden'
-        } bg-white/95 backdrop-blur-md border-t border-gray-200`}
+        className={`md:hidden ${isOpen ? 'block' : 'hidden'
+          } bg-white/95 backdrop-blur-md border-t border-gray-200`}
         initial={{ opacity: 0, height: 0 }}
-        animate={{ 
-          opacity: isOpen ? 1 : 0, 
-          height: isOpen ? 'auto' : 0 
+        animate={{
+          opacity: isOpen ? 1 : 0,
+          height: isOpen ? 'auto' : 0
         }}
         transition={{ duration: 0.3 }}
         onKeyDown={handleKeyDown}

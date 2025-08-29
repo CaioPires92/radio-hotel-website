@@ -1,6 +1,6 @@
-# 🏨 Rádio Hotel - Website Oficial
+# 🏨 Radio Hotel - Website Oficial
 
-Website premium do Rádio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Desenvolvido com as melhores práticas de desenvolvimento web, focando em performance, acessibilidade e experiência do usuário.
+Website premium do Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Desenvolvido com as melhores práticas de desenvolvimento web, focando em performance, acessibilidade e experiência do usuário.
 
 ## ✨ Características
 
@@ -136,15 +136,15 @@ O pipeline automatizado inclui:
 
 ## 📞 Contato
 
-- **Hotel**: Rádio Hotel Serra Negra
+- **Hotel**: Radio Hotel Serra Negra
 - **Telefone**: +55 19 99999-9999
 - **Email**: contato@radiohotel.com.br
 - **Endereço**: Serra Negra, SP
 
 ## 📄 Licença
 
-Este projeto é propriedade do Rádio Hotel. Todos os direitos reservados.
+Este projeto é propriedade do Radio Hotel. Todos os direitos reservados.
 
 ---
 
-**Desenvolvido com ❤️ para o Rádio Hotel**
+**Desenvolvido com ❤️ para o Radio Hotel**

@@ -1,4 +1,4 @@
-# Relatório de QA - Site Rádio Hotel
+# Relatório de QA - Site Radio Hotel
 
 **Data da Análise:** Janeiro 2025  
 **Analista:** Especialista Sênior em QA  
@@ -392,7 +392,7 @@ import Image from 'next/image';
 
 ## 📝 **CONCLUSÃO**
 
-O site Rádio Hotel possui uma **base sólida** com design elegante e estrutura bem organizada. Os principais pontos de atenção estão em **acessibilidade** e **performance**, que são fundamentais para uma experiência profissional.
+O site Radio Hotel possui uma **base sólida** com design elegante e estrutura bem organizada. Os principais pontos de atenção estão em **acessibilidade** e **performance**, que são fundamentais para uma experiência profissional.
 
 **Prioridade máxima:** Resolver questões de acessibilidade e remover console.logs de produção.
 

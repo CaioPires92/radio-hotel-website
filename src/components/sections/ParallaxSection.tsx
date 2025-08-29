@@ -26,7 +26,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel. Podem me ajudar?';
+      const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel. Podem me ajudar?';
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }

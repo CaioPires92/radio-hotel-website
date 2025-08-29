@@ -104,7 +104,7 @@ const Footer = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const message = 'Olá! Gostaria de mais informações sobre o Rádio Hotel.';
+    const message = 'Olá! Gostaria de mais informações sobre o Radio Hotel.';
     const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -153,11 +153,8 @@ const Footer = () => {
                   <img 
                     src="/logo.png" 
                     alt="Rádio Hotel Logo" 
-                    className="w-12 h-12 object-contain"
+                    className="w-16 h-16 object-contain"
                   />
-                  <h3 className="text-2xl font-serif font-bold text-gold">
-                    Rádio Hotel
-                  </h3>
                 </div>
                 <p className="text-white leading-relaxed">
                   Tradição e elegância no coração de Serra Negra.
@@ -321,7 +318,7 @@ const Footer = () => {
                   placeholder="Seu melhor e-mail"
                   className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
                 />
-                <button 
+                <button
                   type="submit"
                   disabled={isSubmittingNewsletter || !email}
                   className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[100px] flex items-center justify-center"
@@ -342,7 +339,7 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-white/90 text-sm">
-                © {currentYear} Rádio Hotel. Todos os direitos reservados.
+                © {currentYear} Radio Hotel. Todos os direitos reservados.
               </div>
 
               <div className="flex items-center space-x-4 text-sm text-white/90">

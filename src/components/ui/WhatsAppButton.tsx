@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
   }, []);
 
   const handleClick = () => {
-    const message = 'Olá! Gostaria de saber mais informações sobre o Rádio Hotel e fazer uma reserva.';
+    const message = 'Olá! Gostaria de saber mais informações sobre o Radio Hotel e fazer uma reserva.';
     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -31,9 +31,9 @@ export default function WhatsAppButton() {
           initial={{ opacity: 0, scale: 0, y: 100 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: 100 }}
-          transition={{ 
-            duration: 0.5, 
-            type: "spring", 
+          transition={{
+            duration: 0.5,
+            type: "spring",
             damping: 15,
             stiffness: 300
           }}
@@ -60,7 +60,7 @@ export default function WhatsAppButton() {
                 ease: "easeInOut"
               }}
             />
-            
+
             {/* Icon with animation */}
             <motion.div
               animate={isHovered ? { rotate: [0, -10, 10, -10, 0] } : {}}
@@ -68,7 +68,7 @@ export default function WhatsAppButton() {
             >
               <MessageCircle className="w-7 h-7 relative z-10" />
             </motion.div>
-            
+
             {/* Notification Badge */}
             <motion.div
               className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold"
@@ -83,7 +83,7 @@ export default function WhatsAppButton() {
             >
               1
             </motion.div>
-            
+
             {/* Tooltip */}
             <AnimatePresence>
               {isHovered && (
@@ -103,7 +103,7 @@ export default function WhatsAppButton() {
               )}
             </AnimatePresence>
           </motion.button>
-          
+
           {/* Floating Messages */}
           <motion.div
             className="absolute bottom-20 right-0 space-y-2"
@@ -123,7 +123,7 @@ export default function WhatsAppButton() {
                   <MessageCircle className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-800 font-medium">Rádio Hotel</p>
+                  <p className="text-sm text-gray-800 font-medium">Radio Hotel</p>
                   <p className="text-xs text-gray-600 mt-1">
                     Olá! Como podemos ajudá-lo hoje?
                   </p>
