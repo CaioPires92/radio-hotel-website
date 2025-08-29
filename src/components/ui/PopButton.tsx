@@ -17,20 +17,17 @@ export default function PopButton({ onClick }: PopButtonProps) {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
-      // Show popup when scrolling down past 600px for the first time
-      if (scrollY > 600 && !hasBeenClicked) {
-        setIsVisible(true);
-      }
-      // If user has clicked before, show popup again when they scroll to top and then down again
-      else if (hasBeenClicked) {
-        // Reset when user scrolls to top (less than 100px)
+      // Hide popup when in hero section (less than 600px)
+      if (scrollY < 600) {
+        setIsVisible(false);
+        // Reset clicked state when scrolling to top
         if (scrollY < 100) {
           setHasBeenClicked(false);
         }
-        // Show popup again when scrolling down past 600px after reset
-        else if (scrollY > 600 && !hasBeenClicked) {
-          setIsVisible(true);
-        }
+      }
+      // Show popup when scrolling down past 600px (outside hero section)
+      else if (scrollY > 600 && !hasBeenClicked) {
+        setIsVisible(true);
       }
       
       setLastScrollPosition(scrollY);
