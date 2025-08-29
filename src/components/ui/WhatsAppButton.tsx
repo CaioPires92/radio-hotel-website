@@ -14,7 +14,24 @@ export default function WhatsAppButton() {
       setIsVisible(true);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    // Handle scroll to hide in hero section
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      // Hide button when in hero section (less than 600px)
+      if (scrollY < 600) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleClick = () => {

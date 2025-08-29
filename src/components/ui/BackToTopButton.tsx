@@ -14,8 +14,12 @@ export default function BackToTopButton() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // Show button after 300px scroll
-      setIsVisible(scrollY > 300);
+      // Hide button when in hero section (less than 600px) or show after 300px scroll outside hero
+      if (scrollY < 600) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(scrollY > 300);
+      }
 
       // Calculate scroll progress
       const progress = (scrollY / (documentHeight - windowHeight)) * 100;
