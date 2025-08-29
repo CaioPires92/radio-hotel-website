@@ -24,7 +24,7 @@ const Highlights = () => {
       icon: MapPin,
       title: 'O Oásis no Coração da Cidade',
       description: 'Imagine-se hospedado no ponto mais privilegiado do centro de Serra Negra, com uma localização avaliada em 9,9/10 por sua conveniência. A poucos passos, você tem acesso a todas as atrações da cidade. Agora, imagine retornar ao hotel e adentrar um parque privativo de 60.000 m², com mata nativa preservada e uma cachoeira particular.',
-      image: '/images/events/passeios-bosque.png',
+      image: '/images/facilities/bosque1.jpg',
       features: ['Localização 9,9/10', 'Parque privativo 60.000m²', 'Cachoeira particular'],
     },
     {
@@ -32,15 +32,15 @@ const Highlights = () => {
       icon: Waves,
       title: 'Um Mergulho na História da Saúde',
       description: 'Em seu próprio apartamento, oferecemos uma conexão direta com a alma de Serra Negra. A experiência de um banho com nossas famosas "águas radioativas", cujas propriedades foram descobertas em 1928 e deram à cidade o título de "Cidade da Saúde", é o nosso diferencial mais distinto.',
-      image: '/images/events/pacotes-especiais.png',
+      image: '/images/facilities/piscina1.jpg',
       features: ['Águas radioativas desde 1928', 'Cidade da Saúde', 'Ritual de bem-estar'],
     },
     {
       id: 3,
       icon: Utensils,
       title: 'Sabores que Contam Histórias',
-      description: 'Vivencie uma jornada gastronômica em nosso Restaurante Cinquentenário, um dos pilares da nossa reputação de 78 anos. Nossos hóspedes descrevem nossa culinária brasileira como "excepcional". A experiência se adapta ao seu ritmo: durante a semana, desfrute de um refinado menu à la carte; nos fins de semana, delicie-se com um buffet completo e variado.',
-      image: '/images/events/sabado-feijoada.png',
+      description: 'Vivencie uma jornada gastronômica em nosso Restaurante Cinquentenário, um dos pilares da nossa reputação de 80 anos. Nossos hóspedes descrevem nossa culinária brasileira como "excepcional". A experiência se adapta ao seu ritmo: durante a semana, desfrute de um refinado menu à la carte; nos fins de semana, delicie-se com um buffet completo e variado.',
+      image: '/images/restaurant/restaurante1.jpg',
       features: ['Restaurante Cinquentenário', 'Culinária brasileira excepcional', 'Menu à la carte e buffet'],
     },
     {
@@ -48,7 +48,7 @@ const Highlights = () => {
       icon: Leaf,
       title: 'O Refúgio do Silêncio e Conforto',
       description: 'Para quem busca máxima tranquilidade, criamos uma experiência de hospedagem superior. Nossos apartamentos da categoria Luxo são 8 m² mais espaçosos e estão estrategicamente voltados para a serena área da piscina, garantindo um ambiente mais silencioso. Alguns ainda oferecem o conforto de piso aquecido e antialérgico.',
-      image: '/images/events/pacotes-especiais.png',
+      image: '/images/rooms/luxo-1.jpg',
       features: ['8m² mais espaçosos', 'Vista para área da piscina', 'Piso aquecido antialérgico'],
     },
     {
@@ -56,7 +56,7 @@ const Highlights = () => {
       icon: Star,
       title: 'A Arte de Bem-Receber',
       description: 'A verdadeira alma do Radio Hotel reside em nossa equipe. Com uma avaliação de 9,7/10, nosso time é consistentemente descrito como "impecável", "extremamente atencioso" e de "extrema educação e simpatia". A experiência aqui é sentir-se acolhido por uma cultura de serviço tão poderosa que se tornou um dos nossos ativos mais valiosos.',
-      image: '/images/events/passeios-bosque.png',
+      image: '/images/facilities/facilities.jpg',
       features: ['Avaliação 9,7/10', 'Equipe impecável', 'Cultura de serviço excepcional'],
     },
     {
@@ -64,7 +64,7 @@ const Highlights = () => {
       icon: Mountain,
       title: 'Negócios em um Cenário Inspirador',
       description: 'Para o público corporativo, oferecemos a experiência de realizar um evento impecável sem abrir mão do lazer e da inspiração. Nosso moderno Centro de Convenções tem capacidade para até 300 pessoas em formato de auditório e conta com múltiplas salas de apoio. A combinação de uma estrutura profissional completa com estacionamento, gastronomia de ponta e todas as opções de lazer de um resort cria uma solução MICE única na região.',
-      image: '/images/events/sabado-feijoada.png',
+      image: '/images/conventions/convention-1.jpg',
       features: ['Centro de Convenções 300 pessoas', 'Múltiplas salas de apoio', 'Solução MICE completa'],
     },
   ];

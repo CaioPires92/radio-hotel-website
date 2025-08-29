@@ -137,7 +137,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-navy/80 leading-relaxed">
-                Com 78 anos de tradicao, o Radio Hotel e mais que um lugar para se hospedar - e um
+                Com 80 anos de tradicao, o Radio Hotel e mais que um lugar para se hospedar - e um
                 refugio onde a historia encontra o conforto moderno. Situado em um parque natural
                 de 60.000m² no coracao de Serra Negra, a "Cidade da Saude", oferecemos uma
                 experiencia unica em meio a natureza exuberante e as famosas aguas radioativas.
