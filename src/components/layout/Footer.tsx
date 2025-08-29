@@ -128,7 +128,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-black to-gray-900 text-white relative overflow-hidden">
+    <footer className="text-white relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/facilities/facilities1.jpg"
+          alt="Radio Hotel Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/85 to-black/90" />
+      </div>
+      
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border border-gold rotate-45" />
