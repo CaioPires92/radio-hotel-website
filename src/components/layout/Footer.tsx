@@ -150,10 +150,10 @@ const Footer = () => {
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img 
-                    src="/logo.png" 
-                    alt="Rádio Hotel Logo" 
-                    className="w-16 h-16 object-contain"
+                  <img
+                    src="/logo.png"
+                    alt="Rádio Hotel Logo"
+                    className="w-26 object-contain"
                   />
                 </div>
                 <p className="text-white leading-relaxed">
