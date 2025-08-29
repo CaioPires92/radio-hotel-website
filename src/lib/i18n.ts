@@ -155,3 +155,24 @@ export function getLocaleMeta(locale: Locale) {
     alternateLocales: locales.filter(l => l !== locale),
   };
 }
+
+// Get locale from URL (client-side)
+export function getLocaleFromUrl(): Locale | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  
+  return getLocaleFromPathname(window.location.pathname);
+}
+
+// Dictionary loader
+export async function getDictionary(locale: Locale) {
+  try {
+    const dictionary = await import(`@/dictionaries/${locale}.json`);
+    return dictionary.default;
+  } catch (error) {
+    console.warn(`Failed to load dictionary for locale ${locale}, falling back to ${defaultLocale}`);
+    const fallback = await import(`@/dictionaries/${defaultLocale}.json`);
+    return fallback.default;
+  }
+}

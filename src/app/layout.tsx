@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import Analytics from '@/components/analytics/Analytics';
 import PWAInstaller, { OfflineIndicator, UpdateBanner } from '@/components/pwa/PWAInstaller';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
-import { getLocaleFromUrl, defaultLocale } from '@/lib/i18n';
+import { getLocaleFromPathname, defaultLocale } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -90,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Get locale from URL or use default
-  const locale = getLocaleFromUrl() || defaultLocale;
+  const locale = defaultLocale; // Server-side rendering uses default locale
   
   return (
     <html lang={locale} className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
