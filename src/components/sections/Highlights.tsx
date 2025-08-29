@@ -109,7 +109,7 @@ const Highlights = () => {
             Experiências Únicas
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Descubra os elementos que tornam o Rádio Hotel um destino especial,
+            Descubra os elementos que tornam o Radio Hotel um destino especial,
             onde tradição, natureza e conforto se encontram em perfeita harmonia.
           </p>
         </motion.div>

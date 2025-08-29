@@ -257,7 +257,7 @@ const Events = () => {
             </p>
             <Button
               onClick={() => {
-                const message = 'Olá! Gostaria de conversar sobre o planejamento de um evento no Rádio Hotel.';
+                const message = 'Olá! Gostaria de conversar sobre o planejamento de um evento no Radio Hotel.';
                 const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
               }}

@@ -1,5 +1,5 @@
 # Design System - Guia de Contraste de Cores
-## Rádio Hotel
+## Radio Hotel
 
 ---
 

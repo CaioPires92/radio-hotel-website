@@ -71,7 +71,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       if (onBookingClick) {
         onBookingClick();
       } else {
-        const message = 'Olá! Gostaria de fazer uma reserva no Rádio Hotel.';
+        const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel.';
         const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
       }
@@ -83,8 +83,8 @@ const Hero = ({ onBookingClick }: HeroProps) => {
   };
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative h-screen overflow-hidden"
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -236,11 +236,10 @@ const Hero = ({ onBookingClick }: HeroProps) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${
-              index === currentSlide
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${index === currentSlide
                 ? 'bg-gold scale-125'
                 : 'bg-white/50 hover:bg-white/70'
-            }`}
+              }`}
             aria-label={`Ir para slide ${index + 1}`}
             tabIndex={0}
           />

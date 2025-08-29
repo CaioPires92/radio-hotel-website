@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap'
 });
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap'
@@ -16,10 +16,10 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rádio Hotel - Experiência Exclusiva em Serra Negra',
-    template: '%s | Rádio Hotel Serra Negra'
+    default: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
+    template: '%s | Radio Hotel Serra Negra'
   },
-  description: 'Descubra o Rádio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium.',
+  description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium.',
   keywords: [
     'hotel serra negra',
     'hotel de luxo sp',
@@ -32,24 +32,24 @@ export const metadata: Metadata = {
     'casamentos serra negra',
     'hotel boutique'
   ],
-  authors: [{ name: 'Rádio Hotel' }],
-  creator: 'Rádio Hotel',
-  publisher: 'Rádio Hotel',
+  authors: [{ name: 'Radio Hotel' }],
+  creator: 'Radio Hotel',
+  publisher: 'Radio Hotel',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: 'Rádio Hotel - Experiência Exclusiva em Serra Negra',
-    description: 'Descubra o Rádio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde.',
-    siteName: 'Rádio Hotel',
+    title: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
+    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde.',
+    siteName: 'Radio Hotel',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Rádio Hotel - Vista externa do hotel em Serra Negra',
+        alt: 'Radio Hotel - Vista externa do hotel em Serra Negra',
       },
     ],
     locale: 'pt_BR',
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rádio Hotel - Experiência Exclusiva em Serra Negra',
-    description: 'Descubra o Rádio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP.',
+    title: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
+    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -95,7 +95,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Hotel',
-              name: 'Rádio Hotel',
+              name: 'Radio Hotel',
               description: 'Hotel de luxo em Serra Negra, SP, cercado pela natureza',
               telephone: '+55 19 99999-9999',
               address: {

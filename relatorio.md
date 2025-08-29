@@ -1,8 +1,8 @@
-# Relatório de Desenvolvimento - Site Rádio Hotel
+# Relatório de Desenvolvimento - Site Radio Hotel
 
 ## 📋 Resumo Executivo
 
-Este relatório documenta o desenvolvimento completo do site institucional do **Rádio Hotel**, um hotel tradicional e elegante localizado no coração de Serra Negra, SP. O projeto foi desenvolvido utilizando as mais modernas tecnologias web, focando em performance, acessibilidade, SEO e experiência do usuário premium.
+Este relatório documenta o desenvolvimento completo do site institucional do **Radio Hotel**, um hotel tradicional e elegante localizado no coração de Serra Negra, SP. O projeto foi desenvolvido utilizando as mais modernas tecnologias web, focando em performance, acessibilidade, SEO e experiência do usuário premium.
 
 ---
 
@@ -298,7 +298,7 @@ Este relatório documenta o desenvolvimento completo do site institucional do **
 
 ## 🏆 Conclusão
 
-O site do **Rádio Hotel** foi desenvolvido seguindo as melhores práticas da indústria, resultando em uma plataforma robusta, elegante e altamente funcional. O projeto não apenas atende aos requisitos iniciais, mas supera expectativas em termos de qualidade, performance e experiência do usuário.
+O site do **Radio Hotel** foi desenvolvido seguindo as melhores práticas da indústria, resultando em uma plataforma robusta, elegante e altamente funcional. O projeto não apenas atende aos requisitos iniciais, mas supera expectativas em termos de qualidade, performance e experiência do usuário.
 
 ### Principais Conquistas:
 - ✅ **Design Premium** que reflete a elegância do hotel
@@ -309,10 +309,10 @@ O site do **Rádio Hotel** foi desenvolvido seguindo as melhores práticas da in
 - ✅ **CI/CD Automatizado** para deploys seguros
 - ✅ **Documentação Completa** para manutenção futura
 
-O site está pronto para produção e posicionará o Rádio Hotel como referência digital no segmento hoteleiro de Serra Negra, proporcionando uma experiência online à altura da qualidade dos serviços oferecidos.
+O site está pronto para produção e posicionará o Radio Hotel como referência digital no segmento hoteleiro de Serra Negra, proporcionando uma experiência online à altura da qualidade dos serviços oferecidos.
 
 ---
 
-**Desenvolvido com excelência técnica e atenção aos detalhes para o Rádio Hotel - Serra Negra, SP**
+**Desenvolvido com excelência técnica e atenção aos detalhes para o Radio Hotel - Serra Negra, SP**
 
 *Relatório gerado em: Janeiro 2025*

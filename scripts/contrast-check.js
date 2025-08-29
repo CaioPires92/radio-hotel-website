@@ -5,17 +5,17 @@
 function getLuminance(hex) {
   // Remove o # se presente
   const color = hex.replace('#', '');
-  
+
   // Converte para RGB
   const r = parseInt(color.substr(0, 2), 16) / 255;
   const g = parseInt(color.substr(2, 2), 16) / 255;
   const b = parseInt(color.substr(4, 2), 16) / 255;
-  
+
   // Aplica correção gamma
   const sRGB = [r, g, b].map(c => {
     return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
   });
-  
+
   // Calcula luminância
   return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2];
 }
@@ -24,17 +24,17 @@ function getLuminance(hex) {
 function getContrastRatio(color1, color2) {
   const lum1 = getLuminance(color1);
   const lum2 = getLuminance(color2);
-  
+
   const brightest = Math.max(lum1, lum2);
   const darkest = Math.min(lum1, lum2);
-  
+
   return (brightest + 0.05) / (darkest + 0.05);
 }
 
 // Cores do design system
 const colors = {
   navy: '#0a0d29',
-  blue: '#16446e', 
+  blue: '#16446e',
   gold: '#b2ab70',
   cream: '#f6f5f1',
   white: '#ffffff',
@@ -43,8 +43,8 @@ const colors = {
   grayDark: '#374151'
 };
 
-console.log('🎨 RELATÓRIO DE CONTRASTE - RÁDIO HOTEL\n');
-console.log('=' .repeat(60));
+console.log('🎨 RELATÓRIO DE CONTRASTE - Radio Hotel\n');
+console.log('='.repeat(60));
 
 // Testa combinações principais
 const testCombinations = [
@@ -68,7 +68,7 @@ testCombinations.forEach(({ fg, bg, context }) => {
   const ratio = getContrastRatio(colors[fg], colors[bg]);
   let level = '❌ Inadequado';
   let status = '❌';
-  
+
   if (ratio >= 7) {
     level = '🏆 AAA (Excelente)';
     status = '✅';
@@ -83,13 +83,13 @@ testCombinations.forEach(({ fg, bg, context }) => {
   } else {
     criticalIssues.push({ fg, bg, context, ratio });
   }
-  
+
   console.log(`${status} ${fg.toUpperCase()}/${bg.toUpperCase()}: ${ratio.toFixed(2)} - ${level}`);
   console.log(`   Contexto: ${context}`);
   console.log('');
 });
 
-console.log('=' .repeat(60));
+console.log('='.repeat(60));
 console.log(`\n📈 RESUMO: ${passedTests}/${totalTests} combinações aprovadas\n`);
 
 if (criticalIssues.length > 0) {
@@ -120,7 +120,7 @@ console.log('   • Execute: node scripts/contrast-check.js');
 console.log('   • Use extensões de acessibilidade no navegador');
 console.log('   • Teste com usuários reais');
 
-console.log('\n' + '=' .repeat(60));
+console.log('\n' + '='.repeat(60));
 
 if (criticalIssues.length === 0) {
   console.log('🎉 PARABÉNS! Nenhum problema crítico de contraste encontrado!');

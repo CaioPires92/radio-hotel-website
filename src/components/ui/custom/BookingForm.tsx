@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Calendar, 
-  Users, 
-  Baby, 
-  Bed, 
-  Phone, 
-  X, 
+import {
+  Calendar,
+  Users,
+  Baby,
+  Bed,
+  Phone,
+  X,
   ChevronDown,
   MapPin,
   Clock
@@ -39,7 +39,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -72,14 +72,14 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    
+
     // Handle children ages array
     if (field === 'children') {
       const childrenCount = parseInt(value) || 0;
       const ages = Array(childrenCount).fill('');
       setFormData(prev => ({ ...prev, childrenAges: ages }));
     }
-    
+
     // Clear error for this field when user starts typing
     if (errors[field]) {
       setErrors(prev => {
@@ -94,7 +94,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const newAges = [...formData.childrenAges];
     newAges[index] = age;
     setFormData(prev => ({ ...prev, childrenAges: newAges }));
-    
+
     // Clear children ages error when user starts typing
     if (errors.childrenAges) {
       setErrors(prev => {
@@ -134,36 +134,36 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     setIsSubmitting(true);
 
     // Validate required fields
-    const newErrors: {[key: string]: string} = {};
-    
+    const newErrors: { [key: string]: string } = {};
+
     if (!formData.checkIn) {
       newErrors.checkIn = 'Data de check-in é obrigatória';
     }
-    
+
     if (!formData.checkOut) {
       newErrors.checkOut = 'Data de check-out é obrigatória';
     }
-    
+
     if (!formData.roomType) {
       newErrors.roomType = 'Selecione um tipo de acomodação';
     }
-    
+
     // Validate date logic
     if (formData.checkIn && formData.checkOut) {
       const checkInDate = new Date(formData.checkIn);
       const checkOutDate = new Date(formData.checkOut);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      
+
       if (checkInDate < today) {
         newErrors.checkIn = 'Data de check-in não pode ser anterior a hoje';
       }
-      
+
       if (checkOutDate <= checkInDate) {
         newErrors.checkOut = 'Data de check-out deve ser posterior ao check-in';
       }
     }
-    
+
     // Validate children ages if children > 0
     if (parseInt(formData.children) > 0) {
       const missingAges = formData.childrenAges.some(age => !age);
@@ -171,13 +171,13 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
         newErrors.childrenAges = 'Informe a idade de todas as crianças';
       }
     }
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       setIsSubmitting(false);
       return;
     }
-    
+
     // Clear errors if validation passes
     setErrors({});
 
@@ -185,26 +185,26 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const selectedRoom = roomTypes.find(room => room.value === formData.roomType);
     const nights = calculateNights();
     const total = calculateTotal();
-    
-    let message = `🏨 *SOLICITAÇÃO DE RESERVA - RÁDIO HOTEL*\n\n`;
+
+    let message = `🏨 *SOLICITAÇÃO DE RESERVA - Radio Hotel*\n\n`;
     message += `📅 *Check-in:* ${formatDate(formData.checkIn)}\n`;
     message += `📅 *Check-out:* ${formatDate(formData.checkOut)}\n`;
     message += `🌙 *Noites:* ${nights}\n\n`;
     message += `👥 *Hóspedes:*\n`;
     message += `• Adultos: ${formData.adults}\n`;
     message += `• Crianças: ${formData.children}\n`;
-    
+
     if (formData.childrenAges.length > 0 && formData.childrenAges.some(age => age)) {
       message += `• Idades das crianças: ${formData.childrenAges.filter(age => age).join(', ')} anos\n`;
     }
-    
+
     message += `\n🛏️ *Acomodação:* ${selectedRoom?.label}\n`;
     message += `💰 *Valor estimado:* R$ ${total.toLocaleString('pt-BR')}\n`;
-    
+
     if (formData.specialRequests) {
       message += `\n📝 *Observações:* ${formData.specialRequests}\n`;
     }
-    
+
     message += `\n✨ Aguardo confirmação da disponibilidade e valores finais.`;
 
     // Open WhatsApp
@@ -259,7 +259,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           >
-            <Card 
+            <Card
               id="booking-form"
               className="w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border-0"
               role="dialog"
@@ -275,12 +275,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                 >
                   <X className="w-5 h-5" />
                 </button>
-                
+
                 <CardTitle id="booking-form-title" className="text-2xl font-serif flex items-center space-x-2">
                   <Calendar className="w-6 h-6 text-gold" />
                   <span>Fazer Reserva</span>
                 </CardTitle>
-                
+
                 <p className="text-white/95 mt-2">
                   Preencha os dados abaixo e enviaremos sua solicitação via WhatsApp
                 </p>
@@ -300,16 +300,15 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         value={formData.checkIn}
                         onChange={(e) => handleInputChange('checkIn', e.target.value)}
                         min={getTodayDate()}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${
-                          errors.checkIn ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${errors.checkIn ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         required
                       />
                       {errors.checkIn && (
                         <p className="text-red-500 text-sm mt-1">{errors.checkIn}</p>
                       )}
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
@@ -320,9 +319,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         value={formData.checkOut}
                         onChange={(e) => handleInputChange('checkOut', e.target.value)}
                         min={formData.checkIn || getTomorrowDate()}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${
-                          errors.checkOut ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${errors.checkOut ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         required
                       />
                       {errors.checkOut && (
@@ -351,7 +349,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Baby className="w-4 h-4 inline mr-1" />
@@ -393,9 +391,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                             onChange={(e) => handleChildAgeChange(index, e.target.value)}
                             min="0"
                             max="17"
-                            className={`px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-sm ${
-                              errors.childrenAges ? 'border-red-500' : 'border-gray-300'
-                            }`}
+                            className={`px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-sm ${errors.childrenAges ? 'border-red-500' : 'border-gray-300'
+                              }`}
                           />
                         ))}
                       </div>
@@ -412,9 +409,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                       Tipo de Acomodação *
                     </label>
                     <Select value={formData.roomType} onValueChange={(value) => handleInputChange('roomType', value)}>
-                      <SelectTrigger className={`w-full ${
-                        errors.roomType ? 'border-red-500' : ''
-                      }`}>
+                      <SelectTrigger className={`w-full ${errors.roomType ? 'border-red-500' : ''
+                        }`}>
                         <SelectValue placeholder="Selecione uma acomodação" />
                       </SelectTrigger>
                       <SelectContent>
