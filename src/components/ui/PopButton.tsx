@@ -23,10 +23,13 @@ export default function PopButton({ onClick }: PopButtonProps) {
       }
       // If user has clicked before, show popup again when they scroll to top and then down again
       else if (hasBeenClicked) {
-        // If user scrolled to top (less than 100px) and then scrolls down past 600px again
-        if (lastScrollPosition < 100 && scrollY > 600) {
+        // Reset when user scrolls to top (less than 100px)
+        if (scrollY < 100) {
+          setHasBeenClicked(false);
+        }
+        // Show popup again when scrolling down past 600px after reset
+        else if (scrollY > 600 && !hasBeenClicked) {
           setIsVisible(true);
-          setHasBeenClicked(false); // Reset the clicked state
         }
       }
       
