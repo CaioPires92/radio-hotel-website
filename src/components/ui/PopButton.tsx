@@ -10,26 +10,38 @@ interface PopButtonProps {
 
 export default function PopButton({ onClick }: PopButtonProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
-      if (scrollY > 600 && !hasAnimated) {
+      // Show popup when scrolling down past 600px for the first time
+      if (scrollY > 600 && !hasBeenClicked) {
         setIsVisible(true);
-        setHasAnimated(true);
       }
+      // If user has clicked before, show popup again when they scroll to top and then down again
+      else if (hasBeenClicked) {
+        // If user scrolled to top (less than 100px) and then scrolls down past 600px again
+        if (lastScrollPosition < 100 && scrollY > 600) {
+          setIsVisible(true);
+          setHasBeenClicked(false); // Reset the clicked state
+        }
+      }
+      
+      setLastScrollPosition(scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasAnimated]);
+  }, [hasBeenClicked, lastScrollPosition]);
 
   const handleClick = () => {
     onClick();
-    // Hide button after click
+    // Hide button after click and mark as clicked
     setIsVisible(false);
+    setHasBeenClicked(true);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
