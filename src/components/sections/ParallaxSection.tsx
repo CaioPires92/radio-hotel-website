@@ -56,10 +56,9 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
         style={{ y: backgroundY }}
       >
         <div
-          className="w-full h-full bg-cover bg-center bg-fixed"
+          className="w-full h-full bg-cover bg-center"
           style={{
             backgroundImage: `url('/images/hero/hero1.jpg')`,
-            backgroundAttachment: 'fixed',
           }}
         />
       </motion.div>
