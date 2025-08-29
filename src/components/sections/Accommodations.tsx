@@ -20,7 +20,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       name: 'Apartamento Standard',
       type: 'Melhor Custo-Benefício',
       description: 'O ponto de partida perfeito para explorar Serra Negra. Conforto e praticidade no coração da cidade, com a garantia de uma noite de sono tranquila. Equipado com janelas termoacústicas de tecnologia alemã para mitigar o ruído externo.',
-      image: '/images/rooms/standard-interno.png',
+      image: '/images/rooms/standard-1.jpg',
       capacity: '2 pessoas',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
@@ -37,7 +37,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       name: 'Apartamento Luxo',
       type: 'Tranquilidade Premium',
       description: 'Um upgrade em tranquilidade e conforto. O refúgio ideal para quem deseja desfrutar de nossa estrutura com o máximo de sossego e exclusividade. Voltado para a serena área da piscina, 8m² mais espaçoso que a categoria Standard.',
-      image: '/images/rooms/suite-luxo.png',
+      image: '/images/rooms/luxo-2.jpg',
       capacity: '2 pessoas',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
@@ -54,7 +54,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       name: 'Quarto Quádruplo',
       type: 'Apartamento Família',
       description: 'O espaço e a configuração ideais para criar memórias em família com todo o conforto e conveniência. Projetado especificamente para acomodar até 4 pessoas com conforto máximo.',
-      image: '/images/rooms/suite-familia.png',
+      image: '/images/rooms/quadruplo-2.jpg',
       capacity: '4 pessoas',
       amenities: [
         { icon: Wifi, name: 'Wi-Fi gratuito' },
@@ -104,8 +104,8 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
             Conforto e Elegância
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 78 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente 
-            projetadas para oferecer o máximo conforto em meio ao parque natural de 60.000m². 
+            Com 78 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente
+            projetadas para oferecer o máximo conforto em meio ao parque natural de 60.000m².
             Cada quarto reflete nossa dedicação à excelência e ao bem-estar dos hóspedes.
           </p>
         </motion.div>
@@ -132,7 +132,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-                    
+
                     {/* Room Type Badge */}
                     <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
                       {rooms[currentRoom].type}
@@ -152,11 +152,11 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                       <h3 className="text-3xl font-serif font-bold text-navy mb-2">
                         {rooms[currentRoom].name}
                       </h3>
-                      
+
                       <div className="flex items-center space-x-4 mb-4 text-sm text-navy/70">
                         <span>{rooms[currentRoom].capacity}</span>
                       </div>
-                      
+
                       <p className="text-navy/80 mb-6 leading-relaxed">
                         {rooms[currentRoom].description}
                       </p>
@@ -231,11 +231,10 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
             <button
               key={index}
               onClick={() => setCurrentRoom(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentRoom
-                  ? 'bg-gold scale-125'
-                  : 'bg-navy/20 hover:bg-navy/40'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentRoom
+                ? 'bg-gold scale-125'
+                : 'bg-navy/20 hover:bg-navy/40'
+                }`}
               aria-label={`Ver acomodação ${index + 1}`}
             />
           ))}
@@ -252,22 +251,20 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
           {rooms.map((room, index) => (
             <motion.div
               key={room.id}
-              className={`cursor-pointer transition-all duration-300 ${
-                index === currentRoom ? 'scale-105' : 'hover:scale-102'
-              }`}
+              className={`cursor-pointer transition-all duration-300 ${index === currentRoom ? 'scale-105' : 'hover:scale-102'
+                }`}
               onClick={() => setCurrentRoom(index)}
               whileHover={{ y: -5 }}
             >
-              <Card className={`border-2 transition-all duration-300 ${
-                index === currentRoom 
-                  ? 'border-gold shadow-lg' 
-                  : 'border-transparent hover:border-gold/50'
-              }`}>
+              <Card className={`border-2 transition-all duration-300 ${index === currentRoom
+                ? 'border-gold shadow-lg'
+                : 'border-transparent hover:border-gold/50'
+                }`}>
                 <CardContent className="p-4">
                   <div className="relative w-full h-32 mb-3">
                     <Image
                       src={room.image}
-                      alt={`${room.name} - ${room.type} com ${room.size}`}
+                      alt={`${room.name} - ${room.type} para ${room.capacity}`}
                       fill
                       className="object-cover rounded-lg"
                     />
