@@ -58,7 +58,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
         <div
           className="w-full h-full bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: `url('/parallax-bg.svg')`,
+            backgroundImage: `url('/images/hero/hero1.jpg')`,
             backgroundAttachment: 'fixed',
           }}
         />
