@@ -293,11 +293,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Dates */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-navy mb-2">
+                      <label htmlFor="check-in-input" className="block text-sm font-medium text-navy mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkIn')} *
                       </label>
                       <input
+                        id="check-in-input"
                         type="date"
                         value={formData.checkIn}
                         onChange={(e) => handleInputChange('checkIn', e.target.value)}
@@ -312,11 +313,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-navy mb-2">
+                      <label htmlFor="check-out-input" className="block text-sm font-medium text-navy mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkOut')} *
                       </label>
                       <input
+                        id="check-out-input"
                         type="date"
                         value={formData.checkOut}
                         onChange={(e) => handleInputChange('checkOut', e.target.value)}
