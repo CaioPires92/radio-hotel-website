@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import {
   Phone,

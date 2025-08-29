@@ -19,19 +19,9 @@ export default function Home() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
-  // Debug log (development only)
-  if (process.env.NODE_ENV === 'development') {
-    console.log('isBookingFormOpen:', isBookingFormOpen);
-  }
-
   return (
     <main className="min-h-screen">
-      <Navbar onBookingClick={() => {
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Navbar booking clicked');
-        }
-        setIsBookingFormOpen(true);
-      }} />
+      <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
       <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
       <About />
       <Events />
