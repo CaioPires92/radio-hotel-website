@@ -26,33 +26,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
   
-  // Check if pathname has a locale
-  const localeMatch = pathname.match(localeRegex);
-  const hasLocale = !!localeMatch;
-  const currentLocale = localeMatch?.[1];
-  
-  // If pathname has a valid locale, continue
-  if (hasLocale && locales.includes(currentLocale as any)) {
-    return NextResponse.next();
-  }
-  
-  // If pathname has invalid locale, redirect to default
-  if (hasLocale && !locales.includes(currentLocale as any)) {
-    const newPathname = pathname.replace(/^\/[^/]+/, `/${defaultLocale}`);
-    return NextResponse.redirect(new URL(newPathname, request.url));
-  }
-  
-  // If no locale in pathname, detect and redirect
-  const detectedLocale = detectLocale(request);
-  
-  // For default locale, don't add prefix to URL
-  if (detectedLocale === defaultLocale) {
-    return NextResponse.next();
-  }
-  
-  // For non-default locales, add prefix
-  const newPathname = `/${detectedLocale}${pathname}`;
-  return NextResponse.redirect(new URL(newPathname, request.url));
+  // Temporarily disable i18n routing - just continue with default locale
+  return NextResponse.next();
 }
 
 function detectLocale(request: NextRequest): string {
