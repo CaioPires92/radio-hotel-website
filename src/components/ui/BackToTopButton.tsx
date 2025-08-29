@@ -13,10 +13,10 @@ export default function BackToTopButton() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
+
       // Show button after 300px scroll
       setIsVisible(scrollY > 300);
-      
+
       // Calculate scroll progress
       const progress = (scrollY / (documentHeight - windowHeight)) * 100;
       setScrollProgress(Math.min(progress, 100));
@@ -48,9 +48,9 @@ export default function BackToTopButton() {
           initial={{ opacity: 0, scale: 0, y: 100 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: 100 }}
-          transition={{ 
-            duration: 0.3, 
-            type: "spring", 
+          transition={{
+            duration: 0.3,
+            type: "spring",
             damping: 20,
             stiffness: 300
           }}
@@ -65,8 +65,8 @@ export default function BackToTopButton() {
             tabIndex={0}
           >
             {/* Progress Ring */}
-            <svg 
-              className="absolute inset-0 w-full h-full transform -rotate-90" 
+            <svg
+              className="absolute inset-0 w-full h-full transform -rotate-90"
               viewBox="0 0 50 50"
             >
               {/* White background circle */}
@@ -82,7 +82,7 @@ export default function BackToTopButton() {
                 cy="25"
                 r="20"
                 fill="none"
-                stroke="rgba(13,27,76,0.1)"
+                stroke="none"
                 strokeWidth="2"
               />
               <motion.circle
@@ -98,19 +98,19 @@ export default function BackToTopButton() {
                 transition={{ duration: 0.1 }}
               />
             </svg>
-            
+
             {/* Icon */}
             <motion.div
               animate={{ y: [0, -2, 0] }}
-              transition={{ 
-                duration: 1.5, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
             >
               <ChevronUp className="w-5 h-5 relative z-10 text-gold" />
             </motion.div>
-            
+
             {/* Tooltip */}
             <motion.div
               className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-white text-navy px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg"
@@ -121,7 +121,7 @@ export default function BackToTopButton() {
               <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-4 border-transparent border-l-white" />
             </motion.div>
           </motion.button>
-          
+
           {/* Progress Text */}
           <motion.div
             className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-medium text-navy bg-white/90 backdrop-blur-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
