@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Users, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
 
 interface Event {
@@ -18,76 +19,77 @@ interface Event {
   category: string;
 }
 
-const events: Event[] = [
-  {
-    id: '1',
-    title: 'Noite Italiana às Sextas-feiras',
-    description: 'Celebre o início do fim de semana com uma autêntica noite italiana. Nosso Restaurante Cinquentenário oferece um buffet completo com massas frescas, antepastos clássicos e música ao vivo.',
-    date: 'Toda Sexta-feira',
-    time: '20:00',
-    location: 'Restaurante Cinquentenário',
-    image: '/images/events/noite-italiana.png',
-    category: 'Gastronomia'
-  },
-  {
-    id: '2',
-    title: 'O Sábado da nossa Feijoada',
-    description: 'Desfrute da mais tradicional feijoada de Serra Negra, servida em nosso buffet completo. Uma experiência de sabor e tradição, perfeita para um almoço de sábado em família.',
-    date: 'Todo Sábado',
-    time: '13:00',
-    location: 'Restaurante Cinquentenário',
-    image: '/images/events/sabado-feijoada.png',
-    category: 'Gastronomia'
-  },
-  {
-    id: '3',
-    title: 'Passeio Guiado: Nosso Bosque Privativo',
-    description: 'Conecte-se com a natureza em uma caminhada guiada pelo nosso parque privativo de 60.000 m². Explore a mata nativa, o bosque de pinheiros e nossa cachoeira particular, um verdadeiro oásis no centro da cidade.',
-    date: 'Diariamente',
-    time: '10:00',
-    location: 'Parque Privativo do Hotel',
-    image: '/images/events/passeios-bosque.png',
-    category: 'Bem-Estar & Lazer'
-  },
-  {
-    id: '4',
-    title: 'Pacote Especial: Escapada Romântica',
-    description: 'Surpreenda quem você ama com uma estadia inesquecível. Inclui hospedagem em Apartamento Luxo com vista para a piscina, jantar especial no Restaurante Cinquentenário e decoração romântica.',
-    date: 'Consulte disponibilidade',
-    time: 'Check-in a partir das 14:00',
-    location: 'Radio Hotel',
-    image: '/images/events/pacotes-especiais.png',
-    category: 'Pacotes'
-  },
-  {
-    id: '5',
-    title: 'Feriado de 20 de Novembro',
-    description: 'Aproveite o feriado com uma programação que une descanso e a rica cultura brasileira. Desfrute de nossa gastronomia, piscina aquecida e da tranquilidade de nosso parque no coração de Serra Negra.',
-    date: 'Pacote de 17 a 20 de Novembro',
-    time: 'Programação completa',
-    location: 'Radio Hotel',
-    image: '/images/events/ferias-julho.png',
-    category: 'Feriado'
-  },
-  {
-    id: '6',
-    title: 'Semana Mágica do Dia das Crianças',
-    description: 'Uma semana inteira dedicada aos pequenos hóspedes, com nossa famosa monitoria de lazer, oficinas criativas, gincanas no parque e um cardápio especial para as crianças.',
-    date: 'Semana de 12 de Outubro',
-    time: 'Atividades das 9:00 às 22:00',
-    location: 'Áreas de Lazer e Parque',
-    image: '/images/events/ferias-julho.png',
-    category: 'Família'
-  }
-];
-
 interface EventsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
+  const { t } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+  const events: Event[] = [
+    {
+      id: '1',
+      title: t('eventsModal.italianNight.title'),
+      description: t('eventsModal.italianNight.description'),
+      date: t('eventsModal.italianNight.date'),
+      time: t('eventsModal.italianNight.time'),
+      location: t('eventsModal.italianNight.location'),
+      image: '/images/events/noite-italiana.png',
+      category: t('eventsModal.categories.gastronomy')
+    },
+    {
+      id: '2',
+      title: t('eventsModal.feijoada.title'),
+      description: t('eventsModal.feijoada.description'),
+      date: t('eventsModal.feijoada.date'),
+      time: t('eventsModal.feijoada.time'),
+      location: t('eventsModal.feijoada.location'),
+      image: '/images/events/sabado-feijoada.png',
+      category: t('eventsModal.categories.gastronomy')
+    },
+    {
+      id: '3',
+      title: t('eventsModal.guidedTour.title'),
+      description: t('eventsModal.guidedTour.description'),
+      date: t('eventsModal.guidedTour.date'),
+      time: t('eventsModal.guidedTour.time'),
+      location: t('eventsModal.guidedTour.location'),
+      image: '/images/events/passeios-bosque.png',
+      category: t('eventsModal.categories.wellness')
+    },
+    {
+      id: '4',
+      title: t('eventsModal.romanticPackage.title'),
+      description: t('eventsModal.romanticPackage.description'),
+      date: t('eventsModal.romanticPackage.date'),
+      time: t('eventsModal.romanticPackage.time'),
+      location: t('eventsModal.romanticPackage.location'),
+      image: '/images/events/pacotes-especiais.png',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: '5',
+      title: t('eventsModal.novemberHoliday.title'),
+      description: t('eventsModal.novemberHoliday.description'),
+      date: t('eventsModal.novemberHoliday.date'),
+      time: t('eventsModal.novemberHoliday.time'),
+      location: t('eventsModal.novemberHoliday.location'),
+      image: '/images/events/ferias-julho.png',
+      category: t('eventsModal.categories.holiday')
+    },
+    {
+      id: '6',
+      title: t('eventsModal.childrensWeek.title'),
+      description: t('eventsModal.childrensWeek.description'),
+      date: t('eventsModal.childrensWeek.date'),
+      time: t('eventsModal.childrensWeek.time'),
+      location: t('eventsModal.childrensWeek.location'),
+      image: '/images/events/ferias-julho.png',
+      category: t('eventsModal.categories.family')
+    }
+  ];
 
   useEffect(() => {
     if (isOpen) {
@@ -102,7 +104,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   }, [isOpen]);
 
   const handleBookEvent = (event: Event) => {
-    const message = `Olá! Gostaria de fazer uma reserva para o evento "${event.title}" no dia ${event.date} às ${event.time}. Poderiam me ajudar com mais informações?`;
+    const message = `${t('eventsModal.whatsapp.bookingMessage')} "${event.title}" ${t('eventsModal.whatsapp.onDay')} ${event.date} ${t('eventsModal.whatsapp.atTime')} ${event.time}. ${t('eventsModal.whatsapp.helpRequest')}`;
     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -144,8 +146,8 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
               </button>
               
               <div className="pr-12">
-                <h2 className="text-3xl font-serif font-bold mb-2">Eventos Especiais</h2>
-                <p className="text-white/95">Experiencias unicas no Radio Hotel</p>
+                <h2 className="text-3xl font-serif font-bold mb-2">{t('eventsModal.title')}</h2>
+                <p className="text-white/95">{t('eventsModal.subtitle')}</p>
               </div>
             </div>
 
@@ -221,7 +223,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                     onClick={() => setSelectedEvent(null)}
                     className="flex items-center gap-2 text-navy/70 hover:text-navy transition-colors"
                   >
-                    <span>← Voltar aos eventos</span>
+                    <span>← {t('eventsModal.navigation.backToEvents')}</span>
                   </button>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -251,7 +253,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                           <div className="flex items-center gap-3">
                             <Calendar className="w-5 h-5 text-gold" />
                             <div>
-                              <p className="text-sm text-navy/60">Data</p>
+                              <p className="text-sm text-navy/60">{t('eventsModal.labels.date')}</p>
                               <p className="font-medium text-navy">{selectedEvent.date}</p>
                             </div>
                           </div>
@@ -259,7 +261,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                           <div className="flex items-center gap-3">
                             <Clock className="w-5 h-5 text-gold" />
                             <div>
-                              <p className="text-sm text-navy/60">Horario</p>
+                              <p className="text-sm text-navy/60">{t('eventsModal.labels.time')}</p>
                               <p className="font-medium text-navy">{selectedEvent.time}</p>
                             </div>
                           </div>
@@ -269,7 +271,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                           <div className="flex items-center gap-3">
                             <MapPin className="w-5 h-5 text-gold" />
                             <div>
-                              <p className="text-sm text-navy/60">Local</p>
+                              <p className="text-sm text-navy/60">{t('eventsModal.labels.location')}</p>
                               <p className="font-medium text-navy">{selectedEvent.location}</p>
                             </div>
                           </div>
@@ -283,7 +285,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                           onClick={() => handleBookEvent(selectedEvent)}
                           className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 px-6 rounded-lg transition-colors"
                         >
-                          Reservar via WhatsApp
+                          {t('eventsModal.buttons.bookWhatsApp')}
                         </button>
                       </div>
                     </div>

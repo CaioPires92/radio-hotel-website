@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface NavbarProps {
   onBookingClick?: () => void;
@@ -12,6 +14,7 @@ interface NavbarProps {
 const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -39,18 +42,18 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   }, []);
 
   const menuItems = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Acomodações', href: '#accommodations' },
-    { name: 'Eventos', href: '#events' },
-    { name: 'Contato', href: '#contact' },
+    { name: t('navigation.home'), href: '#home' },
+    { name: t('about.title'), href: '#about' },
+    { name: t('navigation.accommodations'), href: '#accommodations' },
+    { name: t('navigation.events'), href: '#events' },
+    { name: t('navigation.contact'), href: '#contact' },
   ];
 
   const handleBookingClick = () => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel.';
+      const message = t('navbar.whatsapp.bookingMessage');
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
@@ -77,7 +80,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             <a href="#home" className="flex items-center space-x-3">
               <img
                 src={isScrolled ? "/logo-color.png" : "/logo.png"}
-                alt="Rádio Hotel Logo"
+                alt={t('navbar.logo.alt')}
                 className="w-20  object-contain transition-all duration-300"
               />
               <div className="hidden sm:block">
@@ -102,6 +105,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                   {item.name}
                 </motion.a>
               ))}
+              {/* Language Selector */}
+              <div className="ml-4">
+                <CompactLanguageSelector className="text-sm" />
+              </div>
             </div>
           </div>
 
@@ -113,10 +120,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 ? 'bg-gold hover:bg-gold/90 text-navy'
                 : 'bg-white hover:bg-white/90 text-navy'
                 }`}
-              aria-label="Fazer reserva no Radio Hotel"
+              aria-label={t('navigation.bookNow')}
             >
               <Phone className="w-4 h-4 mr-2" />
-              Reservar Agora
+              {t('navigation.bookNow')}
             </Button>
           </div>
 
@@ -129,7 +136,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               size="sm"
               className={`p-2 ${isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
                 }`}
-              aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-label={isOpen ? t('navbar.mobile.closeMenu') : t('navbar.mobile.openMenu')}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
@@ -168,17 +175,23 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               {item.name}
             </motion.a>
           ))}
+          {/* Language Selector Mobile */}
+          <div className="px-3 py-2 border-t border-gray-200">
+            <div className="flex items-center justify-center">
+              <CompactLanguageSelector className="text-sm" />
+            </div>
+          </div>
           <div className="px-3 py-2">
             <Button
               onClick={() => {
                 handleBookingClick();
                 setIsOpen(false);
               }}
-              aria-label="Fazer reserva no Radio Hotel"
+              aria-label={t('navigation.bookNow')}
               className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-2 rounded-full"
             >
               <Phone className="w-4 h-4 mr-2" />
-              Reservar Agora
+              {t('navigation.bookNow')}
             </Button>
           </div>
         </div>

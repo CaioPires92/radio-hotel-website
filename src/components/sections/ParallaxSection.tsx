@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, Calendar, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface ParallaxSectionProps {
   onBookingClick?: () => void;
 }
 
 const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
 
@@ -26,7 +28,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel. Podem me ajudar?';
+      const message = t('parallax.whatsapp.bookingMessage');
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
@@ -41,7 +43,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
       <section className="relative h-screen bg-navy flex items-center justify-center">
         <div className="text-center text-white">
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">
-            Sua Experiência Única Aguarda
+            {t('parallax.fallback.title')}
           </h2>
         </div>
       </section>
@@ -118,7 +120,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             viewport={{ once: true }}
           >
             <Star className="w-4 h-4 text-gold fill-current" />
-            <span className="text-gold font-medium text-sm">Experiência Premium</span>
+            <span className="text-gold font-medium text-sm">{t('parallax.badge')}</span>
             <Star className="w-4 h-4 text-gold fill-current" />
           </motion.div>
 
@@ -130,9 +132,9 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Sua Experiência
+            {t('parallax.title.line1')}
             <br />
-            <span className="text-gold">Única</span> Aguarda
+            <span className="text-gold">{t('parallax.title.highlight')}</span> {t('parallax.title.line2')}
           </motion.h2>
 
           {/* Subtitle */}
@@ -143,8 +145,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Desconecte-se do mundo e reconecte-se consigo mesmo em meio à natureza
-            exuberante de Serra Negra. Momentos inesquecíveis começam aqui.
+            {t('parallax.subtitle')}
           </motion.p>
 
           {/* Stats */}
@@ -157,15 +158,15 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
           >
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">80</div>
-              <div className="text-white text-sm uppercase tracking-wider">Anos de Tradição</div>
+              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.tradition')}</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">8.9</div>
-              <div className="text-white text-sm uppercase tracking-wider">Avaliação Geral</div>
+              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.rating')}</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
               <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">9.9</div>
-              <div className="text-white text-sm uppercase tracking-wider">Localização</div>
+              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.location')}</div>
             </div>
           </motion.div>
 
@@ -180,20 +181,20 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
             <Button
               onClick={handleBookingClick}
               className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
-              aria-label="Fazer reserva no Radio Hotel"
+              aria-label={t('parallax.buttons.bookingAriaLabel')}
             >
               <Phone className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-              Reservar Agora
+              {t('parallax.buttons.bookNow')}
             </Button>
 
             <Button
               onClick={handleCallClick}
               variant="outline"
               className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-navy/20"
-              aria-label="Consultar disponibilidade via telefone"
+              aria-label={t('parallax.buttons.availabilityAriaLabel')}
             >
               <Calendar className="w-5 h-5 mr-2" />
-              Consultar Disponibilidade
+              {t('parallax.buttons.checkAvailability')}
             </Button>
           </motion.div>
 
@@ -207,12 +208,12 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
           >
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">(19) 99999-9999</span>
+              <span className="text-sm">{t('contact.phone')}</span>
             </div>
             <div className="hidden sm:block w-px h-4 bg-white/30" />
             <div className="flex items-center space-x-2">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">Serra Negra, SP</span>
+              <span className="text-sm">{t('contact.location')}</span>
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface LoadingSpinnerProps {
   size?: 'sm' | 'md' | 'lg';
@@ -9,6 +10,8 @@ interface LoadingSpinnerProps {
 }
 
 const LoadingSpinner = ({ size = 'md', className, color = 'navy' }: LoadingSpinnerProps) => {
+  const { t } = useTranslation();
+  
   const sizeClasses = {
     sm: 'w-3 h-3 border-[1.5px]',
     md: 'w-4 h-4 border-2',
@@ -30,7 +33,7 @@ const LoadingSpinner = ({ size = 'md', className, color = 'navy' }: LoadingSpinn
         className
       )}
       role="status"
-      aria-label="Carregando"
+      aria-label={t('common.loading')}
     />
   );
 };
