@@ -26,7 +26,7 @@ const events: Event[] = [
     date: 'Toda Sexta-feira',
     time: '20:00',
     location: 'Restaurante Cinquentenário',
-    image: '/events/noite-italiana.svg',
+    image: '/images/events/noite-italiana.png',
     category: 'Gastronomia'
   },
   {
@@ -36,7 +36,7 @@ const events: Event[] = [
     date: 'Todo Sábado',
     time: '13:00',
     location: 'Restaurante Cinquentenário',
-    image: '/events/feijoada-sabado.svg',
+    image: '/images/events/sabado-feijoada.png',
     category: 'Gastronomia'
   },
   {
@@ -46,7 +46,7 @@ const events: Event[] = [
     date: 'Diariamente',
     time: '10:00',
     location: 'Parque Privativo do Hotel',
-    image: '/events/passeio-bosque.svg',
+    image: '/images/events/passeios-bosque.png',
     category: 'Bem-Estar & Lazer'
   },
   {
@@ -56,7 +56,7 @@ const events: Event[] = [
     date: 'Consulte disponibilidade',
     time: 'Check-in a partir das 14:00',
     location: 'Radio Hotel',
-    image: '/events/pacote-romantico.svg',
+    image: '/images/events/pacotes-especiais.png',
     category: 'Pacotes'
   },
   {
@@ -66,7 +66,7 @@ const events: Event[] = [
     date: 'Pacote de 17 a 20 de Novembro',
     time: 'Programação completa',
     location: 'Radio Hotel',
-    image: '/events/feriado-novembro.svg',
+    image: '/images/events/ferias-julho.png',
     category: 'Feriado'
   },
   {
@@ -76,7 +76,7 @@ const events: Event[] = [
     date: 'Semana de 12 de Outubro',
     time: 'Atividades das 9:00 às 22:00',
     location: 'Áreas de Lazer e Parque',
-    image: '/events/dia-criancas.svg',
+    image: '/images/events/ferias-julho.png',
     category: 'Família'
   }
 ];
