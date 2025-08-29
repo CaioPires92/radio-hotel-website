@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Leaf, 
-  Waves, 
-  Mountain, 
-  Utensils, 
-  Wifi, 
+import {
+  Leaf,
+  Waves,
+  Mountain,
+  Utensils,
+  Wifi,
   Car,
   Coffee,
   Dumbbell,
@@ -86,7 +86,7 @@ const Highlights = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   };
@@ -109,7 +109,7 @@ const Highlights = () => {
             Experiências Únicas
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Descubra os elementos que tornam o Rádio Hotel um destino especial, 
+            Descubra os elementos que tornam o Rádio Hotel um destino especial,
             onde tradição, natureza e conforto se encontram em perfeita harmonia.
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ const Highlights = () => {
               <motion.div
                 key={highlight.id}
                 variants={itemVariants}
-                className="group"
+                className="group relative"
               >
                 <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105">
                   <CardContent className="p-0 relative">
@@ -141,7 +141,7 @@ const Highlights = () => {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/20 to-transparent" />
-                      
+
                       {/* Icon */}
                       <div className="absolute top-4 left-4 w-12 h-12 bg-gold rounded-full flex items-center justify-center shadow-lg">
                         <Icon className="w-6 h-6 text-navy" />
@@ -156,7 +156,7 @@ const Highlights = () => {
                       <h3 className="text-xl font-serif font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300">
                         {highlight.title}
                       </h3>
-                      
+
                       <p className="text-navy/80 mb-4 leading-relaxed">
                         {highlight.description}
                       </p>
@@ -196,7 +196,7 @@ const Highlights = () => {
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-cream mb-6">
             Serviços Complementares
           </h3>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
               { icon: Wifi, name: 'Wi-Fi Gratuito', desc: 'Internet de alta velocidade' },
