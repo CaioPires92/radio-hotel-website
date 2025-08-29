@@ -14,8 +14,6 @@ interface Event {
   date: string;
   time: string;
   location: string;
-  capacity: number;
-  price: string;
   image: string;
   category: string;
 }
@@ -28,8 +26,6 @@ const events: Event[] = [
     date: 'Toda Sexta-feira',
     time: '20:00',
     location: 'Restaurante Cinquentenário',
-    capacity: 80,
-    price: 'R$ 150 por pessoa',
     image: '/events/noite-italiana.svg',
     category: 'Gastronomia'
   },
@@ -40,8 +36,6 @@ const events: Event[] = [
     date: 'Todo Sábado',
     time: '13:00',
     location: 'Restaurante Cinquentenário',
-    capacity: 100,
-    price: 'R$ 130 por pessoa',
     image: '/events/feijoada-sabado.svg',
     category: 'Gastronomia'
   },
@@ -52,8 +46,6 @@ const events: Event[] = [
     date: 'Diariamente',
     time: '10:00',
     location: 'Parque Privativo do Hotel',
-    capacity: 15,
-    price: 'Cortesia para Hóspedes',
     image: '/events/passeio-bosque.svg',
     category: 'Bem-Estar & Lazer'
   },
@@ -64,8 +56,6 @@ const events: Event[] = [
     date: 'Consulte disponibilidade',
     time: 'Check-in a partir das 14:00',
     location: 'Radio Hotel',
-    capacity: 10,
-    price: 'A partir de R$ 890 por diária',
     image: '/events/pacote-romantico.svg',
     category: 'Pacotes'
   },
@@ -76,8 +66,6 @@ const events: Event[] = [
     date: 'Pacote de 17 a 20 de Novembro',
     time: 'Programação completa',
     location: 'Radio Hotel',
-    capacity: 78,
-    price: 'Pacotes a consultar',
     image: '/events/feriado-novembro.svg',
     category: 'Feriado'
   },
@@ -88,8 +76,6 @@ const events: Event[] = [
     date: 'Semana de 12 de Outubro',
     time: 'Atividades das 9:00 às 22:00',
     location: 'Áreas de Lazer e Parque',
-    capacity: 50,
-    price: 'Incluso na diária',
     image: '/events/dia-criancas.svg',
     category: 'Família'
   }
@@ -214,12 +200,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                               </div>
                             </div>
                             
-                            <div className="pt-2 border-t border-gold/20">
-                              <div className="flex items-center justify-between">
-                                <span className="font-semibold text-gold">{event.price}</span>
-                                <span className="text-sm text-navy/60">{event.capacity} vagas</span>
-                              </div>
-                            </div>
+
                           </div>
                         </CardContent>
                       </Card>
@@ -287,23 +268,11 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                             </div>
                           </div>
                           
-                          <div className="flex items-center gap-3">
-                            <Users className="w-5 h-5 text-gold" />
-                            <div>
-                              <p className="text-sm text-navy/60">Capacidade</p>
-                              <p className="font-medium text-navy">{selectedEvent.capacity} pessoas</p>
-                            </div>
-                          </div>
+
                         </div>
                       </div>
                       
                       <div className="pt-6 border-t border-gold/20">
-                        <div className="flex items-center justify-between mb-4">
-                          <span className="text-2xl font-serif font-bold text-gold">
-                            {selectedEvent.price}
-                          </span>
-                        </div>
-                        
                         <button
                           onClick={() => handleBookEvent(selectedEvent)}
                           className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 px-6 rounded-lg transition-colors"
