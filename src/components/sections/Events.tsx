@@ -6,9 +6,11 @@ import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock } from 'lucid
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
 
 const Events = () => {
+  const { t } = useTranslation();
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isContactLoading, setIsContactLoading] = useState(false);
 
@@ -26,33 +28,52 @@ const Events = () => {
   const events = [
     {
       id: 1,
-      title: 'Centro de Convenções',
-      description: 'Nosso moderno centro de convenções de 800m² oferece infraestrutura completa para eventos corporativos, conferências e convenções de grande porte.',
+      title: t('events.convention.title'),
+      description: t('events.convention.description'),
       image: '/images/conventions/convention-1.jpg',
-      capacity: '300 pessoas',
-      duration: 'Flexível',
-      location: 'Centro de Convenções - 800m²',
-      features: ['Equipamentos audiovisuais HD', 'Wi-Fi de alta velocidade', 'Ar condicionado central', 'Sistema de som profissional', 'Iluminação cênica', 'Coffee break premium'],
+      capacity: t('events.convention.capacity'),
+      duration: t('events.convention.duration'),
+      location: t('events.convention.location'),
+      features: [
+        t('events.convention.features.audiovisual'),
+        t('events.convention.features.wifi'),
+        t('events.convention.features.airConditioning'),
+        t('events.convention.features.soundSystem'),
+        t('events.convention.features.lighting'),
+        t('events.convention.features.coffeeBreak')
+      ],
     },
     {
       id: 2,
-      title: 'Eventos Corporativos',
-      description: 'Espaços versáteis e equipados para reuniões executivas, treinamentos e eventos empresariais de médio porte.',
+      title: t('events.corporate.title'),
+      description: t('events.corporate.description'),
       image: '/images/conventions/convention-4.jpg',
-      capacity: '150 pessoas',
-      duration: '8 horas',
-      location: 'Salão Monterrey',
-      features: ['Projeção multimídia', 'Sistema de videoconferência', 'Coffee break', 'Estacionamento privativo', 'Suporte técnico'],
+      capacity: t('events.corporate.capacity'),
+      duration: t('events.corporate.duration'),
+      location: t('events.corporate.location'),
+      features: [
+        t('events.corporate.features.multimedia'),
+        t('events.corporate.features.videoConference'),
+        t('events.corporate.features.coffeeBreak'),
+        t('events.corporate.features.parking'),
+        t('events.corporate.features.technicalSupport')
+      ],
     },
     {
       id: 3,
-      title: 'Eventos Sociais',
-      description: 'Celebre momentos especiais em nossos salões elegantes, com atendimento personalizado em meio ao nosso parque natural de 60.000m².',
+      title: t('events.social.title'),
+      description: t('events.social.description'),
       image: '/images/conventions/convention-6.jpg',
-      capacity: '120 pessoas',
-      duration: '6 horas',
-      location: 'Salão Monte Carlo',
-      features: ['Decoração personalizada', 'Buffet gourmet', 'Estacionamento', 'Suporte técnico', 'Equipamentos audiovisuais'],
+      capacity: t('events.social.capacity'),
+      duration: t('events.social.duration'),
+      location: t('events.social.location'),
+      features: [
+        t('events.social.features.decoration'),
+        t('events.social.features.gourmetBuffet'),
+        t('events.social.features.parking'),
+        t('events.social.features.technicalSupport'),
+        t('events.social.features.audiovisual')
+      ],
     },
   ];
 
@@ -67,7 +88,7 @@ const Events = () => {
   const handleContactClick = async () => {
     setIsContactLoading(true);
     try {
-      const message = `Olá! Gostaria de saber mais sobre o evento: ${events[currentEvent].title}`;
+      const message = `${t('events.whatsapp.eventInquiry')} ${events[currentEvent].title}`;
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       // Simulate loading time for better UX
@@ -84,7 +105,7 @@ const Events = () => {
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="region"
-      aria-label="Carrossel de eventos"
+      aria-label={t('events.carousel.ariaLabel')}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -96,14 +117,13 @@ const Events = () => {
           viewport={{ once: true }}
         >
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
-            Eventos & MICE
+            {t('events.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
-            Centro de Convenções Premium
+            {t('events.title')}
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 80 anos de tradição em hospitalidade, oferecemos infraestrutura completa para eventos corporativos e sociais.
-            Nosso centro de convenções de 800m² comporta até 300 pessoas, em meio ao nosso parque natural de 60.000m².
+            {t('events.description')}
           </p>
         </motion.div>
 
@@ -170,7 +190,7 @@ const Events = () => {
 
                       {/* Features */}
                       <div className="mb-8">
-                        <h4 className="font-semibold text-navy mb-3">Incluso no pacote:</h4>
+                        <h4 className="font-semibold text-navy mb-3">{t('events.features.title')}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {events[currentEvent].features.map((feature, index) => (
                             <div key={index} className="flex items-center space-x-2">
@@ -186,14 +206,14 @@ const Events = () => {
                         onClick={handleContactClick}
                         disabled={isContactLoading}
                         className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-fit disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[180px] flex items-center justify-center"
-                        aria-label={`Solicitar orçamento para ${events[currentEvent].title}`}
+                        aria-label={`${t('events.requestQuote.ariaLabel')} ${events[currentEvent].title}`}
                       >
                         {isContactLoading ? (
                           <LoadingSpinner size="sm" color="navy" />
                         ) : (
                           <>
                             <Calendar className="w-4 h-4 mr-2" />
-                            Solicitar Orçamento
+                            {t('events.requestQuote.button')}
                           </>
                         )}
                       </Button>
@@ -208,7 +228,7 @@ const Events = () => {
           <button
             onClick={prevEvent}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label="Evento anterior"
+            aria-label={t('events.navigation.previous')}
             tabIndex={0}
           >
             <ChevronLeft className="w-6 h-6 text-navy" />
@@ -216,7 +236,7 @@ const Events = () => {
           <button
             onClick={nextEvent}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label="Próximo evento"
+            aria-label={t('events.navigation.next')}
             tabIndex={0}
           >
             <ChevronRight className="w-6 h-6 text-navy" />
@@ -233,7 +253,7 @@ const Events = () => {
                 ? 'bg-gold scale-125'
                 : 'bg-navy/20 hover:bg-navy/40'
                 }`}
-              aria-label={`Ver evento ${index + 1}`}
+              aria-label={`${t('events.navigation.viewEvent')} ${index + 1}`}
               tabIndex={0}
             />
           ))}
@@ -249,23 +269,22 @@ const Events = () => {
         >
           <div className="bg-cream rounded-2xl p-8">
             <h3 className="text-2xl font-serif font-bold text-navy mb-4">
-              Planejamento Personalizado
+              {t('events.planning.title')}
             </h3>
             <p className="text-navy/70 mb-6 max-w-2xl mx-auto">
-              Nossa equipe especializada trabalha com você para criar o evento perfeito,
-              cuidando de cada detalhe para garantir que tudo saia exatamente como você sonhou.
+              {t('events.planning.description')}
             </p>
             <Button
               onClick={() => {
-                const message = 'Olá! Gostaria de conversar sobre o planejamento de um evento no Radio Hotel.';
+                const message = t('events.whatsapp.planningInquiry');
                 const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
               }}
               variant="outline"
               className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
-              aria-label="Falar com especialista em eventos via WhatsApp"
+              aria-label={t('events.specialist.ariaLabel')}
             >
-              Falar com Especialista
+              {t('events.specialist.button')}
             </Button>
           </div>
         </motion.div>

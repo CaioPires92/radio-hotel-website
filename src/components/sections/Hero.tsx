@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, MapPin, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface HeroProps {
   onBookingClick?: () => void;
@@ -13,6 +14,7 @@ interface HeroProps {
 const Hero = ({ onBookingClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingLoading, setIsBookingLoading] = useState(false);
+  const { t } = useTranslation();
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -29,23 +31,23 @@ const Hero = ({ onBookingClick }: HeroProps) => {
     {
       id: 1,
       image: '/images/hero/hero1.jpg',
-      title: '80 Anos de Tradição em Serra Negra',
-      subtitle: 'Um legado de hospitalidade e excelência desde 1946',
-      description: 'Descubra o charme único do Radio Hotel, uma instituição com quase oito décadas de história, onde a hospitalidade tradicional encontra o conforto moderno no coração da "Cidade da Saúde".',
+      title: t('hero.slide1.title'),
+      subtitle: t('hero.slide1.subtitle'),
+      description: t('hero.slide1.description'),
     },
     {
       id: 2,
       image: '/images/hero/hero2.jpg',
-      title: 'Parque Privativo de 60.000 m²',
-      subtitle: 'Mata nativa, cachoeiras e natureza preservada',
-      description: 'Desfrute de momentos únicos em nosso vasto parque com mata nativa preservada, bosque de pinheiros e cachoeira própria - uma experiência de resort no centro da cidade.',
+      title: t('hero.slide2.title'),
+      subtitle: t('hero.slide2.subtitle'),
+      description: t('hero.slide2.description'),
     },
     {
       id: 3,
       image: '/images/hero/hero3.jpg',
-      title: 'Águas Radioativas Terapêuticas',
-      subtitle: 'Tradição centenária das águas medicinais de Serra Negra',
-      description: 'Experimente o bem-estar único das famosas águas radioativas em nossos apartamentos, uma tradição que remonta a 1928 e fez de Serra Negra a "Cidade da Saúde".',
+      title: t('hero.slide3.title'),
+      subtitle: t('hero.slide3.subtitle'),
+      description: t('hero.slide3.description'),
     },
   ];
 
@@ -71,7 +73,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       if (onBookingClick) {
         onBookingClick();
       } else {
-        const message = 'Olá! Gostaria de fazer uma reserva no Radio Hotel.';
+        const message = t('hero.whatsapp.bookingMessage');
         const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
       }
@@ -89,7 +91,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="region"
-      aria-label="Carrossel de imagens do hotel"
+      aria-label={t('hero.carousel.ariaLabel')}
     >
       {/* Background Carousel */}
       <div className="absolute inset-0">
@@ -133,7 +135,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <MapPin className="w-4 h-4 text-gold" />
-                  <span className="text-sm font-medium">Serra Negra, São Paulo</span>
+                  <span className="text-sm font-medium">{t('hero.location')}</span>
                   <div className="flex items-center space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3 h-3 fill-gold text-gold" />
@@ -183,14 +185,14 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                     disabled={isBookingLoading}
                     size="lg"
                     className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[180px] flex items-center justify-center"
-                    aria-label="Fazer reserva no Radio Hotel"
+                    aria-label={t('navigation.bookNow')}
                   >
                     {isBookingLoading ? (
                       <LoadingSpinner size="md" color="navy" />
                     ) : (
                       <>
                         <Phone className="w-5 h-5 mr-2" />
-                        Reservar Agora
+                        {t('navigation.bookNow')}
                       </>
                     )}
                   </Button>
@@ -201,9 +203,9 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                     onClick={() => {
                       document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    aria-label="Descobrir mais sobre o Radio Hotel"
+                    aria-label={t('hero.discoverMore')}
                   >
-                    Descobrir Mais
+                    {t('hero.discoverMore')}
                   </Button>
                 </motion.div>
               </motion.div>
@@ -216,7 +218,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
-        aria-label="Slide anterior"
+        aria-label={t('hero.previousSlide')}
         tabIndex={0}
       >
         <ChevronLeft className="w-6 h-6 text-white" />
@@ -224,7 +226,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
-        aria-label="Próximo slide"
+        aria-label={t('hero.nextSlide')}
         tabIndex={0}
       >
         <ChevronRight className="w-6 h-6 text-white" />
@@ -240,7 +242,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
                 ? 'bg-gold scale-125'
                 : 'bg-white/50 hover:bg-white/70'
               }`}
-            aria-label={`Ir para slide ${index + 1}`}
+            aria-label={`${t('hero.goToSlide')} ${index + 1}`}
             tabIndex={0}
           />
         ))}

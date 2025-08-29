@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import {
   Phone,
@@ -22,51 +23,52 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre o Hotel', href: '#about' },
-    { name: 'Acomodações', href: '#accommodations' },
-    { name: 'Eventos', href: '#events' },
-    { name: 'Galeria', href: '#gallery' },
-    { name: 'Contato', href: '#contact' },
+    { name: t('footer.quickLinks.home'), href: '#home' },
+    { name: t('footer.quickLinks.about'), href: '#about' },
+    { name: t('footer.quickLinks.accommodations'), href: '#accommodations' },
+    { name: t('footer.quickLinks.events'), href: '#events' },
+    { name: t('footer.quickLinks.gallery'), href: '#gallery' },
+    { name: t('footer.quickLinks.contact'), href: '#contact' },
   ];
 
   const services = [
-    { name: 'Wi-Fi Gratuito', icon: Wifi },
-    { name: 'Estacionamento', icon: Car },
-    { name: 'Room Service', icon: Coffee },
-    { name: 'Restaurante', icon: Utensils },
-    { name: 'Academia', icon: Dumbbell },
-    { name: 'Piscina', icon: Waves },
+    { name: t('footer.services.wifi'), icon: Wifi },
+    { name: t('footer.services.parking'), icon: Car },
+    { name: t('footer.services.roomService'), icon: Coffee },
+    { name: t('footer.services.restaurant'), icon: Utensils },
+    { name: t('footer.services.gym'), icon: Dumbbell },
+    { name: t('footer.services.pool'), icon: Waves },
   ];
 
   const contactInfo = [
     {
       icon: Phone,
-      label: 'Telefone',
+      label: t('footer.contact.phone.label'),
       value: '(19) 99999-9999',
       href: 'tel:+5519999999999',
     },
     {
       icon: Mail,
-      label: 'E-mail',
+      label: t('footer.contact.email.label'),
       value: 'contato@radiohotel.com.br',
       href: 'mailto:contato@radiohotel.com.br',
     },
     {
       icon: MapPin,
-      label: 'Endereço',
-      value: 'Rua das Montanhas, 123\nSerra Negra - SP, 13930-000',
+      label: t('footer.contact.address.label'),
+      value: t('footer.contact.address.value'),
       href: 'https://maps.google.com/?q=Serra+Negra+SP',
     },
     {
       icon: Clock,
-      label: 'Atendimento',
-      value: '24 horas por dia\n7 dias por semana',
+      label: t('footer.contact.hours.label'),
+      value: t('footer.contact.hours.value'),
       href: null,
     },
   ];
@@ -104,7 +106,7 @@ const Footer = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const message = 'Olá! Gostaria de mais informações sobre o Radio Hotel.';
+    const message = t('footer.whatsapp.message');
     const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -162,13 +164,12 @@ const Footer = () => {
                 <div className="flex items-center space-x-3 mb-4">
                   <img
                     src="/logo.png"
-                    alt="Rádio Hotel Logo"
+                    alt={t('footer.logo.alt')}
                     className="w-26 object-contain"
                   />
                 </div>
                 <p className="text-white leading-relaxed">
-                  Tradição e elegância no coração de Serra Negra.
-                  Uma experiência única em meio à natureza exuberante.
+                  {t('footer.description')}
                 </p>
               </div>
 
@@ -181,7 +182,7 @@ const Footer = () => {
                       key={social.name}
                       onClick={() => handleLinkClick(social.href)}
                       className={`w-10 h-10 bg-white/10 hover:bg-gold/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.color}`}
-                      aria-label={social.name}
+                      aria-label={t(`footer.social.${social.name.toLowerCase()}.ariaLabel`)}
                     >
                       <Icon className="w-5 h-5" />
                     </button>
@@ -199,7 +200,7 @@ const Footer = () => {
             >
               <h4 className="text-lg font-semibold text-gold mb-6 flex items-center">
                 <ExternalLink className="w-5 h-5 mr-2" />
-                Links Rápidos
+                {t('footer.quickLinks.title')}
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -223,7 +224,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold text-gold mb-6">
-                Nossos Serviços
+                {t('footer.services.title')}
               </h4>
               <ul className="space-y-3">
                 {services.map((service) => {
@@ -250,7 +251,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold text-gold mb-6">
-                Contato
+                {t('footer.contact.title')}
               </h4>
               <ul className="space-y-4">
                 {contactInfo.map((contact) => {
@@ -298,7 +299,7 @@ const Footer = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Phone className="w-4 h-4" />
-                <span>Fale Conosco no WhatsApp</span>
+                <span>{t('footer.whatsapp.button')}</span>
               </motion.button>
             </motion.div>
           </div>
@@ -315,17 +316,17 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="text-center">
               <h4 className="text-lg font-semibold text-gold mb-2">
-                Receba Nossas Ofertas Especiais
+                {t('footer.newsletter.title')}
               </h4>
               <p className="text-white/90 mb-4">
-                Cadastre-se e seja o primeiro a saber sobre promoções exclusivas
+                {t('footer.newsletter.description')}
               </p>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Seu melhor e-mail"
+                  placeholder={t('footer.newsletter.placeholder')}
                   className="flex-1 px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent backdrop-blur-sm"
                 />
                 <button
@@ -336,7 +337,7 @@ const Footer = () => {
                   {isSubmittingNewsletter ? (
                     <LoadingSpinner size="sm" color="navy" />
                   ) : (
-                    'Cadastrar'
+                    t('footer.newsletter.button')
                   )}
                 </button>
               </form>
@@ -349,22 +350,22 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-white/90 text-sm">
-                © {currentYear} Radio Hotel. Todos os direitos reservados.
+                {t('footer.copyright', { year: currentYear })}
               </div>
 
               <div className="flex items-center space-x-4 text-sm text-white/90">
                 <button className="hover:text-gold transition-colors duration-300">
-                  Política de Privacidade
+                  {t('footer.legal.privacy')}
                 </button>
                 <span>•</span>
                 <button className="hover:text-gold transition-colors duration-300">
-                  Termos de Uso
+                  {t('footer.legal.terms')}
                 </button>
                 <span>•</span>
                 <div className="flex items-center space-x-1">
-                  <span>Feito com</span>
+                  <span>{t('footer.madeWith.text')}</span>
                   <Heart className="w-4 h-4 text-red-500 fill-current" />
-                  <span>em Serra Negra</span>
+                  <span>{t('footer.madeWith.location')}</span>
                 </div>
               </div>
             </div>

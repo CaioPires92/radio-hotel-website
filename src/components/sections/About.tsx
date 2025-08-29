@@ -4,48 +4,51 @@ import { motion } from 'framer-motion';
 import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-
-const features = [
-  {
-    icon: Wifi,
-    title: 'Wi-Fi Gratuito',
-    description: 'Internet de alta velocidade em todas as areas'
-  },
-  {
-    icon: Car,
-    title: 'Estacionamento',
-    description: 'Vagas gratuitas e seguras para hospedes'
-  },
-  {
-    icon: Coffee,
-    title: 'Cafe da Manha',
-    description: 'Buffet completo com frutas frescas, paes e frios'
-  },
-  {
-    icon: Utensils,
-    title: 'Restaurante Cinquentenario',
-    description: 'Especializado em cozinha brasileira'
-  },
-  {
-    icon: Dumbbell,
-    title: 'Academia',
-    description: 'Centro de fitness bem equipado'
-  },
-  {
-    icon: Users,
-    title: 'Eventos',
-    description: 'Espacos para reunioes e celebracoes'
-  }
-];
-
-const stats = [
-  { number: '80', label: 'Anos de Tradicao' },
-  { number: '60k', label: 'M² de Parque Natural' },
-  { number: '8.9', label: 'Avaliacao Geral' },
-  { number: '9.9', label: 'Localizacao' }
-];
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 export default function About() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: Wifi,
+      title: t('about.features.wifi.title'),
+      description: t('about.features.wifi.description')
+    },
+    {
+      icon: Car,
+      title: t('about.features.parking.title'),
+      description: t('about.features.parking.description')
+    },
+    {
+      icon: Coffee,
+      title: t('about.features.breakfast.title'),
+      description: t('about.features.breakfast.description')
+    },
+    {
+      icon: Utensils,
+      title: t('about.features.restaurant.title'),
+      description: t('about.features.restaurant.description')
+    },
+    {
+      icon: Dumbbell,
+      title: t('about.features.gym.title'),
+      description: t('about.features.gym.description')
+    },
+    {
+      icon: Users,
+      title: t('about.features.events.title'),
+      description: t('about.features.events.description')
+    }
+  ];
+
+  const stats = [
+    { number: '80', label: t('about.stats.years') },
+    { number: '60k', label: t('about.stats.park') },
+    { number: '8.9', label: t('about.stats.rating') },
+    { number: '9.9', label: t('about.stats.location') }
+  ];
+
   return (
     <section id="about" className="py-20 bg-cream relative overflow-hidden">
       {/* Decorative Elements */}
@@ -89,8 +92,8 @@ export default function About() {
                     <Award className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-semibold text-navy">80 anos de</h4>
-                    <p className="text-gold font-medium">Excelencia</p>
+                    <h4 className="font-serif font-semibold text-navy">{t('about.award.years')}</h4>
+                    <p className="text-gold font-medium">{t('about.award.excellence')}</p>
                   </div>
                 </div>
               </motion.div>
@@ -119,12 +122,12 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <Star className="w-4 h-4 text-gold" />
-                <span className="text-sm font-medium text-navy">Sobre o Hotel</span>
+                <span className="text-sm font-medium text-navy">{t('about.badge')}</span>
               </motion.div>
 
               <h2 className="text-4xl lg:text-5xl font-serif font-bold text-navy leading-tight">
-                Tradição e Elegancia em
-                <span className="text-gold block">Serra Negra</span>
+                {t('about.title')}
+                <span className="text-gold block">{t('about.location')}</span>
               </h2>
             </div>
 
@@ -137,18 +140,11 @@ export default function About() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-navy/80 leading-relaxed">
-                Com 80 anos de tradicao, o Radio Hotel e mais que um lugar para se hospedar - e um
-                refugio onde a historia encontra o conforto moderno. Situado em um parque natural
-                de 60.000m² no coracao de Serra Negra, a "Cidade da Saude", oferecemos uma
-                experiencia unica em meio a natureza exuberante e as famosas aguas radioativas.
+                {t('about.description1')}
               </p>
 
               <p className="text-lg text-navy/80 leading-relaxed">
-                Serra Negra e reconhecida desde 1928 por suas aguas minerais radioativas com
-                propriedades terapeuticas comprovadas. Nosso hotel, com quase oito decadas de
-                historia, reflete esse compromisso com a excelencia em cada detalhe: da arquitetura
-                elegante ao atendimento personalizado, conquistando avaliacao 8.9/10 geral e
-                impressionantes 9.9/10 em localizacao.
+                {t('about.description2')}
               </p>
             </motion.div>
 

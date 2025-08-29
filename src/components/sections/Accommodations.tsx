@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, Wifi, Car, Coffee, Tv, Bath, Wind, Phone } f
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface AccommodationsProps {
   onBookingClick?: () => void;
@@ -13,58 +14,59 @@ interface AccommodationsProps {
 
 const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
+  const { t } = useTranslation();
 
   const rooms = [
     {
       id: 1,
-      name: 'Apartamento Standard',
-      type: 'Melhor Custo-Benefício',
-      description: 'O ponto de partida perfeito para explorar Serra Negra. Conforto e praticidade no coração da cidade, com a garantia de uma noite de sono tranquila. Equipado com janelas termoacústicas de tecnologia alemã para mitigar o ruído externo.',
+      name: t('accommodations.rooms.standard.name'),
+      type: t('accommodations.rooms.standard.type'),
+      description: t('accommodations.rooms.standard.description'),
       image: '/images/rooms/standard-1.jpg',
-      capacity: '2 pessoas',
+      capacity: t('accommodations.rooms.standard.capacity'),
       amenities: [
-        { icon: Wifi, name: 'Wi-Fi gratuito' },
-        { icon: Car, name: 'Estacionamento' },
-        { icon: Coffee, name: 'Frigobar' },
-        { icon: Tv, name: 'TV tela plana a cabo' },
-        { icon: Bath, name: 'Banheiro espaçoso' },
-        { icon: Wind, name: 'Ar condicionado' },
+        { icon: Wifi, name: t('accommodations.amenities.wifi') },
+        { icon: Car, name: t('accommodations.amenities.parking') },
+        { icon: Coffee, name: t('accommodations.amenities.minibar') },
+        { icon: Tv, name: t('accommodations.amenities.tv') },
+        { icon: Bath, name: t('accommodations.amenities.bathroom') },
+        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
       ],
-      features: ['Janelas termoacústicas alemãs', 'Localização central', 'Vista interna ou rua', 'Banheiro mais espaçoso da categoria'],
+      features: [t('accommodations.rooms.standard.features.0'), t('accommodations.rooms.standard.features.1'), t('accommodations.rooms.standard.features.2'), t('accommodations.rooms.standard.features.3')],
     },
     {
       id: 2,
-      name: 'Apartamento Luxo',
-      type: 'Tranquilidade Premium',
-      description: 'Um upgrade em tranquilidade e conforto. O refúgio ideal para quem deseja desfrutar de nossa estrutura com o máximo de sossego e exclusividade. Voltado para a serena área da piscina, 8m² mais espaçoso que a categoria Standard.',
+      name: t('accommodations.rooms.luxury.name'),
+      type: t('accommodations.rooms.luxury.type'),
+      description: t('accommodations.rooms.luxury.description'),
       image: '/images/rooms/luxo-2.jpg',
-      capacity: '2 pessoas',
+      capacity: t('accommodations.rooms.luxury.capacity'),
       amenities: [
-        { icon: Wifi, name: 'Wi-Fi gratuito' },
-        { icon: Car, name: 'Estacionamento' },
-        { icon: Coffee, name: 'Frigobar' },
-        { icon: Tv, name: 'TV tela plana a cabo' },
-        { icon: Bath, name: 'Banheiro espaçoso' },
-        { icon: Wind, name: 'Ar condicionado' },
+        { icon: Wifi, name: t('accommodations.amenities.wifi') },
+        { icon: Car, name: t('accommodations.amenities.parking') },
+        { icon: Coffee, name: t('accommodations.amenities.minibar') },
+        { icon: Tv, name: t('accommodations.amenities.tv') },
+        { icon: Bath, name: t('accommodations.amenities.bathroom') },
+        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
       ],
-      features: ['Vista para área da piscina', 'Ambiente mais silencioso', 'Piso aquecido (algumas unidades)', 'Piso antialérgico (algumas unidades)'],
+      features: [t('accommodations.rooms.luxury.features.0'), t('accommodations.rooms.luxury.features.1'), t('accommodations.rooms.luxury.features.2'), t('accommodations.rooms.luxury.features.3')],
     },
     {
       id: 3,
-      name: 'Quarto Quádruplo',
-      type: 'Apartamento Família',
-      description: 'O espaço e a configuração ideais para criar memórias em família com todo o conforto e conveniência. Projetado especificamente para acomodar até 4 pessoas com conforto máximo.',
+      name: t('accommodations.rooms.quadruple.name'),
+      type: t('accommodations.rooms.quadruple.type'),
+      description: t('accommodations.rooms.quadruple.description'),
       image: '/images/rooms/quadruplo-2.jpg',
-      capacity: '4 pessoas',
+      capacity: t('accommodations.rooms.quadruple.capacity'),
       amenities: [
-        { icon: Wifi, name: 'Wi-Fi gratuito' },
-        { icon: Car, name: 'Estacionamento' },
-        { icon: Coffee, name: 'Frigobar' },
-        { icon: Tv, name: 'TV tela plana a cabo' },
-        { icon: Bath, name: 'Banheiro espaçoso' },
-        { icon: Wind, name: 'Ar condicionado' },
+        { icon: Wifi, name: t('accommodations.amenities.wifi') },
+        { icon: Car, name: t('accommodations.amenities.parking') },
+        { icon: Coffee, name: t('accommodations.amenities.minibar') },
+        { icon: Tv, name: t('accommodations.amenities.tv') },
+        { icon: Bath, name: t('accommodations.amenities.bathroom') },
+        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
       ],
-      features: ['2 camas de solteiro', '1 cama de casal queen', 'Configuração familiar', 'Banheiro mais espaçoso da categoria'],
+      features: [t('accommodations.rooms.quadruple.features.0'), t('accommodations.rooms.quadruple.features.1'), t('accommodations.rooms.quadruple.features.2'), t('accommodations.rooms.quadruple.features.3')],
     },
   ];
 
@@ -80,7 +82,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = `Olá! Gostaria de fazer uma reserva para: ${roomName}`;
+      const message = `${t('accommodations.whatsapp.bookingMessage')} ${roomName}`;
       const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
@@ -98,15 +100,13 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
           viewport={{ once: true }}
         >
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
-            Acomodações
+            {t('accommodations.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
-            Conforto e Elegância
+            {t('accommodations.title')}
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Com 80 anos de tradição em hospitalidade, nossas acomodações foram cuidadosamente
-            projetadas para oferecer o máximo conforto em meio ao parque natural de 60.000m².
-            Cada quarto reflete nossa dedicação à excelência e ao bem-estar dos hóspedes.
+            {t('accommodations.subtitle')}
           </p>
         </motion.div>
 
@@ -199,7 +199,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                         aria-label={`Reservar ${rooms[currentRoom].name}`}
                       >
                         <Phone className="w-4 h-4 mr-2" />
-                        Reservar Agora
+                        {t('accommodations.buttons.bookNow')}
                       </Button>
                     </motion.div>
                   </div>
@@ -212,14 +212,14 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
           <button
             onClick={prevRoom}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
-            aria-label="Acomodação anterior"
+            aria-label={t('accommodations.navigation.previous')}
           >
             <ChevronLeft className="w-6 h-6 text-navy" />
           </button>
           <button
             onClick={nextRoom}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
-            aria-label="Próxima acomodação"
+            aria-label={t('accommodations.navigation.next')}
           >
             <ChevronRight className="w-6 h-6 text-navy" />
           </button>
@@ -235,7 +235,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                 ? 'bg-gold scale-125'
                 : 'bg-navy/20 hover:bg-navy/40'
                 }`}
-              aria-label={`Ver acomodação ${index + 1}`}
+              aria-label={`${t('accommodations.navigation.viewRoom')} ${index + 1}`}
             />
           ))}
         </div>

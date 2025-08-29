@@ -16,56 +16,59 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 const Highlights = () => {
+  const { t } = useTranslation();
+  
   const highlights = [
     {
       id: 1,
       icon: MapPin,
-      title: 'O Oásis no Coração da Cidade',
-      description: 'Imagine-se hospedado no ponto mais privilegiado do centro de Serra Negra, com uma localização avaliada em 9,9/10 por sua conveniência. A poucos passos, você tem acesso a todas as atrações da cidade. Agora, imagine retornar ao hotel e adentrar um parque privativo de 60.000 m², com mata nativa preservada e uma cachoeira particular.',
+      title: t('highlights.location.title'),
+      description: t('highlights.location.description'),
       image: '/images/facilities/bosque1.jpg',
-      features: ['Localização 9,9/10', 'Parque privativo 60.000m²', 'Cachoeira particular'],
+      features: [t('highlights.location.features.0'), t('highlights.location.features.1'), t('highlights.location.features.2')],
     },
     {
       id: 2,
       icon: Waves,
-      title: 'Um Mergulho na História da Saúde',
-      description: 'Em seu próprio apartamento, oferecemos uma conexão direta com a alma de Serra Negra. A experiência de um banho com nossas famosas "águas radioativas", cujas propriedades foram descobertas em 1928 e deram à cidade o título de "Cidade da Saúde", é o nosso diferencial mais distinto.',
+      title: t('highlights.wellness.title'),
+      description: t('highlights.wellness.description'),
       image: '/images/facilities/piscina1.jpg',
-      features: ['Águas radioativas desde 1928', 'Cidade da Saúde', 'Ritual de bem-estar'],
+      features: [t('highlights.wellness.features.0'), t('highlights.wellness.features.1'), t('highlights.wellness.features.2')],
     },
     {
       id: 3,
       icon: Utensils,
-      title: 'Sabores que Contam Histórias',
-      description: 'Vivencie uma jornada gastronômica em nosso Restaurante Cinquentenário, um dos pilares da nossa reputação de 80 anos. Nossos hóspedes descrevem nossa culinária brasileira como "excepcional". A experiência se adapta ao seu ritmo: durante a semana, desfrute de um refinado menu à la carte; nos fins de semana, delicie-se com um buffet completo e variado.',
+      title: t('highlights.gastronomy.title'),
+      description: t('highlights.gastronomy.description'),
       image: '/images/restaurant/restaurante1.jpg',
-      features: ['Restaurante Cinquentenário', 'Culinária brasileira excepcional', 'Menu à la carte e buffet'],
+      features: [t('highlights.gastronomy.features.0'), t('highlights.gastronomy.features.1'), t('highlights.gastronomy.features.2')],
     },
     {
       id: 4,
       icon: Leaf,
-      title: 'O Refúgio do Silêncio e Conforto',
-      description: 'Para quem busca máxima tranquilidade, criamos uma experiência de hospedagem superior. Nossos apartamentos da categoria Luxo são 8 m² mais espaçosos e estão estrategicamente voltados para a serena área da piscina, garantindo um ambiente mais silencioso. Alguns ainda oferecem o conforto de piso aquecido e antialérgico.',
+      title: t('highlights.comfort.title'),
+      description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
-      features: ['8m² mais espaçosos', 'Vista para área da piscina', 'Piso aquecido antialérgico'],
+      features: [t('highlights.comfort.features.0'), t('highlights.comfort.features.1'), t('highlights.comfort.features.2')],
     },
     {
       id: 5,
       icon: Star,
-      title: 'A Arte de Bem-Receber',
-      description: 'A verdadeira alma do Radio Hotel reside em nossa equipe. Com uma avaliação de 9,7/10, nosso time é consistentemente descrito como "impecável", "extremamente atencioso" e de "extrema educação e simpatia". A experiência aqui é sentir-se acolhido por uma cultura de serviço tão poderosa que se tornou um dos nossos ativos mais valiosos.',
+      title: t('highlights.service.title'),
+      description: t('highlights.service.description'),
       image: '/images/facilities/facilities.jpg',
-      features: ['Avaliação 9,7/10', 'Equipe impecável', 'Cultura de serviço excepcional'],
+      features: [t('highlights.service.features.0'), t('highlights.service.features.1'), t('highlights.service.features.2')],
     },
     {
       id: 6,
       icon: Mountain,
-      title: 'Negócios em um Cenário Inspirador',
-      description: 'Para o público corporativo, oferecemos a experiência de realizar um evento impecável sem abrir mão do lazer e da inspiração. Nosso moderno Centro de Convenções tem capacidade para até 300 pessoas em formato de auditório e conta com múltiplas salas de apoio. A combinação de uma estrutura profissional completa com estacionamento, gastronomia de ponta e todas as opções de lazer de um resort cria uma solução MICE única na região.',
+      title: t('highlights.business.title'),
+      description: t('highlights.business.description'),
       image: '/images/conventions/convention-1.jpg',
-      features: ['Centro de Convenções 300 pessoas', 'Múltiplas salas de apoio', 'Solução MICE completa'],
+      features: [t('highlights.business.features.0'), t('highlights.business.features.1'), t('highlights.business.features.2')],
     },
   ];
 
@@ -103,14 +106,13 @@ const Highlights = () => {
           viewport={{ once: true }}
         >
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
-            Nossos Diferenciais
+            {t('highlights.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
-            Experiências Únicas
+            {t('highlights.title')}
           </h2>
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
-            Descubra os elementos que tornam o Radio Hotel um destino especial,
-            onde tradição, natureza e conforto se encontram em perfeita harmonia.
+            {t('highlights.subtitle')}
           </p>
         </motion.div>
 
@@ -199,10 +201,10 @@ const Highlights = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Wifi, name: 'Wi-Fi Gratuito', desc: 'Internet de alta velocidade' },
-              { icon: Car, name: 'Estacionamento', desc: 'Vagas cobertas gratuitas' },
-              { icon: Dumbbell, name: 'Academia', desc: 'Equipamentos modernos' },
-              { icon: Coffee, name: 'Room Service', desc: 'Serviço 24 horas' },
+              { icon: Wifi, name: t('highlights.services.wifi.name'), desc: t('highlights.services.wifi.desc') },
+              { icon: Car, name: t('highlights.services.parking.name'), desc: t('highlights.services.parking.desc') },
+              { icon: Dumbbell, name: t('highlights.services.gym.name'), desc: t('highlights.services.gym.desc') },
+              { icon: Coffee, name: t('highlights.services.roomService.name'), desc: t('highlights.services.roomService.desc') },
             ].map((service, index) => {
               const ServiceIcon = service.icon;
               return (

@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { useTranslation } from '@/components/i18n/I18nProvider';
 
 interface BookingFormProps {
   isOpen: boolean;
@@ -28,6 +29,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   if (process.env.NODE_ENV === 'development') {
     console.log('BookingForm - isOpen:', isOpen);
   }
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     checkIn: '',
     checkOut: '',
@@ -64,10 +66,10 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }, [isOpen, onClose]);
 
   const roomTypes = [
-    { value: 'standard', label: 'Quarto Standard - R$ 220/noite', price: 220 },
-    { value: 'deluxe', label: 'Quarto Deluxe - R$ 320/noite', price: 320 },
-    { value: 'suite-master', label: 'Suíte Master - R$ 450/noite', price: 450 },
-    { value: 'suite-familia', label: 'Suíte Família - R$ 520/noite', price: 520 },
+    { value: 'standard', label: `${t('booking.roomTypes.standard')} - ${t('booking.currency')} 220/${t('booking.perNight')}`, price: 220 },
+    { value: 'deluxe', label: `${t('booking.roomTypes.deluxe')} - ${t('booking.currency')} 320/${t('booking.perNight')}`, price: 320 },
+    { value: 'suite-master', label: `${t('booking.roomTypes.suiteMaster')} - ${t('booking.currency')} 450/${t('booking.perNight')}`, price: 450 },
+    { value: 'suite-familia', label: `${t('booking.roomTypes.suiteFamily')} - ${t('booking.currency')} 520/${t('booking.perNight')}`, price: 520 },
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -137,15 +139,15 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.checkIn) {
-      newErrors.checkIn = 'Data de check-in é obrigatória';
+      newErrors.checkIn = t('booking.validation.checkInRequired');
     }
 
     if (!formData.checkOut) {
-      newErrors.checkOut = 'Data de check-out é obrigatória';
+      newErrors.checkOut = t('booking.validation.checkOutRequired');
     }
 
     if (!formData.roomType) {
-      newErrors.roomType = 'Selecione um tipo de acomodação';
+      newErrors.roomType = t('booking.validation.roomTypeRequired');
     }
 
     // Validate date logic
@@ -156,11 +158,11 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       today.setHours(0, 0, 0, 0);
 
       if (checkInDate < today) {
-        newErrors.checkIn = 'Data de check-in não pode ser anterior a hoje';
+        newErrors.checkIn = t('booking.validation.checkInPastDate');
       }
 
       if (checkOutDate <= checkInDate) {
-        newErrors.checkOut = 'Data de check-out deve ser posterior ao check-in';
+        newErrors.checkOut = t('booking.validation.checkOutAfterCheckIn');
       }
     }
 
@@ -168,7 +170,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     if (parseInt(formData.children) > 0) {
       const missingAges = formData.childrenAges.some(age => !age);
       if (missingAges) {
-        newErrors.childrenAges = 'Informe a idade de todas as crianças';
+        newErrors.childrenAges = t('booking.validation.childrenAgesRequired');
       }
     }
 
@@ -186,26 +188,26 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const nights = calculateNights();
     const total = calculateTotal();
 
-    let message = `🏨 *SOLICITAÇÃO DE RESERVA - Radio Hotel*\n\n`;
-    message += `📅 *Check-in:* ${formatDate(formData.checkIn)}\n`;
-    message += `📅 *Check-out:* ${formatDate(formData.checkOut)}\n`;
-    message += `🌙 *Noites:* ${nights}\n\n`;
-    message += `👥 *Hóspedes:*\n`;
-    message += `• Adultos: ${formData.adults}\n`;
-    message += `• Crianças: ${formData.children}\n`;
+    let message = `🏨 *${t('booking.whatsapp.title')}*\n\n`;
+    message += `📅 *${t('booking.whatsapp.checkIn')}:* ${formatDate(formData.checkIn)}\n`;
+    message += `📅 *${t('booking.whatsapp.checkOut')}:* ${formatDate(formData.checkOut)}\n`;
+    message += `🌙 *${t('booking.whatsapp.nights')}:* ${nights}\n\n`;
+    message += `👥 *${t('booking.whatsapp.guests')}:*\n`;
+    message += `• ${t('booking.whatsapp.adults')}: ${formData.adults}\n`;
+    message += `• ${t('booking.whatsapp.children')}: ${formData.children}\n`;
 
     if (formData.childrenAges.length > 0 && formData.childrenAges.some(age => age)) {
-      message += `• Idades das crianças: ${formData.childrenAges.filter(age => age).join(', ')} anos\n`;
+      message += `• ${t('booking.whatsapp.childrenAges')}: ${formData.childrenAges.filter(age => age).join(', ')} ${t('booking.whatsapp.years')}\n`;
     }
 
-    message += `\n🛏️ *Acomodação:* ${selectedRoom?.label}\n`;
-    message += `💰 *Valor estimado:* R$ ${total.toLocaleString('pt-BR')}\n`;
+    message += `\n🛏️ *${t('booking.whatsapp.accommodation')}:* ${selectedRoom?.label}\n`;
+    message += `💰 *${t('booking.whatsapp.estimatedValue')}:* ${t('booking.currency')} ${total.toLocaleString('pt-BR')}\n`;
 
     if (formData.specialRequests) {
-      message += `\n📝 *Observações:* ${formData.specialRequests}\n`;
+      message += `\n📝 *${t('booking.whatsapp.observations')}:* ${formData.specialRequests}\n`;
     }
 
-    message += `\n✨ Aguardo confirmação da disponibilidade e valores finais.`;
+    message += `\n✨ ${t('booking.whatsapp.confirmation')}.`;
 
     // Open WhatsApp
     const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
@@ -270,7 +272,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                 <button
                   onClick={onClose}
                   className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold"
-                  aria-label="Fechar formulário"
+                  aria-label={t('booking.closeForm')}
                   tabIndex={0}
                 >
                   <X className="w-5 h-5" />
@@ -278,11 +280,11 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
                 <CardTitle id="booking-form-title" className="text-2xl font-serif flex items-center space-x-2">
                   <Calendar className="w-6 h-6 text-gold" />
-                  <span>Fazer Reserva</span>
+                  <span>{t('booking.title')}</span>
                 </CardTitle>
 
                 <p className="text-white/95 mt-2">
-                  Preencha os dados abaixo e enviaremos sua solicitação via WhatsApp
+                  {t('booking.subtitle')}
                 </p>
               </CardHeader>
 
@@ -293,7 +295,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
-                        Check-in *
+                        {t('booking.checkIn')} *
                       </label>
                       <input
                         type="date"
@@ -312,7 +314,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
-                        Check-out *
+                        {t('booking.checkOut')} *
                       </label>
                       <input
                         type="date"
@@ -334,7 +336,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Users className="w-4 h-4 inline mr-1" />
-                        Adultos *
+                        {t('booking.adults')} *
                       </label>
                       <Select value={formData.adults} onValueChange={(value) => handleInputChange('adults', value)}>
                         <SelectTrigger className="w-full">
@@ -343,7 +345,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         <SelectContent>
                           {[1, 2, 3, 4, 5, 6].map(num => (
                             <SelectItem key={num} value={num.toString()}>
-                              {num} {num === 1 ? 'adulto' : 'adultos'}
+                              {num} {num === 1 ? t('booking.adultSingular') : t('booking.adultPlural')}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -353,7 +355,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     <div>
                       <label className="block text-sm font-medium text-navy mb-2">
                         <Baby className="w-4 h-4 inline mr-1" />
-                        Crianças
+                        {t('booking.children')}
                       </label>
                       <Select value={formData.children} onValueChange={(value) => handleInputChange('children', value)}>
                         <SelectTrigger className="w-full">
@@ -362,7 +364,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         <SelectContent>
                           {[0, 1, 2, 3, 4].map(num => (
                             <SelectItem key={num} value={num.toString()}>
-                              {num} {num === 1 ? 'criança' : 'crianças'}
+                              {num} {num === 1 ? t('booking.childSingular') : t('booking.childPlural')}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -379,14 +381,14 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                       className="space-y-2"
                     >
                       <label className="block text-sm font-medium text-navy">
-                        Idades das crianças
+                        {t('booking.childrenAges')}
                       </label>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         {formData.childrenAges.map((age, index) => (
                           <input
                             key={index}
                             type="number"
-                            placeholder={`Criança ${index + 1}`}
+                            placeholder={`${t('booking.child')} ${index + 1}`}
                             value={age}
                             onChange={(e) => handleChildAgeChange(index, e.target.value)}
                             min="0"
@@ -406,12 +408,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
                       <Bed className="w-4 h-4 inline mr-1" />
-                      Tipo de Acomodação *
+                      {t('booking.accommodationType')} *
                     </label>
                     <Select value={formData.roomType} onValueChange={(value) => handleInputChange('roomType', value)}>
                       <SelectTrigger className={`w-full ${errors.roomType ? 'border-red-500' : ''
                         }`}>
-                        <SelectValue placeholder="Selecione uma acomodação" />
+                        <SelectValue placeholder={t('booking.selectAccommodation')} />
                       </SelectTrigger>
                       <SelectContent>
                         {roomTypes.map(room => (
@@ -429,12 +431,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Special Requests */}
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
-                      Observações especiais
+                      {t('booking.specialRequests')}
                     </label>
                     <textarea
                       value={formData.specialRequests}
                       onChange={(e) => handleInputChange('specialRequests', e.target.value)}
-                      placeholder="Alguma solicitação especial? (aniversário, lua de mel, acessibilidade, etc.)"
+                      placeholder={t('booking.specialRequestsPlaceholder')}
                       rows={3}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
                     />
@@ -449,29 +451,29 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     >
                       <h4 className="font-semibold text-navy mb-3 flex items-center">
                         <Clock className="w-4 h-4 mr-2" />
-                        Resumo da Reserva
+                        {t('booking.summary.title')}
                       </h4>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
-                          <span className="text-navy/70">Período:</span>
+                          <span className="text-navy/70">{t('booking.summary.period')}:</span>
                           <span className="font-medium text-navy">
                             {formatDate(formData.checkIn)} - {formatDate(formData.checkOut)}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-navy/70">Noites:</span>
+                          <span className="text-navy/70">{t('booking.summary.nights')}:</span>
                           <span className="font-medium text-navy">{calculateNights()}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-navy/70">Hóspedes:</span>
+                          <span className="text-navy/70">{t('booking.summary.guests')}:</span>
                           <span className="font-medium text-navy">
-                            {formData.adults} adulto(s) + {formData.children} criança(s)
+                            {formData.adults} {t('booking.summary.adults')} + {formData.children} {t('booking.summary.children')}
                           </span>
                         </div>
                         <div className="flex justify-between border-t border-gold/20 pt-2">
-                          <span className="font-semibold text-navy">Valor estimado:</span>
+                          <span className="font-semibold text-navy">{t('booking.summary.estimatedValue')}:</span>
                           <span className="font-bold text-gold text-lg">
-                            R$ {calculateTotal().toLocaleString('pt-BR')}
+                            {t('booking.currency')} {calculateTotal().toLocaleString('pt-BR')}
                           </span>
                         </div>
                       </div>
@@ -483,17 +485,17 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     type="submit"
                     disabled={isSubmitting || !formData.checkIn || !formData.checkOut || !formData.roomType}
                     className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                    aria-label="Enviar solicitação de reserva via WhatsApp"
+                    aria-label={t('booking.submitAriaLabel')}
                   >
                     {isSubmitting ? (
                       <div className="flex items-center space-x-2">
                         <LoadingSpinner size="md" color="navy" />
-                        <span>Enviando...</span>
+                        <span>{t('booking.sending')}</span>
                       </div>
                     ) : (
                       <div className="flex items-center space-x-2">
                         <Phone className="w-5 h-5" />
-                        <span>Enviar Solicitação via WhatsApp</span>
+                        <span>{t('booking.submitButton')}</span>
                       </div>
                     )}
                   </Button>
@@ -501,7 +503,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Info */}
                   <div className="text-center text-sm text-navy/60">
                     <MapPin className="w-4 h-4 inline mr-1" />
-                    Você será redirecionado para o WhatsApp para finalizar sua reserva
+                    {t('booking.whatsappRedirect')}
                   </div>
                 </form>
               </CardContent>
