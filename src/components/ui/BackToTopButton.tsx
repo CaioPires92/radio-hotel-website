@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp, ChevronUp } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 
 export default function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,7 +58,7 @@ export default function BackToTopButton() {
           <motion.button
             onClick={scrollToTop}
             onKeyDown={handleKeyDown}
-            className="group relative bg-navy/90 hover:bg-navy text-white p-3 rounded-full shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-navy/25 border border-white/10 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
+            className="group relative bg-navy/90 hover:bg-navy text-white p-3 rounded-full shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-navy/25 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Voltar ao topo da página"
