@@ -105,7 +105,7 @@ export default function WhatsAppButton() {
             <AnimatePresence>
               {isHovered && (
                 <motion.div
-                  className="absolute bottom-full mb-3 left-0 transform -translate-x-full mr-3 bg-navy text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap shadow-lg"
+                  className="absolute bottom-full mb-1 left-0 transform -translate-x-full -ml-4 bg-navy text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap shadow-lg"
                   initial={{ opacity: 0, y: 10, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.8 }}
@@ -115,7 +115,7 @@ export default function WhatsAppButton() {
                     <Phone className="w-4 h-4" />
                     <span>Fale conosco no WhatsApp!</span>
                   </div>
-                  <div className="absolute top-full left-4 transform translate-x-1/2 border-4 border-transparent border-t-navy" />
+                  <div className="absolute top-full right-4 transform -translate-x-1/2 border-4 border-transparent border-t-navy" />
                 </motion.div>
               )}
             </AnimatePresence>
