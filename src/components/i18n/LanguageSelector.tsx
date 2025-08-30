@@ -96,8 +96,8 @@ export function LanguageSelector({
         className={cn(
           "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors duration-200",
           "hover:bg-gray-100 dark:hover:bg-gray-800",
-          "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
-          "border border-gray-200 dark:border-gray-700",
+          "focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
+          "border border-gold text-white bg-navy/80 hover:bg-navy",
           variant === 'compact' && "px-2 py-1 text-sm",
           variant === 'icon-only' && "p-2"
         )}
