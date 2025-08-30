@@ -1,26 +1,30 @@
-# 🏨 Radio Hotel - Website Oficial
+# Radio Hotel - Website Oficial
 
-Website premium do Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Desenvolvido com as melhores práticas de desenvolvimento web, focando em performance, acessibilidade e experiência do usuário.
+![Radio Hotel](./public/logo.svg)
 
-## ✨ Características
+## 🏨 Sobre o Projeto
 
-- **Design Premium**: Interface elegante inspirada em hotéis de luxo mundiais
-- **Performance Otimizada**: Lighthouse Score 90+ em todas as métricas
-- **Acessibilidade WCAG 2.1 AA**: Totalmente acessível para todos os usuários
-- **SEO Otimizado**: Meta tags, dados estruturados e sitemap completos
-- **Responsivo**: Experiência perfeita em todos os dispositivos
-- **Animações Suaves**: Micro-interações com Framer Motion
+Site oficial do **Radio Hotel**, um refúgio de elegância e tradição localizado no coração de Serra Negra, SP. O projeto foi desenvolvido com foco em experiência premium, performance e acessibilidade, oferecendo uma interface moderna e sofisticada que reflete a qualidade e tradição do hotel.
 
-## 🚀 Tecnologias
+## ✨ Características Principais
+
+- **Design Premium**: Interface elegante inspirada em hotéis de luxo como Ritz-Carlton e Shangri-La
+- **Experiência Imersiva**: Carrossel hero full-screen, seções parallax e animações sutis
+- **Responsivo**: Design mobile-first com experiência otimizada para todos os dispositivos
+- **Performance**: Otimizado para Core Web Vitals e carregamento rápido
+- **Acessibilidade**: Conformidade com WCAG 2.1 AA
+- **SEO Otimizado**: Meta tags, JSON-LD, sitemap e robots.txt
+
+## 🛠️ Stack Tecnológica
 
 - **Framework**: Next.js 14 (App Router)
 - **Linguagem**: TypeScript
 - **Estilização**: TailwindCSS
-- **Componentes**: shadcn/ui + Magic UI
+- **Componentes**: Shadcn/UI + Magic UI
 - **Animações**: Framer Motion
-- **Testes**: Vitest (Unit) + Playwright (E2E)
+- **Testes**: Vitest (unitários) + Playwright (E2E)
 - **CI/CD**: GitHub Actions
-- **Deploy**: Vercel
+- **Deploy**: GitHub Pages (exportação estática)
 
 ## 🎨 Paleta de Cores
 
