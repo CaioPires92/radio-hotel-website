@@ -324,6 +324,20 @@
         "photography": "Photography spaces"
       }
     },
+    "social": {
+      "title": "Social Events",
+      "description": "Birthdays, graduations, and special celebrations in a welcoming and elegant environment.",
+      "capacity": "Up to 80 people",
+      "duration": "4-6 hours",
+      "location": "Social Hall",
+      "features": {
+        "decoration": "Themed decoration",
+        "gourmetBuffet": "Gourmet buffet",
+        "parking": "Free parking",
+        "technicalSupport": "Technical support",
+        "audiovisual": "Audiovisual system"
+      }
+    },
     "types": {
       "wedding": {
         "name": "Weddings",
@@ -335,18 +349,7 @@
       },
       "social": {
         "name": "Social Events",
-        "description": "Birthdays, graduations, and special celebrations in a welcoming and elegant environment.",
-        "title": "Social Events",
-        "capacity": "Up to 80 people",
-        "duration": "4-6 hours",
-        "location": "Social Hall",
-        "features": {
-          "decoration": "Themed decoration",
-          "gourmetBuffet": "Gourmet buffet",
-          "parking": "Free parking",
-          "technicalSupport": "Technical support",
-          "audiovisual": "Audiovisual system"
-        }
+        "description": "Birthdays, graduations, and special celebrations in a welcoming and elegant environment."
       }
     }
   },

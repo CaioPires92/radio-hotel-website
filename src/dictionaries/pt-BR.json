@@ -239,19 +239,9 @@
         "photography": "Espaços fotográficos"
       }
     },
-    "types": {
-      "wedding": {
-        "name": "Casamentos",
-        "description": "Celebre o amor em um cenário romântico e inesquecível."
-      },
-      "corporate": {
-        "name": "Eventos Corporativos",
-        "description": "Espaços profissionais para reuniões, conferências e treinamentos."
-      },
-      "social": {
-      "name": "Eventos Sociais",
-      "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante.",
+    "social": {
       "title": "Eventos Sociais",
+      "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante.",
       "capacity": "Até 80 pessoas",
       "duration": "4-6 horas",
       "location": "Salão Social",
@@ -262,7 +252,20 @@
         "technicalSupport": "Suporte técnico",
         "audiovisual": "Sistema audiovisual"
       }
-    }
+    },
+    "types": {
+      "wedding": {
+        "name": "Casamentos",
+        "description": "Celebre o amor em um cenário romântico e inesquecível."
+      },
+      "corporate": {
+        "name": "Eventos Corporativos",
+        "description": "Espaços profissionais para reuniões, conferências e treinamentos."
+      },
+      "social": {
+        "name": "Eventos Sociais",
+        "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante."
+      }
     }
   },
   "highlights": {

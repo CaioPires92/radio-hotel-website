@@ -324,6 +324,20 @@
         "photography": "Espacios fotográficos"
       }
     },
+    "social": {
+      "title": "Eventos Sociales",
+      "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante.",
+      "capacity": "Hasta 80 personas",
+      "duration": "4-6 horas",
+      "location": "Salón Social",
+      "features": {
+        "decoration": "Decoración temática",
+        "gourmetBuffet": "Buffet gourmet",
+        "parking": "Estacionamiento gratuito",
+        "technicalSupport": "Soporte técnico",
+        "audiovisual": "Sistema audiovisual"
+      }
+    },
     "types": {
       "wedding": {
         "name": "Bodas",
@@ -335,18 +349,7 @@
       },
       "social": {
         "name": "Eventos Sociales",
-        "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante.",
-        "title": "Eventos Sociales",
-        "capacity": "Hasta 80 personas",
-        "duration": "4-6 horas",
-        "location": "Salón Social",
-        "features": {
-          "decoration": "Decoración temática",
-          "gourmetBuffet": "Buffet gourmet",
-          "parking": "Estacionamiento gratuito",
-          "technicalSupport": "Soporte técnico",
-          "audiovisual": "Sistema audiovisual"
-        }
+        "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante."
       }
     }
   },
