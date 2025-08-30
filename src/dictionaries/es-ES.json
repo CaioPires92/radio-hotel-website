@@ -260,10 +260,70 @@
   "events": {
     "title": "Eventos Especiales",
     "subtitle": "Momentos Inolvidables en un Entorno Único",
-    "description": "Realiza tu evento soñado en nuestros espacios elegantes, rodeados de naturaleza.",
+    "description": "Celebra tu evento soñado en nuestros espacios elegantes, rodeados de naturaleza.",
     "viewMore": "Ver Más",
     "bookEvent": "Solicitar Presupuesto",
     "capacity": "Capacidad",
+    "requestQuote": {
+      "button": "Solicitar Presupuesto",
+      "ariaLabel": "Solicitar presupuesto para"
+    },
+    "features": {
+      "title": "Características Incluidas"
+    },
+    "specialist": {
+      "button": "Hablar con Especialista",
+      "ariaLabel": "Hablar con especialista en eventos"
+    },
+    "planning": {
+      "title": "Planificación Personalizada",
+      "description": "Nuestro equipo especializado se encarga de cada detalle de tu evento, desde la planificación hasta la ejecución, asegurando que todo sea perfecto."
+    },
+    "convention": {
+      "title": "Centro de Convenciones",
+      "description": "Espacio moderno y versátil para eventos corporativos, conferencias y grandes celebraciones con capacidad para hasta 200 personas.",
+      "capacity": "Hasta 200 personas",
+      "duration": "Eventos de 4-8 horas",
+      "location": "Pabellón Principal",
+      "features": {
+        "audiovisual": "Sistema audiovisual completo",
+        "wifi": "Wi-Fi de alta velocidad",
+        "airConditioning": "Climatización central",
+        "soundSystem": "Sistema de sonido profesional",
+        "lighting": "Iluminación escénica",
+        "coffeeBreak": "Área para coffee break"
+      }
+    },
+    "corporate": {
+      "title": "Eventos Corporativos",
+      "description": "Salas ejecutivas equipadas para reuniones, entrenamientos y presentaciones empresariales en ambiente profesional.",
+      "capacity": "10-50 personas",
+      "duration": "Medio día o día completo",
+      "location": "Salas Ejecutivas",
+      "features": {
+        "projector": "Proyector y pantalla",
+        "wifi": "Internet de alta velocidad",
+        "airConditioning": "Aire acondicionado",
+        "flipchart": "Rotafolio y materiales",
+        "catering": "Servicio de coffee break",
+        "parking": "Estacionamiento exclusivo"
+      }
+    },
+    "wedding": {
+      "title": "Bodas",
+      "description": "Celebra el amor en un entorno romántico rodeado de naturaleza, con jardines exuberantes y vista panorámica de las montañas.",
+      "capacity": "Hasta 150 invitados",
+      "duration": "Evento completo",
+      "location": "Jardines y Salón Noble",
+      "features": {
+        "ceremony": "Ceremonia al aire libre",
+        "reception": "Salón para recepción",
+        "decoration": "Decoración personalizada",
+        "catering": "Buffet completo",
+        "music": "Sistema de sonido",
+        "photography": "Espacios fotográficos"
+      }
+    },
     "types": {
       "wedding": {
         "name": "Bodas",
@@ -275,7 +335,18 @@
       },
       "social": {
         "name": "Eventos Sociales",
-        "description": "Cumpleaños, graduaciones y celebraciones especiales."
+        "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante.",
+        "title": "Eventos Sociales",
+        "capacity": "Hasta 80 personas",
+        "duration": "4-6 horas",
+        "location": "Salón Social",
+        "features": {
+          "decoration": "Decoración temática",
+          "gourmetBuffet": "Buffet gourmet",
+          "parking": "Estacionamiento gratuito",
+          "technicalSupport": "Soporte técnico",
+          "audiovisual": "Sistema audiovisual"
+        }
       }
     }
   },
@@ -367,6 +438,76 @@
     },
     "review5": {
       "comment": "¡Una joya escondida en Serra Negra! Radio Hotel ofrece una experiencia premium rodeada de naturaleza."
+    }
+  },
+  "eventsModal": {
+    "title": "Eventos Especiales",
+    "subtitle": "Descubre nuestros eventos exclusivos",
+    "categories": {
+      "gastronomy": "Gastronomía",
+      "wellness": "Bienestar",
+      "packages": "Paquetes",
+      "holiday": "Feriados",
+      "family": "Familia"
+    },
+    "labels": {
+      "date": "Fecha",
+      "time": "Horario",
+      "location": "Ubicación"
+    },
+    "buttons": {
+      "bookWhatsApp": "Reservar vía WhatsApp"
+    },
+    "navigation": {
+      "backToEvents": "Volver a Eventos"
+    },
+    "whatsapp": {
+      "bookingMessage": "¡Hola! Me gustaría reservar para el evento",
+      "onDay": "el día",
+      "atTime": "a las",
+      "helpRequest": "¿Pueden ayudarme?"
+    },
+    "italianNight": {
+      "title": "Noche Italiana",
+      "description": "Una noche especial con lo mejor de la cocina italiana, música en vivo y ambiente romántico.",
+      "date": "15 de Enero",
+      "time": "19:30",
+      "location": "Restaurante Principal"
+    },
+    "feijoada": {
+      "title": "Feijoada Tradicional",
+      "description": "Sábado de feijoada con música brasileña y caipirinha libre.",
+      "date": "20 de Enero",
+      "time": "12:00",
+      "location": "Área de la Piscina"
+    },
+    "guidedTour": {
+      "title": "Tour Guiado por la Naturaleza",
+      "description": "Explora las bellezas naturales de Serra Negra con nuestro guía especializado.",
+      "date": "Todos los domingos",
+      "time": "08:00",
+      "location": "Recepción del Hotel"
+    },
+    "romanticPackage": {
+      "title": "Paquete Romántico",
+      "description": "Fin de semana especial para parejas con cena a la luz de las velas y spa.",
+      "date": "Fines de semana",
+      "time": "Check-in 14:00",
+      "location": "Suites Especiales"
+    },
+    "novemberHoliday": {
+      "title": "Feriado de Noviembre",
+      "description": "Celebra el feriado con actividades especiales y gastronomía regional.",
+      "date": "15 de Noviembre",
+      "time": "Todo el día",
+      "location": "Todo el Hotel"
+    },
+    "childrensWeek": {
+      "title": "Semana de los Niños",
+      "description": "Programación especial para toda la familia con actividades para los niños.",
+      "date": "12 de Octubre",
+      "time": "09:00 a 17:00",
+      "location": "Área de Recreación"
     }
   },
   "contact": {
