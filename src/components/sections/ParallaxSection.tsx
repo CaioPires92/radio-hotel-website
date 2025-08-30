@@ -15,9 +15,9 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
 
-  // Parallax transforms with more pronounced movement
-  const backgroundY = useTransform(scrollY, [0, 1000], [0, -300]);
-  const textY = useTransform(scrollY, [0, 1000], [0, 150]);
+  // Parallax transforms with subtle movement
+  const backgroundY = useTransform(scrollY, [0, 1000], [0, -200]);
+  const textY = useTransform(scrollY, [0, 1000], [0, 50]);
   const overlayOpacity = useTransform(scrollY, [0, 500], [0.6, 0.8]);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 h-full flex items-center justify-center py-8 lg:py-0"
+        className="relative z-10 h-full flex items-center justify-center py-16 lg:py-8"
         style={{ y: textY }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
