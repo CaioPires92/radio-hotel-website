@@ -67,42 +67,194 @@
     }
   },
   "about": {
+    "badge": "About the Hotel",
     "title": "About Radio Hotel",
-    "subtitle": "A Story of Tradition and Hospitality",
-    "description": "For decades, Radio Hotel has been synonymous with elegance and tradition in Serra Negra. Located amidst lush nature, we offer a unique experience that combines classic charm with modern comfort.",
+    "location": "Serra Negra, São Paulo",
+    "description1": "Located in the heart of Serra Negra, Radio Hotel combines tradition and elegance in a unique environment, surrounded by the lush nature of Serra da Mantiqueira.",
+    "description2": "With over 80 years of history, we offer an authentic hospitality experience, where every detail has been designed to provide unforgettable moments for our guests.",
+    "award": {
+      "years": "80 Years of Tradition",
+      "excellence": "Excellence in Hospitality"
+    },
     "features": {
-      "tradition": "Family Tradition",
-      "nature": "Surrounded by Nature",
-      "comfort": "Premium Comfort",
+      "wifi": {
+        "title": "Free Wi-Fi",
+        "description": "High-speed internet in all areas"
+      },
+      "parking": {
+        "title": "Parking",
+        "description": "Free covered parking for guests"
+      },
+      "breakfast": {
+        "title": "Breakfast",
+        "description": "Complete buffet with regional products"
+      },
+      "restaurant": {
+        "title": "Restaurant",
+        "description": "Regional and international cuisine"
+      },
+      "gym": {
+        "title": "Gym",
+        "description": "Modern equipment and personal trainer"
+      },
+      "events": {
+        "title": "Events",
+        "description": "Spaces for conventions and celebrations"
+      }
+    },
+    "stats": {
+      "years": "Years of Tradition",
+      "park": "m² of Green Area",
+      "rating": "Guest Rating",
       "location": "Privileged Location"
     }
   },
+  "highlights": {
+    "badge": "Our Highlights",
+    "title": "What Makes Us Special",
+    "subtitle": "Discover the unique experiences that await you",
+    "location": {
+      "title": "Privileged Location",
+      "description": "In the heart of Serra Negra, surrounded by nature and close to the main attractions of the region.",
+      "features": [
+        "5 minutes from downtown",
+        "Access to trails and waterfalls",
+        "Panoramic view of Serra da Mantiqueira"
+      ]
+    },
+    "wellness": {
+      "title": "Wellness & Relaxation",
+      "description": "Spaces designed for your well-being, with leisure areas and contact with nature.",
+      "features": [
+        "Outdoor pool with mountain view",
+        "Gym with modern equipment",
+        "Gardens and rest areas"
+      ]
+    },
+    "gastronomy": {
+      "title": "Regional Gastronomy",
+      "description": "Authentic flavors of Minas Gerais cuisine, prepared with fresh and local ingredients.",
+      "features": [
+        "Traditional Minas Gerais breakfast",
+        "Regional dishes restaurant",
+        "Local products and ingredients"
+      ]
+    },
+    "comfort": {
+      "title": "Premium Comfort",
+      "description": "Carefully decorated accommodations with all the amenities for an unforgettable stay.",
+      "features": [
+        "Elegant and cozy rooms",
+        "Premium bedding and bath",
+        "Modern amenities"
+      ]
+    },
+    "service": {
+      "title": "Personalized Service",
+      "description": "Attentive and dedicated team, ready to make your experience unique and memorable.",
+      "features": [
+        "24-hour reception",
+        "Concierge service",
+        "Tourist guidance"
+      ]
+    },
+    "business": {
+      "title": "Business & Events",
+      "description": "Complete infrastructure for corporate events, meetings and special celebrations.",
+      "features": [
+        "Convention center",
+        "Audiovisual equipment",
+        "Event planning support"
+      ]
+    }
+  },
+  "parallax": {
+    "badge": "Experience Excellence",
+    "title": {
+      "line1": "Your",
+      "highlight": "Perfect Stay",
+      "line2": "Awaits You"
+    },
+    "subtitle": "Book now and discover why Radio Hotel is the preferred choice for those seeking tradition, comfort and nature in perfect harmony.",
+    "stats": {
+      "tradition": "Years of Tradition",
+      "rating": "Guest Rating",
+      "location": "Privileged Location"
+    },
+    "buttons": {
+      "bookNow": "Book Now",
+      "checkAvailability": "Check Availability",
+      "bookingAriaLabel": "Make a reservation at Radio Hotel",
+      "availabilityAriaLabel": "Check room availability"
+    },
+    "whatsapp": {
+      "bookingMessage": "Hello! I would like to make a reservation at Radio Hotel. Could you help me with availability and rates?"
+    },
+    "fallback": {
+      "title": "Your Perfect Stay Awaits You"
+    }
+  },
   "accommodations": {
-    "title": "Our Accommodations",
-    "subtitle": "Comfort and Elegance in Every Detail",
+    "badge": "Our Accommodations",
+    "title": "Comfort and Elegance",
+    "subtitle": "Discover our carefully designed rooms for your perfect stay",
     "viewDetails": "View Details",
-    "bookRoom": "Book Room",
-    "amenities": "Amenities",
-    "capacity": "Capacity",
-    "size": "Size",
-    "view": "View",
-    "types": {
+    "buttons": {
+      "bookNow": "Book Now"
+    },
+    "navigation": {
+      "previous": "Previous room",
+      "next": "Next room",
+      "viewRoom": "View room details"
+    },
+    "rooms": {
       "standard": {
         "name": "Standard Room",
-        "description": "Comfortable accommodation with all essential amenities for a perfect stay."
+        "type": "Standard",
+        "capacity": "Up to 2 guests",
+        "description": "Comfortable and cozy room, perfect for couples or business travelers seeking quality and comfort.",
+        "features": [
+          "Queen size bed",
+          "Private bathroom with shower",
+          "Work desk",
+          "Mountain view"
+        ]
       },
-      "superior": {
-        "name": "Superior Room",
-        "description": "More space and comfort, with privileged view of the hotel gardens."
+      "luxury": {
+        "name": "Luxury Suite",
+        "type": "Suite",
+        "capacity": "Up to 3 guests",
+        "description": "Spacious and elegant suite with separate living area, ideal for those seeking maximum comfort and sophistication.",
+        "features": [
+          "King size bed",
+          "Separate living room",
+          "Luxury bathroom with bathtub",
+          "Private balcony with panoramic view"
+        ]
       },
-      "deluxe": {
-        "name": "Deluxe Room",
-        "description": "Maximum comfort and elegance, with private balcony and nature view."
-      },
-      "suite": {
-        "name": "Master Suite",
-        "description": "The most luxurious experience, with separate living room and premium amenities."
+      "quadruple": {
+        "name": "Family Room",
+        "type": "Quadruple",
+        "capacity": "Up to 4 guests",
+        "description": "Spacious room designed for families, with comfortable beds and all necessary amenities for a pleasant stay.",
+        "features": [
+          "1 double bed + 2 single beds",
+          "Spacious bathroom",
+          "Seating area",
+          "Garden view"
+        ]
       }
+    },
+    "amenities": {
+      "wifi": "Free Wi-Fi",
+      "parking": "Free Parking",
+      "minibar": "Minibar",
+      "tv": "Smart TV",
+      "bathroom": "Private Bathroom",
+      "airConditioning": "Air Conditioning"
+    },
+    "whatsapp": {
+      "bookingMessage": "Hello! I would like to make a reservation at Radio Hotel. Could you help me with availability and rates?"
     }
   },
   "events": {
@@ -187,6 +339,34 @@
       "checkInRequired": "Check-in date is required",
       "checkOutRequired": "Check-out date is required",
       "checkOutAfterCheckIn": "Check-out must be after check-in"
+    }
+  },
+  "reviews": {
+    "title": "What our guests say",
+    "subtitle": "Real experiences from those who have stayed with us",
+    "verified": "Verified Review",
+    "navigation": {
+      "previous": "Previous review",
+      "next": "Next review"
+    },
+    "cta": {
+      "text": "Want to be part of these stories? Book your stay now!",
+      "button": "Make Reservation"
+    },
+    "review1": {
+      "comment": "An incredible experience! Radio Hotel exceeded all my expectations. The location is perfect and the service is exceptional."
+    },
+    "review2": {
+      "comment": "What a wonderful place! The perfect combination of elegance and nature. I will definitely return!"
+    },
+    "review3": {
+      "comment": "I loved every moment of my stay. The hotel has a unique atmosphere and the staff is very attentive."
+    },
+    "review4": {
+      "comment": "Excellent hotel! From check-in to check-out, everything was perfect. I recommend it to anyone looking for quality and comfort."
+    },
+    "review5": {
+      "comment": "A hidden gem in Serra Negra! Radio Hotel offers a premium experience surrounded by nature."
     }
   },
   "contact": {

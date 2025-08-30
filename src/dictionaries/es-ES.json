@@ -67,42 +67,194 @@
     }
   },
   "about": {
+    "badge": "Sobre el Hotel",
     "title": "Sobre Radio Hotel",
-    "subtitle": "Una Historia de Tradición y Hospitalidad",
-    "description": "Durante décadas, Radio Hotel ha sido sinónimo de elegancia y tradición en Serra Negra. Ubicado en medio de la naturaleza exuberante, ofrecemos una experiencia única que combina el encanto clásico con la comodidad moderna.",
+    "location": "Serra Negra, São Paulo",
+    "description1": "Ubicado en el corazón de Serra Negra, Radio Hotel combina tradición y elegancia en un ambiente único, rodeado de la exuberante naturaleza de la Serra da Mantiqueira.",
+    "description2": "Con más de 80 años de historia, ofrecemos una experiencia auténtica de hospitalidad, donde cada detalle ha sido pensado para proporcionar momentos inolvidables a nuestros huéspedes.",
+    "award": {
+      "years": "80 Años de Tradición",
+      "excellence": "Excelencia en Hospitalidad"
+    },
     "features": {
-      "tradition": "Tradición Familiar",
-      "nature": "Rodeado de Naturaleza",
-      "comfort": "Comodidad Premium",
+      "wifi": {
+        "title": "Wi-Fi Gratuito",
+        "description": "Internet de alta velocidad en todas las áreas"
+      },
+      "parking": {
+        "title": "Estacionamiento",
+        "description": "Estacionamiento cubierto gratuito para huéspedes"
+      },
+      "breakfast": {
+        "title": "Desayuno",
+        "description": "Buffet completo con productos regionales"
+      },
+      "restaurant": {
+        "title": "Restaurante",
+        "description": "Cocina regional e internacional"
+      },
+      "gym": {
+        "title": "Gimnasio",
+        "description": "Equipos modernos y entrenador personal"
+      },
+      "events": {
+        "title": "Eventos",
+        "description": "Espacios para convenciones y celebraciones"
+      }
+    },
+    "stats": {
+      "years": "Años de Tradición",
+      "park": "m² de Área Verde",
+      "rating": "Calificación de Huéspedes",
       "location": "Ubicación Privilegiada"
     }
   },
+  "highlights": {
+    "badge": "Nuestros Destacados",
+    "title": "Lo que nos hace especiales",
+    "subtitle": "Descubre las experiencias únicas que te esperan",
+    "location": {
+      "title": "Ubicación Privilegiada",
+      "description": "En el corazón de Serra Negra, rodeado de naturaleza y cerca de las principales atracciones de la región.",
+      "features": [
+        "A 5 minutos del centro",
+        "Acceso a senderos y cascadas",
+        "Vista panorámica de la Serra da Mantiqueira"
+      ]
+    },
+    "wellness": {
+      "title": "Bienestar y Relajación",
+      "description": "Espacios diseñados para tu bienestar, con áreas de ocio y contacto con la naturaleza.",
+      "features": [
+        "Piscina al aire libre con vista a las montañas",
+        "Gimnasio con equipos modernos",
+        "Jardines y áreas de descanso"
+      ]
+    },
+    "gastronomy": {
+      "title": "Gastronomía Regional",
+      "description": "Sabores auténticos de la cocina mineira, preparados con ingredientes frescos y locales.",
+      "features": [
+        "Desayuno tradicional mineiro",
+        "Restaurante de platos regionales",
+        "Productos e ingredientes locales"
+      ]
+    },
+    "comfort": {
+      "title": "Comodidad Premium",
+      "description": "Alojamientos cuidadosamente decorados con todas las comodidades para una estancia inolvidable.",
+      "features": [
+        "Habitaciones elegantes y acogedoras",
+        "Ropa de cama y baño premium",
+        "Comodidades modernas"
+      ]
+    },
+    "service": {
+      "title": "Servicio Personalizado",
+      "description": "Equipo atento y dedicado, listo para hacer tu experiencia única e inolvidable.",
+      "features": [
+        "Recepción 24 horas",
+        "Servicio de conserjería",
+        "Orientación turística"
+      ]
+    },
+    "business": {
+      "title": "Negocios y Eventos",
+      "description": "Infraestructura completa para eventos corporativos, reuniones y celebraciones especiales.",
+      "features": [
+        "Centro de convenciones",
+        "Equipos audiovisuales",
+        "Apoyo en planificación de eventos"
+      ]
+    }
+  },
+  "parallax": {
+    "badge": "Experimenta la Excelencia",
+    "title": {
+      "line1": "Tu",
+      "highlight": "Estancia Perfecta",
+      "line2": "Te Espera"
+    },
+    "subtitle": "Reserva ahora y descubre por qué Radio Hotel es la opción preferida de quienes buscan tradición, comodidad y naturaleza en perfecta armonía.",
+    "stats": {
+      "tradition": "Años de Tradición",
+      "rating": "Calificación de Huéspedes",
+      "location": "Ubicación Privilegiada"
+    },
+    "buttons": {
+      "bookNow": "Reservar Ahora",
+      "checkAvailability": "Verificar Disponibilidad",
+      "bookingAriaLabel": "Hacer una reserva en Radio Hotel",
+      "availabilityAriaLabel": "Verificar disponibilidad de habitaciones"
+    },
+    "whatsapp": {
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en Radio Hotel. ¿Pueden ayudarme con disponibilidad y tarifas?"
+    },
+    "fallback": {
+      "title": "Tu Estancia Perfecta Te Espera"
+    }
+  },
   "accommodations": {
-    "title": "Nuestros Alojamientos",
-    "subtitle": "Comodidad y Elegancia en Cada Detalle",
+    "badge": "Nuestros Alojamientos",
+    "title": "Comodidad y Elegancia",
+    "subtitle": "Descubre nuestras habitaciones cuidadosamente diseñadas para tu estancia perfecta",
     "viewDetails": "Ver Detalles",
-    "bookRoom": "Reservar Habitación",
-    "amenities": "Comodidades",
-    "capacity": "Capacidad",
-    "size": "Tamaño",
-    "view": "Vista",
-    "types": {
+    "buttons": {
+      "bookNow": "Reservar Ahora"
+    },
+    "navigation": {
+      "previous": "Habitación anterior",
+      "next": "Siguiente habitación",
+      "viewRoom": "Ver detalles de la habitación"
+    },
+    "rooms": {
       "standard": {
         "name": "Habitación Estándar",
-        "description": "Alojamiento cómodo con todas las comodidades esenciales para una estancia perfecta."
+        "type": "Estándar",
+        "capacity": "Hasta 2 huéspedes",
+        "description": "Habitación cómoda y acogedora, perfecta para parejas o viajeros de negocios que buscan calidad y comodidad.",
+        "features": [
+          "Cama queen size",
+          "Baño privado con ducha",
+          "Escritorio de trabajo",
+          "Vista a las montañas"
+        ]
       },
-      "superior": {
-        "name": "Habitación Superior",
-        "description": "Más espacio y comodidad, con vista privilegiada a los jardines del hotel."
+      "luxury": {
+        "name": "Suite de Lujo",
+        "type": "Suite",
+        "capacity": "Hasta 3 huéspedes",
+        "description": "Suite amplia y elegante con área de estar separada, ideal para quienes buscan máxima comodidad y sofisticación.",
+        "features": [
+          "Cama king size",
+          "Sala de estar separada",
+          "Baño de lujo con bañera",
+          "Balcón privado con vista panorámica"
+        ]
       },
-      "deluxe": {
-        "name": "Habitación Deluxe",
-        "description": "Máxima comodidad y elegancia, con balcón privado y vista a la naturaleza."
-      },
-      "suite": {
-        "name": "Suite Master",
-        "description": "La experiencia más lujosa, con sala de estar separada y comodidades premium."
+      "quadruple": {
+        "name": "Habitación Familiar",
+        "type": "Cuádruple",
+        "capacity": "Hasta 4 huéspedes",
+        "description": "Habitación espaciosa diseñada para familias, con camas cómodas y todas las comodidades necesarias para una estancia placentera.",
+        "features": [
+          "1 cama doble + 2 camas individuales",
+          "Baño espacioso",
+          "Área de estar",
+          "Vista al jardín"
+        ]
       }
+    },
+    "amenities": {
+      "wifi": "Wi-Fi Gratuito",
+      "parking": "Estacionamiento Gratuito",
+      "minibar": "Minibar",
+      "tv": "Smart TV",
+      "bathroom": "Baño Privado",
+      "airConditioning": "Aire Acondicionado"
+    },
+    "whatsapp": {
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en Radio Hotel. ¿Pueden ayudarme con disponibilidad y tarifas?"
     }
   },
   "events": {
@@ -187,6 +339,34 @@
       "checkInRequired": "La fecha de check-in es obligatoria",
       "checkOutRequired": "La fecha de check-out es obligatoria",
       "checkOutAfterCheckIn": "El check-out debe ser después del check-in"
+    }
+  },
+  "reviews": {
+    "title": "Lo que dicen nuestros huéspedes",
+    "subtitle": "Experiencias reales de quienes se han hospedado con nosotros",
+    "verified": "Reseña Verificada",
+    "navigation": {
+      "previous": "Reseña anterior",
+      "next": "Siguiente reseña"
+    },
+    "cta": {
+      "text": "¿Quieres ser parte de estas historias? ¡Reserva tu estancia ahora!",
+      "button": "Hacer Reserva"
+    },
+    "review1": {
+      "comment": "¡Una experiencia increíble! Radio Hotel superó todas mis expectativas. La ubicación es perfecta y el servicio es excepcional."
+    },
+    "review2": {
+      "comment": "¡Qué lugar tan maravilloso! La combinación perfecta entre elegancia y naturaleza. ¡Definitivamente volveré!"
+    },
+    "review3": {
+      "comment": "Amé cada momento de mi estancia. El hotel tiene una atmósfera única y el personal es muy atento."
+    },
+    "review4": {
+      "comment": "¡Excelente hotel! Desde el check-in hasta el check-out, todo fue perfecto. Lo recomiendo para quienes buscan calidad y comodidad."
+    },
+    "review5": {
+      "comment": "¡Una joya escondida en Serra Negra! Radio Hotel ofrece una experiencia premium rodeada de naturaleza."
     }
   },
   "contact": {
