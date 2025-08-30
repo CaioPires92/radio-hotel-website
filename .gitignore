@@ -3,13 +3,15 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-node_modules/
+.pnp.js
+.yarn/install-state.gz
+
+# build cache
+/.next/
+/out/
+
+# duplicated folders
+/fresh-repo/
 
 # testing
 /coverage
