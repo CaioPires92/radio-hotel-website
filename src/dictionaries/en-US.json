@@ -535,9 +535,47 @@
   },
   "footer": {
     "description": "Radio Hotel Serra Negra - Tradition, elegance and nature in perfect harmony.",
-    "quickLinks": "Quick Links",
-    "services": "Services",
-    "contact": "Contact",
+    "logo": {
+      "alt": "Radio Hotel Serra Negra Logo"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About",
+      "accommodations": "Accommodations",
+      "events": "Events",
+      "gallery": "Gallery",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Our Services",
+      "wifi": "Free Wi-Fi",
+      "parking": "Parking",
+      "roomService": "Room Service",
+      "restaurant": "Restaurant",
+      "gym": "Gym",
+      "pool": "Pool"
+    },
+    "contact": {
+      "title": "Contact",
+      "phone": {
+        "label": "Phone"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "address": {
+        "label": "Address",
+        "value": "123 Radioactive Waters Street\nSerra Negra - SP\nZIP: 13930-000"
+      },
+      "hours": {
+        "label": "Operating Hours",
+        "value": "24 hours a day\n7 days a week"
+      }
+    },
+    "whatsapp": {
+      "message": "Hello! I would like more information about Radio Hotel."
+    },
     "followUs": "Follow Us",
     "newsletter": {
       "title": "Newsletter",

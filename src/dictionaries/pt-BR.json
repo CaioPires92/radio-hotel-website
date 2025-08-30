@@ -540,9 +540,47 @@
   },
   "footer": {
     "description": "Radio Hotel Serra Negra - Tradição, elegância e natureza em perfeita harmonia.",
-    "quickLinks": "Links Rápidos",
-    "services": "Serviços",
-    "contact": "Contato",
+    "logo": {
+      "alt": "Logo Radio Hotel Serra Negra"
+    },
+    "quickLinks": {
+      "title": "Links Rápidos",
+      "home": "Início",
+      "about": "Sobre",
+      "accommodations": "Acomodações",
+      "events": "Eventos",
+      "gallery": "Galeria",
+      "contact": "Contato"
+    },
+    "services": {
+      "title": "Nossos Serviços",
+      "wifi": "Wi-Fi Gratuito",
+      "parking": "Estacionamento",
+      "roomService": "Serviço de Quarto",
+      "restaurant": "Restaurante",
+      "gym": "Academia",
+      "pool": "Piscina"
+    },
+    "contact": {
+      "title": "Contato",
+      "phone": {
+        "label": "Telefone"
+      },
+      "email": {
+        "label": "E-mail"
+      },
+      "address": {
+        "label": "Endereço",
+        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13930-000"
+      },
+      "hours": {
+        "label": "Horário de Funcionamento",
+        "value": "24 horas por dia\n7 dias por semana"
+      }
+    },
+    "whatsapp": {
+      "message": "Olá! Gostaria de mais informações sobre o Radio Hotel."
+    },
     "followUs": "Siga-nos",
     "newsletter": {
       "title": "Newsletter",

@@ -535,14 +535,52 @@
   },
   "footer": {
     "description": "Radio Hotel Serra Negra - Tradición, elegancia y naturaleza en perfecta armonía.",
-    "quickLinks": "Enlaces Rápidos",
-    "services": "Servicios",
-    "contact": "Contacto",
+    "logo": {
+      "alt": "Logo Radio Hotel Serra Negra"
+    },
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "home": "Inicio",
+      "about": "Acerca de",
+      "accommodations": "Alojamientos",
+      "events": "Eventos",
+      "gallery": "Galería",
+      "contact": "Contacto"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "wifi": "Wi-Fi Gratuito",
+      "parking": "Estacionamiento",
+      "roomService": "Servicio a la Habitación",
+      "restaurant": "Restaurante",
+      "gym": "Gimnasio",
+      "pool": "Piscina"
+    },
+    "contact": {
+      "title": "Contacto",
+      "phone": {
+        "label": "Teléfono"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "address": {
+        "label": "Dirección",
+        "value": "Calle de las Aguas Radioactivas, 123\nSerra Negra - SP\nCEP: 13930-000"
+      },
+      "hours": {
+        "label": "Horario de Funcionamiento",
+        "value": "24 horas al día\n7 días a la semana"
+      }
+    },
+    "whatsapp": {
+      "message": "¡Hola! Me gustaría más información sobre Radio Hotel."
+    },
     "followUs": "Síguenos",
     "newsletter": {
       "title": "Newsletter",
       "description": "Recibe ofertas especiales y noticias",
-      "placeholder": "Tu correo electrónico",
+      "placeholder": "Tu email",
       "subscribe": "Suscribirse"
     },
     "copyright": "© 2024 Radio Hotel Serra Negra. Todos los derechos reservados.",
