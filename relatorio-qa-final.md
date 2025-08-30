@@ -2,7 +2,35 @@
 
 ## 📋 Resumo Executivo
 
-Este relatório documenta a análise completa de QA realizada no site Radio Hotel, incluindo identificação e correção de problemas críticos de funcionalidade, acessibilidade, performance e experiência do usuário.
+Este relatório apresenta uma análise abrangente da qualidade do website do Radio Hotel, incluindo testes automatizados, análise de código, performance, acessibilidade e segurança. Baseado em execução real de testes e análise detalhada do código.
+
+## Status Atual dos Testes
+
+### ❌ Testes Unitários (Vitest)
+- **Status**: 4 arquivos falharam | 5 arquivos passaram
+- **Cobertura**: 9 testes falharam | 67 testes passaram (76 total)
+- **Principais Problemas**:
+  - Falhas em testes de integração da homepage
+  - Elementos não encontrados no DOM (getByText(/radio hotel/i))
+  - Timeouts em testes de responsividade
+- **Tempo de execução**: ~35s
+
+### ❌ Testes E2E (Playwright)
+- **Status**: Múltiplas falhas detectadas
+- **Browsers testados**: Chrome, Firefox, Safari
+- **Principais Problemas**:
+  - Timeouts em testes de acessibilidade (30s)
+  - Botões "Reservar Agora" não encontrados
+  - Falhas no gerenciamento de foco em modais
+  - Problemas com labels de formulário
+- **Acessibilidade**: ❌ Falhas nos testes AxeBuilder
+
+### ❌ Performance (Lighthouse)
+- **Status**: Falha na execução
+- **Problema**: Conflito de porta (3000 já em uso pelo dev server)
+- **Servidor de Desenvolvimento**: ✅ Rodando corretamente
+- **Necessário**: Executar Lighthouse em porta alternativa
+- **Core Web Vitals**: Não verificados devido ao erro
 
 ## 🎯 Objetivos Alcançados
 
