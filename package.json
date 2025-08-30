@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --turbopack",
+    "build": "next build",
+    "build:github": "next build && touch out/.nojekyll",
     "start": "next start",
+    "export": "next build && next export",
+    "deploy": "npm run build:github",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "type-check": "tsc --noEmit",
