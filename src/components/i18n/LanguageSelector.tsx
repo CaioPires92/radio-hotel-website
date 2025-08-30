@@ -100,7 +100,7 @@ export function LanguageSelector({
           "focus:outline-none",
           isScrolled 
             ? "border border-navy text-navy"
-            : "text-white",
+            : "border border-gold text-white",
           variant === 'compact' && "px-2 py-1 text-sm",
           variant === 'icon-only' && "p-2"
         )}
