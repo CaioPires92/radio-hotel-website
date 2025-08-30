@@ -10,13 +10,15 @@ interface LanguageSelectorProps {
   variant?: 'default' | 'compact' | 'icon-only';
   showFlag?: boolean;
   showText?: boolean;
+  isScrolled?: boolean;
 }
 
 export function LanguageSelector({ 
   className,
   variant = 'default',
   showFlag = true,
-  showText = true
+  showText = true,
+  isScrolled = false
 }: LanguageSelectorProps) {
   const { locale, setLocale, t } = useI18n();
   const locales = useLocales();
@@ -97,7 +99,9 @@ export function LanguageSelector({
           "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors duration-200",
           "hover:bg-gray-100 dark:hover:bg-gray-800",
           "focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
-          "border border-gold text-white hover:bg-gold/10",
+          isScrolled 
+            ? "border border-black text-black hover:bg-black/10"
+            : "border border-gold text-white hover:bg-gold/10",
           variant === 'compact' && "px-2 py-1 text-sm",
           variant === 'icon-only' && "p-2"
         )}
