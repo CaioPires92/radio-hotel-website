@@ -101,7 +101,7 @@ export function LanguageSelector({
           "focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
           isScrolled 
             ? "border border-navy text-navy hover:bg-navy/10"
-            : "border border-gold text-white hover:bg-gold/10",
+            : "text-white hover:bg-gold/10",
           variant === 'compact' && "px-2 py-1 text-sm",
           variant === 'icon-only' && "p-2"
         )}
