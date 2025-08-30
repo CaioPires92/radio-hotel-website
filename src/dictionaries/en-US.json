@@ -264,6 +264,66 @@
     "viewMore": "View More",
     "bookEvent": "Request Quote",
     "capacity": "Capacity",
+    "requestQuote": {
+      "button": "Request Quote",
+      "ariaLabel": "Request quote for"
+    },
+    "features": {
+      "title": "Included Features"
+    },
+    "specialist": {
+      "button": "Talk to Specialist",
+      "ariaLabel": "Talk to event specialist"
+    },
+    "planning": {
+      "title": "Personalized Planning",
+      "description": "Our specialized team takes care of every detail of your event, from planning to execution, ensuring everything is perfect."
+    },
+    "convention": {
+      "title": "Convention Center",
+      "description": "Modern and versatile space for corporate events, conferences, and large celebrations with capacity for up to 200 people.",
+      "capacity": "Up to 200 people",
+      "duration": "4-8 hour events",
+      "location": "Main Pavilion",
+      "features": {
+        "audiovisual": "Complete audiovisual system",
+        "wifi": "High-speed Wi-Fi",
+        "airConditioning": "Central air conditioning",
+        "soundSystem": "Professional sound system",
+        "lighting": "Stage lighting",
+        "coffeeBreak": "Coffee break area"
+      }
+    },
+    "corporate": {
+      "title": "Corporate Events",
+      "description": "Executive rooms equipped for meetings, training, and business presentations in a professional environment.",
+      "capacity": "10-50 people",
+      "duration": "Half day or full day",
+      "location": "Executive Rooms",
+      "features": {
+        "projector": "Projector and screen",
+        "wifi": "High-speed internet",
+        "airConditioning": "Air conditioning",
+        "flipchart": "Flipchart and materials",
+        "catering": "Coffee break service",
+        "parking": "Exclusive parking"
+      }
+    },
+    "wedding": {
+      "title": "Weddings",
+      "description": "Celebrate love in a romantic setting surrounded by nature, with lush gardens and panoramic mountain views.",
+      "capacity": "Up to 150 guests",
+      "duration": "Full event",
+      "location": "Gardens and Noble Hall",
+      "features": {
+        "ceremony": "Outdoor ceremony",
+        "reception": "Reception hall",
+        "decoration": "Personalized decoration",
+        "catering": "Complete buffet",
+        "music": "Sound system",
+        "photography": "Photography spaces"
+      }
+    },
     "types": {
       "wedding": {
         "name": "Weddings",
@@ -271,11 +331,22 @@
       },
       "corporate": {
         "name": "Corporate Events",
-        "description": "Professional spaces for meetings, conferences and training."
+        "description": "Professional spaces for meetings, conferences, and training."
       },
       "social": {
         "name": "Social Events",
-        "description": "Birthdays, graduations and special celebrations."
+        "description": "Birthdays, graduations, and special celebrations in a welcoming and elegant environment.",
+        "title": "Social Events",
+        "capacity": "Up to 80 people",
+        "duration": "4-6 hours",
+        "location": "Social Hall",
+        "features": {
+          "decoration": "Themed decoration",
+          "gourmetBuffet": "Gourmet buffet",
+          "parking": "Free parking",
+          "technicalSupport": "Technical support",
+          "audiovisual": "Audiovisual system"
+        }
       }
     }
   },
@@ -367,6 +438,76 @@
     },
     "review5": {
       "comment": "A hidden gem in Serra Negra! Radio Hotel offers a premium experience surrounded by nature."
+    }
+  },
+  "eventsModal": {
+    "title": "Special Events",
+    "subtitle": "Discover our exclusive events",
+    "categories": {
+      "gastronomy": "Gastronomy",
+      "wellness": "Wellness",
+      "packages": "Packages",
+      "holiday": "Holidays",
+      "family": "Family"
+    },
+    "labels": {
+      "date": "Date",
+      "time": "Time",
+      "location": "Location"
+    },
+    "buttons": {
+      "bookWhatsApp": "Book via WhatsApp"
+    },
+    "navigation": {
+      "backToEvents": "Back to Events"
+    },
+    "whatsapp": {
+      "bookingMessage": "Hello! I would like to book for the event",
+      "onDay": "on",
+      "atTime": "at",
+      "helpRequest": "Can you help me?"
+    },
+    "italianNight": {
+      "title": "Italian Night",
+      "description": "A special night with the best of Italian cuisine, live music and romantic atmosphere.",
+      "date": "January 15th",
+      "time": "7:30 PM",
+      "location": "Main Restaurant"
+    },
+    "feijoada": {
+      "title": "Traditional Feijoada",
+      "description": "Saturday feijoada with Brazilian music and free caipirinha.",
+      "date": "January 20th",
+      "time": "12:00 PM",
+      "location": "Pool Area"
+    },
+    "guidedTour": {
+      "title": "Guided Nature Tour",
+      "description": "Explore the natural beauties of Serra Negra with our specialized guide.",
+      "date": "Every Sunday",
+      "time": "8:00 AM",
+      "location": "Hotel Reception"
+    },
+    "romanticPackage": {
+      "title": "Romantic Package",
+      "description": "Special weekend for couples with candlelight dinner and spa.",
+      "date": "Weekends",
+      "time": "Check-in 2:00 PM",
+      "location": "Special Suites"
+    },
+    "novemberHoliday": {
+      "title": "November Holiday",
+      "description": "Celebrate the holiday with special activities and regional gastronomy.",
+      "date": "November 15th",
+      "time": "All day",
+      "location": "Entire Hotel"
+    },
+    "childrensWeek": {
+      "title": "Children's Week",
+      "description": "Special programming for the whole family with activities for children.",
+      "date": "October 12th",
+      "time": "9:00 AM to 5:00 PM",
+      "location": "Recreation Area"
     }
   },
   "contact": {

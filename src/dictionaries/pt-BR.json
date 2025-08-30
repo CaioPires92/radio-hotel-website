@@ -179,6 +179,66 @@
     "viewMore": "Ver Mais",
     "bookEvent": "Solicitar Orçamento",
     "capacity": "Capacidade",
+    "requestQuote": {
+      "button": "Solicitar Orçamento",
+      "ariaLabel": "Solicitar orçamento para"
+    },
+    "features": {
+      "title": "Recursos Inclusos"
+    },
+    "specialist": {
+      "button": "Falar com Especialista",
+      "ariaLabel": "Falar com especialista em eventos"
+    },
+    "planning": {
+      "title": "Planejamento Personalizado",
+      "description": "Nossa equipe especializada cuida de cada detalhe do seu evento, desde o planejamento até a execução, garantindo que tudo seja perfeito."
+    },
+    "convention": {
+      "title": "Centro de Convenções",
+      "description": "Espaço moderno e versátil para eventos corporativos, conferências e grandes celebrações com capacidade para até 200 pessoas.",
+      "capacity": "Até 200 pessoas",
+      "duration": "Eventos de 4-8 horas",
+      "location": "Pavilhão Principal",
+      "features": {
+        "audiovisual": "Sistema audiovisual completo",
+        "wifi": "Wi-Fi de alta velocidade",
+        "airConditioning": "Climatização central",
+        "soundSystem": "Sistema de som profissional",
+        "lighting": "Iluminação cênica",
+        "coffeeBreak": "Área para coffee break"
+      }
+    },
+    "corporate": {
+      "title": "Eventos Corporativos",
+      "description": "Salas executivas equipadas para reuniões, treinamentos e apresentações empresariais em ambiente profissional.",
+      "capacity": "10-50 pessoas",
+      "duration": "Meio período ou dia completo",
+      "location": "Salas Executivas",
+      "features": {
+        "projector": "Projetor e tela",
+        "wifi": "Internet de alta velocidade",
+        "airConditioning": "Ar condicionado",
+        "flipchart": "Flipchart e materiais",
+        "catering": "Serviço de coffee break",
+        "parking": "Estacionamento exclusivo"
+      }
+    },
+    "wedding": {
+      "title": "Casamentos",
+      "description": "Celebre o amor em um cenário romântico cercado pela natureza, com jardins exuberantes e vista panorâmica das montanhas.",
+      "capacity": "Até 150 convidados",
+      "duration": "Evento completo",
+      "location": "Jardins e Salão Nobre",
+      "features": {
+        "ceremony": "Cerimônia ao ar livre",
+        "reception": "Salão para recepção",
+        "decoration": "Decoração personalizada",
+        "catering": "Buffet completo",
+        "music": "Sistema de som",
+        "photography": "Espaços fotográficos"
+      }
+    },
     "types": {
       "wedding": {
         "name": "Casamentos",
@@ -189,9 +249,20 @@
         "description": "Espaços profissionais para reuniões, conferências e treinamentos."
       },
       "social": {
-        "name": "Eventos Sociais",
-        "description": "Aniversários, formaturas e celebrações especiais."
+      "name": "Eventos Sociais",
+      "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante.",
+      "title": "Eventos Sociais",
+      "capacity": "Até 80 pessoas",
+      "duration": "4-6 horas",
+      "location": "Salão Social",
+      "features": {
+        "decoration": "Decoração temática",
+        "gourmetBuffet": "Buffet gourmet",
+        "parking": "Estacionamento gratuito",
+        "technicalSupport": "Suporte técnico",
+        "audiovisual": "Sistema audiovisual"
       }
+    }
     }
   },
   "highlights": {
@@ -372,6 +443,76 @@
     },
     "review5": {
       "comment": "Uma joia escondida em Serra Negra! O Radio Hotel oferece uma experiência premium em meio à natureza."
+    }
+  },
+  "eventsModal": {
+    "title": "Eventos Especiais",
+    "subtitle": "Descubra nossos eventos exclusivos",
+    "categories": {
+      "gastronomy": "Gastronomia",
+      "wellness": "Bem-estar",
+      "packages": "Pacotes",
+      "holiday": "Feriados",
+      "family": "Família"
+    },
+    "labels": {
+      "date": "Data",
+      "time": "Horário",
+      "location": "Local"
+    },
+    "buttons": {
+      "bookWhatsApp": "Reservar via WhatsApp"
+    },
+    "navigation": {
+      "backToEvents": "Voltar aos Eventos"
+    },
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de reservar para o evento",
+      "onDay": "no dia",
+      "atTime": "às",
+      "helpRequest": "Podem me ajudar?"
+    },
+    "italianNight": {
+      "title": "Noite Italiana",
+      "description": "Uma noite especial com o melhor da culinária italiana, música ao vivo e ambiente romântico.",
+      "date": "15 de Janeiro",
+      "time": "19:30",
+      "location": "Restaurante Principal"
+    },
+    "feijoada": {
+      "title": "Feijoada Tradicional",
+      "description": "Sábado de feijoada com música brasileira e caipirinha liberada.",
+      "date": "20 de Janeiro",
+      "time": "12:00",
+      "location": "Área da Piscina"
+    },
+    "guidedTour": {
+      "title": "Tour Guiado pela Natureza",
+      "description": "Explore as belezas naturais de Serra Negra com nosso guia especializado.",
+      "date": "Todos os domingos",
+      "time": "08:00",
+      "location": "Recepção do Hotel"
+    },
+    "romanticPackage": {
+      "title": "Pacote Romântico",
+      "description": "Fim de semana especial para casais com jantar à luz de velas e spa.",
+      "date": "Fins de semana",
+      "time": "Check-in 14:00",
+      "location": "Suítes Especiais"
+    },
+    "novemberHoliday": {
+      "title": "Feriado de Novembro",
+      "description": "Celebre o feriado com atividades especiais e gastronomia regional.",
+      "date": "15 de Novembro",
+      "time": "Todo o dia",
+      "location": "Todo o Hotel"
+    },
+    "childrensWeek": {
+      "title": "Semana das Crianças",
+      "description": "Programação especial para toda a família com atividades para as crianças.",
+      "date": "12 de Outubro",
+      "time": "09:00 às 17:00",
+      "location": "Área de Lazer"
     }
   },
   "contact": {
