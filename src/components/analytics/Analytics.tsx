@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { 
@@ -16,7 +16,7 @@ interface AnalyticsProps {
   children: React.ReactNode;
 }
 
-export default function Analytics({ children }: AnalyticsProps) {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -25,6 +25,10 @@ export default function Analytics({ children }: AnalyticsProps) {
     pageview(url);
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+export default function Analytics({ children }: AnalyticsProps) {
   useEffect(() => {
     // Track performance metrics after page load
     const timer = setTimeout(() => {
@@ -151,6 +155,9 @@ export default function Analytics({ children }: AnalyticsProps) {
         }}
       />
 
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
       {children}
     </>
   );
