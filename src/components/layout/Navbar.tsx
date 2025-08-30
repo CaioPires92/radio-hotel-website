@@ -107,7 +107,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               ))}
               {/* Language Selector */}
               <div className="ml-4">
-                <CompactLanguageSelector className="text-sm" />
+                <CompactLanguageSelector className="text-sm" isScrolled={isScrolled} />
               </div>
             </div>
           </div>
@@ -178,7 +178,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           {/* Language Selector Mobile */}
           <div className="px-3 py-2 border-t border-gray-200">
             <div className="flex items-center justify-center">
-              <CompactLanguageSelector className="text-sm" />
+              <CompactLanguageSelector className="text-sm" isScrolled={true} />
             </div>
           </div>
           <div className="px-3 py-2">
