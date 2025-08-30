@@ -45,6 +45,9 @@ yarn-error.log*
 relatorio*.md
 ter
 /public/images/
+/public/images/**/*.mp4
+/public/images/**/*.mov
+/public/images/**/*.avi
 # env files (can opt-in for committing if needed)
 .env*
 
