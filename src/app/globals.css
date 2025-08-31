@@ -147,40 +147,52 @@
     padding: 0;
   }
   
-  /* Configuração para formato brasileiro dd/mm/yyyy */
+  /* Configuração FORÇADA para formato brasileiro dd/mm/yyyy */
   input[type="date"] {
-    text-align: left;
-    direction: ltr;
+    text-align: left !important;
+    direction: ltr !important;
   }
   
-  /* Força ordem brasileira nos campos */
+  /* Força ordem brasileira nos campos com !important */
   input[type="date"]::-webkit-datetime-edit-fields-wrapper {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
   }
   
-  /* Dia primeiro */
+  /* Dia PRIMEIRO - ordem 1 */
   input[type="date"]::-webkit-datetime-edit-day-field {
-    order: 1;
+    order: 1 !important;
+    margin-right: 2px !important;
   }
   
-  /* Separadores */
+  /* Separadores - ordem 2 */
   input[type="date"]::-webkit-datetime-edit-text {
-    order: 2;
+    order: 2 !important;
+    padding: 0 1px !important;
   }
   
-  /* Mês segundo */
+  /* Mês SEGUNDO - ordem 3 */
   input[type="date"]::-webkit-datetime-edit-month-field {
-    order: 3;
+    order: 3 !important;
+    margin: 0 2px !important;
   }
   
-  /* Ano terceiro */
+  /* Ano TERCEIRO - ordem 4 */
   input[type="date"]::-webkit-datetime-edit-year-field {
-    order: 4;
+    order: 4 !important;
+    margin-left: 2px !important;
   }
   
-  /* Estilo dos separadores */
-  input[type="date"]::-webkit-datetime-edit-text {
-    padding: 0 2px;
+  /* Configuração específica para Chrome/Webkit */
+  @supports (-webkit-appearance: none) {
+    input[type="date"]::-webkit-datetime-edit {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+    
+    input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+      order: 0 !important;
+    }
   }
   
   /* Placeholder para formato brasileiro */

@@ -31,43 +31,80 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }
   const { t } = useTranslation();
   
-  // Configure Brazilian date format
+  // Configure Brazilian date format dd/mm/yyyy
   useEffect(() => {
     const configureBrazilianDateFormat = () => {
       const dateInputs = document.querySelectorAll('input[type="date"]');
       dateInputs.forEach((input) => {
         const htmlInput = input as HTMLInputElement;
         
-        // Set Brazilian locale attributes
+        // Set Brazilian locale and format attributes
         htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
         htmlInput.setAttribute('pattern', '\\d{2}/\\d{2}/\\d{4}');
         htmlInput.setAttribute('lang', 'pt-BR');
         
-        // Force Brazilian format using locale
-        try {
-          // Create a temporary date to test locale support
-          const testDate = new Date('2023-12-25');
-          const brazilianFormat = testDate.toLocaleDateString('pt-BR');
-          
-          if (brazilianFormat.includes('/')) {
-            // Browser supports Brazilian locale
-            htmlInput.style.direction = 'ltr';
-            htmlInput.style.textAlign = 'left';
+        // Force Brazilian date format using CSS and JavaScript
+        const style = document.createElement('style');
+        style.textContent = `
+          input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            display: flex !important;
           }
-        } catch (error) {
-          console.warn('Brazilian date format not fully supported:', error);
+          input[type="date"]::-webkit-datetime-edit-day-field {
+            order: 1 !important;
+          }
+          input[type="date"]::-webkit-datetime-edit-text {
+            order: 2 !important;
+          }
+          input[type="date"]::-webkit-datetime-edit-month-field {
+            order: 3 !important;
+          }
+          input[type="date"]::-webkit-datetime-edit-year-field {
+            order: 4 !important;
+          }
+        `;
+        
+        if (!document.head.querySelector('#brazilian-date-format')) {
+          style.id = 'brazilian-date-format';
+          document.head.appendChild(style);
         }
         
-        // Add focus handler for better UX
+        // Set locale for the input
+        htmlInput.style.direction = 'ltr';
+        htmlInput.style.textAlign = 'left';
+        
+        // Add event listeners for better format control
         const handleFocus = () => {
           htmlInput.style.direction = 'ltr';
           htmlInput.style.textAlign = 'left';
         };
         
+        const handleInput = () => {
+          // Ensure the value follows Brazilian format
+          if (htmlInput.value) {
+            const date = new Date(htmlInput.value);
+            if (!isNaN(date.getTime())) {
+              // Format as dd/mm/yyyy for display purposes
+              const day = String(date.getDate()).padStart(2, '0');
+              const month = String(date.getMonth() + 1).padStart(2, '0');
+              const year = date.getFullYear();
+              
+              // Set a data attribute for display formatting
+              htmlInput.setAttribute('data-display-value', `${day}/${month}/${year}`);
+            }
+          }
+        };
+        
         htmlInput.addEventListener('focus', handleFocus);
+        htmlInput.addEventListener('input', handleInput);
+        htmlInput.addEventListener('change', handleInput);
+        
+        // Initial format setup
+        handleInput();
         
         return () => {
           htmlInput.removeEventListener('focus', handleFocus);
+          htmlInput.removeEventListener('input', handleInput);
+          htmlInput.removeEventListener('change', handleInput);
         };
       });
     };
