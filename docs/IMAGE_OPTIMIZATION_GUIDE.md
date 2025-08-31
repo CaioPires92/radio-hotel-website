@@ -76,7 +76,22 @@ sharp -i input.jpg -o output.webp --webp-quality 80
 
 ## 🔧 Implementação no Projeto
 
-### Passo 1: Habilitar Otimização do Next.js
+### Passo 1: Scripts NPM Disponíveis
+
+O projeto já possui scripts automatizados para otimização:
+
+```bash
+# Otimizar todas as imagens (cria versões otimizadas)
+npm run optimize-images
+
+# Substituir imagens originais pelas otimizadas (com backup)
+npm run optimize-images:replace
+
+# Restaurar imagens originais do backup
+npm run restore-images
+```
+
+### Passo 2: Habilitar Otimização do Next.js
 
 **Editar `next.config.ts`:**
 ```typescript
@@ -94,7 +109,7 @@ const nextConfig: NextConfig = {
 };
 ```
 
-### Passo 2: Usar Componente Image do Next.js
+### Passo 3: Usar Componente Image do Next.js
 
 **Substituir tags `<img>` por `<Image>`:**
 ```tsx
@@ -115,7 +130,7 @@ import Image from 'next/image';
 />
 ```
 
-### Passo 3: Script de Otimização Automática
+### Passo 4: Script de Otimização Automática
 
 **Criar `scripts/optimize-images.js`:**
 ```javascript
