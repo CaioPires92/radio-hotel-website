@@ -30,14 +30,30 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     console.log('BookingForm - isOpen:', isOpen);
   }
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    checkIn: '',
-    checkOut: '',
-    adults: '2',
-    children: '0',
-    childrenAges: [] as string[],
-    roomType: '',
-    specialRequests: '',
+  
+  // Get today and tomorrow dates in YYYY-MM-DD format
+  const getDefaultDates = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    return {
+      checkIn: today.toISOString().split('T')[0],
+      checkOut: tomorrow.toISOString().split('T')[0]
+    };
+  };
+  
+  const [formData, setFormData] = useState(() => {
+    const defaultDates = getDefaultDates();
+    return {
+      checkIn: defaultDates.checkIn,
+      checkOut: defaultDates.checkOut,
+      adults: '2',
+      children: '0',
+      childrenAges: [] as string[],
+      roomType: '',
+      specialRequests: '',
+    };
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
