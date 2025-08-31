@@ -37,15 +37,31 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       const dateInputs = document.querySelectorAll('input[type="date"]');
       dateInputs.forEach((input) => {
         const htmlInput = input as HTMLInputElement;
-        // Set Brazilian locale
+        
+        // Set Brazilian locale attributes
         htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
         htmlInput.setAttribute('pattern', '\\d{2}/\\d{2}/\\d{4}');
+        htmlInput.setAttribute('lang', 'pt-BR');
         
-        // Add event listener to format display
-        const handleFocus = () => {
-          if (htmlInput.type === 'date') {
+        // Force Brazilian format using locale
+        try {
+          // Create a temporary date to test locale support
+          const testDate = new Date('2023-12-25');
+          const brazilianFormat = testDate.toLocaleDateString('pt-BR');
+          
+          if (brazilianFormat.includes('/')) {
+            // Browser supports Brazilian locale
             htmlInput.style.direction = 'ltr';
+            htmlInput.style.textAlign = 'left';
           }
+        } catch (error) {
+          console.warn('Brazilian date format not fully supported:', error);
+        }
+        
+        // Add focus handler for better UX
+        const handleFocus = () => {
+          htmlInput.style.direction = 'ltr';
+          htmlInput.style.textAlign = 'left';
         };
         
         htmlInput.addEventListener('focus', handleFocus);
