@@ -488,12 +488,13 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                             {formData.adults} {t('booking.summary.adults')} + {formData.children} {t('booking.summary.children')}
                           </span>
                         </div>
-                        <div className="flex justify-between border-t border-gold/20 pt-2">
+                        {/* Valor Estimado - Comentado para futura reabilitação */}
+                        {/* <div className="flex justify-between border-t border-gold/20 pt-2">
                           <span className="font-semibold text-navy">{t('booking.summary.estimatedValue')}:</span>
                           <span className="font-bold text-gold text-lg">
                             {t('booking.currency')} {calculateTotal().toLocaleString('pt-BR')}
                           </span>
-                        </div>
+                        </div> */}
                       </div>
                     </motion.div>
                   )}
