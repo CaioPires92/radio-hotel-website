@@ -258,6 +258,7 @@
     }
   },
   "events": {
+    "badge": "Events",
     "title": "Special Events",
     "subtitle": "Unforgettable Moments in a Unique Setting",
     "description": "Host your dream event in our elegant spaces, surrounded by nature.",
@@ -301,12 +302,11 @@
       "duration": "Half day or full day",
       "location": "Executive Rooms",
       "features": {
-        "projector": "Projector and screen",
-        "wifi": "High-speed internet",
-        "airConditioning": "Air conditioning",
-        "flipchart": "Flipchart and materials",
-        "catering": "Coffee break service",
-        "parking": "Exclusive parking"
+        "multimedia": "Complete multimedia system",
+        "videoConference": "HD video conferencing",
+        "coffeeBreak": "Coffee break area",
+        "parking": "Exclusive parking",
+        "technicalSupport": "Specialized technical support"
       }
     },
     "wedding": {

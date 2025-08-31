@@ -173,6 +173,7 @@
     }
   },
   "events": {
+    "badge": "Eventos",
     "title": "Eventos Especiais",
     "subtitle": "Momentos Inesquecíveis em um Cenário Único",
     "description": "Realize seu evento dos sonhos em nossos espaços elegantes, cercados pela natureza.",
@@ -216,12 +217,11 @@
       "duration": "Meio período ou dia completo",
       "location": "Salas Executivas",
       "features": {
-        "projector": "Projetor e tela",
-        "wifi": "Internet de alta velocidade",
-        "airConditioning": "Ar condicionado",
-        "flipchart": "Flipchart e materiais",
-        "catering": "Serviço de coffee break",
-        "parking": "Estacionamento exclusivo"
+        "multimedia": "Sistema multimídia completo",
+        "videoConference": "Videoconferência HD",
+        "coffeeBreak": "Área para coffee break",
+        "parking": "Estacionamento exclusivo",
+        "technicalSupport": "Suporte técnico especializado"
       }
     },
     "wedding": {
