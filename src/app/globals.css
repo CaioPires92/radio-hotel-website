@@ -132,3 +132,43 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Configuração para formato brasileiro de data */
+@layer components {
+  input[type="date"] {
+    position: relative;
+  }
+  
+  /* Força o formato brasileiro dd/mm/yyyy */
+  input[type="date"]::-webkit-datetime-edit {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-day-field {
+    order: 1;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-month-field {
+    order: 2;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-year-field {
+    order: 3;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-text {
+    order: 2;
+  }
+  
+  /* Melhora a aparência do date picker */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="date"]:hover::-webkit-calendar-picker-indicator {
+    opacity: 1;
+  }
+}

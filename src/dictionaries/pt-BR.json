@@ -463,7 +463,8 @@
       "phone": "Telefone inválido",
       "checkInRequired": "Data de check-in é obrigatória",
       "checkOutRequired": "Data de check-out é obrigatória",
-      "checkOutAfterCheckIn": "Check-out deve ser após check-in"
+      "checkOutAfterCheckIn": "Check-out deve ser após check-in",
+      "checkInPastDate": "A data de check-in não pode ser no passado"
     }
   },
   "reviews": {
