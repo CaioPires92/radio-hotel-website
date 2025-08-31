@@ -82,10 +82,10 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }, [isOpen, onClose]);
 
   const roomTypes = [
-    { value: 'standard', label: `${t('booking.roomTypes.standard')} - ${t('booking.currency')} 220/${t('booking.perNight')}`, price: 220 },
-    { value: 'deluxe', label: `${t('booking.roomTypes.deluxe')} - ${t('booking.currency')} 320/${t('booking.perNight')}`, price: 320 },
-    { value: 'suite-master', label: `${t('booking.roomTypes.suiteMaster')} - ${t('booking.currency')} 450/${t('booking.perNight')}`, price: 450 },
-    { value: 'suite-familia', label: `${t('booking.roomTypes.suiteFamily')} - ${t('booking.currency')} 520/${t('booking.perNight')}`, price: 520 },
+    { value: 'standard', label: t('booking.roomTypes.standard') },
+    { value: 'deluxe', label: t('booking.roomTypes.deluxe') },
+    { value: 'suite-master', label: t('booking.roomTypes.suiteMaster') },
+    { value: 'suite-familia', label: t('booking.roomTypes.suiteFamily') },
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -309,7 +309,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Dates */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="check-in-input" className="block text-sm font-medium text-navy mb-2">
+                      <label htmlFor="check-in-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkIn')} *
                       </label>
@@ -329,7 +329,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                     </div>
 
                     <div>
-                      <label htmlFor="check-out-input" className="block text-sm font-medium text-navy mb-2">
+                      <label htmlFor="check-out-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkOut')} *
                       </label>
