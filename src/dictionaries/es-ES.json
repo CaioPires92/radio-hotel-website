@@ -458,7 +458,8 @@
       "phone": "Teléfono inválido",
       "checkInRequired": "La fecha de check-in es obligatoria",
       "checkOutRequired": "La fecha de check-out es obligatoria",
-      "checkOutAfterCheckIn": "El check-out debe ser después del check-in"
+      "checkOutAfterCheckIn": "El check-out debe ser después del check-in",
+      "checkInPastDate": "La fecha de check-in no puede ser en el pasado"
     }
   },
   "reviews": {

@@ -299,7 +299,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   <span>{t('booking.title')}</span>
                 </CardTitle>
 
-                <p className="text-white/95 mt-2">
+                <p className="text-white/95 mt-2 text-sm md:text-base leading-tight">
                   {t('booking.subtitle')}
                 </p>
               </CardHeader>
@@ -309,40 +309,44 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Dates */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="check-in-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer">
+                      <label htmlFor="check-in-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer" onClick={() => document.getElementById('check-in-input')?.focus()}>
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkIn')} *
                       </label>
-                      <input
-                        id="check-in-input"
-                        type="date"
-                        value={formData.checkIn}
-                        onChange={(e) => handleInputChange('checkIn', e.target.value)}
-                        min={getTodayDate()}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${errors.checkIn ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        required
-                      />
+                      <div className="relative cursor-pointer" onClick={() => document.getElementById('check-in-input')?.showPicker?.()}>
+                        <input
+                          id="check-in-input"
+                          type="date"
+                          value={formData.checkIn}
+                          onChange={(e) => handleInputChange('checkIn', e.target.value)}
+                          min={getTodayDate()}
+                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkIn ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                          required
+                        />
+                      </div>
                       {errors.checkIn && (
                         <p className="text-red-500 text-sm mt-1">{errors.checkIn}</p>
                       )}
                     </div>
 
                     <div>
-                      <label htmlFor="check-out-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer">
+                      <label htmlFor="check-out-input" className="block text-sm font-medium text-navy mb-2 cursor-pointer" onClick={() => document.getElementById('check-out-input')?.focus()}>
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkOut')} *
                       </label>
-                      <input
-                        id="check-out-input"
-                        type="date"
-                        value={formData.checkOut}
-                        onChange={(e) => handleInputChange('checkOut', e.target.value)}
-                        min={formData.checkIn || getTomorrowDate()}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${errors.checkOut ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        required
-                      />
+                      <div className="relative cursor-pointer" onClick={() => document.getElementById('check-out-input')?.showPicker?.()}>
+                        <input
+                          id="check-out-input"
+                          type="date"
+                          value={formData.checkOut}
+                          onChange={(e) => handleInputChange('checkOut', e.target.value)}
+                          min={formData.checkIn || getTomorrowDate()}
+                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkOut ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                          required
+                        />
+                      </div>
                       {errors.checkOut && (
                         <p className="text-red-500 text-sm mt-1">{errors.checkOut}</p>
                       )}
