@@ -31,6 +31,36 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }
   const { t } = useTranslation();
   
+  // Configure Brazilian date format
+  useEffect(() => {
+    const configureBrazilianDateFormat = () => {
+      const dateInputs = document.querySelectorAll('input[type="date"]');
+      dateInputs.forEach((input) => {
+        const htmlInput = input as HTMLInputElement;
+        // Set Brazilian locale
+        htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
+        htmlInput.setAttribute('pattern', '\\d{2}/\\d{2}/\\d{4}');
+        
+        // Add event listener to format display
+        const handleFocus = () => {
+          if (htmlInput.type === 'date') {
+            htmlInput.style.direction = 'ltr';
+          }
+        };
+        
+        htmlInput.addEventListener('focus', handleFocus);
+        
+        return () => {
+          htmlInput.removeEventListener('focus', handleFocus);
+        };
+      });
+    };
+    
+    if (isOpen) {
+      setTimeout(configureBrazilianDateFormat, 100);
+    }
+  }, [isOpen]);
+  
   // Get today and tomorrow dates in YYYY-MM-DD format
   const getDefaultDates = () => {
     const today = new Date();
