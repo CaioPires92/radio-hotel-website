@@ -320,6 +320,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                           value={formData.checkIn}
                           onChange={(e) => handleInputChange('checkIn', e.target.value)}
                           min={getTodayDate()}
+                          placeholder="dd/mm/aaaa"
+                          data-date-format="dd/mm/yyyy"
+                          lang="pt-BR"
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkIn ? 'border-red-500' : 'border-gray-300'
                             }`}
                           required
@@ -342,6 +345,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                           value={formData.checkOut}
                           onChange={(e) => handleInputChange('checkOut', e.target.value)}
                           min={formData.checkIn || getTomorrowDate()}
+                          placeholder="dd/mm/aaaa"
+                          data-date-format="dd/mm/yyyy"
+                          lang="pt-BR"
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkOut ? 'border-red-500' : 'border-gray-300'
                             }`}
                           required

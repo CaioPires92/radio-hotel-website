@@ -137,28 +137,50 @@
 @layer components {
   input[type="date"] {
     position: relative;
+    font-family: inherit;
   }
   
   /* Força o formato brasileiro dd/mm/yyyy */
   input[type="date"]::-webkit-datetime-edit {
     display: flex;
     align-items: center;
+    padding: 0;
   }
   
+  /* Reordena os campos para formato brasileiro */
   input[type="date"]::-webkit-datetime-edit-day-field {
     order: 1;
+    margin-right: 2px;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-text:nth-of-type(1) {
+    order: 2;
+    content: "/";
   }
   
   input[type="date"]::-webkit-datetime-edit-month-field {
-    order: 2;
+    order: 3;
+    margin: 0 2px;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-text:nth-of-type(2) {
+    order: 4;
+    content: "/";
   }
   
   input[type="date"]::-webkit-datetime-edit-year-field {
-    order: 3;
+    order: 5;
+    margin-left: 2px;
   }
   
-  input[type="date"]::-webkit-datetime-edit-text {
-    order: 2;
+  /* Placeholder para formato brasileiro */
+  input[type="date"]:invalid {
+    color: #999;
+  }
+  
+  input[type="date"]:invalid:before {
+    content: "dd/mm/aaaa";
+    color: #999;
   }
   
   /* Melhora a aparência do date picker */
@@ -166,9 +188,19 @@
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
   }
   
   input[type="date"]:hover::-webkit-calendar-picker-indicator {
     opacity: 1;
+  }
+  
+  /* Suporte para Firefox */
+  @-moz-document url-prefix() {
+    input[type="date"] {
+      text-align: left;
+    }
   }
 }
