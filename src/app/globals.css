@@ -147,30 +147,53 @@
     padding: 0;
   }
   
-  /* Reordena os campos para formato brasileiro */
-  input[type="date"]::-webkit-datetime-edit-day-field {
-    order: 1;
-    margin-right: 2px;
+  /* Configuração específica para formato brasileiro */
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+    flex-direction: row;
   }
   
-  input[type="date"]::-webkit-datetime-edit-text:nth-of-type(1) {
+  /* Ordem correta: dia primeiro */
+  input[type="date"]::-webkit-datetime-edit-day-field {
+    order: 1;
+    margin-right: 1px;
+  }
+  
+  /* Separador após dia */
+  input[type="date"]::-webkit-datetime-edit-text:first-of-type {
     order: 2;
     content: "/";
   }
   
+  /* Mês em segundo */
   input[type="date"]::-webkit-datetime-edit-month-field {
     order: 3;
-    margin: 0 2px;
+    margin: 0 1px;
   }
   
-  input[type="date"]::-webkit-datetime-edit-text:nth-of-type(2) {
+  /* Separador após mês */
+  input[type="date"]::-webkit-datetime-edit-text:last-of-type {
     order: 4;
     content: "/";
   }
   
+  /* Ano por último */
   input[type="date"]::-webkit-datetime-edit-year-field {
     order: 5;
-    margin-left: 2px;
+    margin-left: 1px;
+  }
+  
+  /* Força layout brasileiro */
+  input[type="date"] {
+    text-align: left;
+    direction: ltr;
+  }
+  
+  /* Configuração específica para Chrome */
+  @supports (-webkit-appearance: none) {
+    input[type="date"]::-webkit-datetime-edit {
+      flex-direction: row;
+    }
   }
   
   /* Placeholder para formato brasileiro */
