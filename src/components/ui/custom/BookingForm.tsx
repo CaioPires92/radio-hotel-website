@@ -31,80 +31,69 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }
   const { t } = useTranslation();
   
-  // Configure Brazilian date format dd/mm/yyyy
+  // Force Brazilian date format dd/mm/yyyy with custom implementation
   useEffect(() => {
     const configureBrazilianDateFormat = () => {
       const dateInputs = document.querySelectorAll('input[type="date"]');
       dateInputs.forEach((input) => {
         const htmlInput = input as HTMLInputElement;
         
-        // Set Brazilian locale and format attributes
-        htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
-        htmlInput.setAttribute('pattern', '\\d{2}/\\d{2}/\\d{4}');
-        htmlInput.setAttribute('lang', 'pt-BR');
+        // Create a wrapper div for custom date input
+        const wrapper = document.createElement('div');
+        wrapper.className = 'relative';
+        wrapper.style.cssText = 'position: relative; display: inline-block; width: 100%;';
         
-        // Force Brazilian date format using CSS and JavaScript
-        const style = document.createElement('style');
-        style.textContent = `
-          input[type="date"]::-webkit-datetime-edit-fields-wrapper {
-            display: flex !important;
-          }
-          input[type="date"]::-webkit-datetime-edit-day-field {
-            order: 1 !important;
-          }
-          input[type="date"]::-webkit-datetime-edit-text {
-            order: 2 !important;
-          }
-          input[type="date"]::-webkit-datetime-edit-month-field {
-            order: 3 !important;
-          }
-          input[type="date"]::-webkit-datetime-edit-year-field {
-            order: 4 !important;
-          }
-        `;
+        // Create a text input for display
+        const displayInput = document.createElement('input');
+        displayInput.type = 'text';
+        displayInput.placeholder = 'dd/mm/aaaa';
+        displayInput.className = htmlInput.className;
+        displayInput.style.cssText = htmlInput.style.cssText;
+        displayInput.readOnly = true;
+        displayInput.style.cursor = 'pointer';
         
-        if (!document.head.querySelector('#brazilian-date-format')) {
-          style.id = 'brazilian-date-format';
-          document.head.appendChild(style);
+        // Hide the original date input but keep it functional
+        htmlInput.style.cssText += 'position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2;';
+        
+        // Function to format date as dd/mm/yyyy
+        const formatDateBrazilian = (dateValue: string) => {
+          if (!dateValue) return '';
+          const date = new Date(dateValue);
+          if (isNaN(date.getTime())) return '';
+          
+          const day = String(date.getDate()).padStart(2, '0');
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const year = date.getFullYear();
+          
+          return `${day}/${month}/${year}`;
+        };
+        
+        // Update display when date changes
+        const updateDisplay = () => {
+          displayInput.value = formatDateBrazilian(htmlInput.value);
+        };
+        
+        // Set initial value
+        updateDisplay();
+        
+        // Add event listeners
+        htmlInput.addEventListener('change', updateDisplay);
+        htmlInput.addEventListener('input', updateDisplay);
+        
+        // Insert wrapper and rearrange elements
+        if (htmlInput.parentNode) {
+          htmlInput.parentNode.insertBefore(wrapper, htmlInput);
+          wrapper.appendChild(displayInput);
+          wrapper.appendChild(htmlInput);
         }
         
-        // Set locale for the input
-        htmlInput.style.direction = 'ltr';
-        htmlInput.style.textAlign = 'left';
-        
-        // Add event listeners for better format control
-        const handleFocus = () => {
-          htmlInput.style.direction = 'ltr';
-          htmlInput.style.textAlign = 'left';
-        };
-        
-        const handleInput = () => {
-          // Ensure the value follows Brazilian format
-          if (htmlInput.value) {
-            const date = new Date(htmlInput.value);
-            if (!isNaN(date.getTime())) {
-              // Format as dd/mm/yyyy for display purposes
-              const day = String(date.getDate()).padStart(2, '0');
-              const month = String(date.getMonth() + 1).padStart(2, '0');
-              const year = date.getFullYear();
-              
-              // Set a data attribute for display formatting
-              htmlInput.setAttribute('data-display-value', `${day}/${month}/${year}`);
-            }
-          }
-        };
-        
-        htmlInput.addEventListener('focus', handleFocus);
-        htmlInput.addEventListener('input', handleInput);
-        htmlInput.addEventListener('change', handleInput);
-        
-        // Initial format setup
-        handleInput();
+        // Set Brazilian locale attributes on original input
+        htmlInput.setAttribute('lang', 'pt-BR');
+        htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
         
         return () => {
-          htmlInput.removeEventListener('focus', handleFocus);
-          htmlInput.removeEventListener('input', handleInput);
-          htmlInput.removeEventListener('change', handleInput);
+          htmlInput.removeEventListener('change', updateDisplay);
+          htmlInput.removeEventListener('input', updateDisplay);
         };
       });
     };
