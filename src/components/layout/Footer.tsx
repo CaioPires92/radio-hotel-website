@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import Image from 'next/image';
 import {
   Phone,
   Mail,
@@ -133,11 +134,17 @@ const Footer = () => {
     <footer className="text-white relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src="/images/hero/hero2.jpg"
-          alt="Radio Hotel Background"
-          className="w-full h-full object-cover"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/hero/hero2.jpg"
+            alt="Radio Hotel Background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            quality={75}
+            priority={false}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/85 to-black/90" />
       </div>
 
@@ -162,11 +169,16 @@ const Footer = () => {
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img
-                    src="/logo.png"
-                    alt={t('footer.logo.alt')}
-                    className="w-26 object-contain"
-                  />
+                  <div className="relative w-26 h-12">
+                    <Image
+                      src="/logo.png"
+                      alt={t('footer.logo.alt')}
+                      fill
+                      className="object-contain"
+                      sizes="104px"
+                      quality={90}
+                    />
+                  </div>
                 </div>
                 <p className="text-white leading-relaxed">
                   {t('footer.description')}

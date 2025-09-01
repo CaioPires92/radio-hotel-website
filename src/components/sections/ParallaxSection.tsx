@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, Calendar, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/components/i18n/I18nProvider';
+import Image from 'next/image';
 
 interface ParallaxSectionProps {
   onBookingClick?: () => void;
@@ -57,12 +58,17 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
         className="absolute inset-0 w-full h-[120%]"
         style={{ y: backgroundY }}
       >
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url('/images/hero/hero1.jpg')`,
-          }}
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/hero/hero1.jpg"
+            alt="Radio Hotel - Serra Negra"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            quality={85}
+            priority={false}
+          />
+        </div>
       </motion.div>
 
       {/* Animated Overlay */}
