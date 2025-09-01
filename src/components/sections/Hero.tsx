@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, MapPin, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
+import Image from 'next/image';
 
 interface HeroProps {
   onBookingClick?: () => void;
@@ -104,15 +105,36 @@ const Hero = ({ onBookingClick }: HeroProps) => {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 1.2, ease: 'easeInOut' }}
           >
-            <div
-              className="w-full h-full bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: `linear-gradient(rgba(10, 13, 41, 0.7), rgba(22, 68, 110, 0.6)), url(${slides[currentSlide].image})`,
-              }}
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].title}
+                fill
+                priority={currentSlide === 0}
+                className="object-cover"
+                sizes="100vw"
+                quality={85}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy/70 to-blue/60" />
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Preload next images */}
+      {slides.map((slide, index) => {
+        if (index !== currentSlide && index <= currentSlide + 1) {
+          return (
+            <link
+              key={slide.id}
+              rel="preload"
+              as="image"
+              href={slide.image}
+            />
+          );
+        }
+        return null;
+      })}
 
       {/* Content Overlay */}
       <div className="relative z-10 h-full flex items-center">

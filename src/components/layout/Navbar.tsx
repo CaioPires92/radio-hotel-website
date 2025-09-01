@@ -6,6 +6,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
 import { useTranslation } from '@/components/i18n/I18nProvider';
+import Image from 'next/image';
 
 interface NavbarProps {
   onBookingClick?: () => void;
@@ -78,13 +79,17 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             transition={{ duration: 0.2 }}
           >
             <a href="#home" className="flex items-center space-x-3">
-              <img
-                src={isScrolled ? "/logo-color.svg" : "/logo.svg"}
-                alt="Rádio Hotel Logo"
-                className={`object-contain transition-all duration-300 ${
-                  isScrolled ? 'w-16' : 'w-20'
-                }`}
-              />
+              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-16 h-12' : 'w-20 h-15'}`}>
+                <Image
+                  src="/logo.svg"
+                  alt="Rádio Hotel Logo"
+                  fill
+                  className="object-contain transition-all duration-300"
+                  sizes="80px"
+                  quality={90}
+                  priority
+                />
+              </div>
               <div className="hidden sm:block">
               </div>
             </a>
