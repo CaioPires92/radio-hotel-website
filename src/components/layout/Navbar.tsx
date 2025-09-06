@@ -24,6 +24,15 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     }
   };
 
+  const handleMenuItemKeyDown = (event: React.KeyboardEvent, href: string) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      setIsOpen(false);
+      // Navigate to the href
+      window.location.href = href;
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -46,7 +55,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       onBookingClick();
     } else {
       const message = t('navbar.whatsapp.bookingMessage');
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5519999999999'}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
   };
@@ -164,6 +173,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               href={item.href}
               className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
               onClick={() => setIsOpen(false)}
+              onKeyDown={(e) => handleMenuItemKeyDown(e, item.href)}
               tabIndex={isOpen ? 0 : -1}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

@@ -147,46 +147,19 @@ export const hotjar = {
   },
 };
 
+import { getLCP, getFID, getCLS } from 'web-vitals';
+
 // Performance monitoring
 export const trackPerformance = () => {
-  if (typeof window !== 'undefined' && 'performance' in window) {
-    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-    
-    if (navigation) {
-      const loadTime = navigation.loadEventEnd - navigation.loadEventStart;
-      const domContentLoaded = navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart;
-      const firstPaint = performance.getEntriesByName('first-paint')[0]?.startTime || 0;
-      const firstContentfulPaint = performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0;
-      
-      // Track Core Web Vitals
-      event({
-        action: 'page_load_time',
-        category: 'performance',
-        value: Math.round(loadTime),
-      });
-      
-      event({
-        action: 'dom_content_loaded',
-        category: 'performance',
-        value: Math.round(domContentLoaded),
-      });
-      
-      if (firstPaint) {
-        event({
-          action: 'first_paint',
-          category: 'performance',
-          value: Math.round(firstPaint),
-        });
-      }
-      
-      if (firstContentfulPaint) {
-        event({
-          action: 'first_contentful_paint',
-          category: 'performance',
-          value: Math.round(firstContentfulPaint),
-        });
-      }
-    }
+  if (typeof window !== 'undefined') {
+    const logMetric = (metric: any) => {
+      console.log(metric);
+      event({ action: metric.name, category: 'performance', value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value) });
+    };
+
+    getLCP(logMetric);
+    getFID(logMetric);
+    getCLS(logMetric);
   }
 };
 

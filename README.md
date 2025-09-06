@@ -35,6 +35,21 @@ Site oficial do **Radio Hotel**, um refúgio de elegância e tradição localiza
 
 ## 📦 Instalação
 
+### Variáveis de Ambiente
+
+Para rodar este projeto, você precisará adicionar as seguintes variáveis de ambiente no seu arquivo `.env.local`. Você pode usar o arquivo `.env.example` como um template.
+
+```
+NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
+NEXT_PUBLIC_GTM_ID="GTM-XXXXXXX"
+NEXT_PUBLIC_FB_PIXEL_ID="0000000000000"
+NEXT_PUBLIC_HOTJAR_ID="0000000"
+NEXT_PUBLIC_CLARITY_ID="xxxxxxxxxx"
+NEXT_PUBLIC_WHATSAPP_NUMBER="5519999999999"
+```
+
+### Rodando o Servidor de Desenvolvimento
+
 ```bash
 # Clone o repositório
 git clone https://github.com/seu-usuario/radio-hotel.git
