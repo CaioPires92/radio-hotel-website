@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 interface BookingFormProps {
   isOpen: boolean;
@@ -30,79 +31,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     console.log('BookingForm - isOpen:', isOpen);
   }
   const { t } = useTranslation();
-  
-  // Force Brazilian date format dd/mm/yyyy with custom implementation
-  useEffect(() => {
-    const configureBrazilianDateFormat = () => {
-      const dateInputs = document.querySelectorAll('input[type="date"]');
-      dateInputs.forEach((input) => {
-        const htmlInput = input as HTMLInputElement;
-        
-        // Create a wrapper div for custom date input
-        const wrapper = document.createElement('div');
-        wrapper.className = 'relative';
-        wrapper.style.cssText = 'position: relative; display: inline-block; width: 100%;';
-        
-        // Create a text input for display
-        const displayInput = document.createElement('input');
-        displayInput.type = 'text';
-        displayInput.placeholder = 'dd/mm/aaaa';
-        displayInput.className = htmlInput.className;
-        displayInput.style.cssText = htmlInput.style.cssText;
-        displayInput.readOnly = true;
-        displayInput.style.cursor = 'pointer';
-        
-        // Hide the original date input but keep it functional
-        htmlInput.style.cssText += 'position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2;';
-        
-        // Function to format date as dd/mm/yyyy
-        const formatDateBrazilian = (dateValue: string) => {
-          if (!dateValue) return '';
-          const date = new Date(dateValue);
-          if (isNaN(date.getTime())) return '';
-          
-          const day = String(date.getDate()).padStart(2, '0');
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const year = date.getFullYear();
-          
-          return `${day}/${month}/${year}`;
-        };
-        
-        // Update display when date changes
-        const updateDisplay = () => {
-          displayInput.value = formatDateBrazilian(htmlInput.value);
-        };
-        
-        // Set initial value
-        updateDisplay();
-        
-        // Add event listeners
-        htmlInput.addEventListener('change', updateDisplay);
-        htmlInput.addEventListener('input', updateDisplay);
-        
-        // Insert wrapper and rearrange elements
-        if (htmlInput.parentNode) {
-          htmlInput.parentNode.insertBefore(wrapper, htmlInput);
-          wrapper.appendChild(displayInput);
-          wrapper.appendChild(htmlInput);
-        }
-        
-        // Set Brazilian locale attributes on original input
-        htmlInput.setAttribute('lang', 'pt-BR');
-        htmlInput.setAttribute('data-date-format', 'dd/mm/yyyy');
-        
-        return () => {
-          htmlInput.removeEventListener('change', updateDisplay);
-          htmlInput.removeEventListener('input', updateDisplay);
-        };
-      });
-    };
-    
-    if (isOpen) {
-      setTimeout(configureBrazilianDateFormat, 100);
-    }
-  }, [isOpen]);
-  
+
   // Get today and tomorrow dates in YYYY-MM-DD format
   const getDefaultDates = () => {
     const today = new Date();
@@ -154,10 +83,10 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }, [isOpen, onClose]);
 
   const roomTypes = [
-    { value: 'standard', label: t('booking.roomTypes.standard') },
-    { value: 'deluxe', label: t('booking.roomTypes.deluxe') },
-    { value: 'suite-master', label: t('booking.roomTypes.suiteMaster') },
-    { value: 'suite-familia', label: t('booking.roomTypes.suiteFamily') },
+    { value: 'standard', label: t('booking.roomTypes.standard'), price: 100 },
+    { value: 'deluxe', label: t('booking.roomTypes.deluxe'), price: 150 },
+    { value: 'suite-master', label: t('booking.roomTypes.suiteMaster'), price: 200 },
+    { value: 'suite-familia', label: t('booking.roomTypes.suiteFamily'), price: 250 },
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -298,7 +227,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     message += `\n✨ ${t('booking.whatsapp.confirmation')}.`;
 
     // Open WhatsApp
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 
     // Reset form and close
