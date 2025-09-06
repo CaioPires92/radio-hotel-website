@@ -7,68 +7,70 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 interface AccommodationsProps {
   onBookingClick?: () => void;
 }
 
+const roomsData = (t: (key: string) => string) => [
+  {
+    id: 1,
+    name: t('accommodations.rooms.standard.name'),
+    type: t('accommodations.rooms.standard.type'),
+    description: t('accommodations.rooms.standard.description'),
+    image: '/images/rooms/standard-1.jpg',
+    capacity: t('accommodations.rooms.standard.capacity'),
+    amenities: [
+      { icon: Wifi, name: t('accommodations.amenities.wifi') },
+      { icon: Car, name: t('accommodations.amenities.parking') },
+      { icon: Coffee, name: t('accommodations.amenities.minibar') },
+      { icon: Tv, name: t('accommodations.amenities.tv') },
+      { icon: Bath, name: t('accommodations.amenities.bathroom') },
+      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+    ],
+    features: [t('accommodations.rooms.standard.features.0'), t('accommodations.rooms.standard.features.1'), t('accommodations.rooms.standard.features.2'), t('accommodations.rooms.standard.features.3')],
+  },
+  {
+    id: 2,
+    name: t('accommodations.rooms.luxury.name'),
+    type: t('accommodations.rooms.luxury.type'),
+    description: t('accommodations.rooms.luxury.description'),
+    image: '/images/rooms/luxo-2.jpg',
+    capacity: t('accommodations.rooms.luxury.capacity'),
+    amenities: [
+      { icon: Wifi, name: t('accommodations.amenities.wifi') },
+      { icon: Car, name: t('accommodations.amenities.parking') },
+      { icon: Coffee, name: t('accommodations.amenities.minibar') },
+      { icon: Tv, name: t('accommodations.amenities.tv') },
+      { icon: Bath, name: t('accommodations.amenities.bathroom') },
+      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+    ],
+    features: [t('accommodations.rooms.luxury.features.0'), t('accommodations.rooms.luxury.features.1'), t('accommodations.rooms.luxury.features.2'), t('accommodations.rooms.luxury.features.3')],
+  },
+  {
+    id: 3,
+    name: t('accommodations.rooms.quadruple.name'),
+    type: t('accommodations.rooms.quadruple.type'),
+    description: t('accommodations.rooms.quadruple.description'),
+    image: '/images/rooms/quadruplo-2.jpg',
+    capacity: t('accommodations.rooms.quadruple.capacity'),
+    amenities: [
+      { icon: Wifi, name: t('accommodations.amenities.wifi') },
+      { icon: Car, name: t('accommodations.amenities.parking') },
+      { icon: Coffee, name: t('accommodations.amenities.minibar') },
+      { icon: Tv, name: t('accommodations.amenities.tv') },
+      { icon: Bath, name: t('accommodations.amenities.bathroom') },
+      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+    ],
+    features: [t('accommodations.rooms.quadruple.features.0'), t('accommodations.rooms.quadruple.features.1'), t('accommodations.rooms.quadruple.features.2'), t('accommodations.rooms.quadruple.features.3')],
+  },
+];
+
 const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
   const { t } = useTranslation();
-
-  const rooms = [
-    {
-      id: 1,
-      name: t('accommodations.rooms.standard.name'),
-      type: t('accommodations.rooms.standard.type'),
-      description: t('accommodations.rooms.standard.description'),
-      image: '/images/rooms/standard-1.jpg',
-      capacity: t('accommodations.rooms.standard.capacity'),
-      amenities: [
-        { icon: Wifi, name: t('accommodations.amenities.wifi') },
-        { icon: Car, name: t('accommodations.amenities.parking') },
-        { icon: Coffee, name: t('accommodations.amenities.minibar') },
-        { icon: Tv, name: t('accommodations.amenities.tv') },
-        { icon: Bath, name: t('accommodations.amenities.bathroom') },
-        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      ],
-      features: [t('accommodations.rooms.standard.features.0'), t('accommodations.rooms.standard.features.1'), t('accommodations.rooms.standard.features.2'), t('accommodations.rooms.standard.features.3')],
-    },
-    {
-      id: 2,
-      name: t('accommodations.rooms.luxury.name'),
-      type: t('accommodations.rooms.luxury.type'),
-      description: t('accommodations.rooms.luxury.description'),
-      image: '/images/rooms/luxo-2.jpg',
-      capacity: t('accommodations.rooms.luxury.capacity'),
-      amenities: [
-        { icon: Wifi, name: t('accommodations.amenities.wifi') },
-        { icon: Car, name: t('accommodations.amenities.parking') },
-        { icon: Coffee, name: t('accommodations.amenities.minibar') },
-        { icon: Tv, name: t('accommodations.amenities.tv') },
-        { icon: Bath, name: t('accommodations.amenities.bathroom') },
-        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      ],
-      features: [t('accommodations.rooms.luxury.features.0'), t('accommodations.rooms.luxury.features.1'), t('accommodations.rooms.luxury.features.2'), t('accommodations.rooms.luxury.features.3')],
-    },
-    {
-      id: 3,
-      name: t('accommodations.rooms.quadruple.name'),
-      type: t('accommodations.rooms.quadruple.type'),
-      description: t('accommodations.rooms.quadruple.description'),
-      image: '/images/rooms/quadruplo-2.jpg',
-      capacity: t('accommodations.rooms.quadruple.capacity'),
-      amenities: [
-        { icon: Wifi, name: t('accommodations.amenities.wifi') },
-        { icon: Car, name: t('accommodations.amenities.parking') },
-        { icon: Coffee, name: t('accommodations.amenities.minibar') },
-        { icon: Tv, name: t('accommodations.amenities.tv') },
-        { icon: Bath, name: t('accommodations.amenities.bathroom') },
-        { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      ],
-      features: [t('accommodations.rooms.quadruple.features.0'), t('accommodations.rooms.quadruple.features.1'), t('accommodations.rooms.quadruple.features.2'), t('accommodations.rooms.quadruple.features.3')],
-    },
-  ];
+  const rooms = roomsData(t);
 
   const nextRoom = () => {
     setCurrentRoom((prev) => (prev + 1) % rooms.length);
@@ -83,7 +85,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       onBookingClick();
     } else {
       const message = `${t('accommodations.whatsapp.bookingMessage')} ${roomName}`;
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
   };
@@ -126,7 +128,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                   <div className="lg:col-span-3 relative h-96 lg:h-auto">
                     <Image
                       src={rooms[currentRoom].image}
-                      alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.join(', ')}`}
+                      alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.map(a => a.name).join(', ')}`}
                       fill
                       className="object-cover"
                       priority
