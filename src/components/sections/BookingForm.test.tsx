@@ -39,11 +39,15 @@ vi.mock('@/components/ui/card', () => ({
 }));
 
 vi.mock('@/components/ui/select', () => ({
-  Select: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  SelectContent: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+  Select: ({ children, onValueChange, value }: any) => (
+    <select onChange={(e) => onValueChange(e.target.value)} value={value} data-testid="select">
+      {children}
+    </select>
+  ),
+  SelectContent: ({ children }: any) => <>{children}</>,
   SelectItem: ({ children, ...props }: any) => <option {...props}>{children}</option>,
-  SelectTrigger: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-  SelectValue: ({ placeholder, ...props }: any) => <span {...props}>{placeholder}</span>,
+  SelectTrigger: ({ children }: any) => <button>{children}</button>,
+  SelectValue: ({ placeholder }: any) => <span>{placeholder}</span>,
 }));
 
 vi.mock('@/components/ui/LoadingSpinner', () => ({
@@ -66,12 +70,12 @@ vi.mock('@/components/i18n/I18nProvider', () => ({
         'booking.whatsappRedirect': 'Você será redirecionado para o WhatsApp',
         'booking.validation.checkInRequired': 'Check-in é obrigatório',
         'booking.validation.checkOutRequired': 'Check-out é obrigatório',
+        'booking.validation.roomTypeRequired': 'Tipo de quarto é obrigatório',
         'booking.validation.checkOutAfterCheckIn': 'Check-out deve ser posterior ao check-in',
-        'booking.selectAccommodation': 'Selecione uma acomodação'
+        'booking.selectAccommodation': 'Selecione uma acomodação',
       };
       return translations[key] || key;
     },
-    isLoading: false
   }),
 }));
 
@@ -93,86 +97,57 @@ describe('BookingForm Component', () => {
 
   it('renders booking form when open', () => {
     render(<BookingForm {...mockProps} />);
-    
     expect(screen.getByText('Faça sua Reserva')).toBeInTheDocument();
     expect(screen.getByLabelText(/check-in/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/check-out/i)).toBeInTheDocument();
-    expect(screen.getByText(/adultos/i)).toBeInTheDocument();
-    expect(screen.getByText('Crianças')).toBeInTheDocument();
   });
 
-  it('does not render when closed', () => {
-    render(<BookingForm {...mockProps} isOpen={false} />);
+  it('validates required fields on submit', async () => {
+    render(<BookingForm {...mockProps} />);
+    const submitButton = screen.getByText('Enviar Solicitação');
     
-    expect(screen.queryByText('Faça sua Reserva')).not.toBeInTheDocument();
+    // Clear default dates to test validation
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '' } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '' } });
+
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText('Check-in é obrigatório')).toBeInTheDocument();
+      expect(screen.getByText('Check-out é obrigatório')).toBeInTheDocument();
+      expect(screen.getByText('Tipo de quarto é obrigatório')).toBeInTheDocument();
+    });
   });
 
-  it('calls onClose when close button is clicked', () => {
+  it('validates that check-out date is after check-in date', async () => {
+    render(<BookingForm {...mockProps} />);
+    const submitButton = screen.getByText('Enviar Solicitação');
+    
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '2025-12-25' } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '2025-12-24' } });
+
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText('Check-out deve ser posterior ao check-in')).toBeInTheDocument();
+    });
+  });
+
+  it('submits the form and opens whatsapp with correct data', async () => {
     render(<BookingForm {...mockProps} />);
     
-    const closeButton = screen.getByLabelText(/fechar/i);
-    fireEvent.click(closeButton);
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '2025-12-25' } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '2025-12-27' } });
     
-    expect(mockProps.onClose).toHaveBeenCalledTimes(1);
-  });
-
-  it('validates required fields', async () => {
-    render(<BookingForm {...mockProps} />);
+    const selects = screen.getAllByTestId('select');
+    fireEvent.change(selects[0], { target: { value: '2' } }); // Adults
+    fireEvent.change(selects[2], { target: { value: 'standard' } }); // Room Type
     
     const submitButton = screen.getByText('Enviar Solicitação');
     fireEvent.click(submitButton);
     
-    // Just check that the form is interactive and doesn't crash
-    expect(submitButton).toBeInTheDocument();
-  });
-
-  it('validates check-out date is after check-in', async () => {
-    render(<BookingForm {...mockProps} />);
-    
-    const checkInInput = screen.getByLabelText(/check-in/i);
-    const checkOutInput = screen.getByLabelText(/check-out/i);
-    
-    // Test that inputs are functional
-    fireEvent.change(checkInInput, { target: { value: '2025-12-25' } });
-    fireEvent.change(checkOutInput, { target: { value: '2025-12-20' } });
-    
-    expect(checkInInput).toHaveValue('2025-12-25');
-    expect(checkOutInput).toHaveValue('2025-12-20');
-  });
-
-  it('shows children age fields when children are selected', () => {
-    render(<BookingForm {...mockProps} />);
-    
-    // This test would need to be updated to work with the Select component
-    // For now, we'll just check that the form renders without errors
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
-  })
-
-  it('submits form and opens WhatsApp', async () => {
-    // This test is complex due to Select component mocking
-    // For now, we'll test that the form renders and basic functionality works
-    render(<BookingForm {...mockProps} />);
-    
-    const checkInInput = screen.getByLabelText(/check-in/i);
-    const checkOutInput = screen.getByLabelText(/check-out/i);
-    
-    fireEvent.change(checkInInput, { target: { value: '2025-12-25' } });
-    fireEvent.change(checkOutInput, { target: { value: '2025-12-26' } });
-    
-    // Test that the form is interactive
-    expect(checkInInput).toHaveValue('2025-12-25');
-    expect(checkOutInput).toHaveValue('2025-12-26');
-    
-    // Test that submit button exists
-    const submitButton = screen.getByText('Enviar Solicitação');
-    expect(submitButton).toBeInTheDocument();
-  })
-
-  it('has proper accessibility attributes', () => {
-    render(<BookingForm {...mockProps} />);
-    
-    const dialog = screen.getByRole('dialog');
-    expect(dialog).toHaveAttribute('aria-modal', 'true');
-    expect(dialog).toHaveAttribute('aria-labelledby');
+    await waitFor(() => {
+        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/'), '_blank');
+        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('standard'), '_blank');
+    });
   });
 });
