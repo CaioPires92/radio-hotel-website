@@ -15,6 +15,7 @@ interface HeroProps {
 const Hero = ({ onBookingClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingLoading, setIsBookingLoading] = useState(false);
+  const [isPaused, setIsPaused] = useState(false); // Novo estado
   const { t } = useTranslation();
 
   // Handle keyboard navigation
@@ -53,12 +54,14 @@ const Hero = ({ onBookingClick }: HeroProps) => {
   ];
 
   useEffect(() => {
+    if (isPaused) return; // Não avança se estiver pausado
+    
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
 
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, isPaused]); // Adicionar isPaused como dependência
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -90,6 +93,8 @@ const Hero = ({ onBookingClick }: HeroProps) => {
       id="home"
       className="relative h-screen overflow-hidden"
       onKeyDown={handleKeyDown}
+      onMouseEnter={() => setIsPaused(true)}  // Pausar ao entrar com mouse
+      onMouseLeave={() => setIsPaused(false)} // Retomar ao sair com mouse
       tabIndex={0}
       role="region"
       aria-label={t('hero.carousel.ariaLabel')}
@@ -261,8 +266,8 @@ const Hero = ({ onBookingClick }: HeroProps) => {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${index === currentSlide
-                ? 'bg-gold scale-125'
-                : 'bg-white/50 hover:bg-white/70'
+              ? 'bg-gold scale-125'
+              : 'bg-white/50 hover:bg-white/70'
               }`}
             aria-label={`${t('hero.goToSlide')} ${index + 1}`}
             tabIndex={0}
