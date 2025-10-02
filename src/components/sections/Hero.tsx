@@ -55,7 +55,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
 
   useEffect(() => {
     if (isPaused) return; // Não avança se estiver pausado
-    
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
