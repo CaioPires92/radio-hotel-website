@@ -15,12 +15,12 @@ import {
   Twitter,
   Wifi,
   Car,
-  Coffee,
   Utensils,
   Dumbbell,
   Waves,
   Heart,
-  ExternalLink
+  ExternalLink,
+  PlugZap
 } from 'lucide-react';
 
 const Footer = () => {
@@ -41,18 +41,24 @@ const Footer = () => {
   const services = [
     { name: t('footer.services.wifi'), icon: Wifi },
     { name: t('footer.services.parking'), icon: Car },
-    { name: t('footer.services.roomService'), icon: Coffee },
     { name: t('footer.services.restaurant'), icon: Utensils },
     { name: t('footer.services.gym'), icon: Dumbbell },
     { name: t('footer.services.pool'), icon: Waves },
+    { name: 'Carregador Elétrico', icon: PlugZap },
   ];
 
   const contactInfo = [
     {
       icon: Phone,
-      label: t('footer.contact.phone.label'),
-      value: '(19) 99999-9999',
-      href: 'tel:+5519999999999',
+      label: 'Informações e Reservas',
+      value: 'De Segunda a Sexta das 08:00 às 18:00\n(19) 3892-2284',
+      href: 'tel:+551938922284',
+    },
+    {
+      icon: Phone,
+      label: 'Recepção',
+      value: '(19) 3892-3311\n(19) 3892-1928\n(19) 99990-3311',
+      href: 'tel:+551938923311',
     },
     {
       icon: Mail,
@@ -78,13 +84,13 @@ const Footer = () => {
     {
       name: 'Facebook',
       icon: Facebook,
-      href: 'https://facebook.com/radiohotel',
+      href: 'https://facebook.com/radiohotel', // Você pode atualizar com o link real
       color: 'hover:text-blue-500',
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      href: 'https://instagram.com/radiohotel',
+      href: 'https://instagram.com/radiohotel', // Você pode atualizar com o link real
       color: 'hover:text-pink-500',
     },
     {
@@ -108,7 +114,7 @@ const Footer = () => {
 
   const handleWhatsAppClick = () => {
     const message = t('footer.whatsapp.message');
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5519999903311?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

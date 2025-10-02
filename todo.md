@@ -6,11 +6,11 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 
 ## 🛏️ Quartos & Acomodações
 
-* [ ] Atualizar nomes: **Standard, Luxo, Conjugado, Suíte Normal, Suíte Master Especial**.
+* [ ] Atualizar nomes: **Standard, Luxo, Familia, Suíte Normal, Suíte Master Especial**.
 * [ ] Colocar metragem de todos os quartos.
-* [ ] Alterar: “Geladeira” → **Frigobar**.
+* [x] Alterar: “Geladeira” → **Frigobar**.
 * [ ] Piso: colocar **anti-alérgico**.
-* [ ] Varanda → **Sacada privativa**.
+* [x] Varanda → **Sacada privativa**.
 * [ ] Inserir: **Sala de estar separada, 1 banheiro + 1 lavabo** (nas suítes de luxo/master).
 * [ ] Atualizar: **banheira comum** (remover hidromassagem).
 * [ ] Janelas: **termoacústicas**.
@@ -54,7 +54,8 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 
 * [ ] Nome: **Centro de Convenções**.
 * [ ] Capacidade: até **350 pessoas**.
-* [ ] Remover: pavilhão e eventos para 4.
+* [] Remover: pavilhão e eventos para 4.  
+* [X] Alterar endereço.
 * [ ] Pegar medidas dos espaços.
 * [ ] Manter info do site antigo.
 * [ ] Remover: recursos inclusos e **mapa**.
@@ -68,7 +69,7 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 * [ ] Criar seção para **Pacotes de Natal, Réveillon e Férias de Janeiro**.
 * [ ] Enxugar ao máximo o texto de todas as descrições.
 * [X] Dar mais tempo aos **slides**. E pouse Hover
-* [ ] Dar destaque maior ao **logo**.
+* [X] Dar destaque maior ao **logo**. (aumentei em 30%)
 * [ ] Usar apenas **ícone + título** (sem descrições longas).
 * [ ] Remover **room service**.
 * [ ] Remover “limo”.

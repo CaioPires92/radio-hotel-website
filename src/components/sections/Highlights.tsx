@@ -12,7 +12,9 @@ import {
   Dumbbell,
   TreePine,
   MapPin,
-  Star
+  Star,
+  PlugZap,
+  BatteryCharging
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -20,7 +22,7 @@ import { useTranslation } from '@/components/i18n/I18nProvider';
 
 const Highlights = () => {
   const { t } = useTranslation();
-  
+
   const highlights = [
     {
       id: 1,
@@ -201,10 +203,10 @@ const Highlights = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Wifi, name: 'Wi-Fi Gratuito', desc: 'Internet de alta velocidade' },
-              { icon: Car, name: 'Estacionamento', desc: 'Vagas cobertas gratuitas' },
-              { icon: Dumbbell, name: 'Academia', desc: 'Equipamentos modernos' },
-              { icon: Coffee, name: 'Room Service', desc: 'Serviço 24 horas' },
+              { icon: Wifi, name: 'Wi-Fi Gratuito' },
+              { icon: Car, name: 'Estacionamento' },
+              { icon: Dumbbell, name: 'Academia' },
+              { icon: PlugZap, name: 'Carregador Elétrico' },
             ].map((service, index) => {
               const ServiceIcon = service.icon;
               return (
@@ -220,7 +222,7 @@ const Highlights = () => {
                     <ServiceIcon className="w-8 h-8 text-gold" />
                   </div>
                   <h4 className="font-semibold text-cream mb-1">{service.name}</h4>
-                  <p className="text-sm text-cream/80">{service.desc}</p>
+                  {/* description property does not exist on service object */}
                 </motion.div>
               );
             })}

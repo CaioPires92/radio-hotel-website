@@ -70,13 +70,13 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             transition={{ duration: 0.2 }}
           >
             <a href="#home" className="flex items-center space-x-3">
-              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-16 h-12' : 'w-20 h-15'}`}>
+              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-20' : 'w-28 h-22'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}
                   alt="Rádio Hotel Logo"
                   fill
                   className="object-contain transition-all duration-300"
-                  sizes="80px"
+                  sizes="96px"
                   quality={90}
                   priority
                 />
