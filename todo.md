@@ -12,7 +12,7 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 * [ ] Piso: colocar **anti-alérgico**.
 * [x] Varanda → **Sacada privativa**.
 * [ ] Inserir: **Sala de estar separada, 1 banheiro + 1 lavabo** (nas suítes de luxo/master).
-* [ ] Atualizar: **banheira comum** (remover hidromassagem).
+* [x] Atualizar: **banheira comum** (remover hidromassagem).
 * [ ] Janelas: **termoacústicas**.
 * [ ] Criar novo quarto: **Suíte com 2 camas de casal**.
 
