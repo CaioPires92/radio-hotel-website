@@ -427,10 +427,10 @@
     "currency": "R$",
     "perNight": "diária",
     "roomTypes": {
-      "standard": "Quarto Standard",
-      "deluxe": "Quarto Deluxe",
-      "suiteMaster": "Suíte Master",
-      "suiteFamily": "Suíte Família"
+      "standard": "Standard",
+      "deluxe": "Luxo",
+      "suiteMaster": "Suíte",
+      "suiteFamily": "Família"
     },
     "summary": {
       "title": "Resumo da Reserva",
