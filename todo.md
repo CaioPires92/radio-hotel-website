@@ -6,7 +6,8 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 
 ## 🛏️ Quartos & Acomodações
 
-* [ ] Atualizar nomes: **Standard, Luxo, Familia, Suíte Normal, Suíte Master Especial**.
+* [x] Atualizar nomes: **Standard, Luxo, Familia, Suíte Normal, .
+* [x] Suíte Master Especial** (foto com tag no suite)
 * [ ] Colocar metragem de todos os quartos.
 * [x] Alterar: “Geladeira” → **Frigobar**.
 * [ ] Piso: colocar **anti-alérgico**.
