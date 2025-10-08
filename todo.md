@@ -7,18 +7,17 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 ## 🛏️ Quartos & Acomodações
 
 * [ ] Suíte Master Especial** (foto com tag no suite)
-* [ ] Piso: colocar **anti-alérgico**.
-* [ ] Colocar metragem de todos os quartos.
+* [x] Piso: colocar **anti-alérgico**.
+* [ ] Colocar metragem de todos os quartos. (coloquei em alguns mas preciso das informações.)
 * [x] Atualizar nomes: **Standard, Luxo, Familia, Suíte Normal, .
 * [x] Alterar: “Geladeira” → **Frigobar**.
 * [x] Varanda → **Sacada privativa**.
 * [x] Atualizar: **banheira comum** (remover hidromassagem).
-* [ ] Inserir: **Sala de estar separada, 1 banheiro + 1 lavabo** (nas suítes de luxo/master).
-* [ ] Janelas: **termoacústicas**.
+* [x] Inserir: **Sala de estar separada, 1 banheiro + 1 lavabo** (nas suítes de luxo/master).
+* [x] Janelas: **termoacústicas**.
 * [ ] Criar novo quarto: **Suíte com 2 camas de casal**.
 
   * Legendas nas fotos:
-
     * “Suíte do segundo andar”
     * “Suíte master com sacada”
 * [ ] Alterar: Ar condicionado **split** apenas nos de luxo.
@@ -47,7 +46,7 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
   * Quadra de tênis
   * Pista de cooper
   * Horta
-* [ ] Carregador para carro elétrico.
+  * [x] Carregador para carro elétrico.
 
 ---
 
@@ -72,7 +71,7 @@ Perfeito, Caio. Aqui está o **To-do List** enxuto e organizado com base nessas 
 * [X] Dar mais tempo aos **slides**. E pouse Hover
 * [X] Dar destaque maior ao **logo**. (aumentei em 30%)
 * [ ] Usar apenas **ícone + título** (sem descrições longas).
-* [ ] Remover **room service**.
+* [x] Remover **room service**.
 * [ ] Remover “limo”.
 
 ---

@@ -30,7 +30,6 @@ const roomsData = (t: (key: string) => string) => [
       { icon: Wind, name: t('accommodations.amenities.airConditioning') },
       { icon: Phone, name: t('accommodations.amenities.phone') },
     ],
-    features: [t('accommodations.rooms.standard.features.0'), t('accommodations.rooms.standard.features.1'), t('accommodations.rooms.standard.features.2'), t('accommodations.rooms.standard.features.3')],
   },
   {
     id: 2,
@@ -48,7 +47,6 @@ const roomsData = (t: (key: string) => string) => [
       { icon: Wind, name: t('accommodations.amenities.airConditioning') },
       { icon: Phone, name: t('accommodations.amenities.phone') },
     ],
-    features: [t('accommodations.rooms.luxury.features.0'), t('accommodations.rooms.luxury.features.1'), t('accommodations.rooms.luxury.features.2'), t('accommodations.rooms.luxury.features.3')],
   },
   {
     id: 3,
@@ -65,7 +63,6 @@ const roomsData = (t: (key: string) => string) => [
       { icon: Bath, name: t('accommodations.amenities.bathroom') },
       { icon: Wind, name: t('accommodations.amenities.airConditioning') },
     ],
-    features: [t('accommodations.rooms.quadruple.features.0'), t('accommodations.rooms.quadruple.features.1'), t('accommodations.rooms.quadruple.features.2'), t('accommodations.rooms.quadruple.features.3')],
   },
 ];
 
@@ -165,18 +162,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                         {rooms[currentRoom].description}
                       </p>
 
-                      {/* Features */}
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-navy mb-3">Características:</h4>
-                        <div className="grid grid-cols-2 gap-3">
-                          {rooms[currentRoom].features.map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-gold rounded-full" />
-                              <span className="text-sm text-navy/70">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                      {/* Features removed as requested */}
 
                       {/* Amenities */}
                       <div className="mb-8">
