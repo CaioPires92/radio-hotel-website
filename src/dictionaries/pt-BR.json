@@ -141,44 +141,26 @@
         "name": "Quarto Standard",
         "type": "Acomodação Confortável",
         "capacity": "Até 2 pessoas",
-        "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), geladeira (frigobar), telefone e ar condicionado, garantindo conforto e silêncio.",
-        "features": [
-          "Janelas termo-acústicas (tecnologia alemã)",
-          "Frigobar",
-          "Telefone",
-          "Ar condicionado"
-        ]
+        "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), frigobar, telefone e ar condicionado, garantindo conforto e silêncio."
       },
       "luxury": {
         "name": "Suíte de Luxo",
         "type": "Experiência Premium",
         "capacity": "Até 3 pessoas",
-        "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com geladeira (frigobar), telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar.",
-        "features": [
-          "+8 m² em relação ao Standard",
-          "Voltado para a piscina",
-          "Piso anti-alérgico",
-          "Frigobar, telefone e ar condicionado"
-        ]
+        "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
       },
       "quadruple": {
         "name": "Quarto Família",
         "type": "Ideal para Famílias",
         "capacity": "Até 4 pessoas",
-        "description": "Perfeito para famílias, nosso quarto família oferece espaço amplo e configuração flexível para garantir o conforto de todos.",
-        "features": [
-          "Duas camas de casal ou cama",
-          "Área ampla para bagagens",
-          "Banheiro espaçoso",
-          "Vista para a área verde do hotel"
-        ]
+        "description": "Perfeito para famílias, nosso quarto família oferece espaço amplo e configuração flexível para garantir o conforto de todos."
       }
     },
     "amenities": {
       "wifi": "Wi-Fi Gratuito",
       "parking": "Estacionamento",
       "minibar": "Frigobar",
-      "tv": "TV a Cabo",
+      "tv": "TV",
       "bathroom": "Banheiro Privativo",
       "airConditioning": "Ar Condicionado",
       "phone": "Telefone"
