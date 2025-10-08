@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock, Ruler, Maximize, ArrowUpDown, Building2, Layers, Wind, Wifi, Monitor, Disc } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
@@ -32,48 +32,9 @@ const Events = () => {
       description: t('events.convention.description'),
       image: '/images/conventions/convention-1.jpg',
       capacity: t('events.convention.capacity'),
-      duration: t('events.convention.duration'),
-      location: t('events.convention.location'),
-      features: [
-        t('events.convention.features.audiovisual'),
-        t('events.convention.features.wifi'),
-        t('events.convention.features.airConditioning'),
-        t('events.convention.features.soundSystem'),
-        t('events.convention.features.lighting'),
-        t('events.convention.features.coffeeBreak')
-      ],
-    },
-    {
-      id: 2,
-      title: t('events.corporate.title'),
-      description: t('events.corporate.description'),
-      image: '/images/conventions/convention-4.jpg',
-      capacity: t('events.corporate.capacity'),
-      duration: t('events.corporate.duration'),
-      location: t('events.corporate.location'),
-      features: [
-        t('events.corporate.features.multimedia'),
-        t('events.corporate.features.videoConference'),
-        t('events.corporate.features.coffeeBreak'),
-        t('events.corporate.features.parking'),
-        t('events.corporate.features.technicalSupport')
-      ],
-    },
-    {
-      id: 3,
-      title: t('events.social.title'),
-      description: t('events.social.description'),
-      image: '/images/conventions/convention-6.jpg',
-      capacity: t('events.social.capacity'),
-      duration: t('events.social.duration'),
-      location: t('events.social.location'),
-      features: [
-        t('events.social.features.decoration'),
-        t('events.social.features.gourmetBuffet'),
-        t('events.social.features.parking'),
-        t('events.social.features.technicalSupport'),
-        t('events.social.features.audiovisual')
-      ],
+      duration: undefined,
+      location: undefined,
+      features: [],
     },
   ];
 
@@ -173,33 +134,53 @@ const Events = () => {
                       </p>
 
                       {/* Event Details */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-                        <div className="flex items-center space-x-3">
-                          <Users className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/80">{events[currentEvent].capacity}</span>
+                      {(events[currentEvent].duration || events[currentEvent].location) && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                          {events[currentEvent].duration && (
+                            <div className="flex items-center space-x-3">
+                              <Clock className="w-5 h-5 text-gold" />
+                              <span className="text-sm text-navy/80">{events[currentEvent].duration}</span>
+                            </div>
+                          )}
+                          {events[currentEvent].location && (
+                            <div className="flex items-center space-x-3">
+                              <MapPin className="w-5 h-5 text-gold" />
+                              <span className="text-sm text-navy/80">{events[currentEvent].location}</span>
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-center space-x-3">
-                          <Clock className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/80">{events[currentEvent].duration}</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <MapPin className="w-5 h-5 text-gold" />
-                          <span className="text-sm text-navy/80">{events[currentEvent].location}</span>
-                        </div>
+                      )}
+
+                      {/* Convention Stats (compact) */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                        {[
+                          { icon: Users, label: t('events.convention.capacity') },
+                          { icon: Ruler, label: t('events.convention.area') },
+                          { icon: Maximize, label: t('events.convention.expandableArea') },
+                        ]
+                          .filter(item => Boolean(item.label))
+                          .map((item, idx) => (
+                            <div key={idx} className="flex items-center space-x-3">
+                              <item.icon className="w-5 h-5 text-gold" />
+                              <span className="text-sm text-navy/80">{item.label}</span>
+                            </div>
+                          ))}
                       </div>
 
                       {/* Features */}
-                      <div className="mb-8">
-                        <h4 className="font-semibold text-navy mb-3">{t('events.features.title')}</h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {events[currentEvent].features.map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-gold rounded-full" />
-                              <span className="text-sm text-navy/70">{feature}</span>
-                            </div>
-                          ))}
+                      {events[currentEvent].features?.length > 0 && (
+                        <div className="mb-8">
+                          <h4 className="font-semibold text-navy mb-3">{t('events.features.title')}</h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {events[currentEvent].features.map((feature, index) => (
+                              <div key={index} className="flex items-center space-x-2">
+                                <div className="w-2 h-2 bg-gold rounded-full" />
+                                <span className="text-sm text-navy/70">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* CTA Button */}
                       <Button
