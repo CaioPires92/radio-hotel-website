@@ -12,33 +12,27 @@ export default function About() {
   const features = [
     {
       icon: Wifi,
-      title: t('about.features.wifi.title'),
-      description: t('about.features.wifi.description')
+      title: t('about.features.wifi.title')
     },
     {
       icon: Car,
-      title: t('about.features.parking.title'),
-      description: t('about.features.parking.description')
+      title: t('about.features.parking.title')
     },
     {
       icon: Coffee,
-      title: t('about.features.breakfast.title'),
-      description: t('about.features.breakfast.description')
+      title: t('about.features.breakfast.title')
     },
     {
       icon: Utensils,
-      title: t('about.features.restaurant.title'),
-      description: t('about.features.restaurant.description')
+      title: t('about.features.restaurant.title')
     },
     {
       icon: Dumbbell,
-      title: t('about.features.gym.title'),
-      description: t('about.features.gym.description')
+      title: t('about.features.gym.title')
     },
     {
       icon: Users,
-      title: t('about.features.events.title'),
-      description: t('about.features.events.description')
+      title: t('about.features.events.title')
     }
   ];
 
@@ -169,13 +163,12 @@ export default function About() {
                   >
                     <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
                       <CardContent className="p-4">
-                        <div className="flex items-start gap-3">
+                        <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
                             <Icon className="w-5 h-5 text-gold" />
                           </div>
                           <div className="flex-1">
                             <h4 className="font-semibold text-navy mb-1">{feature.title}</h4>
-                            <p className="text-sm text-navy/70">{feature.description}</p>
                           </div>
                         </div>
                       </CardContent>
