@@ -64,6 +64,26 @@
     },
     "whatsapp": {
       "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"
+    },
+    "features": {
+      "wifi": {
+        "title": "Wi-Fi Gratuito"
+      },
+      "parking": {
+        "title": "Estacionamento"
+      },
+      "breakfast": {
+        "title": "Café da Manhã"
+      },
+      "restaurant": {
+        "title": "Restaurante"
+      },
+      "gym": {
+        "title": "Academia"
+      },
+      "events": {
+        "title": "Eventos"
+      }
     }
   },
   "about": {
@@ -78,28 +98,22 @@
     },
     "features": {
       "wifi": {
-        "title": "Wi-Fi Gratuito",
-        "description": "Internet de alta velocidade em todas as áreas"
+        "title": "Wi-Fi Gratuito"
       },
       "parking": {
-        "title": "Estacionamento",
-        "description": "Vagas cobertas gratuitas para hóspedes"
+        "title": "Estacionamento"
       },
       "breakfast": {
-        "title": "Café da Manhã",
-        "description": "Buffet completo com produtos regionais"
+        "title": "Café da Manhã"
       },
       "restaurant": {
-        "title": "Restaurante",
-        "description": "Gastronomia regional e internacional"
+        "title": "Restaurante"
       },
       "gym": {
-        "title": "Academia",
-        "description": "Equipamentos modernos e personal trainer"
+        "title": "Academia"
       },
       "events": {
-        "title": "Eventos",
-        "description": "Espaços para convenções e celebrações"
+        "title": "Eventos"
       }
     },
     "stats": {
@@ -142,9 +156,9 @@
         "description": "Nossa suíte de luxo proporciona uma experiência premium com espaços amplos, decoração sofisticada e vista panorâmica das montanhas.",
         "features": [
           "Sala de estar separada",
-          "Banheiro com banheira",
+          "1 banheiro + 1 lavabo",
           "Vista panorâmica das montanhas",
-          "Sacada Privativa "
+          "Sacada privativa"
         ]
       },
       "quadruple": {
