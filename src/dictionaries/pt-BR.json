@@ -141,24 +141,24 @@
         "name": "Quarto Standard",
         "type": "Acomodação Confortável",
         "capacity": "Até 2 pessoas",
-        "description": "Nosso quarto standard oferece todo o conforto necessário para uma estadia agradável, com decoração elegante e vista para os jardins.",
+        "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), geladeira (frigobar), telefone e ar condicionado, garantindo conforto e silêncio.",
         "features": [
-          "Cama de casal confortável",
-          "Banheiro privativo com amenities",
-          "Vista para os jardins do hotel",
-          "Área de estar aconchegante"
+          "Janelas termo-acústicas (tecnologia alemã)",
+          "Frigobar",
+          "Telefone",
+          "Ar condicionado"
         ]
       },
       "luxury": {
         "name": "Suíte de Luxo",
         "type": "Experiência Premium",
         "capacity": "Até 3 pessoas",
-        "description": "Nossa suíte de luxo proporciona uma experiência premium com espaços amplos, decoração sofisticada e vista panorâmica das montanhas.",
+        "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com geladeira (frigobar), telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar.",
         "features": [
-          "Sala de estar separada",
-          "1 banheiro + 1 lavabo",
-          "Vista panorâmica das montanhas",
-          "Sacada privativa"
+          "+8 m² em relação ao Standard",
+          "Voltado para a piscina",
+          "Piso anti-alérgico",
+          "Frigobar, telefone e ar condicionado"
         ]
       },
       "quadruple": {
@@ -180,7 +180,8 @@
       "minibar": "Frigobar",
       "tv": "TV a Cabo",
       "bathroom": "Banheiro Privativo",
-      "airConditioning": "Ar Condicionado"
+      "airConditioning": "Ar Condicionado",
+      "phone": "Telefone"
     },
     "whatsapp": {
       "bookingMessage": "Olá! Gostaria de fazer uma reserva para o"
