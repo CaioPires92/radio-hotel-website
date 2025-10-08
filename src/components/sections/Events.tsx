@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import ConferenceTable from '@/components/sections/ConferenceTable';
 
 const Events = () => {
   const { t } = useTranslation();
@@ -269,6 +270,7 @@ const Events = () => {
             </Button>
           </div>
         </motion.div>
+        <ConferenceTable />
       </div>
     </section>
   );
