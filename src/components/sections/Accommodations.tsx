@@ -13,56 +13,48 @@ interface AccommodationsProps {
   onBookingClick?: () => void;
 }
 
-const roomsData = (t: (key: string) => string) => [
-  {
-    id: 1,
+const roomsData = (t: (key: string) => string) => {
+  const commonAmenities = [
+    { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+    { icon: Wifi, name: t('accommodations.amenities.wifi') },
+    { icon: Tv, name: t('accommodations.amenities.tv') },
+    { icon: Coffee, name: t('accommodations.amenities.minibar') },
+    { icon: Phone, name: t('accommodations.amenities.telephone') },
+  ];
+
+  const standard = {
+    id: 'standard',
     name: t('accommodations.rooms.standard.name'),
     type: t('accommodations.rooms.standard.type'),
     description: t('accommodations.rooms.standard.description'),
     image: '/images/rooms/standard-1.jpg',
-    capacity: t('accommodations.rooms.standard.capacity'),
-    amenities: [
-      { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Tv, name: t('accommodations.amenities.tv') },
-      { icon: Bath, name: t('accommodations.amenities.bathroom') },
-      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      { icon: Phone, name: t('accommodations.amenities.phone') },
-    ],
-  },
-  {
-    id: 2,
+    amenities: commonAmenities,
+  };
+
+  const luxury = {
+    id: 'luxury',
     name: t('accommodations.rooms.luxury.name'),
     type: t('accommodations.rooms.luxury.type'),
     description: t('accommodations.rooms.luxury.description'),
     image: '/images/rooms/luxo-2.jpg',
-    capacity: t('accommodations.rooms.luxury.capacity'),
-    amenities: [
-      { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Tv, name: t('accommodations.amenities.tv') },
-      { icon: Bath, name: t('accommodations.amenities.bathroom') },
-      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      { icon: Phone, name: t('accommodations.amenities.phone') },
-    ],
-  },
-  {
-    id: 3,
+    amenities: commonAmenities,
+  };
+
+  const quadruple = {
+    id: 'quadruple',
     name: t('accommodations.rooms.quadruple.name'),
     type: t('accommodations.rooms.quadruple.type'),
     description: t('accommodations.rooms.quadruple.description'),
     image: '/images/rooms/quadruplo-2.jpg',
-    capacity: t('accommodations.rooms.quadruple.capacity'),
-    amenities: [
-      { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Tv, name: t('accommodations.amenities.tv') },
-      { icon: Bath, name: t('accommodations.amenities.bathroom') },
-      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      { icon: Phone, name: t('accommodations.amenities.phone') },
-    ],
-  },
-];
+    amenities: commonAmenities,
+  };
+
+  return [
+    standard,
+    luxury,
+    quadruple,
+  ];
+};
 
 const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
@@ -246,7 +238,7 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                   <div className="relative w-full h-32 mb-3">
                     <Image
                       src={room.image}
-                      alt={`${room.name} - ${room.type} para ${room.capacity}`}
+                      alt={`${room.name} - ${room.type}`}
                       fill
                       className="object-cover rounded-lg"
                     />
@@ -254,7 +246,6 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                   <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
                   <p className="text-sm text-navy/70 mb-2">{room.type}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-navy/60">{room.capacity}</span>
                   </div>
                 </CardContent>
               </Card>

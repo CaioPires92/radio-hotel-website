@@ -210,39 +210,18 @@
     "rooms": {
       "standard": {
         "name": "Habitación Estándar",
-        "type": "Estándar",
-        "capacity": "Hasta 2 huéspedes",
-        "description": "Habitación cómoda y acogedora, perfecta para parejas o viajeros de negocios que buscan calidad y comodidad.",
-        "features": [
-          "Cama queen size",
-          "Baño privado con ducha",
-          "Escritorio de trabajo",
-          "Vista a las montañas"
-        ]
+        "type": "Alojamiento Confortable",
+        "description": "Las habitaciones Estándar son internas o dan a la calle y cuentan con ventanas termoacústicas (tecnología alemana), minibar, teléfono y aire acondicionado, garantizando confort y silencio."
       },
       "luxury": {
         "name": "Suite de Lujo",
-        "type": "Suite",
-        "capacity": "Hasta 3 huéspedes",
-        "description": "Suite amplia y elegante con área de estar separada, ideal para quienes buscan máxima comodidad y sofisticación.",
-        "features": [
-          "Cama king size",
-          "Sala de estar separada",
-          "Baño de lujo con bañera",
-          "Balcón privado con vista panorámica"
-        ]
+        "type": "Experiencia Premium",
+        "description": "Los apartamentos de Lujo son 8 m² más grandes que los Estándar, dan a la piscina y están equipados con minibar, teléfono y aire acondicionado. Tienen suelo antialérgico para un mayor bienestar."
       },
       "quadruple": {
-        "name": "Habitación Familiar",
-        "type": "Cuádruple",
-        "capacity": "Hasta 4 huéspedes",
-        "description": "Habitación espaciosa diseñada para familias, con camas cómodas y todas las comodidades necesarias para una estancia placentera.",
-        "features": [
-          "1 cama doble + 2 camas individuales",
-          "Baño espacioso",
-          "Área de estar",
-          "Vista al jardín"
-        ]
+        "name": "Suite Cuádruple",
+        "type": "Para Familia",
+        "description": "Amplia suite con cuatro camas individuales, ideal para familias o grupos, con todas las comodidades para una estancia confortable."
       }
     },
     "amenities": {
@@ -281,9 +260,9 @@
       "description": "Nuestro equipo especializado se encarga de cada detalle de tu evento, desde la planificación hasta la ejecución, asegurando que todo sea perfecto."
     },
     "convention": {
-      "title": "Centro de Convenciones",
-      "description": "Espacio moderno y versátil para eventos corporativos, conferencias y grandes celebraciones con capacidad para hasta 200 personas.",
-      "capacity": "Hasta 200 personas",
+        "title": "Centro de Convenciones",
+        "description": "El Centro de Convenciones del Radio Hotel es ideal para grandes eventos, ofreciendo 800 m², ampliables a 1.200 m², y capacidad para hasta 350 personas. Con un techo de 5 metros de altura, el espacio cuenta con los auditorios Millenium y Monterey y 5 salas modulares. Está totalmente climatizado (288.000 BTUs Mitsubishi) y equipado con tecnología de punta, incluyendo recursos de TI, internet, multimedia, proyección y DVD, garantizando flexibilidad y confort para su evento.",
+        "capacity": "Hasta 350 personas",
       "features": {
         "audiovisual": "Sistema audiovisual completo",
         "wifi": "Wi-Fi de alta velocidad",

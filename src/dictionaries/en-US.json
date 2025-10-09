@@ -210,39 +210,18 @@
     "rooms": {
       "standard": {
         "name": "Standard Room",
-        "type": "Standard",
-        "capacity": "Up to 2 guests",
-        "description": "Comfortable and cozy room, perfect for couples or business travelers seeking quality and comfort.",
-        "features": [
-          "Queen size bed",
-          "Private bathroom with shower",
-          "Work desk",
-          "Mountain view"
-        ]
+        "type": "Comfortable Accommodation",
+        "description": "Standard rooms are internal or street-facing and feature thermo-acoustic windows (German technology), a minibar, telephone, and air conditioning, ensuring comfort and silence."
       },
       "luxury": {
         "name": "Luxury Suite",
-        "type": "Suite",
-        "capacity": "Up to 3 guests",
-        "description": "Spacious and elegant suite with separate living area, ideal for those seeking maximum comfort and sophistication.",
-        "features": [
-          "King size bed",
-          "Separate living room",
-          "Luxury bathroom with bathtub",
-          "Private balcony with panoramic view"
-        ]
+        "type": "Premium Experience",
+        "description": "Luxury apartments are 8 m² larger than Standard rooms, face the pool, and are equipped with a minibar, telephone, and air conditioning. They have anti-allergenic flooring for greater well-being."
       },
       "quadruple": {
-        "name": "Family Room",
-        "type": "Quadruple",
-        "capacity": "Up to 4 guests",
-        "description": "Spacious room designed for families, with comfortable beds and all necessary amenities for a pleasant stay.",
-        "features": [
-          "1 double bed + 2 single beds",
-          "Spacious bathroom",
-          "Seating area",
-          "Garden view"
-        ]
+        "name": "Quadruple Suite",
+        "type": "For Family",
+        "description": "Spacious suite with four single beds, ideal for families or groups, with all the amenities for a comfortable stay."
       }
     },
     "amenities": {
@@ -281,9 +260,9 @@
       "description": "Our specialized team takes care of every detail of your event, from planning to execution, ensuring everything is perfect."
     },
     "convention": {
-      "title": "Convention Center",
-      "description": "Modern and versatile space for corporate events, conferences, and large celebrations with capacity for up to 200 people.",
-      "capacity": "Up to 200 people",
+        "title": "Convention Center",
+        "description": "The Radio Hotel Convention Center is ideal for large events, offering 800 m², expandable to 1,200 m², and capacity for up to 350 people. With a 5-meter high ceiling, the space features the Millenium and Monterey auditoriums and 5 modular rooms. It is fully air-conditioned (288,000 BTUs Mitsubishi) and equipped with state-of-the-art technology, including IT resources, internet, multimedia, projection, and DVD, ensuring flexibility and comfort for your event.",
+        "capacity": "Up to 350 people",
       "features": {
         "audiovisual": "Complete audiovisual system",
         "wifi": "High-speed Wi-Fi",
