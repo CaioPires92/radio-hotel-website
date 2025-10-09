@@ -14,7 +14,8 @@ import {
   MapPin,
   Star,
   PlugZap,
-  BatteryCharging
+  BatteryCharging,
+  Trophy
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -24,6 +25,14 @@ const Highlights = () => {
   const { t } = useTranslation();
 
   const highlights = [
+    {
+      id: 7,
+      icon: TreePine,
+      title: t('highlights.nature.title'),
+      description: t('highlights.nature.description'),
+      image: '/images/facilities/natureza.jpg',
+      features: [t('highlights.nature.features.0'), t('highlights.nature.features.1'), t('highlights.nature.features.2')],
+    },
     {
       id: 1,
       icon: MapPin,
@@ -71,6 +80,14 @@ const Highlights = () => {
       description: t('highlights.business.description'),
       image: '/images/conventions/convention-1.jpg',
       features: [t('highlights.business.features.0'), t('highlights.business.features.1'), t('highlights.business.features.2')],
+    },
+    {
+      id: 8,
+      icon: Trophy,
+      title: t('highlights.sports.title'),
+      description: t('highlights.sports.description'),
+      image: '/images/facilities/sports.jpg',
+      features: [t('highlights.sports.features.0'), t('highlights.sports.features.1'), t('highlights.sports.features.2')],
     },
   ];
 
@@ -222,7 +239,6 @@ const Highlights = () => {
                     <ServiceIcon className="w-8 h-8 text-gold" />
                   </div>
                   <h4 className="font-semibold text-cream mb-1">{service.name}</h4>
-                  {/* description property does not exist on service object */}
                 </motion.div>
               );
             })}

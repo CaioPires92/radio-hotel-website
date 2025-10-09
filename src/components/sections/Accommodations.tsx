@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Wifi, Car, Coffee, Tv, Bath, Wind, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Wifi, Coffee, Tv, Bath, Wind, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -23,7 +23,6 @@ const roomsData = (t: (key: string) => string) => [
     capacity: t('accommodations.rooms.standard.capacity'),
     amenities: [
       { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Car, name: t('accommodations.amenities.parking') },
       { icon: Coffee, name: t('accommodations.amenities.minibar') },
       { icon: Tv, name: t('accommodations.amenities.tv') },
       { icon: Bath, name: t('accommodations.amenities.bathroom') },
@@ -40,7 +39,6 @@ const roomsData = (t: (key: string) => string) => [
     capacity: t('accommodations.rooms.luxury.capacity'),
     amenities: [
       { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Car, name: t('accommodations.amenities.parking') },
       { icon: Coffee, name: t('accommodations.amenities.minibar') },
       { icon: Tv, name: t('accommodations.amenities.tv') },
       { icon: Bath, name: t('accommodations.amenities.bathroom') },
@@ -57,11 +55,11 @@ const roomsData = (t: (key: string) => string) => [
     capacity: t('accommodations.rooms.quadruple.capacity'),
     amenities: [
       { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Car, name: t('accommodations.amenities.parking') },
       { icon: Coffee, name: t('accommodations.amenities.minibar') },
       { icon: Tv, name: t('accommodations.amenities.tv') },
       { icon: Bath, name: t('accommodations.amenities.bathroom') },
       { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+      { icon: Phone, name: t('accommodations.amenities.phone') },
     ],
   },
 ];
@@ -154,15 +152,9 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
                         {rooms[currentRoom].name}
                       </h3>
 
-                      <div className="flex items-center space-x-4 mb-4 text-sm text-navy/70">
-                        <span>{rooms[currentRoom].capacity}</span>
-                      </div>
-
                       <p className="text-navy/80 mb-6 leading-relaxed">
                         {rooms[currentRoom].description}
                       </p>
-
-                      {/* Features removed as requested */}
 
                       {/* Amenities */}
                       <div className="mb-8">
