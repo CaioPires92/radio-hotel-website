@@ -32,7 +32,6 @@ const Events = () => {
       title: t('events.convention.title'),
       description: t('events.convention.description'),
       image: '/images/conventions/convention-1.jpg',
-      capacity: t('events.convention.capacity'),
       duration: undefined,
       location: undefined,
       features: [],
@@ -155,7 +154,6 @@ const Events = () => {
                       {/* Convention Stats (compact) */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                         {[
-                          { icon: Users, label: t('events.convention.capacity') },
                           { icon: Ruler, label: t('events.convention.area') },
                           { icon: Maximize, label: t('events.convention.expandableArea') },
                         ]

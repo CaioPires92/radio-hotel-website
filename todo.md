@@ -11,13 +11,13 @@
 * [x] Atualizar: **banheira comum** (remover hidromassagem).
 * [x] Inserir: **Sala de estar separada, 1 banheiro + 1 lavabo** (nas suítes de luxo/master).
 * [x] Janelas: **termoacústicas**.
-* [ ] Colocar metragem de todos os quartos. (coloquei em alguns mas preciso das informações.)
+* [x] Colocar metragem de todos os quartos. (coloquei em alguns mas preciso das informações.)
 
   * Legendas nas fotos:
     * “Suíte do segundo andar”
     * “Suíte master com sacada”
-* [ ] Alterar: Ar condicionado **split** apenas nos de luxo.
-* [ ] Incluir informação de **apartamentos com acessibilidade**.
+* [x] Alterar: Ar condicionado **split** apenas nos de luxo.
+* [x] Incluir informação de **apartamentos com acessibilidade**.
 
 ### Apartamento Familiar
 
@@ -31,11 +31,11 @@
 
 ## 🏞️ Estrutura & Lazer
 
-* [ ] Remover: **piscina aquecida** e **cachoeira**.
-* [ ] Acrescentar: **monitoria de lazer**.
-* [ ] Dar mais ênfase na **área verde** na home.
-* [ ] Academia: mostrar mais o **ambiente** que o serviço (não mencionar personal).
-* [ ] Eventos especiais:
+* [x] Remover: **piscina aquecida** e **cachoeira**.
+* [x] Acrescentar: **monitoria de lazer**.
+* [x] Dar mais ênfase na **área verde** na home.
+* [x] Academia: mostrar mais o **ambiente** que o serviço (não mencionar personal).
+* [x] Eventos especiais:
 
   * Arco e flecha
   * Beach tênis
@@ -49,14 +49,14 @@
 
 ## 🏢 Centro de Convenções
 
-* [ ] Nome: **Centro de Convenções**.
-* [ ] Capacidade: até **350 pessoas**.
-* [] Remover: pavilhão e eventos para 4.  
+* [x] Nome: **Centro de Convenções**.
+* [x] Capacidade: até **350 pessoas**.
+* [x] Remover: pavilhão e eventos para 4.  
 * [X] Alterar endereço.
-* [ ] Pegar medidas dos espaços.
-* [ ] Manter info do site antigo.
-* [ ] Remover: recursos inclusos e **mapa**.
-* [ ] Principais auditórios: **Millenium e Monterey**.
+* [x] Pegar medidas dos espaços.
+* [x] Manter info do site antigo.
+* [x] Remover: recursos inclusos e **mapa**.
+* [x] Principais auditórios: **Millenium e Monterey**.
 
 ---
 
@@ -67,7 +67,7 @@
 * [x] Enxugar ao máximo o texto de todas as descrições.
 * [X] Dar mais tempo aos **slides**. E pouse Hover
 * [X] Dar destaque maior ao **logo**. (aumentei em 30%)
-* [ ] Usar apenas **ícone + título** (sem descrições longas).
+* [x] Usar apenas **ícone + título** (sem descrições longas).
 * [x] Remover **room service**.
 * [x] Remover “limo”.
 * [ ] Revisar outros idiomas

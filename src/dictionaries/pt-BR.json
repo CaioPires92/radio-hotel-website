@@ -146,20 +146,17 @@
       "standard": {
         "name": "Quarto Standard",
         "type": "Acomodação Confortável",
-        "capacity": "Até 2 pessoas",
         "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), frigobar, telefone e ar condicionado, garantindo conforto e silêncio."
       },
       "luxury": {
-        "name": "Suíte de Luxo",
+        "name": "Suíte Master Especial",
         "type": "Experiência Premium",
-        "capacity": "Até 3 pessoas",
         "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
       },
       "quadruple": {
-        "name": "Apartamento Familiar",
-        "type": "Ideal para Famílias",
-        "capacity": "2 dormitórios + 1 toalete",
-        "description": "Apartamento familiar com 2 dormitórios e 1 toalete."
+        "name": "Suite Familiar",
+        "type": "Para Família",
+        "description": "Ampla suíte com quatro camas de solteiro, ideal para famílias ou grupos, com todas as comodidades para uma estadia confortável."
       }
     },
     "amenities": {
@@ -168,7 +165,7 @@
       "minibar": "Frigobar",
       "tv": "TV",
       "bathroom": "Banheiro Privativo",
-      "airConditioning": "Ar Condicionado",
+      "airConditioning": "Ar-Condicionado",
       "phone": "Telefone"
     },
     "whatsapp": {
@@ -200,8 +197,8 @@
     },
     "convention": {
       "title": "Centro de Convenções",
-      "description": "O Centro de Convenções do Radio Hotel é ideal para grandes eventos, oferecendo 800 m², expansíveis a 1.200 m², e capacidade para 300 convidados. Com um pé direito de 5 metros, o espaço distribui-se por dois pavimentos e dispõe de 2 auditórios e 5 salas modulares. É totalmente climatizado (288.000 BTUs Mitsubishi) e equipado com tecnologia de ponta, incluindo recursos de informática, internet, multimídia, projeção e DVD, garantindo flexibilidade e conforto para o seu evento.",
-      "capacity": "Até 300 pessoas",
+      "description": "O Centro de Convenções do Radio Hotel é ideal para grandes eventos, oferecendo 800 m², expansíveis a 1.200 m², e capacidade para até 350 pessoas. Com um pé direito de 5 metros, o espaço dispõe dos auditórios Millenium e Monterey e 5 salas modulares. É totalmente climatizado (288.000 BTUs Mitsubishi) e equipado com tecnologia de ponta, incluindo recursos de informática, internet, multimídia, projeção e DVD, garantindo flexibilidade e conforto para o seu evento.",
+      "capacity": "Até 350 pessoas",
       "area": "800 m²",
       "expandableArea": "Expansível até 1.200 m²",
       "ceilingHeight": "Pé direito de 5 m",
@@ -265,7 +262,6 @@
         "audiovisual": "Sistema audiovisual"
       }
     },
-
     "types": {
       "wedding": {
         "name": "Casamentos",
@@ -303,7 +299,7 @@
     },
     "comfort": {
       "title": "Conforto Premium",
-      "description": "Acomodações elegantes com todos os detalhes"
+      "description": "Acomodações sofisticadas, projetadas para oferecer conforto e acessibilidade."
     },
     "service": {
       "title": "Atendimento Personalizado",

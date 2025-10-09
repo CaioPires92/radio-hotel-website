@@ -7,7 +7,7 @@ const conferenceRooms = [
   {
     name: 'Millenium',
     sqm: 360,
-    auditorium: 300,
+    auditorium: 350,
     u_shape: 48,
     herringbone: 120,
     meeting: '-',
