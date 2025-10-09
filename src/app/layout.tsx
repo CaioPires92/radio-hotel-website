@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
     template: '%s | Radio Hotel Serra Negra'
   },
-  description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.',
+  description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.',
   keywords: [
     'hotel serra negra',
     'hotel de luxo sp',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
-    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde.',
+    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde.',
     siteName: 'Radio Hotel',
     images: [
       {
@@ -149,11 +149,7 @@ export default function RootLayout({
               image: '/og-image.jpg',
               priceRange: '$$$',
               amenityFeature: [
-                {
-                  '@type': 'LocationFeatureSpecification',
-                  name: 'Piscina aquecida',
-                  value: true,
-                },
+
                 {
                   '@type': 'LocationFeatureSpecification',
                   name: 'Spa e Wellness',
@@ -193,12 +189,7 @@ export default function RootLayout({
                   '@type': 'LocationFeatureSpecification',
                   name: 'Trilhas ecológicas',
                   value: true,
-                },
-                {
-                  '@type': 'LocationFeatureSpecification',
-                  name: 'Cachoeira própria',
-                  value: true,
-                },
+                }
               ],
               starRating: {
                 '@type': 'Rating',

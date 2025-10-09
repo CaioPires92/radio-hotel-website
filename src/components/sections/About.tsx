@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell } from 'lucide-react';
+import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell, Smile } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -29,6 +29,10 @@ export default function About() {
     {
       icon: Dumbbell,
       title: t('about.features.gym.title')
+    },
+    {
+      icon: Smile,
+      title: 'Monitoria de Lazer'
     },
     {
       icon: Users,

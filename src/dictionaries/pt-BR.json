@@ -56,8 +56,8 @@
     },
     "slide3": {
       "title": "Natureza Exuberante",
-      "subtitle": "Cachoeiras e Trilhas",
-      "description": "Explore as belezas naturais da região, com cachoeiras cristalinas, trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
+      "subtitle": "Trilhas e Paisagens",
+      "description": "Explore as belezas naturais da região, com trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
     },
     "carousel": {
       "ariaLabel": "Carrossel de imagens do hotel"
@@ -83,6 +83,12 @@
       },
       "events": {
         "title": "Eventos"
+      },
+      "leisure-monitoring": {
+        "title": "Monitoria de Lazer"
+      },
+      "leisure-monitoring": {
+        "title": "Monitoria de Lazer"
       }
     }
   },
@@ -150,10 +156,10 @@
         "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
       },
       "quadruple": {
-        "name": "Quarto Família",
+        "name": "Apartamento Familiar",
         "type": "Ideal para Famílias",
-        "capacity": "Até 4 pessoas",
-        "description": "Perfeito para famílias, nosso quarto família oferece espaço amplo e configuração flexível para garantir o conforto de todos."
+        "capacity": "2 dormitórios + 1 toalete",
+        "description": "Apartamento familiar com 2 dormitórios e 1 toalete."
       }
     },
     "amenities": {
@@ -259,6 +265,25 @@
         "audiovisual": "Sistema audiovisual"
       }
     },
+    "specialEvents": {
+      "title": "Nossas Atividades Especiais",
+      "archery": {
+        "title": "Arco e Flecha",
+        "description": "Desperte seu instinto e pratique sua mira em nosso espaço de arco e flecha."
+      },
+      "beachTennis": {
+        "title": "Beach Tennis",
+        "description": "Divirta-se em nossa quadra de beach tennis, perfeita para jogos entre amigos e família."
+      },
+      "tennis": {
+        "title": "Quadra de Tênis",
+        "description": "Aprimore seu jogo em nossa quadra de tênis profissional."
+      },
+      "jogging": {
+        "title": "Pista de Cooper",
+        "description": "Mantenha a forma enquanto aprecia a natureza em nossa pista de cooper."
+      }
+    },
     "types": {
       "wedding": {
         "name": "Casamentos",
@@ -278,6 +303,15 @@
     "badge": "Destaques",
     "title": "Experiências Únicas",
     "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
+    "nature": {
+      "title": "Natureza Exuberante",
+      "description": "Explore nossa vasta área verde, com trilhas, paisagens deslumbrantes e ar puro da montanha.",
+      "features": [
+        "Ampla área verde preservada",
+        "Trilhas para caminhadas",
+        "Contato direto com a natureza"
+      ]
+    },
     "location": {
       "title": "Localização Privilegiada",
       "description": "No coração de Serra Negra, cercado pela natureza",
@@ -331,15 +365,20 @@
         "Auditório com capacidade para 100 pessoas",
         "Suporte técnico completo"
       ]
+    },
+    "sports": {
+      "title": "Atividades Esportivas",
+      "description": "Diversas modalidades esportivas para toda a família",
+      "features": [
+        "Quadra de tênis profissional",
+        "Beach tennis e arco e flecha",
+        "Pista de cooper na natureza"
+      ]
     }
   },
   "facilities": {
     "title": "Nossas Facilidades",
     "subtitle": "Tudo para o Seu Conforto e Bem-Estar",
-    "pool": {
-      "name": "Piscina Aquecida",
-      "description": "Relaxe em nossa piscina aquecida com vista para a natureza."
-    },
     "spa": {
       "name": "Spa & Wellness",
       "description": "Tratamentos relaxantes com águas radioativas terapêuticas."
@@ -350,15 +389,15 @@
     },
     "gym": {
       "name": "Academia",
-      "description": "Mantenha-se ativo com equipamentos modernos e vista panorâmica."
+      "description": "Um espaço para cuidar de si, com equipamentos modernos e uma vista inspiradora para a natureza."
+    },
+    "leisure-monitoring": {
+      "name": "Monitoria de Lazer",
+      "description": "Atividades e entretenimento para todas as idades com nossa equipe de monitores."
     },
     "trails": {
       "name": "Trilhas Ecológicas",
       "description": "Explore a natureza em trilhas seguras e bem sinalizadas."
-    },
-    "waterfall": {
-      "name": "Cachoeira Própria",
-      "description": "Desfrute de nossa cachoeira particular para momentos únicos."
     }
   },
   "parallax": {
@@ -662,7 +701,7 @@
   },
   "meta": {
     "title": "Radio Hotel Serra Negra - Hotel de Luxo em Serra Negra, SP",
-    "description": "Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.",
+    "description": "Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.",
     "keywords": "hotel serra negra, hotel de luxo sp, hospedagem serra negra, radio hotel, hotel fazenda, turismo serra negra, hotel natureza, eventos corporativos, casamentos serra negra, hotel boutique, águas radioativas, spa serra negra, hotel com piscina, destination wedding, hotel romântico"
   },
   "accessibility": {

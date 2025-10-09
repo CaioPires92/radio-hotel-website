@@ -271,6 +271,33 @@ const Events = () => {
           </div>
         </motion.div>
         <ConferenceTable />
+        {/* Special Events Section */}
+        <motion.div
+          className="mt-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-3xl font-serif font-bold text-navy mb-10 text-center">{t('events.specialEvents.title')}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+              [
+                { icon: '🎯', title: t('events.specialEvents.archery.title'), description: t('events.specialEvents.archery.description') },
+                { icon: '🎾', title: t('events.specialEvents.beachTennis.title'), description: t('events.specialEvents.beachTennis.description') },
+                { icon: '🏸', title: t('events.specialEvents.tennis.title'), description: t('events.specialEvents.tennis.description') },
+                { icon: '🏃', title: t('events.specialEvents.jogging.title'), description: t('events.specialEvents.jogging.description') },
+                { icon: '🥕', title: t('events.specialEvents.garden.title'), description: t('events.specialEvents.garden.description') },
+              ].map((event, index) => (
+                <div key={index} className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                  <div className="text-4xl mb-4">{event.icon}</div>
+                  <h4 className="text-xl font-serif font-bold text-navy mb-2">{event.title}</h4>
+                  <p className="text-navy/80">{event.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </motion.div>
       </div>
     </section>
   );

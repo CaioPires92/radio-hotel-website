@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
     short_name: 'Radio Hotel',
-    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde.',
+    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde.',
     start_url: '/',
     display: 'standalone',
     background_color: '#f6f5f1',

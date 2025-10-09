@@ -21,7 +21,7 @@ const PageSEO = ({
 }: PageSEOProps) => {
   const baseUrl = 'https://radiohotel.com.br'; // Substitua pela URL real
   const fullTitle = title ? `${title} | Radio Hotel Serra Negra` : 'Radio Hotel - Experiência Exclusiva em Serra Negra';
-  const defaultDescription = 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde.';
+  const defaultDescription = 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde.';
   const metaDescription = description || defaultDescription;
   const canonical = canonicalUrl || baseUrl;
 
@@ -66,7 +66,7 @@ export default PageSEO;
 export const seoConfigs = {
   home: {
     title: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
-    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium.',
+    description: 'Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde, oferecemos uma experiência única de hospitalidade premium.',
     keywords: ['hotel serra negra', 'hotel de luxo sp', 'hospedagem serra negra', 'radio hotel', 'hotel fazenda', 'turismo serra negra'],
   },
   accommodations: {
@@ -86,8 +86,8 @@ export const seoConfigs = {
   },
   facilities: {
     title: 'Facilidades e Lazer - Piscina, Spa e Natureza',
-    description: 'Desfrute de nossas facilidades: piscina aquecida, spa, academia, bosque de pinheiros, cachoeira própria e trilhas ecológicas. Relaxamento e bem-estar garantidos.',
-    keywords: ['piscina aquecida', 'spa serra negra', 'academia hotel', 'trilhas ecológicas', 'cachoeira', 'bosque pinheiros'],
+    description: 'Desfrute de nossas facilidades: spa, bosque de pinheiros e trilhas ecológicas. Relaxamento e bem-estar garantidos.',
+keywords: ['spa serra negra', 'trilhas ecológicas', 'bosque pinheiros'],
   },
   contact: {
     title: 'Contato e Localização - Como Chegar ao Radio Hotel',
