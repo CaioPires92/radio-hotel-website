@@ -265,25 +265,7 @@
         "audiovisual": "Sistema audiovisual"
       }
     },
-    "specialEvents": {
-      "title": "Nossas Atividades Especiais",
-      "archery": {
-        "title": "Arco e Flecha",
-        "description": "Desperte seu instinto e pratique sua mira em nosso espaço de arco e flecha."
-      },
-      "beachTennis": {
-        "title": "Beach Tennis",
-        "description": "Divirta-se em nossa quadra de beach tennis, perfeita para jogos entre amigos e família."
-      },
-      "tennis": {
-        "title": "Quadra de Tênis",
-        "description": "Aprimore seu jogo em nossa quadra de tênis profissional."
-      },
-      "jogging": {
-        "title": "Pista de Cooper",
-        "description": "Mantenha a forma enquanto aprecia a natureza em nossa pista de cooper."
-      }
-    },
+
     "types": {
       "wedding": {
         "name": "Casamentos",
@@ -305,75 +287,35 @@
     "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
     "nature": {
       "title": "Natureza Exuberante",
-      "description": "Explore nossa vasta área verde, com trilhas, paisagens deslumbrantes e ar puro da montanha.",
-      "features": [
-        "Ampla área verde preservada",
-        "Trilhas para caminhadas",
-        "Contato direto com a natureza"
-      ]
+      "description": "Explore nossa vasta área verde, com trilhas, paisagens deslumbrantes e ar puro da montanha."
     },
     "location": {
       "title": "Localização Privilegiada",
-      "description": "No coração de Serra Negra, cercado pela natureza",
-      "features": [
-        "Vista panorâmica da Serra da Mantiqueira",
-        "Acesso fácil às principais atrações",
-        "Ambiente tranquilo e reservado"
-      ]
+      "description": "No coração de Serra Negra, cercado pela natureza"
     },
     "wellness": {
       "title": "Bem-estar e Relaxamento",
-      "description": "Espaços dedicados ao seu descanso e renovação",
-      "features": [
-        "Piscina com vista para as montanhas",
-        "Área de relaxamento ao ar livre",
-        "Jardins paisagísticos"
-      ]
+      "description": "Espaços dedicados ao seu descanso e renovação"
     },
     "gastronomy": {
       "title": "Gastronomia de Excelência",
-      "description": "Sabores autênticos da culinária regional e internacional",
-      "features": [
-        "Restaurante com chef especializado",
-        "Ingredientes frescos e regionais",
-        "Cardápio variado e sazonal"
-      ]
+      "description": "Sabores autênticos da culinária regional e internacional"
     },
     "comfort": {
       "title": "Conforto Premium",
-      "description": "Acomodações elegantes com todos os detalhes",
-      "features": [
-        "Quartos espaçosos e bem decorados",
-        "Amenities de qualidade superior",
-        "Roupas de cama premium"
-      ]
+      "description": "Acomodações elegantes com todos os detalhes"
     },
     "service": {
       "title": "Atendimento Personalizado",
-      "description": "Equipe dedicada ao seu bem-estar",
-      "features": [
-        "Recepção 24 horas",
-        "Concierge especializado",
-        "Serviço de quarto disponível"
-      ]
+      "description": "Equipe dedicada ao seu bem-estar"
     },
     "business": {
       "title": "Eventos Corporativos",
-      "description": "Espaços profissionais para seus negócios",
-      "features": [
-        "Salas de reunião equipadas",
-        "Auditório com capacidade para 100 pessoas",
-        "Suporte técnico completo"
-      ]
+      "description": "Espaços profissionais para seus negócios"
     },
     "sports": {
       "title": "Atividades Esportivas",
-      "description": "Diversas modalidades esportivas para toda a família",
-      "features": [
-        "Quadra de tênis profissional",
-        "Beach tennis e arco e flecha",
-        "Pista de cooper na natureza"
-      ]
+      "description": "Esporte e lazer para todos: arco e flecha, beach tênis, quadra de tênis e pista de cooper. Diversão e bem-estar em família!"
     }
   },
   "facilities": {

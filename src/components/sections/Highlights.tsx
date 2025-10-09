@@ -26,12 +26,11 @@ const Highlights = () => {
 
   const highlights = [
     {
-      id: 7,
+      id: 0,
       icon: TreePine,
       title: t('highlights.nature.title'),
       description: t('highlights.nature.description'),
       image: '/images/facilities/natureza.jpg',
-      features: [t('highlights.nature.features.0'), t('highlights.nature.features.1'), t('highlights.nature.features.2')],
     },
     {
       id: 1,
@@ -39,7 +38,6 @@ const Highlights = () => {
       title: t('highlights.location.title'),
       description: t('highlights.location.description'),
       image: '/images/facilities/bosque1.jpg',
-      features: [t('highlights.location.features.0'), t('highlights.location.features.1'), t('highlights.location.features.2')],
     },
     {
       id: 2,
@@ -47,7 +45,6 @@ const Highlights = () => {
       title: t('highlights.wellness.title'),
       description: t('highlights.wellness.description'),
       image: '/images/facilities/piscina1.jpg',
-      features: [t('highlights.wellness.features.0'), t('highlights.wellness.features.1'), t('highlights.wellness.features.2')],
     },
     {
       id: 3,
@@ -55,7 +52,6 @@ const Highlights = () => {
       title: t('highlights.gastronomy.title'),
       description: t('highlights.gastronomy.description'),
       image: '/images/restaurant/restaurante1.jpg',
-      features: [t('highlights.gastronomy.features.0'), t('highlights.gastronomy.features.1'), t('highlights.gastronomy.features.2')],
     },
     {
       id: 4,
@@ -63,7 +59,6 @@ const Highlights = () => {
       title: t('highlights.comfort.title'),
       description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
-      features: [t('highlights.comfort.features.0'), t('highlights.comfort.features.1'), t('highlights.comfort.features.2')],
     },
     {
       id: 5,
@@ -71,7 +66,6 @@ const Highlights = () => {
       title: t('highlights.service.title'),
       description: t('highlights.service.description'),
       image: '/images/facilities/facilities.jpg',
-      features: [t('highlights.service.features.0'), t('highlights.service.features.1'), t('highlights.service.features.2')],
     },
     {
       id: 6,
@@ -79,7 +73,6 @@ const Highlights = () => {
       title: t('highlights.business.title'),
       description: t('highlights.business.description'),
       image: '/images/conventions/convention-1.jpg',
-      features: [t('highlights.business.features.0'), t('highlights.business.features.1'), t('highlights.business.features.2')],
     },
     {
       id: 8,
@@ -87,7 +80,6 @@ const Highlights = () => {
       title: t('highlights.sports.title'),
       description: t('highlights.sports.description'),
       image: '/images/facilities/sports.jpg',
-      features: [t('highlights.sports.features.0'), t('highlights.sports.features.1'), t('highlights.sports.features.2')],
     },
   ];
 
@@ -181,16 +173,6 @@ const Highlights = () => {
                       <p className="text-navy/80 mb-4 leading-relaxed">
                         {highlight.description}
                       </p>
-
-                      {/* Features */}
-                      <div className="space-y-2">
-                        {highlight.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                            <span className="text-sm text-navy/70">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
 
                       {/* Decorative Element */}
                       <div className="mt-4 pt-4 border-t border-gray-100">
