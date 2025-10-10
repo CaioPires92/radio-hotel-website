@@ -10,9 +10,10 @@ import Image from 'next/image';
 
 interface HeroProps {
   onBookingClick?: () => void;
+  heightClass?: string; // permite ajustar a altura externamente
 }
 
-const Hero = ({ onBookingClick }: HeroProps) => {
+const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingLoading, setIsBookingLoading] = useState(false);
   const [isPaused, setIsPaused] = useState(false); // Novo estado
@@ -91,7 +92,7 @@ const Hero = ({ onBookingClick }: HeroProps) => {
   return (
     <section
       id="home"
-      className="relative h-screen overflow-hidden"
+      className={`relative ${heightClass} overflow-hidden`}
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}  // Pausar ao entrar com mouse
       onMouseLeave={() => setIsPaused(false)} // Retomar ao sair com mouse

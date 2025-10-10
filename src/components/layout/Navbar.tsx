@@ -38,6 +38,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     { name: t('about.title'), href: '#about' },
     { name: t('navigation.accommodations'), href: '#accommodations' },
     { name: t('navigation.events'), href: '#events' },
+    { name: t('navigation.blog'), href: '/blog' },
     { name: t('navigation.contact'), href: '#contact' },
   ];
 
@@ -61,22 +62,22 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4 flex-nowrap">
           {/* Logo */}
           <motion.div
             className="flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <a href="#home" className="flex items-center space-x-3">
-              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-20' : 'w-28 h-22'}`}>
+            <a href="#home" className="flex items-center gap-3">
+              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}
                   alt="Rádio Hotel Logo"
                   fill
                   className="object-contain transition-all duration-300"
-                  sizes="96px"
+                  sizes="(max-width: 768px) 96px, 128px"
                   quality={90}
                   priority
                 />
@@ -87,13 +88,13 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden min-[812px]:block flex-1 min-w-0">
+            <div className="ml-0 xl:ml-8 flex items-baseline justify-center xl:justify-start space-x-2 xl:space-x-6">
               {menuItems.map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}
@@ -104,14 +105,14 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 </motion.a>
               ))}
               {/* Language Selector */}
-              <div className="ml-4">
+              <div className="hidden xl:block ml-2 xl:ml-4">
                 <CompactLanguageSelector className="text-sm" isScrolled={isScrolled} />
               </div>
             </div>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden min-[812px]:block flex-shrink-0">
             <Button
               onClick={handleBookingClick}
               className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${isScrolled
@@ -119,6 +120,9 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 : 'bg-white hover:bg-white/90 text-navy'
                 }`}
               aria-label={t('navigation.bookNow')}
+              
+              // Prevent wrapping on mid screens
+              style={{ minWidth: 160 }}
             >
               <Phone className="w-4 h-4 mr-2" />
               {t('navigation.bookNow')}
@@ -126,7 +130,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+        <div className="min-[812px]:hidden">
             <Button
               onClick={() => setIsOpen(!isOpen)}
               onKeyDown={handleKeyDown}
@@ -147,7 +151,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       {/* Mobile Menu */}
       <motion.div
         id="mobile-menu"
-        className={`md:hidden ${isOpen ? 'block' : 'hidden'
+            className={`min-[812px]:hidden ${isOpen ? 'block' : 'hidden'
           } bg-white/95 backdrop-blur-md border-t border-gray-200`}
         initial={{ opacity: 0, height: 0 }}
         animate={{
