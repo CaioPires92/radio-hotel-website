@@ -21,10 +21,26 @@
     "or": "ou",
     "and": "e"
   },
+  "blog": {
+    "subtitle": "Fique por dentro das últimas novidades e descubra os melhores pontos turísticos da cidade.",
+    "alto-da-serra": {
+      "title": "Alto da Serra (Serra Negra)",
+      "description": "Prepare-se para uma vista de tirar o fôlego no Alto da Serra, o ponto culminante da região com 1.310m de altitude! De lá, você pode contemplar uma das paisagens mais belas do Circuito das Águas, avistando mais de 10 cidades vizinhas. O acesso é feito pela Rua 14 de Julho. Uma experiência inesquecível para quem ama natureza e fotografia!"
+    },
+    "fontana-di-trevi": {
+      "title": "Fontana Di Trevi - Serra Negra/SP",
+      "description": "Encante-se com a deslumbrante réplica da Fontana di Trevi em Serra Negra! Um ponto turístico imperdível para tirar fotos incríveis e, claro, fazer aquele pedido especial jogando uma moeda. Venha conferir essa beleza arquitetônica que traz o charme da Itália para o interior de São Paulo. Visite e se apaixone!"
+    },
+    "teleferico-cristo-redentor": {
+      "title": "Teleférico e Cristo Redentor",
+      "description": "Suba a Serra Negra de um jeito emocionante! Pegue o Teleférico na Praça João Zelante e desfrute de um passeio com vistas panorâmicas da cidade. Ele te leva diretamente ao Cristo Redentor, no topo do Pico do Fonseca! Lá de cima, a estátua de 18 metros te recebe com um visual espetacular, perfeito para fotos e momentos de paz. É o combo perfeito de aventura e contemplação!"
+    }
+  },
   "navigation": {
     "home": "Início",
     "accommodations": "Acomodações",
     "events": "Eventos",
+    "blog": "Blog",
     "facilities": "Facilidades",
     "restaurant": "Restaurante",
     "contact": "Contato",

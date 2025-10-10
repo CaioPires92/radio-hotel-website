@@ -21,12 +21,26 @@
     "or": "or",
     "and": "and"
   },
+  "blog": {
+    "subtitle": "Stay up to date with the latest news and discover the best tourist attractions in Serra Negra.",
+    "alto-da-serra": {
+      "title": "Alto da Serra (Serra Negra)",
+      "description": "Get ready for a breathtaking view at Alto da Serra, the highest point in the region at an altitude of 1,310m! From there, you can contemplate one of the most beautiful landscapes of the Water Circuit, seeing more than 10 neighboring cities. Access is via Rua 14 de Julho. An unforgettable experience for those who love nature and photography!"
+    },
+    "fontana-di-trevi": {
+      "title": "Fontana Di Trevi - Serra Negra/SP",
+      "description": "Be enchanted by the stunning replica of the Trevi Fountain in Serra Negra! An unmissable tourist spot to take incredible photos and, of course, make that special wish by tossing a coin. Come and see this architectural beauty that brings the charm of Italy to the interior of São Paulo. Visit and fall in love!"
+    },
+    "teleferico-cristo-redentor": {
+      "title": "Cable Car and Christ the Redeemer",
+      "description": "Climb Serra Negra in an exciting way! Take the Cable Car at Praça João Zelante and enjoy a ride with panoramic views of the city. It takes you directly to Christ the Redeemer, at the top of Pico do Fonseca! From up there, the 18-meter statue welcomes you with a spectacular view, perfect for photos and moments of peace. It is the perfect combo of adventure and contemplation!"
+    }
+  },
   "navigation": {
     "home": "Home",
     "accommodations": "Accommodations",
-    "events": "Events",
-    "facilities": "Facilities",
-    "restaurant": "Restaurant",
+    "events": "Events & Leisure",
+    "blog": "Blog",
     "contact": "Contact",
     "about": "About",
     "gallery": "Gallery",
