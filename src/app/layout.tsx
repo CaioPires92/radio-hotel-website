@@ -91,7 +91,7 @@ export default function RootLayout({
 }>) {
   // Get locale from URL or use default
   const locale = defaultLocale; // Server-side rendering uses default locale
-  
+
   return (
     <html lang={locale} className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
@@ -102,13 +102,13 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0d29" />
         <meta name="msapplication-TileColor" content="#0a0d29" />
-        
+
         {/* SEO and Analytics Meta Tags */}
         <meta name="google-site-verification" content="your-google-verification-code" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
         <meta name="yandex-verification" content="your-yandex-verification-code" />
         <meta name="p:domain_verify" content="your-pinterest-verification-code" />
-        
+
         {/* Additional SEO Meta Tags */}
         <meta name="rating" content="general" />
         <meta name="distribution" content="global" />
@@ -118,7 +118,7 @@ export default function RootLayout({
         <meta name="geo.placename" content="Serra Negra" />
         <meta name="geo.position" content="-22.6167;-46.7000" />
         <meta name="ICBM" content="-22.6167, -46.7000" />
-        
+
         {/* Alternate language versions */}
         <link rel="alternate" hrefLang="pt-BR" href="https://radiohotelserranegra.com.br" />
         <link rel="alternate" hrefLang="en-US" href="https://radiohotelserranegra.com.br/en-US" />
