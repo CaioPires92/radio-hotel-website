@@ -13,7 +13,7 @@ interface HeroProps {
   heightClass?: string; // permite ajustar a altura externamente
 }
 
-const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
+const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:min-h-[80vh] lg:h-screen' }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingLoading, setIsBookingLoading] = useState(false);
   const [isPaused, setIsPaused] = useState(false); // Novo estado
@@ -143,8 +143,8 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
       })}
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 h-full flex items-start lg:items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 md:pt-8 lg:pt-0 max-[639px]:pt-20 pb-16 sm:pb-20 md:pb-24 lg:pb-0">
           <div className="max-w-3xl">
             <AnimatePresence mode="wait">
               <motion.div
@@ -157,7 +157,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
               >
                 {/* Location Badge */}
                 <motion.div
-                  className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6"
+                  className="hidden lg:inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
@@ -173,17 +173,28 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
 
                 {/* Main Title */}
                 <motion.h1
-                  className="text-5xl md:text-7xl font-serif font-bold mb-4 leading-tight"
+                  className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 leading-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  {slides[currentSlide].title}
+                  {(() => {
+                    const title = slides[currentSlide].title;
+                    if (title.toLowerCase().includes('radio hotel serra negra')) {
+                      return (
+                        <>
+                          <span className="block md:inline">Radio Hotel</span>{' '}
+                          <span className="block md:inline">Serra Negra</span>
+                        </>
+                      );
+                    }
+                    return title;
+                  })()}
                 </motion.h1>
 
                 {/* Subtitle */}
                 <motion.h2
-                  className="text-xl md:text-2xl font-light mb-6 text-gold"
+                  className="text-lg sm:text-xl md:text-2xl font-light mb-6 text-gold"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
@@ -193,7 +204,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
 
                 {/* Description */}
                 <motion.p
-                  className="text-lg md:text-xl mb-8 leading-relaxed max-w-2xl text-white"
+                  className="text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-2xl md:max-w-3xl text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -203,7 +214,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
 
                 {/* CTA Buttons */}
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-6"
+                  className="mt-4 md:mt-6 hidden sm:flex sm:flex-col md:flex-row gap-3 md:gap-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
@@ -212,7 +223,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
                     onClick={handleBookingClick}
                     disabled={isBookingLoading}
                     size="lg"
-                    className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[180px] flex items-center justify-center"
+                    className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[160px] sm:min-w-[180px] sm:w-full md:w-auto flex items-center justify-center"
                     aria-label={t('navigation.bookNow')}
                   >
                     {isBookingLoading ? (
@@ -227,7 +238,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-2 border-gold text-white bg-transparent hover:bg-gold hover:text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105"
+                    className="border-2 border-gold text-white bg-transparent hover:bg-gold hover:text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 sm:w-full md:w-auto"
                     onClick={() => {
                       document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                     }}
@@ -242,10 +253,10 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows (hidden on mobile) */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
+        className="hidden min-[812px]:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
         aria-label={t('hero.previousSlide')}
         tabIndex={0}
       >
@@ -253,7 +264,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
+        className="hidden min-[812px]:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
         aria-label={t('hero.nextSlide')}
         tabIndex={0}
       >
@@ -278,7 +289,7 @@ const Hero = ({ onBookingClick, heightClass = 'h-screen' }: HeroProps) => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 right-8 z-20"
+        className="hidden sm:block absolute bottom-8 right-8 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
