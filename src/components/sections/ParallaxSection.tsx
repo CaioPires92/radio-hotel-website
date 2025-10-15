@@ -9,9 +9,11 @@ import Image from 'next/image';
 
 interface ParallaxSectionProps {
   onBookingClick?: () => void;
+  backgroundSrc?: string;
+
 }
 
-const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
+const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.jpg" }: ParallaxSectionProps) => {
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
@@ -63,7 +65,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
       >
         <div className="relative w-full h-full">
           <Image
-            src="/parallax-bg.svg"
+            src={backgroundSrc}
             alt="Radio Hotel - Serra Negra"
             fill
             className="object-cover"
