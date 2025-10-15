@@ -62,7 +62,7 @@
 
 ## 📑 Conteúdo & Comunicação
 
-* [ ] Trabalhar no **blog**.
+* [x] Trabalhar no **blog**.
 * [ ] Criar seção para **Pacotes de Natal, Réveillon e Férias de Janeiro**.
 * [x] Enxugar ao máximo o texto de todas as descrições.
 * [X] Dar mais tempo aos **slides**. E pouse Hover

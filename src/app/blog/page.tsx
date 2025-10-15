@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -9,15 +10,15 @@ import BlogHero from '@/components/sections/BlogHero';
 const blogPosts = [
   {
     id: 'alto-da-serra',
-    image: '/path/to/image.jpg', // Substituir pelo caminho da imagem
+    image: 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_1_29012025132413.jpg', // Substituir pelo caminho da imagem
   },
   {
     id: 'fontana-di-trevi',
-    image: '/path/to/image.jpg', // Substituir pelo caminho da imagem
+    image: 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_1_29012025095100.jpg', // Substituir pelo caminho da imagem
   },
   {
     id: 'teleferico-cristo-redentor',
-    image: '/path/to/image.jpg', // Substituir pelo caminho da imagem
+    image: 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_1_29012025133057.jpg', // Substituir pelo caminho da imagem
   },
 ];
 
@@ -43,7 +44,16 @@ const Blog = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="w-full h-64 bg-gray-200 animate-pulse" />
+                <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={`Imagem do post ${post.id}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={85}
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold font-serif text-navy mb-3">
                     {t(`blog.${post.id}.title`)}
