@@ -34,12 +34,12 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   }, []);
 
   const menuItems = [
-    { name: t('navigation.home'), href: '#home' },
-    { name: t('about.title'), href: '#about' },
-    { name: t('navigation.accommodations'), href: '#accommodations' },
-    { name: t('navigation.events'), href: '#events' },
+    { name: t('navigation.home'), href: '/#home' },
+    { name: t('about.title'), href: '/#about' },
+    { name: t('navigation.accommodations'), href: '/#accommodations' },
+    { name: t('navigation.events'), href: '/#events' },
     { name: t('navigation.blog'), href: '/blog' },
-    { name: t('navigation.contact'), href: '#contact' },
+    { name: t('navigation.contact'), href: '/#contact' },
   ];
 
   const handleBookingClick = () => {
@@ -70,7 +70,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <a href="#home" className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
               <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}

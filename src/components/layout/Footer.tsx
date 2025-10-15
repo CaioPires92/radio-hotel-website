@@ -163,7 +163,7 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Hotel Info & Logo */}
             <motion.div

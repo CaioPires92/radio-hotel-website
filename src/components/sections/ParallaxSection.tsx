@@ -52,15 +52,18 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
   }
 
   return (
-    <section className="relative min-h-screen h-screen lg:h-screen overflow-hidden mb-0">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Background Image with Parallax */}
+
+
+
       <motion.div
-        className="absolute inset-0 w-full h-[120%]"
+        className="absolute inset-0 z-0 w-full h-[120%] overflow-hidden"
         style={{ y: backgroundY }}
       >
         <div className="relative w-full h-full">
           <Image
-            src="/images/hero/hero1.jpg"
+            src="/parallax-bg.svg"
             alt="Radio Hotel - Serra Negra"
             fill
             className="object-cover"
@@ -73,66 +76,64 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
       {/* Animated Overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/75 to-navy/90"
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-navy/80 via-navy/75 to-navy/90"
         style={{ opacity: overlayOpacity }}
       />
 
       {/* Base Overlay for Better Contrast */}
-      <div className="absolute inset-0 bg-navy/60" />
+      <div className="absolute inset-0 z-10 pointer-events-none bg-navy/60" />
 
-      {/* Decorative Elements */}
-      <div className="absolute inset-0">
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
+      {/* Decorative Elements - Reduced opacity and better positioning */}
+      <div className="absolute inset-0 pointer-events-none z-20">
+        {/* Floating Particles - Reduced count and opacity */}
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-gold/30 rounded-full"
-            style={
-              {
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }
-            }
+            className="absolute w-1.5 h-1.5 bg-gold/20 rounded-full"
+            style={{
+              left: `${20 + Math.random() * 60}%`,
+              top: `${20 + Math.random() * 60}%`,
+            }}
             animate={{
-              y: [-20, 20, -20],
-              opacity: [0.3, 0.8, 0.3],
+              y: [-15, 15, -15],
+              opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
             }}
           />
         ))}
 
-        {/* Geometric Patterns */}
-        <div className="absolute top-20 left-10 w-32 h-32 border border-gold/20 rotate-45 animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-24 h-24 border border-gold/30 rotate-12" />
-        <div className="absolute top-1/2 left-20 w-16 h-16 bg-gold/10 rounded-full animate-bounce" />
+        {/* Geometric Patterns - Better positioned */}
+        <div className="absolute top-20 left-4 lg:left-10 w-24 lg:w-32 h-24 lg:h-32 border border-gold/15 rotate-45 animate-pulse" />
+        <div className="absolute bottom-20 right-4 lg:right-10 w-20 lg:w-24 h-20 lg:h-24 border border-gold/20 rotate-12" />
+        <div className="absolute top-1/2 left-4 lg:left-20 w-12 lg:w-16 h-12 lg:h-16 bg-gold/5 rounded-full animate-bounce" />
       </div>
 
       {/* Content */}
       <motion.div
-        className="relative z-10 h-full flex items-center justify-center py-16 lg:py-8"
+        className="relative z-30 min-h-screen flex items-center justify-center pt-16 pb-16"
         style={{ y: textY }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-6 py-2 mb-8"
+            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Star className="w-4 h-4 text-gold fill-current" />
-            <span className="text-gold font-medium text-sm">{t('parallax.badge')}</span>
-            <Star className="w-4 h-4 text-gold fill-current" />
+            <Star className="w-3 sm:w-4 h-3 sm:h-4 text-gold fill-current" />
+            <span className="text-gold font-medium text-xs sm:text-sm">{t('parallax.badge')}</span>
+            <Star className="w-3 sm:w-4 h-3 sm:h-4 text-gold fill-current" />
           </motion.div>
 
           {/* Main Heading */}
           <motion.h2
-            className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight px-2"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -145,7 +146,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 md:mb-10 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -156,29 +157,29 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 max-w-4xl mx-auto px-4"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8 max-w-3xl lg:max-w-4xl mx-auto px-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
-              <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">80</div>
-              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.tradition')}</div>
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">80</div>
+              <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.tradition')}</div>
             </div>
-            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
-              <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">8.9</div>
-              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.rating')}</div>
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">8.9</div>
+              <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.rating')}</div>
             </div>
-            <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
-              <div className="text-3xl md:text-4xl font-serif font-bold text-gold mb-2">9.9</div>
-              <div className="text-white text-sm uppercase tracking-wider">{t('parallax.stats.location')}</div>
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">9.9</div>
+              <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.location')}</div>
             </div>
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -186,40 +187,40 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
           >
             <Button
               onClick={handleBookingClick}
-              className="bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
+              className="w-full sm:w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
               aria-label={t('parallax.buttons.bookingAriaLabel')}
             >
-              <Phone className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+              <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2 group-hover:animate-pulse" />
               {t('parallax.buttons.bookNow')}
             </Button>
 
             <Button
               onClick={handleCallClick}
               variant="outline"
-              className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-navy/20"
+              className="w-full sm:w-auto border-2 border-gold text-gold hover:bg-gold hover:text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-navy/20"
               aria-label={t('parallax.buttons.availabilityAriaLabel')}
             >
-              <Calendar className="w-5 h-5 mr-2" />
+              <Calendar className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
               {t('parallax.buttons.checkAvailability')}
             </Button>
           </motion.div>
 
           {/* Contact Info */}
           <motion.div
-            className="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-white/80"
+            className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 md:space-x-8 text-white/80 pb-0 sm:pb-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-2">
-              <Phone className="w-4 h-4" />
-              <span className="text-sm">(19) 99999-9999</span>
+              <Phone className="w-3 sm:w-4 h-3 sm:h-4" />
+              <span className="text-xs sm:text-sm">(19) 99999-9999</span>
             </div>
             <div className="hidden sm:block w-px h-4 bg-white/30" />
             <div className="flex items-center space-x-2">
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm">Serra Negra, SP</span>
+              <MapPin className="w-3 sm:w-4 h-3 sm:h-4" />
+              <span className="text-xs sm:text-sm">Serra Negra, SP</span>
             </div>
           </motion.div>
         </div>
@@ -227,7 +228,7 @@ const ParallaxSection = ({ onBookingClick }: ParallaxSectionProps) => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="hidden lg:block absolute z-30 bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
