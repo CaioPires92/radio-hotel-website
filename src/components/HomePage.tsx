@@ -14,6 +14,8 @@ import EventsModal from '@/components/modals/EventsModal';
 import PopButton from '@/components/ui/PopButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import BackToTopButton from '@/components/ui/BackToTopButton';
+import SeasonalPackages from './sections/SeasonalPackages';
+import PromoRibbon from './ui/PromoRibbon';
 
 export default function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
@@ -23,21 +25,24 @@ export default function HomePage() {
     <main className="min-h-screen">
       <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
       <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
+      <PromoRibbon />
+      <SeasonalPackages />
+
       <About />
       <Events />
       <Accommodations onBookingClick={() => setIsBookingFormOpen(true)} />
       <Highlights />
       <ParallaxSection onBookingClick={() => setIsBookingFormOpen(true)} />
       <Footer />
-      
+
       {/* Modals and Floating Elements */}
-      <BookingForm 
-        isOpen={isBookingFormOpen} 
-        onClose={() => setIsBookingFormOpen(false)} 
+      <BookingForm
+        isOpen={isBookingFormOpen}
+        onClose={() => setIsBookingFormOpen(false)}
       />
-      <EventsModal 
-        isOpen={isEventsModalOpen} 
-        onClose={() => setIsEventsModalOpen(false)} 
+      <EventsModal
+        isOpen={isEventsModalOpen}
+        onClose={() => setIsEventsModalOpen(false)}
       />
       <PopButton onClick={() => setIsEventsModalOpen(true)} />
       <WhatsAppButton />
