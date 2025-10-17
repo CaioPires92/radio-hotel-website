@@ -39,10 +39,10 @@
   "navigation": {
     "home": "Inicio",
     "accommodations": "Alojamientos",
-    "events": "Eventos & Ocio",
+    "events": "Convenciones",
     "blog": "Blog",
     "contact": "Contacto",
-    "about": "Acerca de",
+    "about": "Sobre",
     "gallery": "Galería",
     "bookNow": "Reservar Ahora",
     "menu": "Menú",
@@ -252,8 +252,8 @@
   },
   "events": {
     "badge": "Eventos",
-    "title": "Eventos Especiales",
-    "subtitle": "Momentos Inolvidables en un Entorno Único",
+    "title": "Convenciones",
+    "subtitle": "Momentos inolvidables en un entorno único",
     "description": "Celebra tu evento soñado en nuestros espacios elegantes, rodeados de naturaleza.",
     "viewMore": "Ver Más",
     "bookEvent": "Solicitar Presupuesto",
@@ -284,6 +284,9 @@
         "soundSystem": "Sistema de sonido profesional",
         "lighting": "Iluminación escénica",
         "coffeeBreak": "Área para coffee break"
+      },
+      "clients": {
+        "title": "Clientes en Convenciones"
       }
     },
     "corporate": {

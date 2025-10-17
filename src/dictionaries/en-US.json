@@ -39,7 +39,7 @@
   "navigation": {
     "home": "Home",
     "accommodations": "Accommodations",
-    "events": "Events & Leisure",
+    "events": "Conventions",
     "blog": "Blog",
     "contact": "Contact",
     "about": "About",
@@ -252,7 +252,7 @@
   },
   "events": {
     "badge": "Events",
-    "title": "Special Events",
+    "title": "Conventions",
     "subtitle": "Unforgettable Moments in a Unique Setting",
     "description": "Host your dream event in our elegant spaces, surrounded by nature.",
     "viewMore": "View More",
@@ -284,6 +284,9 @@
         "soundSystem": "Professional sound system",
         "lighting": "Stage lighting",
         "coffeeBreak": "Coffee break area"
+      },
+      "clients": {
+        "title": "Convention Clients"
       }
     },
     "corporate": {
