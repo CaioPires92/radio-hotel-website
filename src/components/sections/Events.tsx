@@ -239,35 +239,7 @@ const Events = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-cream rounded-2xl p-8">
-            <h3 className="text-2xl font-serif font-bold text-navy mb-4">
-              {t('events.planning.title')}
-            </h3>
-            <p className="text-navy/70 mb-6 max-w-2xl mx-auto">
-              {t('events.planning.description')}
-            </p>
-            <Button
-              onClick={() => {
-                const message = t('events.whatsapp.planningInquiry');
-                const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-              }}
-              variant="outline"
-              className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
-              aria-label={t('events.specialist.ariaLabel')}
-            >
-              {t('events.specialist.button')}
-            </Button>
-          </div>
-        </motion.div>
+
         <ConferenceTable />
       </div>
     </section>

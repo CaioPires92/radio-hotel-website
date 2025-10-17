@@ -16,7 +16,7 @@ vi.mock('@/components/i18n/I18nProvider', () => ({
         'navigation.home': 'Início',
         'navigation.bookNow': 'Reservar Agora',
         'navigation.accommodations': 'Acomodações',
-        'navigation.events': 'Eventos',
+        'navigation.events': 'Convenções',
         'navigation.contact': 'Contato',
         'about.title': 'Sobre',
         'navbar.whatsapp.bookingMessage': 'Olá! Gostaria de fazer uma reserva.',
@@ -45,7 +45,7 @@ describe('Navbar', () => {
     expect(screen.getByText('Início')).toBeInTheDocument();
     expect(screen.getByText('Sobre')).toBeInTheDocument();
     expect(screen.getByText('Acomodações')).toBeInTheDocument();
-    expect(screen.getByText('Eventos')).toBeInTheDocument();
+    expect(screen.getByText('Convenções')).toBeInTheDocument();
     expect(screen.getByText('Contato')).toBeInTheDocument();
     expect(screen.getByText('Reservar Agora')).toBeInTheDocument();
   });

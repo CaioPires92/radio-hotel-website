@@ -39,7 +39,7 @@
   "navigation": {
     "home": "Início",
     "accommodations": "Acomodações",
-    "events": "Eventos",
+    "events": "Convenções",
     "blog": "Blog",
     "facilities": "Facilidades",
     "restaurant": "Restaurante",
@@ -190,7 +190,7 @@
   },
   "events": {
     "badge": "Eventos",
-    "title": "Eventos Especiais",
+    "title": "Convenções",
     "subtitle": "Momentos Inesquecíveis em um Cenário Único",
     "description": "Realize seu evento dos sonhos em nossos espaços elegantes, cercados pela natureza.",
     "viewMore": "Ver Mais",
@@ -213,7 +213,7 @@
     },
     "convention": {
       "title": "Centro de Convenções",
-      "description": "O Centro de Convenções do Radio Hotel é ideal para grandes eventos, oferecendo 800 m², expansíveis a 1.200 m², e capacidade para até 350 pessoas. Com um pé direito de 5 metros, o espaço dispõe dos auditórios Millenium e Monterey e 5 salas modulares. É totalmente climatizado (288.000 BTUs Mitsubishi) e equipado com tecnologia de ponta, incluindo recursos de informática, internet, multimídia, projeção e DVD, garantindo flexibilidade e conforto para o seu evento.",
+      "description": "Com 800 m² de área construída, expansível para 1.200 m² e capacidade para até 350 pessoas, o Centro de Convenções do Radio Hotel possui pé direito de 5 metros, dois pavimentos, 2 auditórios e 5 salas de reunião. O ambiente é totalmente climatizado pela Mitsubishi (288.000 BTUs) e equipado com recursos de informática, internet, multimídia, projeção e DVD. Importante: o Radio Hotel apenas cede o espaço; não realiza planejamento nem execução de eventos.",
       "capacity": "Até 350 pessoas",
       "area": "800 m²",
       "expandableArea": "Expansível até 1.200 m²",
@@ -233,6 +233,9 @@
         "soundSystem": "Sistema de som profissional",
         "lighting": "Iluminação cênica",
         "coffeeBreak": "Área para coffee break"
+      },
+      "clients": {
+        "title": "Relação de alguns clientes do Rádio Hotel, em convenções:"
       }
     },
     "corporate": {
