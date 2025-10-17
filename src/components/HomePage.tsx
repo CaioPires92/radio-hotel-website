@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
-import Events from '@/components/sections/Events';
+// import Events from '@/components/sections/Events';
 import Accommodations from '@/components/sections/Accommodations';
 import Highlights from '@/components/sections/Highlights';
 import ParallaxSection from '@/components/sections/ParallaxSection';
@@ -29,7 +29,7 @@ export default function HomePage() {
       <SeasonalPackages />
 
       <About />
-      <Events />
+      {/* <Events /> */}
       <Accommodations onBookingClick={() => setIsBookingFormOpen(true)} />
       <Highlights />
       <ParallaxSection onBookingClick={() => setIsBookingFormOpen(true)} />
