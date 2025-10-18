@@ -227,10 +227,7 @@ const Events = () => {
                       </AnimatePresence>
                       <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
 
-                      {/* Event Number */}
-                      <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
-                        {String(currentEvent + 1).padStart(2, '0')}
-                      </div>
+
                     </div>
 
                     {/* Thumbnails below the slide */}
