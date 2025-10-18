@@ -9,11 +9,13 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
 import ConferenceTable from '@/components/sections/ConferenceTable';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const Events = () => {
   const { t } = useTranslation();
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isContactLoading, setIsContactLoading] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -37,6 +39,25 @@ const Events = () => {
       features: [],
     },
   ];
+
+  // Miniaturas de fotos da seção Conventions
+  const conventionInlinePhotos = [
+    '/images/conventions/IMG_0008.jpg',
+    '/images/conventions/IMG_0023.jpg',
+    '/images/conventions/IMG_0711.jpg',
+  ];
+
+  const lightboxOpen = lightboxIndex !== null;
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  const nextPhoto = () => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex + 1) % conventionInlinePhotos.length);
+  };
+  const prevPhoto = () => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex - 1 + conventionInlinePhotos.length) % conventionInlinePhotos.length);
+  };
 
   const nextEvent = () => {
     setCurrentEvent((prev) => (prev + 1) % events.length);
@@ -86,7 +107,72 @@ const Events = () => {
           <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
             {t('events.description')}
           </p>
+
+          {/* Miniaturas clicáveis para ampliar */}
+          <div className="mt-8 flex justify-center gap-4">
+            {conventionInlinePhotos.map((src, idx) => (
+              <button
+                key={src}
+                onClick={() => openLightbox(idx)}
+                className="relative overflow-hidden rounded-xl border border-navy/10 shadow-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                aria-label={`Abrir foto ${idx + 1}`}
+              >
+                <Image
+                  src={src}
+                  alt={`${t('events.convention.title')} - miniatura ${idx + 1}`}
+                  width={180}
+                  height={120}
+                  className="object-cover"
+                  quality={70}
+                  sizes="(min-width: 1024px) 180px, 35vw"
+                  priority={idx === 0}
+                />
+              </button>
+            ))}
+          </div>
         </motion.div>
+
+        {/* Lightbox Modal */}
+        <Dialog open={lightboxOpen} onOpenChange={(open) => !open && closeLightbox()}>
+          <DialogContent className="bg-transparent p-0 max-w-6xl">
+            {lightboxIndex !== null && (
+              <div className="relative w-[92vw] max-w-5xl h-[60vh] sm:h-[70vh] mx-auto">
+                <Image
+                  src={conventionInlinePhotos[lightboxIndex]}
+                  alt={`${t('events.convention.title')} - foto ampliada ${lightboxIndex + 1}`}
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="100vw"
+                  quality={85}
+                  priority
+                />
+                {/* Sombra suave para contraste */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
+
+                {/* Navegação */}
+                <button
+                  onClick={prevPhoto}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all focus:outline-none focus:ring-2 focus:ring-gold"
+                  aria-label="Foto anterior"
+                >
+                  <ChevronLeft className="w-6 h-6 text-navy" />
+                </button>
+                <button
+                  onClick={nextPhoto}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all focus:outline-none focus:ring-2 focus:ring-gold"
+                  aria-label="Próxima foto"
+                >
+                <ChevronRight className="w-6 h-6 text-navy" />
+                </button>
+
+                {/* Indicador */}
+                <div className="absolute bottom-3 right-4 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                  {lightboxIndex + 1} / {conventionInlinePhotos.length}
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Events Carousel */}
         <div className="relative">
