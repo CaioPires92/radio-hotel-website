@@ -143,7 +143,7 @@ const Highlights = () => {
                 variants={itemVariants}
                 className="group relative"
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105">
+                <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105 py-0">
                   <CardContent className="p-0 relative">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
