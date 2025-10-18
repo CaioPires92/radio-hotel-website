@@ -119,7 +119,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
         className="relative z-30 min-h-screen flex items-center justify-center pt-16 pb-16"
         style={{ y: textY }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center -mt-8 sm:-mt-10 md:-mt-12">
           {/* Badge */}
           <motion.div
             className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8"
@@ -181,7 +181,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 sm:mb-6"
+            className="flex flex-col md:flex-row flex-wrap gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6 mt-6 md:mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -189,40 +189,40 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
           >
             <Button
               onClick={handleBookingClick}
-              className="w-full sm:w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
+              className="w-full md:w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-2xl group"
               aria-label={t('parallax.buttons.bookingAriaLabel')}
             >
-              <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2 group-hover:animate-pulse" />
+              <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2 group-hover:animate-pulse" />
               {t('parallax.buttons.bookNow')}
             </Button>
 
             <Button
               onClick={handleCallClick}
               variant="outline"
-              className="w-full sm:w-auto border-2 border-gold text-gold hover:bg-gold hover:text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-navy/20"
+              className="w-full md:w-auto border-2 border-gold text-gold hover:bg-gold hover:text-navy font-semibold px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-navy/20"
               aria-label={t('parallax.buttons.availabilityAriaLabel')}
             >
-              <Calendar className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+              <Calendar className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               {t('parallax.buttons.checkAvailability')}
             </Button>
           </motion.div>
 
           {/* Contact Info */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 md:space-x-8 text-white/80 pb-0 sm:pb-2"
+            className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 md:gap-6 text-white/80 pb-0 md:pb-2 mt-8 md:mt-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-2">
-              <Phone className="w-3 sm:w-4 h-3 sm:h-4" />
-              <span className="text-xs sm:text-sm">(19) 99999-9999</span>
+              <Phone className="w-3 md:w-4 h-3 md:h-4" />
+              <span className="text-xs md:text-sm">(19) 99999-9999</span>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-white/30" />
+            <div className="hidden md:block w-px h-4 bg-white/30" />
             <div className="flex items-center space-x-2">
-              <MapPin className="w-3 sm:w-4 h-3 sm:h-4" />
-              <span className="text-xs sm:text-sm">Serra Negra, SP</span>
+              <MapPin className="w-3 md:w-4 h-3 md:h-4" />
+              <span className="text-xs md:text-sm">Serra Negra, SP</span>
             </div>
           </motion.div>
         </div>
@@ -230,14 +230,13 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Scroll Indicator */}
       <motion.div
-        className="hidden lg:block absolute z-30 bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2"
+        className="hidden lg:block absolute z-30 bottom-0 lg:bottom-2 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
         viewport={{ once: true }}
       >
         <div className="flex flex-col items-center space-y-2">
-          <span className="text-white/60 text-xs uppercase tracking-wider">Continue Explorando</span>
           <motion.div
             className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
             animate={{ opacity: [0.3, 1, 0.3] }}
