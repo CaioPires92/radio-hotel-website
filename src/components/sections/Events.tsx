@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock, Ruler, Maximize, ArrowUpDown, Building2, Layers, Wind, Wifi, Monitor, Disc } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -16,6 +16,7 @@ const Events = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isContactLoading, setIsContactLoading] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -48,15 +49,22 @@ const Events = () => {
   ];
 
   const lightboxOpen = lightboxIndex !== null;
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setCurrentPhotoIndex(index);
+  };
   const closeLightbox = () => setLightboxIndex(null);
   const nextPhoto = () => {
     if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex + 1) % conventionInlinePhotos.length);
+    const next = (lightboxIndex + 1) % conventionInlinePhotos.length;
+    setLightboxIndex(next);
+    setCurrentPhotoIndex(next);
   };
   const prevPhoto = () => {
     if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex - 1 + conventionInlinePhotos.length) % conventionInlinePhotos.length);
+    const prev = (lightboxIndex - 1 + conventionInlinePhotos.length) % conventionInlinePhotos.length;
+    setLightboxIndex(prev);
+    setCurrentPhotoIndex(prev);
   };
 
   const nextEvent = () => {
@@ -65,6 +73,14 @@ const Events = () => {
 
   const prevEvent = () => {
     setCurrentEvent((prev) => (prev - 1 + events.length) % events.length);
+  };
+
+  // Navegação das fotos inline (setas do slide principal)
+  const nextInlinePhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % conventionInlinePhotos.length);
+  };
+  const prevInlinePhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + conventionInlinePhotos.length) % conventionInlinePhotos.length);
   };
 
   const handleContactClick = async () => {
@@ -109,13 +125,14 @@ const Events = () => {
           </p>
 
           {/* Miniaturas clicáveis para ampliar */}
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="hidden">
             {conventionInlinePhotos.map((src, idx) => (
               <button
                 key={src}
-                onClick={() => openLightbox(idx)}
-                className="relative overflow-hidden rounded-xl border border-navy/10 shadow-sm focus:outline-none focus:ring-2 focus:ring-gold"
-                aria-label={`Abrir foto ${idx + 1}`}
+                onClick={() => setCurrentPhotoIndex(idx)}
+                className={`relative overflow-hidden rounded-xl border ${idx === currentPhotoIndex ? 'border-gold ring-2 ring-gold' : 'border-navy/10'} shadow-sm focus:outline-none focus:ring-2 focus:ring-gold`}
+                aria-label={`Visualizar foto ${idx + 1}`}
+                aria-current={idx === currentPhotoIndex ? 'true' : 'false'}
               >
                 <Image
                   src={src}
@@ -187,20 +204,55 @@ const Events = () => {
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Image Section */}
-                  <div className="relative h-96 lg:h-auto">
-                    <Image
-                      src={events[currentEvent].image}
-                      alt={`${events[currentEvent].title} - ${events[currentEvent].description}`}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
+                  <div className="relative h-96 lg:h-auto group cursor-zoom-in" onClick={() => openLightbox(currentPhotoIndex)} role="button" aria-label={t('events.convention.title')}>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentPhotoIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={conventionInlinePhotos[currentPhotoIndex] ?? events[currentEvent].image}
+                          alt={`${events[currentEvent].title} - ${events[currentEvent].description}`}
+                          fill
+                          className="object-cover"
+                          priority
+                        />
+                      </motion.div>
+                    </AnimatePresence>
                     <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
 
                     {/* Event Number */}
                     <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
                       {String(currentEvent + 1).padStart(2, '0')}
                     </div>
+                  </div>
+
+                  {/* Thumbnails below the slide */}
+                  <div className="px-6 py-4 bg-white/80 flex flex-wrap gap-3 items-center">
+                    {conventionInlinePhotos.map((src, idx) => (
+                      <button
+                        key={src}
+                        onClick={() => setCurrentPhotoIndex(idx)}
+                        className={`relative overflow-hidden rounded-xl border ${idx === currentPhotoIndex ? 'border-gold ring-2 ring-gold' : 'border-navy/10'} shadow-sm focus:outline-none focus:ring-2 focus:ring-gold`}
+                        aria-label={`Visualizar foto ${idx + 1}`}
+                        aria-current={idx === currentPhotoIndex ? 'true' : 'false'}
+                      >
+                        <Image
+                          src={src}
+                          alt={`${t('events.convention.title')} - miniatura ${idx + 1}`}
+                          width={160}
+                          height={110}
+                          className="object-cover"
+                          quality={70}
+                          sizes="(min-width: 1024px) 160px, 40vw"
+                          priority={idx === 0}
+                        />
+                      </button>
+                    ))}
                   </div>
 
                   {/* Content Section */}
@@ -292,17 +344,17 @@ const Events = () => {
 
           {/* Navigation Arrows */}
           <button
-            onClick={prevEvent}
+            onClick={prevInlinePhoto}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label={t('events.navigation.previous')}
+            aria-label="Foto anterior"
             tabIndex={0}
           >
             <ChevronLeft className="w-6 h-6 text-navy" />
           </button>
           <button
-            onClick={nextEvent}
+            onClick={nextInlinePhoto}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label={t('events.navigation.next')}
+            aria-label="Próxima foto"
             tabIndex={0}
           >
             <ChevronRight className="w-6 h-6 text-navy" />
