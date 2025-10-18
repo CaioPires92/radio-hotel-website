@@ -8,9 +8,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import { WHATSAPP_NUMBER } from '@/lib/config';
+import Link from 'next/link';
 
 interface AccommodationsProps {
   onBookingClick?: () => void;
+  compact?: boolean;
 }
 
 const roomsData = (t: (key: string) => string) => {
@@ -70,12 +72,13 @@ const roomsData = (t: (key: string) => string) => {
   ];
 };
 
-const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
+const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const { t } = useTranslation();
-  const rooms = roomsData(t);
+  // Substitui variável por state para aceitar dados dinâmicos
+  const [rooms, setRooms] = useState(roomsData(t));
 
   const nextRoom = () => {
     setCurrentRoom((prev) => (prev + 1) % rooms.length);
@@ -132,6 +135,114 @@ const Accommodations = ({ onBookingClick }: AccommodationsProps) => {
       window.open(whatsappUrl, '_blank');
     }
   };
+
+  useEffect(() => {
+    // Monta amenidades comuns usando tradução atual
+    const commonAmenities = [
+      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
+      { icon: Wifi, name: t('accommodations.amenities.wifi') },
+      { icon: Tv, name: t('accommodations.amenities.tv') },
+      { icon: Coffee, name: t('accommodations.amenities.minibar') },
+      { icon: Phone, name: t('accommodations.amenities.telephone') },
+    ];
+
+    const fetchRooms = async () => {
+      try {
+        const res = await fetch('/api/rooms');
+        const data = await res.json();
+
+        const apiRooms = (data?.rooms ?? []).map((r: any) => ({
+          ...r,
+          amenities: r.amenities?.length ? r.amenities : commonAmenities
+        }));
+
+        // Se encontrou categorias via API, usa elas; senão mantém as atuais
+        if (apiRooms.length) {
+          setRooms(apiRooms);
+        }
+      } catch {
+        // Silencia erro e mantém fallback estático
+      }
+    };
+
+    fetchRooms();
+  }, [t]);
+
+  // Variante compacta para a Home
+  if (compact) {
+    return (
+      <section id="accommodations" className="py-20 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
+              {t('accommodations.badge')}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
+              {t('accommodations.title')}
+            </h2>
+            <p className="text-lg text-navy/80 max-w-3xl mx-auto leading-relaxed">
+              {t('accommodations.subtitle')}
+            </p>
+          </motion.div>
+
+          {/* Prévia das acomodações (3 cards) */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {rooms.slice(0, 3).map((room) => (
+              <Card key={room.id} className="border-0 shadow-2xl bg-white">
+                <CardContent className="p-0">
+                  <div className="relative h-48">
+                    <Image
+                      src={room.image}
+                      alt={`${room.name} - ${room.type}`}
+                      fill
+                      className="object-cover"
+                      quality={85}
+                    />
+                    <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
+                      {room.type}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-3xl font-serif font-bold text-navy mb-1">{room.name}</h3>
+                    <p className="text-sm text-navy/70 mb-4">{room.description}</p>
+                    <Button
+                      onClick={() => handleBookingClick(room.name)}
+                      className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
+                      aria-label={`Reservar ${room.name}`}
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      {t('accommodations.buttons.bookNow')}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </motion.div>
+
+          {/* Link para página dedicada */}
+          <div className="mt-10 text-center">
+            <Link href="/acomodacoes" aria-label="Ver acomodações">
+              <Button className="inline-flex bg-navy hover:bg-navy/90 text-white px-6 py-3 rounded-full">
+                {t('accommodations.buttons.viewAll') || 'Ver acomodações'}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="accommodations" className="py-20 bg-cream">

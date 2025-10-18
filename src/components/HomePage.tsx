@@ -17,7 +17,7 @@ import BackToTopButton from '@/components/ui/BackToTopButton';
 import SeasonalPackages from './sections/SeasonalPackages';
 import PromoRibbon from './ui/PromoRibbon';
 
-export default function HomePage() {
+function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
@@ -30,7 +30,10 @@ export default function HomePage() {
 
       <About />
       {/* <Events /> */}
-      <Accommodations onBookingClick={() => setIsBookingFormOpen(true)} />
+      {/* Seções */}
+      {/* Hero, About, etc. */}
+      {/* Usa versão compacta na Home */}
+      <Accommodations compact />
       <Highlights />
       <ParallaxSection onBookingClick={() => setIsBookingFormOpen(true)} />
       <Footer />
@@ -50,3 +53,5 @@ export default function HomePage() {
     </main>
   );
 }
+
+export default HomePage;

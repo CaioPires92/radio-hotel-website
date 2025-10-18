@@ -214,7 +214,8 @@
     "subtitle": "Discover our carefully designed rooms for your perfect stay",
     "viewDetails": "View Details",
     "buttons": {
-      "bookNow": "Book Now"
+      "bookNow": "Book Now",
+      "viewAll": "View Accommodations"
     },
     "navigation": {
       "previous": "Previous room",
