@@ -41,20 +41,25 @@ function Button({
   size,
   asChild = false,
   type = "button",
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
+  const ariaLabel = (props as any)["aria-label"] ?? (typeof children === "string" ? children : undefined)
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       type={type}
+      aria-label={ariaLabel}
       {...props}
-    />
+    >
+      {children ?? (ariaLabel ? <span className="sr-only">{ariaLabel}</span> : null)}
+    </Comp>
   )
 }
 

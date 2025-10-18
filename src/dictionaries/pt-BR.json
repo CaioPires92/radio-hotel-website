@@ -151,7 +151,8 @@
     "subtitle": "em Cada Detalhe",
     "viewDetails": "Ver Detalhes",
     "buttons": {
-      "bookNow": "Reservar Agora"
+      "bookNow": "Reservar Agora",
+      "viewAll": "Ver Acomodações"
     },
     "navigation": {
       "previous": "Quarto anterior",

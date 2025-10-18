@@ -214,7 +214,8 @@
     "subtitle": "Descubre nuestras habitaciones cuidadosamente diseñadas para tu estancia perfecta",
     "viewDetails": "Ver Detalles",
     "buttons": {
-      "bookNow": "Reservar Ahora"
+      "bookNow": "Reservar Ahora",
+      "viewAll": "Ver Alojamientos"
     },
     "navigation": {
       "previous": "Habitación anterior",
