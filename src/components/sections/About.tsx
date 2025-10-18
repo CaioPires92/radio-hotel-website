@@ -169,13 +169,13 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                        <Icon className="w-5 h-5 text-gold" />
+                <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg">
+                  <CardContent className="px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                        <Icon className="w-4 h-4 text-gold" />
                       </div>
-                      <h4 className="font-semibold text-navy">{feature.title}</h4>
+                      <h4 className="font-semibold text-navy text-sm">{feature.title}</h4>
                     </div>
                   </CardContent>
                 </Card>
