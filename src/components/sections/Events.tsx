@@ -203,56 +203,59 @@ const Events = () => {
             <Card className="border-0 shadow-2xl">
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-2 gap-0">
-                  {/* Image Section */}
-                  <div className="relative h-96 lg:h-auto group cursor-zoom-in" onClick={() => openLightbox(currentPhotoIndex)} role="button" aria-label={t('events.convention.title')}>
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentPhotoIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={conventionInlinePhotos[currentPhotoIndex] ?? events[currentEvent].image}
-                          alt={`${events[currentEvent].title} - ${events[currentEvent].description}`}
-                          fill
-                          className="object-cover"
-                          priority
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
+                  {/* Visual Column: image + thumbnails */}
+                  <div className="flex flex-col">
+                    {/* Image Section */}
+                    <div className="relative h-96 lg:aspect-[16/9] group cursor-zoom-in" onClick={() => openLightbox(currentPhotoIndex)} role="button" aria-label={t('events.convention.title')}>
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={currentPhotoIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4 }}
+                          className="absolute inset-0"
+                        >
+                          <Image
+                            src={conventionInlinePhotos[currentPhotoIndex] ?? events[currentEvent].image}
+                            alt={`${events[currentEvent].title} - ${events[currentEvent].description}`}
+                            fill
+                            className="object-cover"
+                            priority
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                      <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
 
-                    {/* Event Number */}
-                    <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
-                      {String(currentEvent + 1).padStart(2, '0')}
+                      {/* Event Number */}
+                      <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
+                        {String(currentEvent + 1).padStart(2, '0')}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Thumbnails below the slide */}
-                  <div className="px-6 py-4 bg-white/80 flex flex-wrap gap-3 items-center">
-                    {conventionInlinePhotos.map((src, idx) => (
-                      <button
-                        key={src}
-                        onClick={() => setCurrentPhotoIndex(idx)}
-                        className={`relative overflow-hidden rounded-xl border ${idx === currentPhotoIndex ? 'border-gold ring-2 ring-gold' : 'border-navy/10'} shadow-sm focus:outline-none focus:ring-2 focus:ring-gold`}
-                        aria-label={`Visualizar foto ${idx + 1}`}
-                        aria-current={idx === currentPhotoIndex ? 'true' : 'false'}
-                      >
-                        <Image
-                          src={src}
-                          alt={`${t('events.convention.title')} - miniatura ${idx + 1}`}
-                          width={160}
-                          height={110}
-                          className="object-cover"
-                          quality={70}
-                          sizes="(min-width: 1024px) 160px, 40vw"
-                          priority={idx === 0}
-                        />
-                      </button>
-                    ))}
+                    {/* Thumbnails below the slide */}
+                    <div className="px-6 py-4 bg-white/80 flex flex-wrap gap-3 items-center">
+                      {conventionInlinePhotos.map((src, idx) => (
+                        <button
+                          key={src}
+                          onClick={() => setCurrentPhotoIndex(idx)}
+                          className={`relative overflow-hidden rounded-xl border ${idx === currentPhotoIndex ? 'border-gold ring-2 ring-gold' : 'border-navy/10'} shadow-sm focus:outline-none focus:ring-2 focus:ring-gold`}
+                          aria-label={`Visualizar foto ${idx + 1}`}
+                          aria-current={idx === currentPhotoIndex ? 'true' : 'false'}
+                        >
+                          <Image
+                            src={src}
+                            alt={`${t('events.convention.title')} - miniatura ${idx + 1}`}
+                            width={160}
+                            height={110}
+                            className="object-cover"
+                            quality={70}
+                            sizes="(min-width: 1024px) 160px, 40vw"
+                            priority={idx === 0}
+                          />
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Content Section */}
