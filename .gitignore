@@ -37,16 +37,16 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # large files and reports
-*.jpg
-*.jpeg
-*.png
-*.gif
+# Permit images to be versioned (tracked via Git LFS per .gitattributes)
+# Removed global ignore for common image formats
 *.mp4
 *.mov
 *.avi
 relatorio*.md
 ter
-/public/images/
+# Ensure public/images is tracked
+!/public/images/**
+# Still ignore large video files inside public/images
 /public/images/**/*.mp4
 /public/images/**/*.mov
 /public/images/**/*.avi
