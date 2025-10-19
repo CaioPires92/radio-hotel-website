@@ -22,6 +22,7 @@ import {
   ExternalLink,
   PlugZap
 } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -57,7 +58,7 @@ const Footer = () => {
     {
       icon: Phone,
       label: 'Recepção',
-      value: '(19) 3892-3311\n(19) 3892-1928\n(19) 99990-3311',
+      value: '(19) 3892-3311\n(19) 99990-3311',
       href: 'tel:+551938923311',
     },
     {
@@ -70,7 +71,7 @@ const Footer = () => {
       icon: MapPin,
       label: t('footer.contact.address.label'),
       value: t('footer.contact.address.value'),
-      href: 'https://maps.google.com/?q=Serra+Negra+SP',
+      href: 'https://www.google.com/maps/search/?api=1&query=Rua%20Cel.%20Pedro%20Penteado%2C%20387%20-%20Centro%2C%20Serra%20Negra%20-%20SP%2C%2013930-000',
     },
     {
       icon: Clock,
@@ -114,7 +115,7 @@ const Footer = () => {
 
   const handleWhatsAppClick = () => {
     const message = t('footer.whatsapp.message');
-    const whatsappUrl = `https://wa.me/5519999903311?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -263,6 +264,7 @@ const Footer = () => {
 
             {/* Contact Info */}
             <motion.div
+              id="contact"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
