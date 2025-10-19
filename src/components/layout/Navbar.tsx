@@ -37,7 +37,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   const menuItems = [
     { name: t('navigation.home'), href: '/#home' },
     { name: t('about.title'), href: '/#about' },
-    { name: t('navigation.accommodations'), href: '/#accommodations' },
+    { name: t('navigation.accommodations'), href: '/acomodacoes' },
     { name: t('navigation.events'), href: '/conventions' },
     { name: t('navigation.blog'), href: '/blog' },
     { name: t('navigation.contact'), href: '/#contact' },
