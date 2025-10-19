@@ -42,7 +42,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     { name: t('navigation.accommodations'), href: '/acomodacoes' },
     { name: t('navigation.events'), href: '/conventions' },
     { name: t('navigation.blog'), href: '/blog' },
-    { name: t('navigation.contact'), href: '/#contact' },
+    { name: t('navigation.contact'), href: '/contato' },
   ];
 
   const handleBookingClick = () => {
