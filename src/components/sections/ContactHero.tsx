@@ -96,7 +96,7 @@ export default function ContactHero({
                   aria-label={t('navigation.bookNow')}
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  {t('contact.cta.callNow') || t('navigation.bookNow')}
+                  {t('navigation.bookNow')}
                 </Button>
 
                 <Button
@@ -107,7 +107,7 @@ export default function ContactHero({
                   aria-label={t('contact.whatsapp')}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  {t('contact.cta.whatsapp') || t('contact.whatsapp')}
+                  {t('contact.whatsapp')}
                 </Button>
               </motion.div>
             </motion.div>
