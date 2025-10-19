@@ -38,9 +38,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
     
+    const pad = (n: number) => String(n).padStart(2, '0');
+    const toLocalYYYYMMDD = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    
     return {
-      checkIn: today.toISOString().split('T')[0],
-      checkOut: tomorrow.toISOString().split('T')[0]
+      checkIn: toLocalYYYYMMDD(today),
+      checkOut: toLocalYYYYMMDD(tomorrow)
     };
   };
   
@@ -52,7 +55,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       adults: '2',
       children: '0',
       childrenAges: [] as string[],
-      roomType: '',
+      roomType: 'standard',
       specialRequests: '',
     };
   });
@@ -124,10 +127,19 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     }
   };
 
+  // Helper: parse YYYY-MM-DD as local date (avoid UTC shift)
+  const parseLocalDate = (dateString: string) => {
+    if (!dateString) return null as unknown as Date;
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, (m || 1) - 1, d || 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
+  };
+
   const calculateNights = () => {
     if (!formData.checkIn || !formData.checkOut) return 0;
-    const checkIn = new Date(formData.checkIn);
-    const checkOut = new Date(formData.checkOut);
+    const checkIn = parseLocalDate(formData.checkIn);
+    const checkOut = parseLocalDate(formData.checkOut);
     const diffTime = Math.abs(checkOut.getTime() - checkIn.getTime());
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
@@ -140,7 +152,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const formatDate = (dateString: string) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
+    const date = parseLocalDate(dateString);
     return date.toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: '2-digit',
@@ -169,16 +181,16 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
     // Validate date logic
     if (formData.checkIn && formData.checkOut) {
-      const checkInDate = new Date(formData.checkIn);
-      const checkOutDate = new Date(formData.checkOut);
+      const checkInDate = parseLocalDate(formData.checkIn);
+      const checkOutDate = parseLocalDate(formData.checkOut);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-
-      if (checkInDate < today) {
+  
+      if (checkInDate.getTime() < today.getTime()) {
         newErrors.checkIn = t('booking.validation.checkInPastDate');
       }
-
-      if (checkOutDate <= checkInDate) {
+  
+      if (checkOutDate.getTime() <= checkInDate.getTime()) {
         newErrors.checkOut = t('booking.validation.checkOutAfterCheckIn');
       }
     }
@@ -203,7 +215,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     // Create WhatsApp message
     const selectedRoom = roomTypes.find(room => room.value === formData.roomType);
     const nights = calculateNights();
-    const total = calculateTotal();
+    // const total = calculateTotal();
 
     let message = `🏨 *${t('booking.whatsapp.title')}*\n\n`;
     message += `📅 *${t('booking.whatsapp.checkIn')}:* ${formatDate(formData.checkIn)}\n`;
@@ -218,15 +230,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     }
 
     message += `\n🛏️ *${t('booking.whatsapp.accommodation')}:* ${selectedRoom?.label}\n`;
-    message += `💰 *${t('booking.whatsapp.estimatedValue')}:* ${t('booking.currency')} ${total.toLocaleString('pt-BR')}\n`;
-
-    if (formData.specialRequests) {
-      message += `\n📝 *${t('booking.whatsapp.observations')}:* ${formData.specialRequests}\n`;
-    }
-
+    message += `\n📝 *${t('booking.whatsapp.observations')}:* ${formData.specialRequests}\n`;
     message += `\n✨ ${t('booking.whatsapp.confirmation')}.`;
 
-    // Open WhatsApp
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 
@@ -235,12 +241,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       setIsSubmitting(false);
       onClose();
       setFormData({
-        checkIn: '',
-        checkOut: '',
+        checkIn: getTodayDate(),
+        checkOut: getTomorrowDate(),
         adults: '2',
         children: '0',
         childrenAges: [],
-        roomType: '',
+        roomType: 'standard',
         specialRequests: '',
       });
     }, 1000);
@@ -248,13 +254,15 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const getTodayDate = () => {
     const today = new Date();
-    return today.toISOString().split('T')[0];
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
   };
 
   const getTomorrowDate = () => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${tomorrow.getFullYear()}-${pad(tomorrow.getMonth() + 1)}-${pad(tomorrow.getDate())}`;
   };
 
   return (
@@ -314,19 +322,18 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkIn')} *
                       </label>
-                      <div className="relative cursor-pointer" onClick={() => document.getElementById('check-in-input')?.showPicker?.()}>
+                      <div className="relative cursor-pointer" onClick={() => (document.getElementById('check-in-input') as HTMLInputElement | null)?.showPicker?.()}
+                      >
                         <input
                           id="check-in-input"
+                          min={getTodayDate()}
+                          lang="pt-BR"
+                          className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer border-gray-300"
+                          required
                           type="date"
                           value={formData.checkIn}
-                          onChange={(e) => handleInputChange('checkIn', e.target.value)}
-                          min={getTodayDate()}
-                          placeholder="dd/mm/aaaa"
-                          data-date-format="dd/mm/yyyy"
-                          lang="pt-BR"
-                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkIn ? 'border-red-500' : 'border-gray-300'
-                            }`}
-                          required
+                          onChange={(e) => handleDateChange('checkIn', e.target.value)}
+                          onFocus={(e) => e.target.showPicker?.()}
                         />
                       </div>
                       {errors.checkIn && (
@@ -339,19 +346,18 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {t('booking.checkOut')} *
                       </label>
-                      <div className="relative cursor-pointer" onClick={() => document.getElementById('check-out-input')?.showPicker?.()}>
+                      <div className="relative cursor-pointer" onClick={() => (document.getElementById('check-out-input') as HTMLInputElement | null)?.showPicker?.()}
+                      >
                         <input
                           id="check-out-input"
+                          min={formData.checkIn || getTomorrowDate()}
+                          lang="pt-BR"
+                          className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer border-gray-300"
+                          required
                           type="date"
                           value={formData.checkOut}
-                          onChange={(e) => handleInputChange('checkOut', e.target.value)}
-                          min={formData.checkIn || getTomorrowDate()}
-                          placeholder="dd/mm/aaaa"
-                          data-date-format="dd/mm/yyyy"
-                          lang="pt-BR"
-                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent cursor-pointer ${errors.checkOut ? 'border-red-500' : 'border-gray-300'
-                            }`}
-                          required
+                          onChange={(e) => handleDateChange('checkOut', e.target.value)}
+                          onFocus={(e) => e.target.showPicker?.()}
                         />
                       </div>
                       {errors.checkOut && (
@@ -513,7 +519,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    disabled={isSubmitting || !formData.checkIn || !formData.checkOut || !formData.roomType}
+                    disabled={isSubmitting || !formData.checkIn || !formData.checkOut}
                     className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     aria-label={t('booking.submitAriaLabel')}
                   >

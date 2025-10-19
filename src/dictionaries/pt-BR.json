@@ -457,7 +457,7 @@
       "accommodation": "Acomodação",
       "estimatedValue": "Valor Estimado",
       "observations": "Observações",
-      "confirmation": "Aguardo confirmação da disponibilidade e valores finais"
+      "confirmation": "Aguardo confirmação de disponibilidade e tarifas finais"
     },
     "whatsappMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel para {checkIn} até {checkOut}, {adults} adulto(s) e {children} criança(s). Tipo de quarto: {roomType}.",
     "validation": {
@@ -624,7 +624,7 @@
       },
       "address": {
         "label": "Endereço",
-        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13930-000"
+        "value": "Rua Cel. Pedro Penteado, 387 — Centro\nSerra Negra - SP\nCEP: 13930-000"
       },
       "hours": {
         "label": "Horário de Funcionamento",
