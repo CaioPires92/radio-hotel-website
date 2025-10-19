@@ -20,8 +20,7 @@ const IMAGE_ASSETS = [
   '/images/hero/hero3.jpg',
   '/images/hero/hero4.jpg',
   '/images/logo.png',
-  '/images/about/hotel-exterior.jpg',
-  '/images/about/hotel-interior.jpg',
+  '/images/about/hotel-exterior.jpg'
 ];
 
 // Install event - cache static assets
@@ -35,10 +34,16 @@ self.addEventListener('install', (event) => {
         console.log('Service Worker: Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       }),
-      // Cache images
+      // Cache images (tolerar falhas individuais)
       caches.open(IMAGE_CACHE_NAME).then((cache) => {
         console.log('Service Worker: Caching images');
-        return cache.addAll(IMAGE_ASSETS);
+        return Promise.allSettled(IMAGE_ASSETS.map((asset) => cache.add(asset)))
+          .then((results) => {
+            const failures = results.filter(r => r.status === 'rejected');
+            if (failures.length) {
+              console.warn('Service Worker: Algumas imagens falharam no cache:', failures.length);
+            }
+          });
       })
     ]).then(() => {
       console.log('Service Worker: Installation complete');
