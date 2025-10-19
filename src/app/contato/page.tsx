@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import StructuredData from '@/components/seo/StructuredData';
 import { WHATSAPP_NUMBER } from '@/lib/config';
+import ContactHero from '@/components/sections/ContactHero';
 
 export default function ContactPage() {
   const { t } = useTranslation();
@@ -83,27 +84,13 @@ export default function ContactPage() {
       <Navbar />
       <StructuredData data={jsonLd} />
 
-      {/* Header */}
-      <section className="pt-28 pb-10 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h1
-            className="text-3xl md:text-4xl font-bold text-white"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {t('contact.title')}
-          </motion.h1>
-          <motion.p
-            className="text-white/80 mt-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {t('contact.subtitle')}
-          </motion.p>
-        </div>
-      </section>
+      {/* Hero */}
+      <ContactHero
+        heightClass="min-h-[50vh] md:min-h-[60vh]"
+        imageSrc="/images/hero/hero2.jpg"
+        callNumberE164="+551938923311"
+        whatsappHref={`https://wa.me/${WHATSAPP_NUMBER}`}
+      />
 
       {/* Content Grid */}
       <section className="pb-20 px-4">
