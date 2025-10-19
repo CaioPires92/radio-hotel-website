@@ -88,21 +88,26 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               />
             </a>
           </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {menuItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-white/90 hover:text-gold transition-colors`}
-              >
-                {item.name}
-              </button>
-            ))}
-
+  
+          {/* Centered Desktop Navigation Links */}
+          <div className="hidden md:flex flex-1 justify-center">
+            <div className="flex items-center space-x-6">
+              {menuItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-white/90 hover:text-gold transition-colors`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </div>
+  
+          {/* Right Actions (Language + CTA) */}
+          <div className="hidden md:flex items-center space-x-4">
             <CompactLanguageSelector />
-
+  
             <Button
               onClick={handleBookingClick}
               className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full"
@@ -111,7 +116,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               {t('navigation.bookNow')}
             </Button>
           </div>
-
+  
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <Button
@@ -127,7 +132,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           </div>
         </div>
       </div>
-
+  
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
