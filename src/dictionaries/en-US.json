@@ -245,7 +245,8 @@
       "minibar": "Minibar",
       "tv": "Smart TV",
       "bathroom": "Private Bathroom",
-      "airConditioning": "Air Conditioning"
+      "airConditioning": "Air Conditioning",
+      "phone": "Telephone"
     },
     "whatsapp": {
       "bookingMessage": "Hello! I would like to make a reservation at Radio Hotel. Could you help me with availability and rates?"

@@ -21,7 +21,7 @@ const roomsData = (t: (key: string) => string) => {
     { icon: Wifi, name: t('accommodations.amenities.wifi') },
     { icon: Tv, name: t('accommodations.amenities.tv') },
     { icon: Coffee, name: t('accommodations.amenities.minibar') },
-    { icon: Phone, name: t('accommodations.amenities.telephone') },
+    { icon: Phone, name: t('accommodations.amenities.phone') },
   ];
 
   const standard = {
@@ -143,7 +143,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
       { icon: Wifi, name: t('accommodations.amenities.wifi') },
       { icon: Tv, name: t('accommodations.amenities.tv') },
       { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Phone, name: t('accommodations.amenities.telephone') },
+      { icon: Phone, name: t('accommodations.amenities.phone') },
     ];
 
     const fetchRooms = async () => {
@@ -279,7 +279,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Image Section */}
-                  <div className="lg:col-span-3 relative h-96 lg:h-auto group">
+                  <div className="lg:col-span-3 relative h-[50vh] md:h-[60vh] lg:h-[65vh] group">
                     <Image
                       src={rooms[currentRoom].image}
                       alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.map(a => a.name).join(', ')}`}
@@ -378,7 +378,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 onClick={handleCloseGallery} // Clique fora fecha a galeria
               >
                 <div 
-                  className="relative w-full max-w-6xl mx-auto"
+                  className="relative w-full max-w-[90vw] sm:max-w-[85vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] mx-auto"
                   onClick={(e) => e.stopPropagation()} // Previne fechamento ao clicar na imagem
                 >
                   <Card className="bg-white/95 border-0 rounded-2xl overflow-hidden shadow-2xl">
@@ -389,7 +389,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                             src={rooms[currentRoom].gallery[currentPhotoIndex].src}
                             alt={`${rooms[currentRoom].name} - ${rooms[currentRoom].gallery[currentPhotoIndex].tag ?? rooms[currentRoom].type}`}
                             fill
-                            className="object-cover"
+                            className="object-contain"
                             quality={85}
                             priority
                           />

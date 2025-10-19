@@ -60,20 +60,7 @@ const Highlights = () => {
       description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
     },
-    {
-      id: 5,
-      icon: Star,
-      title: t('highlights.service.title'),
-      description: t('highlights.service.description'),
-      image: '/images/facilities/facilities.jpg',
-    },
-    {
-      id: 6,
-      icon: Mountain,
-      title: t('highlights.business.title'),
-      description: t('highlights.business.description'),
-      image: '/images/conventions/convention-1.jpg',
-    },
+    // removed highlights: service and business
     {
       id: 8,
       icon: Trophy,
