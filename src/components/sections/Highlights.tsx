@@ -44,7 +44,7 @@ const Highlights = () => {
       icon: Waves,
       title: t('highlights.wellness.title'),
       description: t('highlights.wellness.description'),
-      image: '/images/facilities/piscina1.jpg',
+      image: '/images/facilities/piscina3.jpg',
     },
     {
       id: 3,
