@@ -21,10 +21,26 @@
     "or": "ou",
     "and": "e"
   },
+  "blog": {
+    "subtitle": "Fique por dentro das últimas novidades e descubra os melhores pontos turísticos da cidade.",
+    "alto-da-serra": {
+      "title": "Alto da Serra (Serra Negra)",
+      "description": "Prepare-se para uma vista de tirar o fôlego no Alto da Serra, o ponto culminante da região com 1.310m de altitude! De lá, você pode contemplar uma das paisagens mais belas do Circuito das Águas, avistando mais de 10 cidades vizinhas. O acesso é feito pela Rua 14 de Julho. Uma experiência inesquecível para quem ama natureza e fotografia!"
+    },
+    "fontana-di-trevi": {
+      "title": "Fontana Di Trevi - Serra Negra/SP",
+      "description": "Encante-se com a deslumbrante réplica da Fontana di Trevi em Serra Negra! Um ponto turístico imperdível para tirar fotos incríveis e, claro, fazer aquele pedido especial jogando uma moeda. Venha conferir essa beleza arquitetônica que traz o charme da Itália para o interior de São Paulo. Visite e se apaixone!"
+    },
+    "teleferico-cristo-redentor": {
+      "title": "Teleférico e Cristo Redentor",
+      "description": "Suba a Serra Negra de um jeito emocionante! Pegue o Teleférico na Praça João Zelante e desfrute de um passeio com vistas panorâmicas da cidade. Ele te leva diretamente ao Cristo Redentor, no topo do Pico do Fonseca! Lá de cima, a estátua de 18 metros te recebe com um visual espetacular, perfeito para fotos e momentos de paz. É o combo perfeito de aventura e contemplação!"
+    }
+  },
   "navigation": {
     "home": "Início",
     "accommodations": "Acomodações",
-    "events": "Eventos",
+    "events": "Convenções",
+    "blog": "Blog",
     "facilities": "Facilidades",
     "restaurant": "Restaurante",
     "contact": "Contato",
@@ -56,14 +72,40 @@
     },
     "slide3": {
       "title": "Natureza Exuberante",
-      "subtitle": "Cachoeiras e Trilhas",
-      "description": "Explore as belezas naturais da região, com cachoeiras cristalinas, trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
+      "subtitle": "Trilhas e Paisagens",
+      "description": "Explore as belezas naturais da região, com trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
     },
     "carousel": {
       "ariaLabel": "Carrossel de imagens do hotel"
     },
     "whatsapp": {
       "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"
+    },
+    "features": {
+      "wifi": {
+        "title": "Wi-Fi Gratuito"
+      },
+      "parking": {
+        "title": "Estacionamento"
+      },
+      "breakfast": {
+        "title": "Café da Manhã"
+      },
+      "restaurant": {
+        "title": "Restaurante"
+      },
+      "gym": {
+        "title": "Academia"
+      },
+      "events": {
+        "title": "Eventos"
+      },
+      "leisure-monitoring": {
+        "title": "Monitoria de Lazer"
+      },
+      "leisure-monitoring": {
+        "title": "Monitoria de Lazer"
+      }
     }
   },
   "about": {
@@ -78,28 +120,22 @@
     },
     "features": {
       "wifi": {
-        "title": "Wi-Fi Gratuito",
-        "description": "Internet de alta velocidade em todas as áreas"
+        "title": "Wi-Fi Gratuito"
       },
       "parking": {
-        "title": "Estacionamento",
-        "description": "Vagas cobertas gratuitas para hóspedes"
+        "title": "Estacionamento"
       },
       "breakfast": {
-        "title": "Café da Manhã",
-        "description": "Buffet completo com produtos regionais"
+        "title": "Café da Manhã"
       },
       "restaurant": {
-        "title": "Restaurante",
-        "description": "Gastronomia regional e internacional"
+        "title": "Restaurante"
       },
       "gym": {
-        "title": "Academia",
-        "description": "Equipamentos modernos e personal trainer"
+        "title": "Academia"
       },
       "events": {
-        "title": "Eventos",
-        "description": "Espaços para convenções e celebrações"
+        "title": "Eventos"
       }
     },
     "stats": {
@@ -115,7 +151,8 @@
     "subtitle": "em Cada Detalhe",
     "viewDetails": "Ver Detalhes",
     "buttons": {
-      "bookNow": "Reservar Agora"
+      "bookNow": "Reservar Agora",
+      "viewAll": "Ver Acomodações"
     },
     "navigation": {
       "previous": "Quarto anterior",
@@ -126,47 +163,27 @@
       "standard": {
         "name": "Quarto Standard",
         "type": "Acomodação Confortável",
-        "capacity": "Até 2 pessoas",
-        "description": "Nosso quarto standard oferece todo o conforto necessário para uma estadia agradável, com decoração elegante e vista para os jardins.",
-        "features": [
-          "Cama de casal confortável",
-          "Banheiro privativo com amenities",
-          "Vista para os jardins do hotel",
-          "Área de estar aconchegante"
-        ]
+        "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), frigobar, telefone e ar condicionado, garantindo conforto e silêncio."
       },
       "luxury": {
-        "name": "Suíte de Luxo",
+        "name": "Suíte Master Especial",
         "type": "Experiência Premium",
-        "capacity": "Até 3 pessoas",
-        "description": "Nossa suíte de luxo proporciona uma experiência premium com espaços amplos, decoração sofisticada e vista panorâmica das montanhas.",
-        "features": [
-          "Sala de estar separada",
-          "Banheiro com banheira de hidromassagem",
-          "Vista panorâmica das montanhas",
-          "Varanda privativa com mobiliário"
-        ]
+        "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
       },
       "quadruple": {
-        "name": "Quarto Família",
-        "type": "Ideal para Famílias",
-        "capacity": "Até 4 pessoas",
-        "description": "Perfeito para famílias, nosso quarto família oferece espaço amplo e configuração flexível para garantir o conforto de todos.",
-        "features": [
-          "Duas camas de casal ou cama + sofá-cama",
-          "Área ampla para bagagens",
-          "Banheiro espaçoso",
-          "Vista para a área verde do hotel"
-        ]
+        "name": "Suite Familiar",
+        "type": "Para Família",
+        "description": "Ampla suíte com quatro camas de solteiro, ideal para famílias ou grupos, com todas as comodidades para uma estadia confortável."
       }
     },
     "amenities": {
       "wifi": "Wi-Fi Gratuito",
       "parking": "Estacionamento",
       "minibar": "Frigobar",
-      "tv": "TV a Cabo",
+      "tv": "TV",
       "bathroom": "Banheiro Privativo",
-      "airConditioning": "Ar Condicionado"
+      "airConditioning": "Ar-Condicionado",
+      "phone": "Telefone"
     },
     "whatsapp": {
       "bookingMessage": "Olá! Gostaria de fazer uma reserva para o"
@@ -174,7 +191,7 @@
   },
   "events": {
     "badge": "Eventos",
-    "title": "Eventos Especiais",
+    "title": "Convenções",
     "subtitle": "Momentos Inesquecíveis em um Cenário Único",
     "description": "Realize seu evento dos sonhos em nossos espaços elegantes, cercados pela natureza.",
     "viewMore": "Ver Mais",
@@ -197,10 +214,19 @@
     },
     "convention": {
       "title": "Centro de Convenções",
-      "description": "Espaço moderno e versátil para eventos corporativos, conferências e grandes celebrações com capacidade para até 200 pessoas.",
-      "capacity": "Até 200 pessoas",
-      "duration": "Eventos de 4-8 horas",
-      "location": "Pavilhão Principal",
+      "description": "Com 800 m² de área construída, expansível para 1.200 m² e capacidade para até 350 pessoas, o Centro de Convenções do Radio Hotel possui pé direito de 5 metros, dois pavimentos, 2 auditórios e 5 salas de reunião. O ambiente é totalmente climatizado pela Mitsubishi (288.000 BTUs) e equipado com recursos de informática, internet, multimídia, projeção e DVD. Importante: o Radio Hotel apenas cede o espaço; não realiza planejamento nem execução de eventos.",
+      "capacity": "Até 350 pessoas",
+      "area": "800 m²",
+      "expandableArea": "Expansível até 1.200 m²",
+      "ceilingHeight": "Pé direito de 5 m",
+      "floors": "2 pavimentos",
+      "auditoriums": "2 auditórios",
+      "meetingRooms": "5 salas de reunião modulares",
+      "airConditioningBTUs": "Climatização Mitsubishi 288.000 BTUs",
+      "internet": "Internet de alta velocidade",
+      "multimedia": "Multimídia de ponta",
+      "projection": "Projeção de ponta",
+      "dvd": "DVD",
       "features": {
         "audiovisual": "Sistema audiovisual completo",
         "wifi": "Wi-Fi de alta velocidade",
@@ -208,6 +234,9 @@
         "soundSystem": "Sistema de som profissional",
         "lighting": "Iluminação cênica",
         "coffeeBreak": "Área para coffee break"
+      },
+      "clients": {
+        "title": "Relação de alguns clientes do Rádio Hotel, em convenções:"
       }
     },
     "corporate": {
@@ -272,68 +301,42 @@
     "badge": "Destaques",
     "title": "Experiências Únicas",
     "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
+    "nature": {
+      "title": "Natureza Exuberante",
+      "description": "Explore nossa vasta área verde, com trilhas, paisagens deslumbrantes e ar puro da montanha."
+    },
     "location": {
       "title": "Localização Privilegiada",
-      "description": "No coração de Serra Negra, cercado pela natureza",
-      "features": [
-        "Vista panorâmica da Serra da Mantiqueira",
-        "Acesso fácil às principais atrações",
-        "Ambiente tranquilo e reservado"
-      ]
+      "description": "No coração de Serra Negra, cercado pela natureza"
     },
     "wellness": {
       "title": "Bem-estar e Relaxamento",
-      "description": "Espaços dedicados ao seu descanso e renovação",
-      "features": [
-        "Piscina com vista para as montanhas",
-        "Área de relaxamento ao ar livre",
-        "Jardins paisagísticos"
-      ]
+      "description": "Espaços dedicados ao seu descanso e renovação"
     },
     "gastronomy": {
       "title": "Gastronomia de Excelência",
-      "description": "Sabores autênticos da culinária regional e internacional",
-      "features": [
-        "Restaurante com chef especializado",
-        "Ingredientes frescos e regionais",
-        "Cardápio variado e sazonal"
-      ]
+      "description": "Sabores autênticos da culinária regional e internacional"
     },
     "comfort": {
       "title": "Conforto Premium",
-      "description": "Acomodações elegantes com todos os detalhes",
-      "features": [
-        "Quartos espaçosos e bem decorados",
-        "Amenities de qualidade superior",
-        "Roupas de cama premium"
-      ]
+      "description": "Acomodações sofisticadas, projetadas para oferecer conforto e acessibilidade."
     },
     "service": {
       "title": "Atendimento Personalizado",
-      "description": "Equipe dedicada ao seu bem-estar",
-      "features": [
-        "Recepção 24 horas",
-        "Concierge especializado",
-        "Serviço de quarto disponível"
-      ]
+      "description": "Equipe dedicada ao seu bem-estar"
     },
     "business": {
       "title": "Eventos Corporativos",
-      "description": "Espaços profissionais para seus negócios",
-      "features": [
-        "Salas de reunião equipadas",
-        "Auditório com capacidade para 100 pessoas",
-        "Suporte técnico completo"
-      ]
+      "description": "Espaços profissionais para seus negócios"
+    },
+    "sports": {
+      "title": "Atividades Esportivas",
+      "description": "Esporte e lazer para todos: arco e flecha, beach tênis, quadra de tênis e pista de cooper. Diversão e bem-estar em família!"
     }
   },
   "facilities": {
     "title": "Nossas Facilidades",
     "subtitle": "Tudo para o Seu Conforto e Bem-Estar",
-    "pool": {
-      "name": "Piscina Aquecida",
-      "description": "Relaxe em nossa piscina aquecida com vista para a natureza."
-    },
     "spa": {
       "name": "Spa & Wellness",
       "description": "Tratamentos relaxantes com águas radioativas terapêuticas."
@@ -344,15 +347,15 @@
     },
     "gym": {
       "name": "Academia",
-      "description": "Mantenha-se ativo com equipamentos modernos e vista panorâmica."
+      "description": "Um espaço para cuidar de si, com equipamentos modernos e uma vista inspiradora para a natureza."
+    },
+    "leisure-monitoring": {
+      "name": "Monitoria de Lazer",
+      "description": "Atividades e entretenimento para todas as idades com nossa equipe de monitores."
     },
     "trails": {
       "name": "Trilhas Ecológicas",
       "description": "Explore a natureza em trilhas seguras e bem sinalizadas."
-    },
-    "waterfall": {
-      "name": "Cachoeira Própria",
-      "description": "Desfrute de nossa cachoeira particular para momentos únicos."
     }
   },
   "parallax": {
@@ -427,10 +430,10 @@
     "currency": "R$",
     "perNight": "diária",
     "roomTypes": {
-      "standard": "Quarto Standard",
-      "deluxe": "Quarto Deluxe",
-      "suiteMaster": "Suíte Master",
-      "suiteFamily": "Suíte Família"
+      "standard": "Standard",
+      "deluxe": "Luxo",
+      "suiteMaster": "Suíte",
+      "suiteFamily": "Família"
     },
     "summary": {
       "title": "Resumo da Reserva",
@@ -454,7 +457,7 @@
       "accommodation": "Acomodação",
       "estimatedValue": "Valor Estimado",
       "observations": "Observações",
-      "confirmation": "Aguardo confirmação da disponibilidade e valores finais"
+      "confirmation": "Aguardo confirmação de disponibilidade e tarifas finais"
     },
     "whatsappMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel para {checkIn} até {checkOut}, {adults} adulto(s) e {children} criança(s). Tipo de quarto: {roomType}.",
     "validation": {
@@ -621,7 +624,7 @@
       },
       "address": {
         "label": "Endereço",
-        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13930-000"
+        "value": "Rua Cel. Pedro Penteado, 387 — Centro\nSerra Negra - SP\nCEP: 13930-000"
       },
       "hours": {
         "label": "Horário de Funcionamento",
@@ -656,7 +659,7 @@
   },
   "meta": {
     "title": "Radio Hotel Serra Negra - Hotel de Luxo em Serra Negra, SP",
-    "description": "Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante, cachoeiras e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.",
+    "description": "Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.",
     "keywords": "hotel serra negra, hotel de luxo sp, hospedagem serra negra, radio hotel, hotel fazenda, turismo serra negra, hotel natureza, eventos corporativos, casamentos serra negra, hotel boutique, águas radioativas, spa serra negra, hotel com piscina, destination wedding, hotel romântico"
   },
   "accessibility": {

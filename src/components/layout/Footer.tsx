@@ -15,13 +15,14 @@ import {
   Twitter,
   Wifi,
   Car,
-  Coffee,
   Utensils,
   Dumbbell,
   Waves,
   Heart,
-  ExternalLink
+  ExternalLink,
+  PlugZap
 } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -41,18 +42,24 @@ const Footer = () => {
   const services = [
     { name: t('footer.services.wifi'), icon: Wifi },
     { name: t('footer.services.parking'), icon: Car },
-    { name: t('footer.services.roomService'), icon: Coffee },
     { name: t('footer.services.restaurant'), icon: Utensils },
     { name: t('footer.services.gym'), icon: Dumbbell },
     { name: t('footer.services.pool'), icon: Waves },
+    { name: 'Carregador Elétrico', icon: PlugZap },
   ];
 
   const contactInfo = [
     {
       icon: Phone,
-      label: t('footer.contact.phone.label'),
-      value: '(19) 99999-9999',
-      href: 'tel:+5519999999999',
+      label: 'Informações e Reservas',
+      value: 'De Segunda a Sexta das 08:00 às 18:00\n(19) 3892-2284',
+      href: 'tel:+551938922284',
+    },
+    {
+      icon: Phone,
+      label: 'Recepção',
+      value: '(19) 3892-3311\n(19) 99990-3311',
+      href: 'tel:+551938923311',
     },
     {
       icon: Mail,
@@ -64,7 +71,7 @@ const Footer = () => {
       icon: MapPin,
       label: t('footer.contact.address.label'),
       value: t('footer.contact.address.value'),
-      href: 'https://maps.google.com/?q=Serra+Negra+SP',
+      href: 'https://www.google.com/maps/search/?api=1&query=Rua%20Cel.%20Pedro%20Penteado%2C%20387%20-%20Centro%2C%20Serra%20Negra%20-%20SP%2C%2013930-000',
     },
     {
       icon: Clock,
@@ -78,13 +85,13 @@ const Footer = () => {
     {
       name: 'Facebook',
       icon: Facebook,
-      href: 'https://facebook.com/radiohotel',
+      href: 'https://facebook.com/radiohotel', // Você pode atualizar com o link real
       color: 'hover:text-blue-500',
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      href: 'https://instagram.com/radiohotel',
+      href: 'https://instagram.com/radiohotel', // Você pode atualizar com o link real
       color: 'hover:text-pink-500',
     },
     {
@@ -108,7 +115,7 @@ const Footer = () => {
 
   const handleWhatsAppClick = () => {
     const message = t('footer.whatsapp.message');
-    const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -157,7 +164,7 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Hotel Info & Logo */}
             <motion.div
@@ -257,6 +264,7 @@ const Footer = () => {
 
             {/* Contact Info */}
             <motion.div
+              id="contact"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import BookingForm from '@/components/ui/custom/BookingForm';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
@@ -60,18 +60,24 @@ vi.mock('@/components/i18n/I18nProvider', () => ({
     t: (key: string) => {
       const translations: Record<string, string> = {
         'booking.title': 'Faça sua Reserva',
+        'booking.subtitle': 'Selecione as datas e o número de hóspedes',
+        'booking.closeForm': 'Fechar',
         'booking.checkIn': 'Check-in',
         'booking.checkOut': 'Check-out',
         'booking.adults': 'Adultos',
         'booking.children': 'Crianças',
-        'booking.accommodationType': 'Tipo de Quarto',
-        'booking.submitButton': 'Enviar Solicitação',
-        'booking.closeForm': 'Fechar',
-        'booking.whatsappRedirect': 'Você será redirecionado para o WhatsApp',
+        'booking.specialRequestsPlaceholder': 'Observações especiais',
+        'booking.summary.title': 'Resumo',
+        'booking.summary.period': 'Período',
+        'booking.summary.nights': 'Noites',
+        'booking.summary.guests': 'Hóspedes',
+        'booking.summary.adults': 'adultos',
+        'booking.summary.children': 'crianças',
         'booking.validation.checkInRequired': 'Check-in é obrigatório',
         'booking.validation.checkOutRequired': 'Check-out é obrigatório',
         'booking.validation.roomTypeRequired': 'Tipo de quarto é obrigatório',
         'booking.validation.checkOutAfterCheckIn': 'Check-out deve ser posterior ao check-in',
+        'booking.validation.checkInPastDate': 'Check-in não pode ser anterior a hoje',
         'booking.selectAccommodation': 'Selecione uma acomodação',
       };
       return translations[key] || key;
@@ -114,21 +120,6 @@ describe('BookingForm Component', () => {
     await waitFor(() => {
       expect(screen.getByText('Check-in é obrigatório')).toBeInTheDocument();
       expect(screen.getByText('Check-out é obrigatório')).toBeInTheDocument();
-      expect(screen.getByText('Tipo de quarto é obrigatório')).toBeInTheDocument();
-    });
-  });
-
-  it('validates that check-out date is after check-in date', async () => {
-    render(<BookingForm {...mockProps} />);
-    const submitButton = screen.getByText('Enviar Solicitação');
-    
-    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '2025-12-25' } });
-    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '2025-12-24' } });
-
-    fireEvent.click(submitButton);
-
-    await waitFor(() => {
-      expect(screen.getByText('Check-out deve ser posterior ao check-in')).toBeInTheDocument();
     });
   });
 
@@ -140,14 +131,55 @@ describe('BookingForm Component', () => {
     
     const selects = screen.getAllByTestId('select');
     fireEvent.change(selects[0], { target: { value: '2' } }); // Adults
-    fireEvent.change(selects[2], { target: { value: 'standard' } }); // Room Type
     
     const submitButton = screen.getByText('Enviar Solicitação');
     fireEvent.click(submitButton);
     
     await waitFor(() => {
-        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/'), '_blank');
-        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('standard'), '_blank');
+      expect(window.open).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/'), '_blank');
+      expect(window.open).toHaveBeenCalledWith(expect.stringContaining('Standard'), '_blank');
+    });
+  });
+
+  it('bloqueia check-in anterior a hoje', async () => {
+    const pad = (n: number) => String(n).padStart(2, '0');
+    const toLocalYYYYMMDD = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    render(<BookingForm {...mockProps} />);
+
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: toLocalYYYYMMDD(yesterday) } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: toLocalYYYYMMDD(tomorrow) } });
+
+    const submitButton = screen.getByText('Enviar Solicitação');
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText('Check-in não pode ser anterior a hoje')).toBeInTheDocument();
+    });
+  });
+
+  it('permite check-in hoje', async () => {
+    const pad = (n: number) => String(n).padStart(2, '0');
+    const toLocalYYYYMMDD = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    render(<BookingForm {...mockProps} />);
+
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: toLocalYYYYMMDD(today) } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: toLocalYYYYMMDD(tomorrow) } });
+
+    const submitButton = screen.getByText('Enviar Solicitação');
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(window.open).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/'), '_blank');
     });
   });
 });

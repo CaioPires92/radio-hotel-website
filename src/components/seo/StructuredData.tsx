@@ -28,7 +28,7 @@ export const hotelStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Hotel',
   name: 'Radio Hotel',
-  description: 'Hotel de luxo em Serra Negra, SP, cercado pela natureza exuberante, cachoeiras e muito verde.',
+  description: 'Hotel de luxo em Serra Negra, SP, cercado pela natureza exuberante e muito verde.',
   telephone: '+55 19 99999-9999',
   email: 'contato@radiohotel.com.br',
   url: 'https://radiohotel.com.br',

@@ -12,7 +12,10 @@ import {
   Dumbbell,
   TreePine,
   MapPin,
-  Star
+  Star,
+  PlugZap,
+  BatteryCharging,
+  Trophy
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -20,23 +23,28 @@ import { useTranslation } from '@/components/i18n/I18nProvider';
 
 const Highlights = () => {
   const { t } = useTranslation();
-  
+
   const highlights = [
+    {
+      id: 0,
+      icon: TreePine,
+      title: t('highlights.nature.title'),
+      description: t('highlights.nature.description'),
+      image: '/images/facilities/natureza.jpg',
+    },
     {
       id: 1,
       icon: MapPin,
       title: t('highlights.location.title'),
       description: t('highlights.location.description'),
       image: '/images/facilities/bosque1.jpg',
-      features: [t('highlights.location.features.0'), t('highlights.location.features.1'), t('highlights.location.features.2')],
     },
     {
       id: 2,
       icon: Waves,
       title: t('highlights.wellness.title'),
       description: t('highlights.wellness.description'),
-      image: '/images/facilities/piscina1.jpg',
-      features: [t('highlights.wellness.features.0'), t('highlights.wellness.features.1'), t('highlights.wellness.features.2')],
+      image: '/images/facilities/piscina3.jpg',
     },
     {
       id: 3,
@@ -44,7 +52,6 @@ const Highlights = () => {
       title: t('highlights.gastronomy.title'),
       description: t('highlights.gastronomy.description'),
       image: '/images/restaurant/restaurante1.jpg',
-      features: [t('highlights.gastronomy.features.0'), t('highlights.gastronomy.features.1'), t('highlights.gastronomy.features.2')],
     },
     {
       id: 4,
@@ -52,23 +59,14 @@ const Highlights = () => {
       title: t('highlights.comfort.title'),
       description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
-      features: [t('highlights.comfort.features.0'), t('highlights.comfort.features.1'), t('highlights.comfort.features.2')],
     },
+    // removed highlights: service and business
     {
-      id: 5,
-      icon: Star,
-      title: t('highlights.service.title'),
-      description: t('highlights.service.description'),
-      image: '/images/facilities/facilities.jpg',
-      features: [t('highlights.service.features.0'), t('highlights.service.features.1'), t('highlights.service.features.2')],
-    },
-    {
-      id: 6,
-      icon: Mountain,
-      title: t('highlights.business.title'),
-      description: t('highlights.business.description'),
-      image: '/images/conventions/convention-1.jpg',
-      features: [t('highlights.business.features.0'), t('highlights.business.features.1'), t('highlights.business.features.2')],
+      id: 8,
+      icon: Trophy,
+      title: t('highlights.sports.title'),
+      description: t('highlights.sports.description'),
+      image: '/images/facilities/sports.jpg',
     },
   ];
 
@@ -132,7 +130,7 @@ const Highlights = () => {
                 variants={itemVariants}
                 className="group relative"
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105">
+                <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105 py-0">
                   <CardContent className="p-0 relative">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
@@ -163,16 +161,6 @@ const Highlights = () => {
                         {highlight.description}
                       </p>
 
-                      {/* Features */}
-                      <div className="space-y-2">
-                        {highlight.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                            <span className="text-sm text-navy/70">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
                       {/* Decorative Element */}
                       <div className="mt-4 pt-4 border-t border-gray-100">
                         <div className="flex justify-center">
@@ -201,10 +189,10 @@ const Highlights = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Wifi, name: 'Wi-Fi Gratuito', desc: 'Internet de alta velocidade' },
-              { icon: Car, name: 'Estacionamento', desc: 'Vagas cobertas gratuitas' },
-              { icon: Dumbbell, name: 'Academia', desc: 'Equipamentos modernos' },
-              { icon: Coffee, name: 'Room Service', desc: 'Serviço 24 horas' },
+              { icon: Wifi, name: 'Wi-Fi Gratuito' },
+              { icon: Car, name: 'Estacionamento' },
+              { icon: Dumbbell, name: 'Academia' },
+              { icon: PlugZap, name: 'Carregador Elétrico' },
             ].map((service, index) => {
               const ServiceIcon = service.icon;
               return (
@@ -220,7 +208,6 @@ const Highlights = () => {
                     <ServiceIcon className="w-8 h-8 text-gold" />
                   </div>
                   <h4 className="font-semibold text-cream mb-1">{service.name}</h4>
-                  <p className="text-sm text-cream/80">{service.desc}</p>
                 </motion.div>
               );
             })}

@@ -21,12 +21,26 @@
     "or": "or",
     "and": "and"
   },
+  "blog": {
+    "subtitle": "Stay up to date with the latest news and discover the best tourist attractions in Serra Negra.",
+    "alto-da-serra": {
+      "title": "Alto da Serra (Serra Negra)",
+      "description": "Get ready for a breathtaking view at Alto da Serra, the highest point in the region at an altitude of 1,310m! From there, you can contemplate one of the most beautiful landscapes of the Water Circuit, seeing more than 10 neighboring cities. Access is via Rua 14 de Julho. An unforgettable experience for those who love nature and photography!"
+    },
+    "fontana-di-trevi": {
+      "title": "Fontana Di Trevi - Serra Negra/SP",
+      "description": "Be enchanted by the stunning replica of the Trevi Fountain in Serra Negra! An unmissable tourist spot to take incredible photos and, of course, make that special wish by tossing a coin. Come and see this architectural beauty that brings the charm of Italy to the interior of São Paulo. Visit and fall in love!"
+    },
+    "teleferico-cristo-redentor": {
+      "title": "Cable Car and Christ the Redeemer",
+      "description": "Climb Serra Negra in an exciting way! Take the Cable Car at Praça João Zelante and enjoy a ride with panoramic views of the city. It takes you directly to Christ the Redeemer, at the top of Pico do Fonseca! From up there, the 18-meter statue welcomes you with a spectacular view, perfect for photos and moments of peace. It is the perfect combo of adventure and contemplation!"
+    }
+  },
   "navigation": {
     "home": "Home",
     "accommodations": "Accommodations",
-    "events": "Events",
-    "facilities": "Facilities",
-    "restaurant": "Restaurant",
+    "events": "Conventions",
+    "blog": "Blog",
     "contact": "Contact",
     "about": "About",
     "gallery": "Gallery",
@@ -200,7 +214,8 @@
     "subtitle": "Discover our carefully designed rooms for your perfect stay",
     "viewDetails": "View Details",
     "buttons": {
-      "bookNow": "Book Now"
+      "bookNow": "Book Now",
+      "viewAll": "View Accommodations"
     },
     "navigation": {
       "previous": "Previous room",
@@ -210,39 +225,18 @@
     "rooms": {
       "standard": {
         "name": "Standard Room",
-        "type": "Standard",
-        "capacity": "Up to 2 guests",
-        "description": "Comfortable and cozy room, perfect for couples or business travelers seeking quality and comfort.",
-        "features": [
-          "Queen size bed",
-          "Private bathroom with shower",
-          "Work desk",
-          "Mountain view"
-        ]
+        "type": "Comfortable Accommodation",
+        "description": "Standard rooms are internal or street-facing and feature thermo-acoustic windows (German technology), a minibar, telephone, and air conditioning, ensuring comfort and silence."
       },
       "luxury": {
         "name": "Luxury Suite",
-        "type": "Suite",
-        "capacity": "Up to 3 guests",
-        "description": "Spacious and elegant suite with separate living area, ideal for those seeking maximum comfort and sophistication.",
-        "features": [
-          "King size bed",
-          "Separate living room",
-          "Luxury bathroom with bathtub",
-          "Private balcony with panoramic view"
-        ]
+        "type": "Premium Experience",
+        "description": "Luxury apartments are 8 m² larger than Standard rooms, face the pool, and are equipped with a minibar, telephone, and air conditioning. They have anti-allergenic flooring for greater well-being."
       },
       "quadruple": {
-        "name": "Family Room",
-        "type": "Quadruple",
-        "capacity": "Up to 4 guests",
-        "description": "Spacious room designed for families, with comfortable beds and all necessary amenities for a pleasant stay.",
-        "features": [
-          "1 double bed + 2 single beds",
-          "Spacious bathroom",
-          "Seating area",
-          "Garden view"
-        ]
+        "name": "Quadruple Suite",
+        "type": "For Family",
+        "description": "Spacious suite with four single beds, ideal for families or groups, with all the amenities for a comfortable stay."
       }
     },
     "amenities": {
@@ -251,7 +245,8 @@
       "minibar": "Minibar",
       "tv": "Smart TV",
       "bathroom": "Private Bathroom",
-      "airConditioning": "Air Conditioning"
+      "airConditioning": "Air Conditioning",
+      "phone": "Telephone"
     },
     "whatsapp": {
       "bookingMessage": "Hello! I would like to make a reservation at Radio Hotel. Could you help me with availability and rates?"
@@ -259,7 +254,7 @@
   },
   "events": {
     "badge": "Events",
-    "title": "Special Events",
+    "title": "Conventions",
     "subtitle": "Unforgettable Moments in a Unique Setting",
     "description": "Host your dream event in our elegant spaces, surrounded by nature.",
     "viewMore": "View More",
@@ -281,11 +276,9 @@
       "description": "Our specialized team takes care of every detail of your event, from planning to execution, ensuring everything is perfect."
     },
     "convention": {
-      "title": "Convention Center",
-      "description": "Modern and versatile space for corporate events, conferences, and large celebrations with capacity for up to 200 people.",
-      "capacity": "Up to 200 people",
-      "duration": "4-8 hour events",
-      "location": "Main Pavilion",
+        "title": "Convention Center",
+        "description": "The Radio Hotel Convention Center is ideal for large events, offering 800 m², expandable to 1,200 m², and capacity for up to 350 people. With a 5-meter high ceiling, the space features the Millenium and Monterey auditoriums and 5 modular rooms. It is fully air-conditioned (288,000 BTUs Mitsubishi) and equipped with state-of-the-art technology, including IT resources, internet, multimedia, projection, and DVD, ensuring flexibility and comfort for your event.",
+        "capacity": "Up to 350 people",
       "features": {
         "audiovisual": "Complete audiovisual system",
         "wifi": "High-speed Wi-Fi",
@@ -293,6 +286,9 @@
         "soundSystem": "Professional sound system",
         "lighting": "Stage lighting",
         "coffeeBreak": "Coffee break area"
+      },
+      "clients": {
+        "title": "Convention Clients"
       }
     },
     "corporate": {
@@ -601,7 +597,6 @@
       "title": "Our Services",
       "wifi": "Free Wi-Fi",
       "parking": "Parking",
-      "roomService": "Room Service",
       "restaurant": "Restaurant",
       "gym": "Gym",
       "pool": "Pool"
@@ -616,7 +611,7 @@
       },
       "address": {
         "label": "Address",
-        "value": "123 Radioactive Waters Street\nSerra Negra - SP\nZIP: 13930-000"
+        "value": "Rua Cel. Pedro Penteado, 387 — Centro\nSerra Negra - SP\nZIP: 13930-000"
       },
       "hours": {
         "label": "Operating Hours",

@@ -37,16 +37,16 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # large files and reports
-*.jpg
-*.jpeg
-*.png
-*.gif
+# Permit images to be versioned (tracked via Git LFS per .gitattributes)
+# Removed global ignore for common image formats
 *.mp4
 *.mov
 *.avi
 relatorio*.md
 ter
-/public/images/
+# Ensure public/images is tracked
+!/public/images/**
+# Still ignore large video files inside public/images
 /public/images/**/*.mp4
 /public/images/**/*.mov
 /public/images/**/*.avi
@@ -64,3 +64,11 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /blob-report/
+.clinerules/byterover-rules.md
+.kilocode/rules/byterover-rules.md
+.roo/rules/byterover-rules.md
+.windsurf/rules/byterover-rules.md
+.cursor/rules/byterover-rules.mdc
+.kiro/steering/byterover-rules.md
+.qoder/rules/byterover-rules.md
+.augment/rules/byterover-rules.md

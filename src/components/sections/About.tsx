@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell } from 'lucide-react';
+import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell, Smile } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -12,33 +12,31 @@ export default function About() {
   const features = [
     {
       icon: Wifi,
-      title: t('about.features.wifi.title'),
-      description: t('about.features.wifi.description')
+      title: t('about.features.wifi.title')
     },
     {
       icon: Car,
-      title: t('about.features.parking.title'),
-      description: t('about.features.parking.description')
+      title: t('about.features.parking.title')
     },
     {
       icon: Coffee,
-      title: t('about.features.breakfast.title'),
-      description: t('about.features.breakfast.description')
+      title: t('about.features.breakfast.title')
     },
     {
       icon: Utensils,
-      title: t('about.features.restaurant.title'),
-      description: t('about.features.restaurant.description')
+      title: t('about.features.restaurant.title')
     },
     {
       icon: Dumbbell,
-      title: t('about.features.gym.title'),
-      description: t('about.features.gym.description')
+      title: t('about.features.gym.title')
+    },
+    {
+      icon: Smile,
+      title: 'Monitoria de Lazer'
     },
     {
       icon: Users,
-      title: t('about.features.events.title'),
-      description: t('about.features.events.description')
+      title: t('about.features.events.title')
     }
   ];
 
@@ -148,64 +146,63 @@ export default function About() {
               </p>
             </motion.div>
 
-            {/* Features Grid */}
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <motion.div
-                    key={feature.title}
-                    className="group"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 * index }}
-                    viewport={{ once: true }}
-                  >
-                    <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
-                      <CardContent className="p-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                            <Icon className="w-5 h-5 text-gold" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-navy mb-1">{feature.title}</h4>
-                            <p className="text-sm text-navy/70">{feature.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-gold/20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              {stats.map((stat, index) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl lg:text-3xl font-serif font-bold text-gold mb-1">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-navy/70 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+            {/* Removidos daqui: Features Grid e Stats (serão exibidos abaixo) */}
           </motion.div>
         </div>
+
+        {/* Features - faixa horizontal inferior */}
+        <motion.div
+          className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.title}
+                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg">
+                  <CardContent className="px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                        <Icon className="w-4 h-4 text-gold" />
+                      </div>
+                      <h4 className="font-semibold text-navy text-sm">{feature.title}</h4>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Stats - faixa horizontal inferior */}
+        <motion.div
+          className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-gold/20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-2xl lg:text-3xl font-serif font-bold text-gold mb-1">
+                {stat.number}
+              </div>
+              <div className="text-sm text-navy/70 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
