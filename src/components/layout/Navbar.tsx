@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { WHATSAPP_NUMBER } from '@/lib/config';
 
 interface NavbarProps {
   onBookingClick?: () => void;
@@ -47,157 +48,125 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       onBookingClick();
     } else {
       const message = t('navbar.whatsapp.bookingMessage');
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
   };
 
-  return (
-    <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/95 backdrop-blur-md shadow-lg'
-        : 'bg-transparent'
-        }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4 flex-nowrap">
-          {/* Logo */}
-          <motion.div
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            <a href="/" className="flex items-center gap-3">
-              <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
-                <Image
-                  src={isScrolled ? "/logo-color.png" : "/logo.png"}
-                  alt="Rádio Hotel Logo"
-                  fill
-                  className="object-contain transition-all duration-300"
-                  sizes="(max-width: 768px) 96px, 128px"
-                  quality={90}
-                  priority
-                />
-              </div>
-              <div className="hidden sm:block">
-              </div>
-            </a>
-          </motion.div>
+  const scrollToSection = (href: string) => {
+    if (href.startsWith('/#')) {
+      const targetId = href.substring(2);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+      }
+    } else {
+      window.location.href = href;
+    }
+  };
 
-          {/* Desktop Menu */}
-          <div className="hidden min-[812px]:block flex-1 min-w-0">
-            <div className="ml-0 xl:ml-8 flex items-baseline justify-center xl:justify-start space-x-2 xl:space-x-6">
-              {menuItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
-                    }`}
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-              {/* Language Selector */}
-              <div className="hidden xl:block ml-2 xl:ml-4">
-                <CompactLanguageSelector className="text-sm" isScrolled={isScrolled} />
-              </div>
-            </div>
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-navy/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}
+      aria-label="Main Navigation"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <a href="/#home" aria-label="Go to home">
+              <Image
+                src="/logo.png"
+                alt="Rádio Hotel Logo"
+                width={120}
+                height={40}
+                priority
+                className="drop-shadow-md"
+              />
+            </a>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden min-[812px]:block flex-shrink-0">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            {menuItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className={`text-white/90 hover:text-gold transition-colors`}
+              >
+                {item.name}
+              </button>
+            ))}
+
+            <CompactLanguageSelector />
+
             <Button
               onClick={handleBookingClick}
-              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${isScrolled
-                ? 'bg-gold hover:bg-gold/90 text-navy'
-                : 'bg-white hover:bg-white/90 text-navy'
-                }`}
-              aria-label={t('navigation.bookNow')}
-              
-              // Prevent wrapping on mid screens
-              style={{ minWidth: 160 }}
+              className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full"
             >
               <Phone className="w-4 h-4 mr-2" />
               {t('navigation.bookNow')}
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-        <div className="min-[812px]:hidden">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
             <Button
               onClick={() => setIsOpen(!isOpen)}
-              onKeyDown={handleKeyDown}
-              variant="ghost"
-              size="sm"
-              className={`p-2 ${isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
-                }`}
               aria-label={isOpen ? t('navbar.mobile.closeMenu') : t('navbar.mobile.openMenu')}
               aria-expanded={isOpen}
-              aria-controls="mobile-menu"
+              variant="ghost"
+              className="text-white"
+              onKeyDown={handleKeyDown}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        id="mobile-menu"
-            className={`min-[812px]:hidden ${isOpen ? 'block' : 'hidden'
-          } bg-white/95 backdrop-blur-md border-t border-gray-200`}
-        initial={{ opacity: 0, height: 0 }}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? 'auto' : 0
-        }}
-        transition={{ duration: 0.3 }}
-        onKeyDown={handleKeyDown}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          {menuItems.map((item, index) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
-              onClick={() => setIsOpen(false)}
-              tabIndex={isOpen ? 0 : -1}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              {item.name}
-            </motion.a>
-          ))}
-          {/* Language Selector Mobile */}
-          <div className="px-3 py-2 border-t border-gray-200">
-            <div className="flex items-center justify-center">
-              <CompactLanguageSelector className="text-sm" isScrolled={true} />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className={`md:hidden bg-navy/95 backdrop-blur-md shadow-lg`}
+          >
+            <div className="px-4 pt-2 pb-4 space-y-2">
+              {menuItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    setIsOpen(false);
+                  }}
+                  className={`block w-full text-left text-white/90 hover:text-gold transition-colors`}
+                >
+                  {item.name}
+                </button>
+              ))}
+              <div className="pt-2">
+                <Button
+                  onClick={() => {
+                    handleBookingClick();
+                    setIsOpen(false);
+                  }}
+                  className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  {t('navigation.bookNow')}
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="px-3 py-2">
-            <Button
-              onClick={() => {
-                handleBookingClick();
-                setIsOpen(false);
-              }}
-              aria-label={t('navigation.bookNow')}
-              className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-2 rounded-full"
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              {t('navigation.bookNow')}
-            </Button>
-          </div>
-        </div>
-      </motion.div>
-    </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 };
 
