@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { WHATSAPP_NUMBER } from '@/lib/config';
 
 interface NavbarProps {
@@ -17,6 +18,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
+  const router = useRouter();
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -56,13 +58,24 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   const scrollToSection = (href: string) => {
     if (href.startsWith('/#')) {
       const targetId = href.substring(2);
+      // Se não estiver na home, navega para a home com o hash
+      if (window.location.pathname !== '/') {
+        router.push(href);
+        setIsOpen(false);
+        return;
+      }
+      // Na home, rola suavemente até a seção
       const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setIsOpen(false);
+      } else {
+        // Fallback: navega usando o hash
+        router.push(href);
+        setIsOpen(false);
       }
     } else {
-      window.location.href = href;
+      router.push(href);
     }
   };
 
