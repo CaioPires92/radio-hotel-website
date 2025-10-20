@@ -368,6 +368,10 @@
       "name": "Gimnasio",
       "description": "Mantente activo con equipos modernos y vista panorámica."
     },
+    "leisure-monitoring": {
+      "name": "Monitores de Recreación",
+      "description": "Actividades y entretenimiento para todas las edades con nuestro equipo de monitores."
+    },
     "trails": {
       "name": "Senderos Ecológicos",
       "description": "Explora la naturaleza en senderos seguros y bien señalizados."
