@@ -32,7 +32,7 @@ export default function About() {
     },
     {
       icon: Smile,
-      title: 'Monitoria de Lazer'
+      title: t('facilities.leisure-monitoring.name')
     },
     {
       icon: Users,

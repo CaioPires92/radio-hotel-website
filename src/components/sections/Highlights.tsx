@@ -184,15 +184,15 @@ const Highlights = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl md:text-3xl font-serif font-bold text-cream mb-6">
-            Serviços Complementares
+            {t('facilities.title')}
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Wifi, name: 'Wi-Fi Gratuito' },
-              { icon: Car, name: 'Estacionamento' },
-              { icon: Dumbbell, name: 'Academia' },
-              { icon: PlugZap, name: 'Carregador Elétrico' },
+              { icon: Wifi, name: t('accommodations.amenities.wifi') },
+              { icon: Car, name: t('accommodations.amenities.parking') },
+              { icon: Dumbbell, name: t('facilities.gym.name') },
+              { icon: Utensils, name: t('facilities.restaurant.name') },
             ].map((service, index) => {
               const ServiceIcon = service.icon;
               return (
