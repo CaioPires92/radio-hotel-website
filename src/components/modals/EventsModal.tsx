@@ -62,16 +62,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.wellness')
     },
     {
-      id: '4',
-      title: t('eventsModal.romanticPackage.title'),
-      description: t('eventsModal.romanticPackage.description'),
-      date: t('eventsModal.romanticPackage.date'),
-      time: t('eventsModal.romanticPackage.time'),
-      location: t('eventsModal.romanticPackage.location'),
-      image: '/images/events/pacotes-especiais.png',
-      category: t('eventsModal.categories.packages')
-    },
-    {
       id: '5',
       title: t('eventsModal.novemberHoliday.title'),
       description: t('eventsModal.novemberHoliday.description'),
@@ -80,16 +70,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       location: t('eventsModal.novemberHoliday.location'),
       image: '/images/events/ferias-julho.png',
       category: t('eventsModal.categories.holiday')
-    },
-    {
-      id: '6',
-      title: t('eventsModal.childrensWeek.title'),
-      description: t('eventsModal.childrensWeek.description'),
-      date: t('eventsModal.childrensWeek.date'),
-      time: t('eventsModal.childrensWeek.time'),
-      location: t('eventsModal.childrensWeek.location'),
-      image: '/images/events/ferias-julho.png',
-      category: t('eventsModal.categories.family')
     }
   ];
 
