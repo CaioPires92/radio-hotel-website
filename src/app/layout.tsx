@@ -132,13 +132,13 @@ export default function RootLayout({
               '@type': 'Hotel',
               name: 'Radio Hotel',
               description: 'Hotel de luxo em Serra Negra, SP, cercado pela natureza',
-              telephone: '+55 19 99999-9999',
+              telephone: '+55 19 3892-2284',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Rua Principal, 123',
                 addressLocality: 'Serra Negra',
                 addressRegion: 'SP',
-                postalCode: '13930-000',
+                postalCode: '13.930-063',
                 addressCountry: 'BR',
               },
               geo: {

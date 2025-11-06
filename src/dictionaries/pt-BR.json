@@ -40,7 +40,7 @@
     "home": "Início",
     "accommodations": "Acomodações",
     "events": "Convenções",
-    "blog": "Blog",
+    "blog": "Passeios",
     "facilities": "Facilidades",
     "restaurant": "Restaurante",
     "contact": "Contato",
@@ -540,7 +540,7 @@
       "location": "Área da Piscina"
     },
     "guidedTour": {
-      "title": "Tour Guiado pela Natureza",
+      "title": "Área do Bosque",
       "description": "Explore as belezas naturais de Serra Negra com nosso guia especializado.",
       "date": "Todos os domingos",
       "time": "08:00",
@@ -624,7 +624,7 @@
       },
       "address": {
         "label": "Endereço",
-        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13930-000"
+        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13.930-063"
       },
       "hours": {
         "label": "Horário de Funcionamento",

@@ -63,8 +63,8 @@ const Footer = () => {
     {
       icon: Mail,
       label: t('footer.contact.email.label'),
-      value: 'contato@radiohotel.com.br',
-      href: 'mailto:contato@radiohotel.com.br',
+      value: 'reservas@radiohotel.com.br',
+      href: 'mailto:reservas@radiohotel.com.br',
     },
     {
       icon: MapPin,
@@ -72,12 +72,7 @@ const Footer = () => {
       value: t('footer.contact.address.value'),
       href: 'https://maps.google.com/?q=Serra+Negra+SP',
     },
-    {
-      icon: Clock,
-      label: t('footer.contact.hours.label'),
-      value: t('footer.contact.hours.value'),
-      href: null,
-    },
+    // Horário removido conforme solicitação
   ];
 
   const socialLinks = [
@@ -175,13 +170,13 @@ const Footer = () => {
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="relative w-26 h-12">
+                  <div className="relative w-40 h-16 md:w-48 md:h-20">
                     <Image
                       src="/logo.png"
                       alt={t('footer.logo.alt')}
                       fill
                       className="object-contain"
-                      sizes="104px"
+                      sizes="(max-width: 768px) 160px, 192px"
                       quality={90}
                     />
                   </div>

@@ -38,7 +38,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
   };
 
   const handleCallClick = () => {
-    window.open('tel:+5519999999999', '_self');
+    window.open('tel:+551938922284', '_self');
   };
 
   if (!mounted) {
@@ -217,7 +217,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
           >
             <div className="flex items-center space-x-2">
               <Phone className="w-3 sm:w-4 h-3 sm:h-4" />
-              <span className="text-xs sm:text-sm">(19) 99999-9999</span>
+              <span className="text-xs sm:text-sm">(19) 3892-2284</span>
             </div>
             <div className="hidden sm:block w-px h-4 bg-white/30" />
             <div className="flex items-center space-x-2">
