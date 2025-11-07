@@ -23,6 +23,7 @@
   },
   "blog": {
     "subtitle": "Stay up to date with the latest news and discover the best tourist attractions in Serra Negra.",
+    "intro": "Serra Negra offers experiences for every traveler: city viewpoints and icons — Alto da Serra, Cable Car to Christ the Redeemer, and the Trevi Fountain replica — plus rural tourism on visiting farms. There you can follow artisanal production of wines and cachaças (Família Silotto), coffee from planting to roasting (Vale do Ouro Verde), farm-made cheeses (Sítio Chapadão), and spirits and rustic sweets (Sítio Bom Retiro – Família Carra). Advance booking recommended.",
     "alto-da-serra": {
       "title": "Alto da Serra (Serra Negra)",
       "description": "Get ready for a breathtaking view at Alto da Serra, the highest point in the region at an altitude of 1,310m! From there, you can contemplate one of the most beautiful landscapes of the Water Circuit, seeing more than 10 neighboring cities. Access is via Rua 14 de Julho. An unforgettable experience for those who love nature and photography!"
@@ -34,6 +35,22 @@
     "teleferico-cristo-redentor": {
       "title": "Cable Car and Christ the Redeemer",
       "description": "Climb Serra Negra in an exciting way! Take the Cable Car at Praça João Zelante and enjoy a ride with panoramic views of the city. It takes you directly to Christ the Redeemer, at the top of Pico do Fonseca! From up there, the 18-meter statue welcomes you with a spectacular view, perfect for photos and moments of peace. It is the perfect combo of adventure and contemplation!"
+    },
+    "museu-vinho-cachaca-silotto": {
+      "title": "Wine and Cachaça Museum – Família Silotto",
+      "description": "Italian tradition in artisanal wine and cachaça making from a century-old vineyard, with tastings and typical farm products."
+    },
+    "vale-ouro-verde-museu-cafe": {
+      "title": "Vale do Ouro Verde – Coffee Museum",
+      "description": "Guided visit through the coffee process from planting to roasting, with a small museum of history and equipment."
+    },
+    "sitio-bom-retiro-familia-carra": {
+      "title": "Sítio Bom Retiro – Família Carra – Wines and Spirits",
+      "description": "Artisanal production of grape and orange wines, cachaças, grappa and brandies, plus molasses, rapadura and other farm sweets."
+    },
+    "sitio-chapadao-queijos": {
+      "title": "Sítio Chapadão – Cheesemaking",
+      "description": "Follow the milk-to-cheese process and taste fresh cheese, ricotta, meia-cura and curd made on the farm."
     }
   },
   "navigation": {
@@ -533,27 +550,14 @@
       "time": "8:00 AM",
       "location": "Hotel Reception"
     },
-    "romanticPackage": {
-      "title": "Romantic Package",
-      "description": "Special weekend for couples with candlelight dinner and spa.",
-      "date": "Weekends",
-      "time": "Check-in 2:00 PM",
-      "location": "Special Suites"
-    },
     "novemberHoliday": {
       "title": "November Holiday",
       "description": "Celebrate the holiday with special activities and regional gastronomy.",
       "date": "November 15th",
       "time": "All day",
       "location": "Entire Hotel"
-    },
-    "childrensWeek": {
-      "title": "Children's Week",
-      "description": "Special programming for the whole family with activities for children.",
-      "date": "October 12th",
-      "time": "9:00 AM to 5:00 PM",
-      "location": "Recreation Area"
     }
+  
   },
   "contact": {
     "title": "Get in Touch",

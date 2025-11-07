@@ -23,6 +23,7 @@
   },
   "blog": {
     "subtitle": "Fique por dentro das últimas novidades e descubra os melhores pontos turísticos da cidade.",
+    "intro": "Serra Negra reúne passeios para todos os perfis: mirantes e ícones da cidade — Alto da Serra, Teleférico ao Cristo Redentor e a réplica da Fontana di Trevi — e experiências de turismo rural em fazendas abertas à visitação. Lá você acompanha produções artesanais de vinhos e cachaças (Família Silotto), café do plantio à torrefação (Vale do Ouro Verde), queijos feitos na fazenda (Sítio Chapadão) e destilados e doces de roça (Sítio Bom Retiro – Família Carra). Agendamento prévio recomendado.",
     "alto-da-serra": {
       "title": "Alto da Serra (Serra Negra)",
       "description": "Prepare-se para uma vista de tirar o fôlego no Alto da Serra, o ponto culminante da região com 1.310m de altitude! De lá, você pode contemplar uma das paisagens mais belas do Circuito das Águas, avistando mais de 10 cidades vizinhas. O acesso é feito pela Rua 14 de Julho. Uma experiência inesquecível para quem ama natureza e fotografia!"
@@ -34,6 +35,22 @@
     "teleferico-cristo-redentor": {
       "title": "Teleférico e Cristo Redentor",
       "description": "Suba a Serra Negra de um jeito emocionante! Pegue o Teleférico na Praça João Zelante e desfrute de um passeio com vistas panorâmicas da cidade. Ele te leva diretamente ao Cristo Redentor, no topo do Pico do Fonseca! Lá de cima, a estátua de 18 metros te recebe com um visual espetacular, perfeito para fotos e momentos de paz. É o combo perfeito de aventura e contemplação!"
+    },
+    "museu-vinho-cachaca-silotto": {
+      "title": "Museu do Vinho e da Cachaça – Família Silotto",
+      "description": "Experimente toda atradião Italiana na fabricaão de bebidas artesanais. Vinhos elaborados com uvas cultivadas em nossa propriedade, em nosso parreiral de mais de 100 anos. Ambiente preservado e mantendo os traos rsticos do passado. Venha desfrutar de momentos agradveis junto à natureza, degustando um bom vinho.\nProdutos: Vinhos artesanais, Cachaa artesanal, Grappa, Vinagre de vinho, Caf modo, Queijos, Doces, Mel e demais produtos da roa.\nContamos tambm com Playground e Animais de fazenda."
+    },
+    "vale-ouro-verde-museu-cafe": {
+      "title": "Vale do Ouro Verde – Museu do Café",
+      "description": "A produão de caf em Serra Negra constitui uma das principais atividades agrcolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poder agendar uma visita monitorada e conhecer todo o processo de produão artesanal do caf, da evoluão nas formas de plantio a tcnicas de colheita, preparaão de grãos, torrefaão e moagem. Um pequeno museu rene a histria do caf, curiosidades e virtudes do produto, alm de equipamentos e ferramentas de poca. Localizaão: Estrada Municipal Bairro da Serra, Km 05."
+    },
+    "sitio-bom-retiro-familia-carra": {
+      "title": "Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados",
+      "description": "Situado entre belas montanhas, rene uma produão artesanal de saborosos vinhos de uva e laranja, alm de uma variaão de destilados, incluindo cachaas de vrios tipos (branca, envelhecida, cachaa azul e destilada com flores de laranjeira), grappa, rum e conhaque. No stio ainda se produz melado, rapadura, acar mascavo e mel, alm do cultivo de frutas e exportaão de manga. Localizaão: SP 105, km 9"
+    },
+    "sitio-chapadao-queijos": {
+      "title": "Sítio Chapadão – Produção de Queijos",
+      "description": "O Stio produz os melhores queijos da região, que levam a marca \"Queijos da Fazenda\". No local, o visitante ter a oportunidade de presenciar todo processo de produão, desde a ordenha no curral à degustaão do produto final, entre queijos frescal, ricota de leite e temperada, queijo meia cura e coalhada. Localizaão: SP 105, km 9."
     }
   },
   "navigation": {
@@ -546,26 +563,12 @@
       "time": "08:00",
       "location": "Recepção do Hotel"
     },
-    "romanticPackage": {
-      "title": "Pacote Romântico",
-      "description": "Fim de semana especial para casais com jantar à luz de velas e spa.",
-      "date": "Fins de semana",
-      "time": "Check-in 14:00",
-      "location": "Suítes Especiais"
-    },
     "novemberHoliday": {
       "title": "Feriado de Novembro",
       "description": "Celebre o feriado com atividades especiais e gastronomia regional.",
       "date": "15 de Novembro",
       "time": "Todo o dia",
       "location": "Todo o Hotel"
-    },
-    "childrensWeek": {
-      "title": "Semana das Crianças",
-      "description": "Programação especial para toda a família com atividades para as crianças.",
-      "date": "12 de Outubro",
-      "time": "09:00 às 17:00",
-      "location": "Área de Lazer"
     }
   },
   "contact": {
