@@ -34,6 +34,23 @@
     "teleferico-cristo-redentor": {
       "title": "Teleférico y Cristo Redentor",
       "description": "¡Suba a Serra Negra de una manera emocionante! Tome el Teleférico en la Praça João Zelante y disfrute de un paseo con vistas panorámicas de la ciudad. ¡Le lleva directamente al Cristo Redentor, en la cima del Pico do Fonseca! Desde allí arriba, la estatua de 18 metros le da la bienvenida con una vista espectacular, perfecta para fotos y momentos de paz. ¡Es el combo perfecto de aventura y contemplación!"
+    },
+    "intro": "Serra Negra ofrece paseos para todos los perfiles: miradores e iconos de la ciudad — Alto da Serra, Teleférico al Cristo Redentor y la réplica de la Fontana di Trevi — y experiencias de turismo rural en haciendas abiertas a la visita. Allí se puede acompañar la producción artesanal de vinos y cachaças (Familia Silotto), café desde el cultivo hasta el tueste (Vale do Ouro Verde), quesos hechos en la finca (Sítio Chapadão) y destilados y dulces de campo (Sítio Bom Retiro – Familia Carra). Se recomienda reservar con antelación.",
+    "museu-vinho-cachaca-silotto": {
+      "title": "Museo del Vino y de la Cachaça – Familia Silotto",
+      "description": "Tradición italiana en la producción artesanal de vinos y cachaças en un viñedo centenario, con degustaciones y productos típicos de campo."
+    },
+    "vale-ouro-verde-museu-cafe": {
+      "title": "Vale do Ouro Verde – Museo del Café",
+      "description": "Visita guiada al proceso del café, desde el cultivo hasta el tueste, con un pequeño museo de historia y equipos."
+    },
+    "sitio-bom-retiro-familia-carra": {
+      "title": "Sítio Bom Retiro – Familia Carra – Vinos y Destilados",
+      "description": "Producción artesanal de vinos de uva y naranja, cachaças, grappa y aguardientes, además de melaza, rapadura y otros dulces de campo."
+    },
+    "sitio-chapadao-queijos": {
+      "title": "Sítio Chapadão – Elaboración de Quesos",
+      "description": "Acompaña el proceso de la leche al queso y prueba frescal, ricota, meia‑cura y cuajada elaborados en la finca."
     }
   },
   "navigation": {
@@ -275,9 +292,9 @@
       "description": "Nuestro equipo especializado se encarga de cada detalle de tu evento, desde la planificación hasta la ejecución, asegurando que todo sea perfecto."
     },
     "convention": {
-        "title": "Centro de Convenciones",
-        "description": "El Centro de Convenciones del Radio Hotel es ideal para grandes eventos, ofreciendo 800 m², ampliables a 1.200 m², y capacidad para hasta 350 personas. Con un techo de 5 metros de altura, el espacio cuenta con los auditorios Millenium y Monterey y 5 salas modulares. Está totalmente climatizado (288.000 BTUs Mitsubishi) y equipado con tecnología de punta, incluyendo recursos de TI, internet, multimedia, proyección y DVD, garantizando flexibilidad y confort para su evento.",
-        "capacity": "Hasta 350 personas",
+      "title": "Centro de Convenciones",
+      "description": "El Centro de Convenciones del Radio Hotel es ideal para grandes eventos, ofreciendo 800 m², ampliables a 1.200 m², y capacidad para hasta 350 personas. Con un techo de 5 metros de altura, el espacio cuenta con los auditorios Millenium y Monterey y 5 salas modulares. Está totalmente climatizado (288.000 BTUs Mitsubishi) y equipado con tecnología de punta, incluyendo recursos de TI, internet, multimedia, proyección y DVD, garantizando flexibilidad y confort para su evento.",
+      "capacity": "Hasta 350 personas",
       "features": {
         "audiovisual": "Sistema audiovisual completo",
         "wifi": "Wi-Fi de alta velocidad",

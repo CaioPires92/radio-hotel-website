@@ -20,6 +20,22 @@ const blogPosts = [
     id: 'teleferico-cristo-redentor',
     image: 'https://ecrie.com.br/sistema/conteudos/imagem/g_107_0_1_29012025133057.jpg',
   },
+  {
+    id: 'museu-vinho-cachaca-silotto',
+    image: '/images/facilities/silotto.jpg',
+  },
+  {
+    id: 'vale-ouro-verde-museu-cafe',
+    image: '/images/facilities/vale-ouro.jpg',
+  },
+  {
+    id: 'sitio-bom-retiro-familia-carra',
+    image: '/images/facilities/carra.jpg',
+  },
+  {
+    id: 'sitio-chapadao-queijos',
+    image: '/images/facilities/chapadao.jpg',
+  },
 ];
 
 const Blog = () => {
@@ -32,6 +48,11 @@ const Blog = () => {
 
       <section id="blog" className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-navy/80 leading-relaxed whitespace-pre-line">
+              {t('blog.intro')}
+            </p>
+          </div>
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
               <motion.div
