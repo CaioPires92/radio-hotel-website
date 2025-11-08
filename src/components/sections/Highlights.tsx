@@ -25,61 +25,50 @@ const Highlights = () => {
   const { t } = useTranslation();
 
   const highlights = [
+    // Nature + Location combined → About section
     {
       id: 0,
       icon: TreePine,
-      title: t('highlights.nature.title'),
-      description: t('highlights.nature.description'),
+      title: t('highlights.natureLocation.title'),
+      description: t('highlights.natureLocation.description'),
       image: '/images/facilities/natureza.jpg',
+      href: '/#about',
     },
-    {
-      id: 1,
-      icon: MapPin,
-      title: t('highlights.location.title'),
-      description: t('highlights.location.description'),
-      image: '/images/facilities/bosque1.jpg',
-    },
+    // Leisure (wellness + sports + pools) → /lazer
     {
       id: 2,
       icon: Waves,
-      title: t('highlights.wellness.title'),
-      description: t('highlights.wellness.description'),
+      title: t('highlights.leisure.title'),
+      description: t('highlights.leisure.description'),
       image: '/images/facilities/piscina1.jpg',
+      href: '/lazer',
     },
+    // Gastronomy → restaurant section
     {
       id: 3,
       icon: Utensils,
       title: t('highlights.gastronomy.title'),
       description: t('highlights.gastronomy.description'),
       image: '/images/restaurant/restaurante1.jpg',
+      href: '/restaurante',
     },
+    // Comfort → accommodations section
     {
       id: 4,
       icon: Leaf,
       title: t('highlights.comfort.title'),
       description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
+      href: '/#accommodations',
     },
-    {
-      id: 5,
-      icon: Star,
-      title: t('highlights.service.title'),
-      description: t('highlights.service.description'),
-      image: '/images/facilities/facilities.jpg',
-    },
+    // Business/Events → conventions page
     {
       id: 6,
       icon: Mountain,
       title: t('highlights.business.title'),
       description: t('highlights.business.description'),
       image: '/images/conventions/convention-1.jpg',
-    },
-    {
-      id: 8,
-      icon: Trophy,
-      title: t('highlights.sports.title'),
-      description: t('highlights.sports.description'),
-      image: '/images/facilities/sports.jpg',
+      href: '/conventions',
     },
   ];
 
@@ -143,8 +132,9 @@ const Highlights = () => {
                 variants={itemVariants}
                 className="group relative"
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105">
-                  <CardContent className="p-0 relative">
+                <a href={highlight.href || '#'} className="block focus:outline-none focus:ring-2 focus:ring-gold rounded-xl">
+                  <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105">
+                    <CardContent className="p-0 relative">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
                       <Image
@@ -182,7 +172,8 @@ const Highlights = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                  </Card>
+                </a>
               </motion.div>
             );
           })}

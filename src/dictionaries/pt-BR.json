@@ -119,9 +119,6 @@
       },
       "leisure-monitoring": {
         "title": "Monitoria de Lazer"
-      },
-      "leisure-monitoring": {
-        "title": "Monitoria de Lazer"
       }
     }
   },
@@ -318,18 +315,6 @@
     "badge": "Destaques",
     "title": "Experiências Únicas",
     "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
-    "nature": {
-      "title": "Natureza Exuberante",
-      "description": "Explore nossa vasta área verde, com trilhas, paisagens deslumbrantes e ar puro da montanha."
-    },
-    "location": {
-      "title": "Localização Privilegiada",
-      "description": "No coração de Serra Negra, cercado pela natureza"
-    },
-    "wellness": {
-      "title": "Bem-estar e Relaxamento",
-      "description": "Espaços dedicados ao seu descanso e renovação"
-    },
     "gastronomy": {
       "title": "Gastronomia de Excelência",
       "description": "Sabores autênticos da culinária regional e internacional"
@@ -338,17 +323,17 @@
       "title": "Conforto Premium",
       "description": "Acomodações sofisticadas, projetadas para oferecer conforto e acessibilidade."
     },
-    "service": {
-      "title": "Atendimento Personalizado",
-      "description": "Equipe dedicada ao seu bem-estar"
-    },
     "business": {
       "title": "Eventos Corporativos",
       "description": "Espaços profissionais para seus negócios"
     },
-    "sports": {
-      "title": "Atividades Esportivas",
-      "description": "Esporte e lazer para todos: arco e flecha, beach tênis, quadra de tênis e pista de cooper. Diversão e bem-estar em família!"
+    "natureLocation": {
+      "description": "No coração de Serra Negra, cercado por áreas verdes, trilhas e paisagens da Mantiqueira.",
+      "title": "Natureza Exuberante e Localização Privilegiada"
+    },
+    "leisure": {
+      "description": "Piscinas, atividades esportivas e contato com a natureza para toda a família.",
+      "title": "Lazer e Atividades"
     }
   },
   "facilities": {

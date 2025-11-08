@@ -63,7 +63,8 @@
     "gallery": "Gallery",
     "bookNow": "Book Now",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "restaurant": "Restaurant"
   },
   "hero": {
     "title": "Radio Hotel Serra Negra",
@@ -197,6 +198,14 @@
         "Audiovisual equipment",
         "Event planning support"
       ]
+    },
+    "natureLocation": {
+      "title": "Nature & Prime Location",
+      "description": "In the heart of Serra Negra, surrounded by green areas, trails and Mantiqueira landscapes."
+    },
+    "leisure": {
+      "title": "Leisure & Activities",
+      "description": "Pools, sports activities and contact with nature for the whole family."
     }
   },
   "parallax": {
@@ -292,9 +301,9 @@
       "description": "Our specialized team takes care of every detail of your event, from planning to execution, ensuring everything is perfect."
     },
     "convention": {
-        "title": "Convention Center",
-        "description": "The Radio Hotel Convention Center is ideal for large events, offering 800 m², expandable to 1,200 m², and capacity for up to 350 people. With a 5-meter high ceiling, the space features the Millenium and Monterey auditoriums and 5 modular rooms. It is fully air-conditioned (288,000 BTUs Mitsubishi) and equipped with state-of-the-art technology, including IT resources, internet, multimedia, projection, and DVD, ensuring flexibility and comfort for your event.",
-        "capacity": "Up to 350 people",
+      "title": "Convention Center",
+      "description": "The Radio Hotel Convention Center is ideal for large events, offering 800 m², expandable to 1,200 m², and capacity for up to 350 people. With a 5-meter high ceiling, the space features the Millenium and Monterey auditoriums and 5 modular rooms. It is fully air-conditioned (288,000 BTUs Mitsubishi) and equipped with state-of-the-art technology, including IT resources, internet, multimedia, projection, and DVD, ensuring flexibility and comfort for your event.",
+      "capacity": "Up to 350 people",
       "features": {
         "audiovisual": "Complete audiovisual system",
         "wifi": "High-speed Wi-Fi",
@@ -557,7 +566,6 @@
       "time": "All day",
       "location": "Entire Hotel"
     }
-  
   },
   "contact": {
     "title": "Get in Touch",
