@@ -316,11 +316,11 @@
     "title": "Experiências Únicas",
     "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
     "gastronomy": {
-      "title": "Gastronomia de Excelência",
-      "description": "Sabores autênticos da culinária regional e internacional"
+      "title": "Restaurantes",
+      "description": "Restaurantes Cinquentenário e Paradiso: à la carte/buffet e grelhados, com saladas e doces."
     },
     "comfort": {
-      "title": "Conforto Premium",
+      "title": "Acomodações",
       "description": "Acomodações sofisticadas, projetadas para oferecer conforto e acessibilidade."
     },
     "business": {
@@ -332,8 +332,12 @@
       "title": "Natureza Exuberante e Localização Privilegiada"
     },
     "leisure": {
-      "description": "Piscinas, atividades esportivas e contato com a natureza para toda a família.",
-      "title": "Lazer e Atividades"
+      "description": "Piscina e salão de jogos.",
+      "title": "Lazer"
+    },
+    "bosque": {
+      "title": "Área do Bosque",
+      "description": "Quadra de tênis, quadra de beach tênis e piscina externa."
     }
   },
   "facilities": {
