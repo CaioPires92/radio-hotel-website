@@ -38,6 +38,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     { name: t('about.title'), href: '/#about' },
     { name: t('navigation.accommodations'), href: '/#accommodations' },
     { name: t('navigation.events'), href: '/conventions' },
+    { name: t('navigation.restaurant'), href: '/restaurante' },
     { name: t('navigation.blog'), href: '/blog' },
     { name: t('navigation.contact'), href: '/#contact' },
   ];
@@ -62,7 +63,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4 flex-nowrap">
           {/* Logo */}
           <motion.div
@@ -89,12 +90,12 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
 
           {/* Desktop Menu */}
           <div className="hidden min-[812px]:block flex-1 min-w-0">
-            <div className="ml-0 xl:ml-8 flex items-baseline justify-center xl:justify-start space-x-2 xl:space-x-6">
+            <div className="ml-0 xl:ml-8 flex items-baseline justify-center xl:justify-start space-x-2 lg:space-x-3 xl:space-x-6">
               {menuItems.map((item, index) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}

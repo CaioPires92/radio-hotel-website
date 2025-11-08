@@ -63,7 +63,8 @@
     "gallery": "Galería",
     "bookNow": "Reservar Ahora",
     "menu": "Menú",
-    "language": "Idioma"
+    "language": "Idioma",
+    "restaurant": "Restaurante"
   },
   "hero": {
     "title": "Radio Hotel Serra Negra",
@@ -197,6 +198,14 @@
         "Equipos audiovisuales",
         "Apoyo en planificación de eventos"
       ]
+    },
+    "natureLocation": {
+      "title": "Naturaleza y Ubicación Privilegiada",
+      "description": "En el corazón de Serra Negra, rodeado de áreas verdes, senderos y paisajes de la Mantiqueira."
+    },
+    "leisure": {
+      "title": "Ocio y Actividades",
+      "description": "Piscinas, actividades deportivas y contacto con la naturaleza para toda la familia."
     }
   },
   "parallax": {
