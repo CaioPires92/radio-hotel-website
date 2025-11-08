@@ -25,25 +25,25 @@ const Highlights = () => {
   const { t } = useTranslation();
 
   const highlights = [
-    // Nature + Location combined → About section
+    // Lazer
     {
-      id: 0,
-      icon: TreePine,
-      title: t('highlights.natureLocation.title'),
-      description: t('highlights.natureLocation.description'),
-      image: '/images/facilities/natureza.jpg',
-      href: '/#about',
-    },
-    // Leisure (wellness + sports + pools) → /lazer
-    {
-      id: 2,
+      id: 1,
       icon: Waves,
       title: t('highlights.leisure.title'),
       description: t('highlights.leisure.description'),
       image: '/images/facilities/piscina1.jpg',
       href: '/lazer',
     },
-    // Gastronomy → restaurant section
+    // Área do Bosque
+    {
+      id: 0,
+      icon: TreePine,
+      title: t('highlights.bosque.title'),
+      description: t('highlights.bosque.description'),
+      image: '/images/facilities/bosque1.jpg',
+      href: '/bosque',
+    },
+    // Restaurantes
     {
       id: 3,
       icon: Utensils,
@@ -52,23 +52,14 @@ const Highlights = () => {
       image: '/images/restaurant/restaurante1.jpg',
       href: '/restaurante',
     },
-    // Comfort → accommodations section
+    // Acomodações
     {
       id: 4,
       icon: Leaf,
       title: t('highlights.comfort.title'),
       description: t('highlights.comfort.description'),
       image: '/images/rooms/luxo-1.jpg',
-      href: '/#accommodations',
-    },
-    // Business/Events → conventions page
-    {
-      id: 6,
-      icon: Mountain,
-      title: t('highlights.business.title'),
-      description: t('highlights.business.description'),
-      image: '/images/conventions/convention-1.jpg',
-      href: '/conventions',
+      href: '/acomodacoes',
     },
   ];
 
@@ -118,7 +109,7 @@ const Highlights = () => {
 
         {/* Highlights Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

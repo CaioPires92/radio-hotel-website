@@ -5,27 +5,27 @@ import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function LazerPage() {
-  const activities = [
+export default function BosquePage() {
+  const attractions = [
     {
-      title: 'Piscinas',
-      description: 'Piscinas ao ar livre cercadas pela natureza para relaxar e se divertir.',
-      image: '/images/facilities/piscina1.jpg',
+      title: 'Bosque de Pinheiros',
+      description: 'Área verde com paisagismo para relaxar, ler e aproveitar o ar livre.',
+      image: '/images/facilities/bosque1.jpg',
     },
     {
-      title: 'Academia',
-      description: 'Espaço equipado para manter a rotina de exercícios durante a estadia.',
-      image: '/images/facilities/academia1.jpg',
+      title: 'Quadra de Tênis',
+      description: 'Estrutura para prática de tênis em meio à natureza, ideal para todos os níveis.',
+      image: '/images/facilities/quadra-tenis.jpg',
     },
     {
-      title: 'Salão de Jogos',
-      description: 'Diversão garantida com mesa de bilhar, pebolim e jogos para todas as idades.',
-      image: '/images/facilities/salao-jogos.jpg',
+      title: 'Quadra de Beach Tennis',
+      description: 'Areia branca e espaço dedicado para beach tennis com amigos e família.',
+      image: '/images/facilities/beach-tenis.jpg',
     },
     {
-      title: 'Monitoria de Lazer',
-      description: 'Atividades guiadas para todas as idades em períodos programados.',
-      image: '/images/facilities/brinquedo1.jpg',
+      title: 'Área da Piscina Externa',
+      description: 'Espaço amplo com espreguiçadeiras e vista do bosque para momentos de lazer.',
+      image: '/images/facilities/piscina-externa.jpg',
     },
   ];
 
@@ -34,18 +34,18 @@ export default function LazerPage() {
       <Navbar />
 
       <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center text-center text-white">
-        <Image src="/images/hero/hero3.jpg" alt="Lazer Radio Hotel" fill className="object-cover" priority />
+        <Image src="/images/facilities/bosque1.jpg" alt="Área do Bosque" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 max-w-4xl px-6">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Lazer e Atividades</h1>
-          <p className="text-white/90 text-lg">Piscinas, academia e salão de jogos.</p>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Área do Bosque</h1>
+          <p className="text-white/90 text-lg">Quadra de tênis, quadra de beach tennis e área da piscina externa.</p>
         </div>
       </section>
 
       <section className="py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 md:grid-cols-2">
-            {activities.map((a, idx) => (
+            {attractions.map((a, idx) => (
               <motion.div
                 key={a.title}
                 initial={{ opacity: 0, y: 20 }}

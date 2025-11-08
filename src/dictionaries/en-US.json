@@ -164,8 +164,8 @@
       ]
     },
     "gastronomy": {
-      "title": "Regional Gastronomy",
-      "description": "Authentic flavors of Minas Gerais cuisine, prepared with fresh and local ingredients.",
+      "title": "Restaurants",
+      "description": "Two restaurants: Cinquentenário (à la carte/buffet) and Paradiso (grills/buffet).",
       "features": [
         "Traditional Minas Gerais breakfast",
         "Regional dishes restaurant",
@@ -173,7 +173,7 @@
       ]
     },
     "comfort": {
-      "title": "Premium Comfort",
+      "title": "Accommodations",
       "description": "Carefully decorated accommodations with all the amenities for an unforgettable stay.",
       "features": [
         "Elegant and cozy rooms",
@@ -204,8 +204,12 @@
       "description": "In the heart of Serra Negra, surrounded by green areas, trails and Mantiqueira landscapes."
     },
     "leisure": {
-      "title": "Leisure & Activities",
-      "description": "Pools, sports activities and contact with nature for the whole family."
+      "title": "Leisure",
+      "description": "Pool and game room."
+    },
+    "bosque": {
+      "description": "Tennis court, beach tennis court and outdoor pool.",
+      "title": "Bosque Area"
     }
   },
   "parallax": {

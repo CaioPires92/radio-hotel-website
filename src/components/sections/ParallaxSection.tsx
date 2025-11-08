@@ -20,7 +20,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
   // Parallax transforms with subtle movement
   const backgroundY = useTransform(scrollY, [0, 1000], [0, -200]);
-  const textY = useTransform(scrollY, [0, 1000], [0, 50]);
+  const textY = useTransform(scrollY, [0, 1000], [0, 20]);
   const overlayOpacity = useTransform(scrollY, [0, 500], [0.6, 0.8]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
   if (!mounted) {
     return (
-      <section className="relative h-screen bg-navy flex items-center justify-center">
+      <section className="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] bg-navy flex items-start pt-6 md:pt-10">
         <div className="text-center text-white">
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">
             {t('parallax.fallback.title')}
@@ -54,7 +54,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] overflow-hidden flex items-start pt-6 sm:pt-8 md:pt-10 lg:pt-12">
       {/* Background Image with Parallax */}
 
 
@@ -116,7 +116,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Content */}
       <motion.div
-        className="relative z-30 min-h-screen flex items-center justify-center pt-16 pb-16"
+        className="relative z-30 w-full py-0"
         style={{ y: textY }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -230,7 +230,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Scroll Indicator */}
       <motion.div
-        className="hidden lg:block absolute z-30 bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2"
+        className="hidden lg:block absolute z-30 bottom-20 lg:bottom-32 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}

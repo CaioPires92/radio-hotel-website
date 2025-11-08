@@ -164,8 +164,8 @@
       ]
     },
     "gastronomy": {
-      "title": "Gastronomía Regional",
-      "description": "Sabores auténticos de la cocina mineira, preparados con ingredientes frescos y locales.",
+      "title": "Restaurantes",
+      "description": "Dos restaurantes: Cinquentenário (a la carta/buffet) y Paradiso (a la parrilla/buffet).",
       "features": [
         "Desayuno tradicional mineiro",
         "Restaurante de platos regionales",
@@ -173,7 +173,7 @@
       ]
     },
     "comfort": {
-      "title": "Comodidad Premium",
+      "title": "Alojamientos",
       "description": "Alojamientos cuidadosamente decorados con todas las comodidades para una estancia inolvidable.",
       "features": [
         "Habitaciones elegantes y acogedoras",
@@ -204,8 +204,12 @@
       "description": "En el corazón de Serra Negra, rodeado de áreas verdes, senderos y paisajes de la Mantiqueira."
     },
     "leisure": {
-      "title": "Ocio y Actividades",
-      "description": "Piscinas, actividades deportivas y contacto con la naturaleza para toda la familia."
+      "title": "Ocio",
+      "description": "Piscina y sala de juegos."
+    },
+    "bosque": {
+      "title": "Área del Bosque",
+      "description": "Cancha de tenis, cancha de beach tenis y piscina exterior."
     }
   },
   "parallax": {
