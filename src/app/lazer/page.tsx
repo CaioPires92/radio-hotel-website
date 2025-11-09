@@ -67,6 +67,68 @@ export default function LazerPage() {
         </div>
       </section>
 
+      {/* Informações adicionais de lazer */}
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-serif font-bold text-navy mb-2">Fitness Center</h3>
+              <p className="text-navy/80">Completando suas opções de esportes e saúde, o Rádio Hotel oferece seu Fitness Center.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-serif font-bold text-navy mb-2">Mini Clube</h3>
+              <p className="text-navy/80">Este espaço é reservado para crianças de 0 até 5 anos de idade.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-serif font-bold text-navy mb-2">Monitores</h3>
+              <p className="text-navy/80">Recreação infantil e adulto na área de esporte aos finais de semana, todos os dias da alta temporada e em feriados prolongados.</p>
+            </motion.div>
+
+            {/* Imagens adicionais */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              {[
+                { title: 'Fitness Center', image: '/images/facilities/academia2.jpg' },
+                { title: 'Mini Clube', image: '/images/facilities/brinquedo1.jpg' },
+                { title: 'Monitores', image: '/images/facilities/sports.jpg' },
+              ].map((item, idx) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * idx }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-xl overflow-hidden shadow-md"
+                >
+                  <div className="relative h-48">
+                    <Image src={item.image} alt={item.title} fill className="object-cover" />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="text-lg font-semibold text-navy">{item.title}</h4>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </>
   );
