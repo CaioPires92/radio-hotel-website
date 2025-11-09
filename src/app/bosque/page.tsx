@@ -15,17 +15,17 @@ export default function BosquePage() {
     {
       title: 'Quadra de Tênis',
       description: 'Estrutura para prática de tênis em meio à natureza, ideal para todos os níveis.',
-      image: '/images/facilities/quadra-tenis.jpg',
+      image: '/images/facilities/sports.jpg',
     },
     {
       title: 'Quadra de Beach Tennis',
       description: 'Areia branca e espaço dedicado para beach tennis com amigos e família.',
-      image: '/images/facilities/beach-tenis.jpg',
+      image: '/images/facilities/facilities-2.jpg',
     },
     {
       title: 'Área da Piscina Externa',
       description: 'Espaço amplo com espreguiçadeiras e vista do bosque para momentos de lazer.',
-      image: '/images/facilities/piscina-externa.jpg',
+      image: '/images/facilities/piscina2.jpg',
     },
   ];
 
@@ -39,6 +39,54 @@ export default function BosquePage() {
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Área do Bosque</h1>
           <p className="text-white/90 text-lg">Quadra de tênis, quadra de beach tennis e área da piscina externa.</p>
+        </div>
+      </section>
+
+      {/* Descrição geral da área do bosque */}
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-navy/80 mb-4">
+              Área de 40.000 m² onde se encontra parte da área esportiva do hotel, com arco e flecha, pista de cooper e playground. Num paisagismo de mais de 2.000 árvores.
+            </p>
+            <p className="text-navy/80">
+              O Rádio Hotel dispõe de 4 quadras de beach tennis.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Galeria: Atividades no Bosque */}
+      <section className="py-8 bg-cream">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: 'Arco e Flecha', image: '/images/facilities/sports.jpg' },
+              { title: 'Pista de Cooper', image: '/images/facilities/natureza.jpg' },
+              { title: 'Playground', image: '/images/facilities/brinquedo1.jpg' },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * idx }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl overflow-hidden shadow-md"
+              >
+                <div className="relative h-48">
+                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-navy">{item.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
