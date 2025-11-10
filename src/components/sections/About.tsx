@@ -144,6 +144,16 @@ export default function About() {
               <p className="text-lg text-navy/80 leading-relaxed">
                 {t('about.description2')}
               </p>
+
+              {(() => {
+                const note = t('about.anniversaryNote');
+                if (note !== 'about.anniversaryNote') {
+                  return (
+                    <p className="text-lg text-navy/80 leading-relaxed">{note}</p>
+                  );
+                }
+                return null;
+              })()}
             </motion.div>
 
             {/* Removidos daqui: Features Grid e Stats (serão exibidos abaixo) */}

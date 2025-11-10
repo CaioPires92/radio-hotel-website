@@ -2574,8 +2574,8 @@
                 "width": 80,
                 "height": 42
               },
-              "snippet": "<img src=\"/logo.png\" alt=\"Rádio Hotel Logo\" class=\"w-20  object-contain transition-all duration-300\">",
-              "nodeLabel": "Rádio Hotel Logo"
+              "snippet": "<img src=\"/logo.png\" alt=\"Radio Hotel Logo\" class=\"w-20  object-contain transition-all duration-300\">",
+              "nodeLabel": "Radio Hotel Logo"
             }
           },
           {

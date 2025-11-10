@@ -52,16 +52,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.gastronomy')
     },
     {
-      id: '3',
-      title: t('eventsModal.guidedTour.title'),
-      description: t('eventsModal.guidedTour.description'),
-      date: t('eventsModal.guidedTour.date'),
-      time: t('eventsModal.guidedTour.time'),
-      location: t('eventsModal.guidedTour.location'),
-      image: '/images/events/passeios-bosque.png',
-      category: t('eventsModal.categories.wellness')
-    },
-    {
       id: '5',
       title: t('eventsModal.novemberHoliday.title'),
       description: t('eventsModal.novemberHoliday.description'),
@@ -86,7 +76,14 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   }, [isOpen]);
 
   const handleBookEvent = (event: Event) => {
-    const message = `${t('eventsModal.whatsapp.bookingMessage')} "${event.title}" ${t('eventsModal.whatsapp.onDay')} ${event.date} ${t('eventsModal.whatsapp.atTime')} ${event.time}. ${t('eventsModal.whatsapp.helpRequest')}`;
+    let message = `${t('eventsModal.whatsapp.bookingMessage')} "${event.title}"`;
+    if (event.date) {
+      message += ` ${t('eventsModal.whatsapp.onDay')} ${event.date}`;
+    }
+    if (event.time) {
+      message += ` ${t('eventsModal.whatsapp.atTime')} ${event.time}`;
+    }
+    message += `. ${t('eventsModal.whatsapp.helpRequest')}`;
     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -170,20 +167,26 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                             </p>
                             
                             <div className="space-y-2">
-                              <div className="flex items-center gap-2 text-sm text-navy/60">
-                                <Calendar className="w-4 h-4" />
-                                <span>{event.date}</span>
-                              </div>
+                              {event.date && (
+                                <div className="flex items-center gap-2 text-sm text-navy/60">
+                                  <Calendar className="w-4 h-4" />
+                                  <span>{event.date}</span>
+                                </div>
+                              )}
                               
-                              <div className="flex items-center gap-2 text-sm text-navy/60">
-                                <Clock className="w-4 h-4" />
-                                <span>{event.time}</span>
-                              </div>
+                              {event.time && (
+                                <div className="flex items-center gap-2 text-sm text-navy/60">
+                                  <Clock className="w-4 h-4" />
+                                  <span>{event.time}</span>
+                                </div>
+                              )}
                               
-                              <div className="flex items-center gap-2 text-sm text-navy/60">
-                                <MapPin className="w-4 h-4" />
-                                <span>{event.location}</span>
-                              </div>
+                              {event.location && (
+                                <div className="flex items-center gap-2 text-sm text-navy/60">
+                                  <MapPin className="w-4 h-4" />
+                                  <span>{event.location}</span>
+                                </div>
+                              )}
                             </div>
                             
 
@@ -232,31 +235,37 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <Calendar className="w-5 h-5 text-gold" />
-                            <div>
-                              <p className="text-sm text-navy/60">{t('eventsModal.labels.date')}</p>
-                              <p className="font-medium text-navy">{selectedEvent.date}</p>
+                          {selectedEvent.date && (
+                            <div className="flex items-center gap-3">
+                              <Calendar className="w-5 h-5 text-gold" />
+                              <div>
+                                <p className="text-sm text-navy/60">{t('eventsModal.labels.date')}</p>
+                                <p className="font-medium text-navy">{selectedEvent.date}</p>
+                              </div>
                             </div>
-                          </div>
+                          )}
                           
-                          <div className="flex items-center gap-3">
-                            <Clock className="w-5 h-5 text-gold" />
-                            <div>
-                              <p className="text-sm text-navy/60">{t('eventsModal.labels.time')}</p>
-                              <p className="font-medium text-navy">{selectedEvent.time}</p>
+                          {selectedEvent.time && (
+                            <div className="flex items-center gap-3">
+                              <Clock className="w-5 h-5 text-gold" />
+                              <div>
+                                <p className="text-sm text-navy/60">{t('eventsModal.labels.time')}</p>
+                                <p className="font-medium text-navy">{selectedEvent.time}</p>
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                         
                         <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <MapPin className="w-5 h-5 text-gold" />
-                            <div>
-                              <p className="text-sm text-navy/60">{t('eventsModal.labels.location')}</p>
-                              <p className="font-medium text-navy">{selectedEvent.location}</p>
+                          {selectedEvent.location && (
+                            <div className="flex items-center gap-3">
+                              <MapPin className="w-5 h-5 text-gold" />
+                              <div>
+                                <p className="text-sm text-navy/60">{t('eventsModal.labels.location')}</p>
+                                <p className="font-medium text-navy">{selectedEvent.location}</p>
+                              </div>
                             </div>
-                          </div>
+                          )}
                           
 
                         </div>

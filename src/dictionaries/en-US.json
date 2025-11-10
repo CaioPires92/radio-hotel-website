@@ -77,9 +77,9 @@
     "nextSlide": "Next slide",
     "goToSlide": "Go to slide",
     "slide1": {
-      "title": "Radio Hotel Serra Negra",
-      "subtitle": "Tradition, Elegance and Nature",
-      "description": "Discover a luxury retreat in the heart of Serra Negra, surrounded by lush nature and therapeutic radioactive waters."
+      "title": "Radio Hotel Serra Negra — 80 years",
+      "subtitle": "Tradition, elegance and nature",
+      "description": "In 2025, Radio Hotel turns 80. The name ‘Radio’ comes from Serra Negra’s famed radioactive waters, known for their therapeutic properties."
     },
     "slide2": {
       "title": "Therapeutic Radioactive Waters",
@@ -103,7 +103,7 @@
     "title": "About Radio Hotel",
     "location": "Serra Negra, São Paulo",
     "description1": "Located in the heart of Serra Negra, Radio Hotel combines tradition and elegance in a unique environment, surrounded by the lush nature of Serra da Mantiqueira.",
-    "description2": "With over 80 years of history, we offer an authentic hospitality experience, where every detail has been designed to provide unforgettable moments for our guests.",
+    "description2": "For 80 years, we have offered an authentic hospitality experience, with every detail designed to provide unforgettable moments for our guests.",
     "award": {
       "years": "80 Years of Tradition",
       "excellence": "Excellence in Hospitality"
@@ -526,9 +526,9 @@
       "family": "Family"
     },
     "labels": {
-      "date": "Date",
-      "time": "Time",
-      "location": "Location"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "buttons": {
       "bookWhatsApp": "Book via WhatsApp"
@@ -545,30 +545,30 @@
     "italianNight": {
       "title": "Italian Night",
       "description": "A special night with the best of Italian cuisine, live music and romantic atmosphere.",
-      "date": "January 15th",
-      "time": "7:30 PM",
-      "location": "Main Restaurant"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "feijoada": {
       "title": "Traditional Feijoada",
       "description": "Saturday feijoada with Brazilian music and free caipirinha.",
-      "date": "January 20th",
-      "time": "12:00 PM",
-      "location": "Pool Area"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "guidedTour": {
       "title": "Guided Nature Tour",
       "description": "Explore the natural beauties of Serra Negra with our specialized guide.",
-      "date": "Every Sunday",
-      "time": "8:00 AM",
-      "location": "Hotel Reception"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "novemberHoliday": {
       "title": "November Holiday",
       "description": "Celebrate the holiday with special activities and regional gastronomy.",
-      "date": "November 15th",
-      "time": "All day",
-      "location": "Entire Hotel"
+      "date": "",
+      "time": "",
+      "location": ""
     }
   },
   "contact": {

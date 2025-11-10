@@ -78,9 +78,9 @@
     "nextSlide": "Próximo slide",
     "goToSlide": "Ir para slide",
     "slide1": {
-      "title": "Radio Hotel Serra Negra",
-      "subtitle": "Tradição, Elegância e Natureza",
-      "description": "Descubra um refúgio de luxo no coração de Serra Negra, cercado pela natureza exuberante e águas radioativas terapêuticas."
+      "title": "Radio Hotel Serra Negra — 80 anos",
+      "subtitle": "Tradição, elegância e natureza",
+      "description": "Em 2025, o Radio Hotel completa 80 anos. O nome ‘Radio’ vem das célebres águas radioativas de Serra Negra, famosas por suas propriedades terapêuticas."
     },
     "slide2": {
       "title": "Águas Radioativas Terapêuticas",
@@ -127,7 +127,8 @@
     "title": "Sobre o Radio Hotel",
     "location": "Serra Negra, São Paulo",
     "description1": "Localizado no coração de Serra Negra, o Radio Hotel combina tradição e elegância em um ambiente único, cercado pela exuberante natureza da Serra da Mantiqueira.",
-    "description2": "Com mais de 80 anos de história, oferecemos uma experiência autêntica de hospitalidade, onde cada detalhe foi pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
+    "description2": "Há 80 anos, oferecemos uma experiência autêntica de hospitalidade, com cada detalhe pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
+    "anniversaryNote": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas. De 26 a 28 de dezembro, celebramos a Semana de Aniversário de 80 anos com programação especial.",
     "award": {
       "years": "80 Anos de Tradição",
       "excellence": "Excelência em Hospitalidade"
@@ -158,6 +159,11 @@
       "rating": "Avaliação dos Hóspedes",
       "location": "Localização Privilegiada"
     }
+  },
+  "promoRibbon": {
+    "message": "26–28 de dezembro · Semana de Aniversário 80 anos · Programação Especial",
+    "cta": "Programação especial",
+    "whatsappMessage": "Olá! Quero saber da programação especial do aniversário de 80 anos (26 a 28 de dezembro)."
   },
   "accommodations": {
     "badge": "Nossas Acomodações",
@@ -250,7 +256,7 @@
         "coffeeBreak": "Área para coffee break"
       },
       "clients": {
-        "title": "Relação de alguns clientes do Rádio Hotel, em convenções:"
+        "title": "Relação de alguns clientes do Radio Hotel, em convenções:"
       }
     },
     "corporate": {
@@ -505,8 +511,8 @@
     }
   },
   "eventsModal": {
-    "title": "Eventos Especiais",
-    "subtitle": "Descubra nossos eventos exclusivos",
+    "title": "Programação Especial",
+    "subtitle": "",
     "categories": {
       "gastronomy": "Gastronomia",
       "wellness": "Bem-estar",
@@ -515,9 +521,9 @@
       "family": "Família"
     },
     "labels": {
-      "date": "Data",
-      "time": "Horário",
-      "location": "Local"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "buttons": {
       "bookWhatsApp": "Reservar via WhatsApp"
@@ -534,30 +540,30 @@
     "italianNight": {
       "title": "Noite Italiana",
       "description": "Uma noite especial com o melhor da culinária italiana, música ao vivo e ambiente romântico.",
-      "date": "15 de Janeiro",
-      "time": "19:30",
-      "location": "Restaurante Principal"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "feijoada": {
       "title": "Feijoada Tradicional",
       "description": "Sábado de feijoada com música brasileira e caipirinha liberada.",
-      "date": "20 de Janeiro",
-      "time": "12:00",
-      "location": "Área da Piscina"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "guidedTour": {
       "title": "Área do Bosque",
       "description": "Explore as belezas naturais de Serra Negra com nosso guia especializado.",
-      "date": "Todos os domingos",
-      "time": "08:00",
-      "location": "Recepção do Hotel"
+      "date": "",
+      "time": "",
+      "location": ""
     },
     "novemberHoliday": {
       "title": "Feriado de Novembro",
       "description": "Celebre o feriado com atividades especiais e gastronomia regional.",
-      "date": "15 de Novembro",
-      "time": "Todo o dia",
-      "location": "Todo o Hotel"
+      "date": "",
+      "time": "",
+      "location": ""
     }
   },
   "contact": {

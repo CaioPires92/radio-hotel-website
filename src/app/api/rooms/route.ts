@@ -25,7 +25,11 @@ export async function GET() {
     const dirents = fs.readdirSync(baseDir, { withFileTypes: true });
     const folders = dirents.filter(d => d.isDirectory());
 
+    const excluded = new Set(['112', '302', '305 - Apartamento Conjugado']);
     for (const folder of folders) {
+      if (excluded.has(folder.name)) {
+        continue;
+      }
       const folderPath = path.join(baseDir, folder.name);
       const files = fs.readdirSync(folderPath).filter(isImage);
 

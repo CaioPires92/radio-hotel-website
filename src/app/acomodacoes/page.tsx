@@ -4,8 +4,8 @@ import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
 
 export const metadata = {
-  title: 'Acomodações | Rádio Hotel',
-  description: 'Conheça todas as opções de acomodações do Rádio Hotel.',
+  title: 'Acomodações | Radio Hotel',
+  description: 'Conheça todas as opções de acomodações do Radio Hotel.',
 }
 
 export default function AcomodacoesPage() {
