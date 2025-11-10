@@ -6,7 +6,6 @@ import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 // import Events from '@/components/sections/Events';
 import Accommodations from '@/components/sections/Accommodations';
-import Highlights from '@/components/sections/Highlights';
 import ParallaxSection from '@/components/sections/ParallaxSection';
 import Footer from '@/components/layout/Footer';
 import BookingForm from '@/components/ui/custom/BookingForm';
@@ -16,6 +15,7 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import BackToTopButton from '@/components/ui/BackToTopButton';
 import SeasonalPackages from './sections/SeasonalPackages';
 import PromoRibbon from './ui/PromoRibbon';
+import Highlights from '@/components/sections/Highlights';
 
 function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
