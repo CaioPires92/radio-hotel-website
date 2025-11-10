@@ -75,7 +75,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}
-                  alt="Rádio Hotel Logo"
+                  alt="Radio Hotel Logo"
                   fill
                   className="object-contain transition-all duration-300"
                   sizes="(max-width: 768px) 96px, 128px"

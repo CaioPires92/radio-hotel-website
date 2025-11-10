@@ -78,7 +78,7 @@ export default function LazerPage() {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-serif font-bold text-navy mb-2">Fitness Center</h3>
-              <p className="text-navy/80">Completando suas opções de esportes e saúde, o Rádio Hotel oferece seu Fitness Center.</p>
+              <p className="text-navy/80">Completando suas opções de esportes e saúde, o Radio Hotel oferece seu Fitness Center.</p>
             </motion.div>
 
             <motion.div

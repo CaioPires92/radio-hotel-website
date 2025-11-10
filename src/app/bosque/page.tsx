@@ -55,7 +55,7 @@ export default function BosquePage() {
               Área de 40.000 m² onde se encontra parte da área esportiva do hotel, com arco e flecha, pista de cooper e playground. Num paisagismo de mais de 2.000 árvores.
             </p>
             <p className="text-navy/80">
-              O Rádio Hotel dispõe de 4 quadras de beach tennis.
+              O Radio Hotel dispõe de 4 quadras de beach tennis.
             </p>
           </motion.div>
         </div>

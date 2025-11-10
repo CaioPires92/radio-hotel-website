@@ -41,7 +41,7 @@ vi.mock('framer-motion', () => ({
 describe('Navbar', () => {
   it('renders the navbar with navigation links', () => {
     render(<Navbar />);
-    expect(screen.getByAltText('Rádio Hotel Logo')).toBeInTheDocument();
+    expect(screen.getByAltText('Radio Hotel Logo')).toBeInTheDocument();
     expect(screen.getByText('Início')).toBeInTheDocument();
     expect(screen.getByText('Sobre')).toBeInTheDocument();
     expect(screen.getByText('Acomodações')).toBeInTheDocument();

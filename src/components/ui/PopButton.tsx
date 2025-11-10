@@ -122,7 +122,7 @@ export default function PopButton({ onClick }: PopButtonProps) {
               initial={{ opacity: 0, x: 10 }}
               whileHover={{ opacity: 1, x: 0 }}
             >
-              Eventos Especiais!
+              Programação Especial!
               <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-4 border-transparent border-l-navy" />
             </motion.div>
           </motion.button>
