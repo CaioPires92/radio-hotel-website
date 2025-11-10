@@ -19,8 +19,8 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
   const { scrollY } = useScroll();
 
   // Parallax transforms with subtle movement
-  const backgroundY = useTransform(scrollY, [0, 1000], [0, -200]);
-  const textY = useTransform(scrollY, [0, 1000], [0, 20]);
+  const backgroundY = useTransform(scrollY, [0, 1000], [0, -150]);
+  const textY = useTransform(scrollY, [0, 1000], [0, 10]);
   const overlayOpacity = useTransform(scrollY, [0, 500], [0.6, 0.8]);
 
   useEffect(() => {
@@ -116,13 +116,13 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Content */}
       <motion.div
-        className="relative z-30 w-full py-0"
+        className="relative z-30 w-full pt-0 pb-10 sm:pb-12 md:pb-16"
         style={{ y: textY }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8"
+            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-5 sm:mb-7"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -135,20 +135,21 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
           {/* Main Heading */}
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight px-2"
+            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-5 sm:mb-6 leading-snug md:leading-tight px-2"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('parallax.title.line1')}
-            <br />
-            <span className="text-gold">{t('parallax.title.highlight')}</span> {t('parallax.title.line2')}
+            <span className="block sm:inline">{t('parallax.title.line1')}</span>
+            <br className="hidden sm:block" />
+            <span className="text-gold">{t('parallax.title.highlight')}</span>
+            <span className="block sm:inline"> {t('parallax.title.line2')}</span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 md:mb-10 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2"
+            className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-white/90 mb-7 sm:mb-9 md:mb-10 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -159,7 +160,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8 max-w-3xl lg:max-w-4xl mx-auto px-2"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-5 sm:mb-7 md:mb-9 max-w-3xl lg:max-w-4xl mx-auto px-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -181,7 +182,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 sm:mb-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-6 sm:mb-7"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -230,7 +231,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Scroll Indicator */}
       <motion.div
-        className="hidden lg:block absolute z-30 bottom-20 lg:bottom-32 left-1/2 transform -translate-x-1/2"
+        className="hidden lg:block absolute z-20 bottom-4 xl:bottom-8 left-1/2 transform -translate-x-1/2 pointer-events-none opacity-70"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}

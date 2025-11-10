@@ -9,23 +9,32 @@ const packages = [
   {
     id: 'natal',
     title: 'Pacote de Natal',
-    date: '23Ã¢â‚¬â€œ26 Dez',
+    date: '23–26 Dez',
     image: 'https://images.pexels.com/photos/3171207/pexels-photo-3171207.jpeg', // exemplo
-    perks: ['MÃºsica ao vivo todas as noites','RecreaÃ§Ã£o adulto e infantil durante todo o pacote','Papai Noel','Coquetel com todos os tipos de bebidas inclusas atÃ© o final da ceia'],
+    perks: [
+      'Música ao vivo todas as noites',
+      'Recreação adulto e infantil durante todo o pacote',
+      'Papai Noel',
+      'Coquetel com todos os tipos de bebidas inclusas até o final da ceia'
+    ],
     // price: 'a partir de R$ 1.890',
   },
   {
     id: 'reveillon',
-    title: 'Pacote de RÃƒÂ©veillon',
-    date: '28 DezÃ¢â‚¬â€œ02 Jan',
+    title: 'Pacote de Réveillon',
+    date: '28 Dez–02 Jan',
     image: 'https://images.pexels.com/photos/3036525/pexels-photo-3036525.jpeg',
-    perks: ['Música ao vivo todas as noites', 'Recreação adulto e infantil durante todo o pacote', 'Coquetel com todos os tipos de bebidas inclusas até o final da ceia'],
+    perks: [
+      'Música ao vivo todas as noites',
+      'Recreação adulto e infantil durante todo o pacote',
+      'Coquetel com todos os tipos de bebidas inclusas até o final da ceia'
+    ],
     // price: 'a partir de R$ 2.490',
   },
   {
     id: 'ferias',
-    title: 'FÃƒÂ©rias de Janeiro',
-    date: 'MÃƒÂªs Todo',
+    title: 'Férias de Janeiro',
+    date: 'Mês Todo',
     image: 'https://images.pexels.com/photos/61129/pexels-photo-61129.jpeg',
     perks: [
       'Música ao vivo todas as noites',
@@ -39,7 +48,7 @@ const packages = [
 
 export default function SeasonalPackages() {
   const handleBookingClick = () => {
-    const msg = 'OlÃƒÂ¡! Quero informaÃƒÂ§ÃƒÂµes dos pacotes de Natal/RÃƒÂ©veillon/FÃƒÂ©rias.';
+    const msg = 'Olá! Quero informações dos pacotes de Natal/Réveillon/Férias.';
     window.open(`https://wa.me/5519999999999?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -61,7 +70,7 @@ export default function SeasonalPackages() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Natal, RÃƒÂ©veillon e FÃƒÂ©rias de Janeiro Ã¢â‚¬â€ garanta jÃƒÂ¡ sua reserva.
+            Natal, Réveillon e Férias de Janeiro — garanta já sua reserva.
           </motion.p>
         </div>
 
@@ -124,3 +133,4 @@ export default function SeasonalPackages() {
     </section>
   );
 }
+
