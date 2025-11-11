@@ -34,15 +34,16 @@ export default function LazerPage() {
           </div>
 
           {/* Galeria à direita (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-72 sm:h-80 md:h-96">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
+                { src: '/images/facilities/piscina.jpg', alt: 'Piscina principal' },
                 { src: '/images/facilities/piscina1.jpg', alt: 'Piscina com área de descanso' },
-                { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao bosque' },
-                { src: '/images/facilities/brinquedo1.jpg', alt: 'Espaço de jogos e recreação' },
+                { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao verde' },
               ]}
-              className="h-72 sm:h-80 md:h-96"
+              className="h-80 md:h-96"
               showDots
+              fit="cover"
             />
           </div>
         </div>
@@ -52,20 +53,21 @@ export default function LazerPage() {
       <section className="py-12 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Galeria à esquerda (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-72 md:h-80">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
                 { src: '/images/facilities/academia1.jpg', alt: 'Academia com equipamentos' },
                 { src: '/images/facilities/academia2.jpg', alt: 'Espaço fitness moderno' },
               ]}
-              className="h-64 sm:h-72 md:h-80"
+              className="h-80 md:h-96"
               showDots
+              fit="cover"
             />
           </div>
           {/* Texto à direita */}
           <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Academia</h3>
-            <p className="text-navy/80">Espaço equipado para manter a rotina de exercícios durante a estadia, com aparelhos modernos e ambiente climatizado.</p>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Fitness Center</h3>
+            <p className="text-navy/80">Completando suas opções de esportes e saúde, o Radio Hotel oferece seu Fitness Center.</p>
           </div>
         </div>
       </section>
@@ -75,19 +77,44 @@ export default function LazerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Texto à esquerda */}
           <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Recreação</h3>
-            <p className="text-navy/80">Atividades orientadas para todas as idades com nossa equipe, incluindo brincadeiras, dinâmicas e jogos em família.</p>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Lazer para toda a família</h3>
+            
+            <div className="space-y-0">
+              <h4 className="text-xl font-serif font-semibold text-navy">Bosque</h4>
+              <p className="text-navy/75 mt-0">
+                Área de 40.000 m² onde se encontra parte da área esportiva do hotel, com arco e
+                flecha, pista de cooper e playground. Em um paisagismo com mais de 2.000 árvores.
+              </p>
+            </div>
+
+            {/* Informações adicionais: Mini Clube e Monitores */}
+            <div className="pt-2 space-y-4">
+              <div className="space-y-0">
+                <h4 className="text-xl font-serif font-semibold text-navy">Mini Clube</h4>
+                <p className="text-navy/75 mt-0">Espaço exclusivo para crianças de 0 a 5 anos.</p>
+              </div>
+              <div className="space-y-0">
+                <h4 className="text-xl font-serif font-semibold text-navy">Monitores</h4>
+                <p className="text-navy/75 mt-0">Recreação infantil e adulta nos fins de semana, na alta temporada e em feriados prolongados.</p>
+              </div>
+            </div>
           </div>
           {/* Galeria à direita (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-72 md:h-80">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
-                { src: '/images/facilities/brinquedo1.jpg', alt: 'Recreação infantil no salão' },
-                { src: '/images/facilities/sports.jpg', alt: 'Atividades e jogos com a equipe' },
-                { src: '/images/facilities/natureza.jpg', alt: 'Recreação ao ar livre' },
+                { src: '/images/facilities/mini-club-1.jpg', alt: 'Recreação infantil no mini clube' },
+                { src: '/images/facilities/mini-club-2.jpg', alt: 'Brincadeiras e jogos em família' },
+                { src: '/images/facilities/bosque1.jpg', alt: 'Bosque de pinheiros' },
+                { src: '/images/facilities/ar-livre-beach-tenis.jpg', alt: 'Quadra de beach tênis' },
+                { src: '/images/facilities/ar-livre-1.jpg', alt: 'Atividade ao ar livre' },
+                { src: '/images/facilities/ar-livre-2.jpg', alt: 'Lazer externo' },
+                { src: '/images/facilities/ar-livre-4.jpg', alt: 'Contato com a natureza' },
+                { src: '/images/facilities/gramado-parque-3.jpg', alt: 'Parque gramado' },
               ]}
-              className="h-64 sm:h-72 md:h-80"
+              className="h-80 md:h-96"
               showDots
+              fit="contain"
             />
           </div>
         </div>
@@ -99,15 +126,24 @@ export default function LazerPage() {
       <section className="py-12 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Carrossel à esquerda */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-72 md:h-80">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
-                { src: '/images/facilities/brinquedo1.jpg', alt: 'Salão de jogos infantil' },
-                { src: '/images/facilities/sports.jpg', alt: 'Área de jogos e esportes' },
-                { src: '/images/facilities/facilities.jpg', alt: 'Ambiente de lazer interno' },
+                { src: '/images/facilities/sala-jogos.jpg', alt: 'Salão de jogos' },
+                { src: '/images/facilities/sala-jogos-2.jpg', alt: 'Jogos e diversão' },
+                { src: '/images/facilities/sala-jogos-3.jpg', alt: 'Espaço de jogos' },
+                { src: '/images/facilities/sala-jogos-4.jpg', alt: 'Salão com mesa de jogos' },
+                { src: '/images/facilities/sala-jogos-5.jpg', alt: 'Salão de jogos adulto' },
+                { src: '/images/facilities/sala-jogos-6.jpg', alt: 'Jogos para todas as idades' },
+                { src: '/images/facilities/sala-jogos-8.jpg', alt: 'Ambiente de recreação' },
+                { src: '/images/facilities/sala-jogos-9.jpg', alt: 'Diversão em grupo' },
+                { src: '/images/facilities/sala-jogos-10.jpg', alt: 'Salão de jogos amplo' },
+                { src: '/images/facilities/sala-jogos-11.jpg', alt: 'Jogos em família' },
+                { src: '/images/facilities/sala-jogos-12.jpg', alt: 'Área de lazer interna' },
               ]}
-              className="h-64 sm:h-72 md:h-80"
+              className="h-80 md:h-96"
               showDots
+              fit="cover"
             />
           </div>
 
@@ -122,79 +158,14 @@ export default function LazerPage() {
         </div>
       </section>
 
-      {/* Área do Bosque: texto à esquerda, slide à direita */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Texto à esquerda */}
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy">Área do Bosque</h2>
-            <p className="text-navy/80 text-lg">Quadra de tênis, quadra de beach tênis e piscina externa.</p>
-            <p className="text-navy/75">
-              Conecte-se com a natureza em nosso bosque, com áreas esportivas e espaços ao ar livre
-              perfeitos para atividades em família e momentos de bem-estar.
-            </p>
-          </div>
+      
 
-          {/* Galeria à direita (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-72 sm:h-80 md:h-96">
-            <CardImageCarousel
-              images={[
-                { src: '/images/facilities/sports.jpg', alt: 'Quadra de tênis' },
-                { src: '/images/facilities/facilities-2.jpg', alt: 'Quadra de beach tênis' },
-                { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa próxima ao bosque' },
-              ]}
-              className="h-72 sm:h-80 md:h-96"
-              showDots
-            />
-          </div>
-        </div>
-      </section>
+      {/* Trilhas e Natureza removido conforme solicitado */}
 
-      {/* Trilhas e Natureza: slide à esquerda, texto à direita */}
-      <section className="py-12 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Galeria à esquerda (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-72 md:h-80">
-            <CardImageCarousel
-              images={[
-                { src: '/images/facilities/natureza.jpg', alt: 'Trilha em meio à natureza' },
-                { src: '/images/facilities/bosque1.jpg', alt: 'Bosque de pinheiros' },
-                { src: '/images/facilities/chapadao.jpg', alt: 'Vista do chapadão' },
-              ]}
-              className="h-64 sm:h-72 md:h-80"
-              showDots
-            />
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Trilhas e Natureza</h3>
-            <p className="text-navy/80">Caminhos sombreados e paisagens para contemplação e atividades ao ar livre.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Lazer ao Ar Livre: texto à esquerda, slide à direita */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Lazer ao Ar Livre</h3>
-            <p className="text-navy/80">Atividades esportivas, sala de jogos e contato com a natureza para momentos inesquecíveis.</p>
-          </div>
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-72 md:h-80">
-            <CardImageCarousel
-              images={[
-                { src: '/images/facilities/sports.jpg', alt: 'Quadra de esportes' },
-                { src: '/images/facilities/natureza.jpg', alt: 'Natureza ao redor do hotel' },
-                { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa' },
-                { src: '/images/facilities/brinquedo1.jpg', alt: 'Sala de jogos' },
-              ]}
-              className="h-64 sm:h-72 md:h-80"
-              showDots
-            />
-          </div>
-        </div>
-      </section>
+      
 
       <Footer />
     </>
   );
 }
+

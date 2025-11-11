@@ -11,9 +11,10 @@ type Props = {
   className?: string
   intervalMs?: number
   showDots?: boolean
+  fit?: 'cover' | 'contain'
 }
 
-export default function CardImageCarousel({ images, className, intervalMs = 3500, showDots = false }: Props) {
+export default function CardImageCarousel({ images, className, intervalMs = 3500, showDots = false, fit = 'contain' }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const autoplayRef = useRef<number | null>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -41,7 +42,7 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
   }, [emblaApi, showDots])
 
   return (
-    <div className={"relative overflow-hidden " + (className ?? '')} ref={emblaRef} aria-roledescription="carousel">
+    <div className={"relative overflow-hidden bg-white " + (className ?? '')} ref={emblaRef} aria-roledescription="carousel">
       <div className="flex">
         {images.map((img, idx) => (
           <div key={idx} className="flex-[0_0_100%] min-w-0">
@@ -49,7 +50,9 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="w-full h-full object-cover"
+              className={
+                'w-full h-full ' + (fit === 'cover' ? 'object-cover object-center' : 'object-contain')
+              }
             />
           </div>
         ))}

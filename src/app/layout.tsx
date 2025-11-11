@@ -135,10 +135,10 @@ export default function RootLayout({
               telephone: '+55 19 3892-2284',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Rua Principal, 123',
+                streetAddress: 'R. Cel. Pedro Penteado, 387',
                 addressLocality: 'Serra Negra',
                 addressRegion: 'SP',
-                postalCode: '13.930-063',
+                postalCode: '13930-000',
                 addressCountry: 'BR',
               },
               geo: {

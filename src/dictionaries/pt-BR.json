@@ -671,5 +671,61 @@
     "openModal": "Abrir modal",
     "closeModal": "Fechar modal",
     "scrollToTop": "Voltar ao topo"
+  },
+  "contactPage": {
+    "header": {
+      "title": "Entre em contato",
+      "subtitle": "Estamos à disposição para ajudar no que precisar"
+    },
+    "phones": {
+      "title": "Telefones",
+      "reservations": "Informações e Reservas",
+      "reception": "Recepção"
+    },
+    "digital": {
+      "title": "Canais Digitais",
+      "whatsapp": "WhatsApp",
+      "email": "E-mail",
+      "ctaWhatsApp": "Conversar no WhatsApp"
+    },
+    "address": {
+      "title": "Nosso Endereço",
+      "viewMap": "Abrir no Google Maps",
+      "copy": "Copiar Endereço",
+      "copied": "Endereço copiado!",
+      "mapTitle": "Mapa do endereço do Radio Hotel"
+    },
+    "form": {
+      "title": "Envie uma mensagem",
+      "fields": {
+        "name": "Nome",
+        "email": "E-mail",
+        "phone": "Telefone",
+        "message": "Mensagem"
+      },
+      "placeholders": {
+        "name": "Seu nome",
+        "email": "voce@exemplo.com",
+        "phone": "(19) 99999-9999",
+        "message": "Como podemos ajudar?"
+      },
+      "actions": {
+        "sendWhatsApp": "Enviar no WhatsApp",
+        "sendEmail": "Enviar por E-mail"
+      },
+      "mailSubject": "Contato pelo site - Radio Hotel",
+      "errors": {
+        "nameRequired": "Por favor, informe seu nome.",
+        "emailInvalid": "Informe um e-mail válido.",
+        "messageRequired": "Por favor, escreva sua mensagem."
+      },
+      "feedback": {
+        "success": "Mensagem enviada com sucesso.",
+        "error": "Não foi possível enviar sua mensagem agora. Tente novamente."
+      }
+    },
+    "social": {
+      "title": "Links das Redes Sociais"
+    }
   }
 }

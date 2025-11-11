@@ -37,59 +37,48 @@ export default function RestaurantePage() {
         </div>
       </section>
 
-      {/* Seção em duas colunas: informações à esquerda, galeria à direita */}
+      {/* Seção principal: informações à esquerda, galeria à direita */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Texto à esquerda */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy">Restaurantes</h2>
-            <p className="text-navy/80 text-lg">Restaurantes Cinquentenário e Paradiso: à la carte/buffet e grelhados, com saladas e doces.</p>
-            <p className="text-navy/75">
-              Gastronomia refinada com ingredientes frescos e receitas tradicionais, em ambientes acolhedores com
-              vista para a natureza.
-            </p>
+            <div className="space-y-4">
+              <div className="space-y-0">
+                <h3 className="text-xl md:text-2xl font-serif font-semibold text-navy">Restaurante Cinquentenário:</h3>
+                <p className="text-navy/80">
+                  Ambiente requintado e a tradição de sempre servir o melhor cardápio à la carte (domingo à
+                  quinta-feira) ou buffet completo de frios, saladas e doces (finais de semana, feriados e
+                  períodos de alta temporada).
+                </p>
+              </div>
+              <div className="space-y-0">
+                <h3 className="text-xl md:text-2xl font-serif font-semibold text-navy">Restaurante Paradiso:</h3>
+                <p className="text-navy/80">
+                  Junto ao bosque de mata nativa, de frente para as piscinas. Cardápio de grelhados e buffet completo
+                  de frios, saladas e doces.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Galeria à direita (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-72 sm:h-80 md:h-96">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
                 { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
                 { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
                 { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
               ]}
-              className="h-72 sm:h-80 md:h-96"
+              className="h-80 md:h-96"
               showDots
+              fit="cover"
             />
           </div>
         </div>
       </section>
 
-      {/* Seção alternada 2: slide à esquerda, texto à direita */}
-      <section className="py-16 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Carrossel à esquerda */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 md:h-80">
-            <CardImageCarousel
-              images={[
-                { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
-                { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
-                { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
-              ]}
-              className="h-64 md:h-80"
-              showDots
-            />
-          </div>
-          {/* Texto à direita */}
-          <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Ambientes e Sabores</h3>
-            <p className="text-navy/80 leading-relaxed">
-              Cenários acolhedores e cardápios que valorizam ingredientes frescos, receitas tradicionais
-              e grelhados especiais.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Seção secundária removida: manter apenas um card rolando com fotos */}
 
       <Footer />
     </>

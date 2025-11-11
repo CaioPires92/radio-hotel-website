@@ -8,16 +8,16 @@ export const PHONE_RECEPCAO_2 = '+55 19 3892-1928'
 export const EMAIL_RESERVAS = 'reservas@radiohotel.com.br'
 
 export const ADDRESS = {
-  street: 'Rua das Águas Radioativas, 123',
+  street: 'R. Cel. Pedro Penteado, 387',
   city: 'Serra Negra',
   region: 'SP',
-  postalCode: '13.930-063',
+  postalCode: '',
   country: 'BR',
 }
 
 export const SOCIALS = {
-  facebook: 'https://facebook.com/radiohotel', // placeholder
-  instagram: 'https://instagram.com/radiohotel', // placeholder
+  facebook: 'https://www.facebook.com/RadioHotelSerraNegra/',
+  instagram: 'https://www.instagram.com/radiohotelsn/',
   twitter: 'https://twitter.com/radiohotel', // placeholder
 }
 

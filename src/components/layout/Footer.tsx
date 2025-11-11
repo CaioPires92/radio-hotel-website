@@ -13,7 +13,6 @@ import {
   Clock,
   Facebook,
   Instagram,
-  Twitter,
   Wifi,
   Car,
   Utensils,
@@ -80,20 +79,14 @@ const Footer = () => {
     {
       name: 'Facebook',
       icon: Facebook,
-      href: 'https://facebook.com/radiohotel', // Você pode atualizar com o link real
+      href: 'https://www.facebook.com/RadioHotelSerraNegra/',
       color: 'hover:text-blue-500',
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      href: 'https://instagram.com/radiohotel', // Você pode atualizar com o link real
+      href: 'https://www.instagram.com/radiohotelsn/',
       color: 'hover:text-pink-500',
-    },
-    {
-      name: 'Twitter',
-      icon: Twitter,
-      href: 'https://twitter.com/radiohotel',
-      color: 'hover:text-blue-400',
     },
   ];
 
