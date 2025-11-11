@@ -6,6 +6,7 @@ import { Phone, Calendar, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 interface ParallaxSectionProps {
   onBookingClick?: () => void;
@@ -32,7 +33,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
       onBookingClick();
     } else {
       const message = t('parallax.whatsapp.bookingMessage');
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = buildWhatsAppUrl(message);
       window.open(whatsappUrl, '_blank');
     }
   };

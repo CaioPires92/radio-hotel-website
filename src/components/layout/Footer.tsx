@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import Image from 'next/image';
+import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, EMAIL_RESERVAS } from '@/lib/config';
 import {
   Phone,
   Mail,
@@ -51,20 +52,20 @@ const Footer = () => {
     {
       icon: Phone,
       label: 'Informações e Reservas',
-      value: 'De Segunda a Sexta das 08:00 às 18:00\n(19) 3892-2284',
-      href: 'tel:+551938922284',
+      value: `De Segunda a Sexta das 08:00 às 18:00\n${PHONE_RESERVAS.replace('+55 ', '')}`,
+      href: `tel:${PHONE_RESERVAS.replace(/\s|\(|\)|-/g, '')}`,
     },
     {
       icon: Phone,
       label: 'Recepção',
-      value: '(19) 3892-3311\n(19) 3892-1928\n(19) 99990-3311',
-      href: 'tel:+551938923311',
+      value: `${PHONE_RECEPCAO_1.replace('+55 ', '')}\n${PHONE_RECEPCAO_2.replace('+55 ', '')}`,
+      href: `tel:${PHONE_RECEPCAO_1.replace(/\s|\(|\)|-/g, '')}`,
     },
     {
       icon: Mail,
       label: t('footer.contact.email.label'),
-      value: 'reservas@radiohotel.com.br',
-      href: 'mailto:reservas@radiohotel.com.br',
+      value: EMAIL_RESERVAS,
+      href: `mailto:${EMAIL_RESERVAS}`,
     },
     {
       icon: MapPin,
@@ -109,7 +110,7 @@ const Footer = () => {
 
   const handleWhatsAppClick = () => {
     const message = t('footer.whatsapp.message');
-    const whatsappUrl = `https://wa.me/5519999903311?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = buildWhatsAppUrl(message);
     window.open(whatsappUrl, '_blank');
   };
 
@@ -170,13 +171,13 @@ const Footer = () => {
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="relative w-40 h-16 md:w-48 md:h-20">
+                  <div className="relative w-48 h-20 md:w-64 md:h-24">
                     <Image
                       src="/logo.png"
                       alt={t('footer.logo.alt')}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 160px, 192px"
+                      sizes="(max-width: 768px) 192px, 256px"
                       quality={90}
                     />
                   </div>

@@ -2,7 +2,7 @@
 
 import { useTranslation } from '@/components/i18n/I18nProvider'
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Waves, TreePine, Utensils, Leaf } from 'lucide-react'
 
 type Item = {
   title: string
@@ -28,7 +28,7 @@ export default function Highlights() {
     {
       title: t('highlights.bosque.title'),
       description: t('highlights.bosque.description'),
-      href: '/bosque',
+      href: '/lazer',
       images: [
         { src: '/images/facilities/sports.jpg', alt: 'Quadra de tênis' },
         { src: '/images/facilities/facilities-2.jpg', alt: 'Quadra de beach tênis' },
@@ -60,8 +60,18 @@ export default function Highlights() {
   return (
     <section className="py-16 md:py-20 bg-cream" id="highlights">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Cabeçalho da seção */}
-        <div className="text-center mb-12 md:mb-16">
+        {/* Cabeçalho da seção com pattern sutil */}
+        <div className="relative text-center mb-12 md:mb-16">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-10"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -top-6 right-0 translate-x-6 hidden md:block opacity-10"
+            aria-hidden
+          >
+            <img src="/about-hotel.svg" alt="" className="w-56" />
+          </div>
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('highlights.badge')}
           </span>
@@ -76,6 +86,7 @@ export default function Highlights() {
         <div className="space-y-16 md:space-y-24">
           {items.map((item, idx) => {
             const reverse = idx % 2 === 1
+            const Icon = [Waves, TreePine, Utensils, Leaf][idx] || Waves
             return (
               <div key={item.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Card / Carousel */}
@@ -87,9 +98,14 @@ export default function Highlights() {
 
                 {/* Text */}
                 <div className={reverse ? 'order-1 lg:order-1' : 'order-2 lg:order-2'}>
-                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
-                    {item.title}
-                  </h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-10 w-10 rounded-full bg-gold/90 text-navy flex items-center justify-center shadow">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="text-navy/80 leading-relaxed mb-6">
                     {item.description}
                   </p>

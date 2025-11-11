@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 
 export default function RestaurantePage() {
   const restaurants = [
@@ -36,46 +37,56 @@ export default function RestaurantePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 items-start">
-            {/* Texto à esquerda */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-10"
-            >
-              <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gold/10">
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-3">{restaurants[0].title}</h2>
-                <p className="text-navy/85 leading-relaxed">{restaurants[0].description}</p>
-              </div>
-              <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gold/10">
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-3">{restaurants[1].title}</h2>
-                <p className="text-navy/85 leading-relaxed">{restaurants[1].description}</p>
-              </div>
-            </motion.div>
+      {/* Seção em duas colunas: informações à esquerda, galeria à direita */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* Texto à esquerda */}
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy">Restaurantes</h2>
+            <p className="text-navy/80 text-lg">Restaurantes Cinquentenário e Paradiso: à la carte/buffet e grelhados, com saladas e doces.</p>
+            <p className="text-navy/75">
+              Gastronomia refinada com ingredientes frescos e receitas tradicionais, em ambientes acolhedores com
+              vista para a natureza.
+            </p>
+          </div>
 
-            {/* Galeria à direita */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="relative h-40 md:h-56 lg:h-64 rounded-xl overflow-hidden shadow-sm">
-                  <Image src="/images/restaurant/restaurante1.jpg" alt="Ambiente do restaurante" fill className="object-cover" />
-                </div>
-                <div className="relative h-40 md:h-56 lg:h-64 rounded-xl overflow-hidden shadow-sm">
-                  <Image src="/images/restaurant/restaurante2.jpg" alt="Restaurante Cinquentenário" fill className="object-cover" />
-                </div>
-                <div className="relative h-40 md:h-56 lg:h-64 rounded-xl overflow-hidden shadow-sm col-span-2">
-                  <Image src="/images/restaurant/restaurante3.jpg" alt="Restaurante Paradiso" fill className="object-cover" />
-                </div>
-              </div>
-            </motion.div>
+          {/* Galeria à direita (com slide) */}
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-72 sm:h-80 md:h-96">
+            <CardImageCarousel
+              images={[
+                { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
+                { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
+                { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
+              ]}
+              className="h-72 sm:h-80 md:h-96"
+              showDots
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Seção alternada 2: slide à esquerda, texto à direita */}
+      <section className="py-16 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* Carrossel à esquerda */}
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 md:h-80">
+            <CardImageCarousel
+              images={[
+                { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
+                { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
+                { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
+              ]}
+              className="h-64 md:h-80"
+              showDots
+            />
+          </div>
+          {/* Texto à direita */}
+          <div className="space-y-4">
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Ambientes e Sabores</h3>
+            <p className="text-navy/80 leading-relaxed">
+              Cenários acolhedores e cardápios que valorizam ingredientes frescos, receitas tradicionais
+              e grelhados especiais.
+            </p>
           </div>
         </div>
       </section>

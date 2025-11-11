@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Gift } from 'lucide-react';
 import { useI18nContext } from '@/components/i18n/I18nProvider';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 export default function PromoRibbon() {
   const { locale } = useI18nContext();
@@ -23,7 +24,7 @@ export default function PromoRibbon() {
       ? '¡Hola! Quiero saber sobre la programación especial del 80º aniversario (26 al 28 de diciembre).'
       : 'Olá! Quero saber da programação especial do aniversário de 80 anos (26 a 28 de dezembro).';
 
-  const waUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(waText)}`;
+  const waUrl = buildWhatsAppUrl(waText);
 
   return (
     <div className="sticky top-0 z-40 bg-gold text-navy px-4 py-2 shadow-md w-full">

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 interface HeroProps {
   onBookingClick?: () => void;
@@ -79,7 +80,7 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
         onBookingClick();
       } else {
         const message = t('hero.whatsapp.bookingMessage');
-        const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = buildWhatsAppUrl(message);
         window.open(whatsappUrl, '_blank');
       }
       // Simulate loading time for better UX
@@ -122,6 +123,11 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
                 quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-navy/70 to-blue/60" />
+              {/* Pattern sutil por cima do gradiente */}
+              <div
+                className="absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:360px] opacity-[0.08]"
+                aria-hidden
+              />
             </div>
           </motion.div>
         </AnimatePresence>

@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 interface Event {
   id: string;
@@ -84,7 +85,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       message += ` ${t('eventsModal.whatsapp.atTime')} ${event.time}`;
     }
     message += `. ${t('eventsModal.whatsapp.helpRequest')}`;
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = buildWhatsAppUrl(message);
     window.open(whatsappUrl, '_blank');
   };
 

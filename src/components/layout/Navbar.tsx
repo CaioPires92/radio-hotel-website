@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 interface NavbarProps {
   onBookingClick?: () => void;
@@ -48,7 +49,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       onBookingClick();
     } else {
       const message = t('navbar.whatsapp.bookingMessage');
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = buildWhatsAppUrl(message);
       window.open(whatsappUrl, '_blank');
     }
   };

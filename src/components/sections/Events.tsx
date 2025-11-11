@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
+import { buildWhatsAppUrl } from '@/lib/config';
 import ConferenceTable from '@/components/sections/ConferenceTable';
 
 const Events = () => {
@@ -50,7 +51,7 @@ const Events = () => {
     setIsContactLoading(true);
     try {
       const message = `${t('events.whatsapp.eventInquiry')} ${events[currentEvent].title}`;
-      const whatsappUrl = `https://wa.me/5519999999999?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = buildWhatsAppUrl(message);
       window.open(whatsappUrl, '_blank');
       // Simulate loading time for better UX
       await new Promise(resolve => setTimeout(resolve, 500));

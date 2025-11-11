@@ -16,6 +16,8 @@ import BackToTopButton from '@/components/ui/BackToTopButton';
 import SeasonalPackages from './sections/SeasonalPackages';
 import PromoRibbon from './ui/PromoRibbon';
 import Highlights from '@/components/sections/Highlights';
+import WaveDivider from '@/components/ui/WaveDivider';
+import BandSeparator from '@/components/ui/BandSeparator';
 
 function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
@@ -34,8 +36,11 @@ function HomePage() {
       {/* Hero, About, etc. */}
       {/* Usa versão compacta na Home */}
       <Accommodations compact />
+      <WaveDivider variant="line" color="#b2ab70" height={44} className="-mt-1 -mb-1" />
       <Highlights />
+      <WaveDivider variant="line" color="#b2ab70" height={44} className="-mt-1 -mb-1" />
       <ParallaxSection onBookingClick={() => setIsBookingFormOpen(true)} />
+      <BandSeparator height={12} color="#b2ab70" />
       <Footer />
 
       {/* Modals and Floating Elements */}

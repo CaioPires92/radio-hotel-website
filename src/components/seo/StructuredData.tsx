@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { ADDRESS, EMAIL_RESERVAS, PHONE_RESERVAS } from '@/lib/config';
 
 interface StructuredDataProps {
   data: object;
@@ -29,16 +30,16 @@ export const hotelStructuredData = {
   '@type': 'Hotel',
   name: 'Radio Hotel',
   description: 'Hotel de luxo em Serra Negra, SP, cercado pela natureza exuberante e muito verde.',
-  telephone: '+55 19 3892-2284',
-  email: 'reservas@radiohotel.com.br',
+  telephone: PHONE_RESERVAS,
+  email: EMAIL_RESERVAS,
   url: 'https://radiohotel.com.br',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Rua Principal, 123',
-    addressLocality: 'Serra Negra',
-    addressRegion: 'SP',
-    postalCode: '13.930-063',
-    addressCountry: 'BR',
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postalCode,
+    addressCountry: ADDRESS.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
@@ -103,14 +104,14 @@ export const restaurantStructuredData = {
   '@type': 'Restaurant',
   name: 'Restaurante Radio Hotel',
   description: 'Restaurante do Radio Hotel oferecendo culinária regional e internacional em ambiente elegante.',
-  telephone: '+55 19 3892-2284',
+  telephone: PHONE_RESERVAS,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Rua Principal, 123',
-    addressLocality: 'Serra Negra',
-    addressRegion: 'SP',
-    postalCode: '13.930-063',
-    addressCountry: 'BR',
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postalCode,
+    addressCountry: ADDRESS.country,
   },
   servesCuisine: ['Brasileira', 'Internacional', 'Regional'],
   priceRange: '$$$',
@@ -126,14 +127,14 @@ export const eventVenueStructuredData = {
   '@type': 'EventVenue',
   name: 'Radio Hotel - Espaço para Eventos',
   description: 'Espaço elegante para casamentos, eventos corporativos e celebrações especiais em Serra Negra.',
-  telephone: '+55 19 3892-2284',
+  telephone: PHONE_RESERVAS,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Rua Principal, 123',
-    addressLocality: 'Serra Negra',
-    addressRegion: 'SP',
-    postalCode: '13.930-063',
-    addressCountry: 'BR',
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postalCode,
+    addressCountry: ADDRESS.country,
   },
   maximumAttendeeCapacity: 200,
   amenityFeature: [

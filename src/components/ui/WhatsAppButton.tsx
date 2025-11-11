@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Phone } from 'lucide-react';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 export default function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +37,7 @@ export default function WhatsAppButton() {
 
   const handleClick = () => {
     const message = 'Olá! Gostaria de saber mais informações sobre o Radio Hotel e fazer uma reserva.';
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = buildWhatsAppUrl(message);
     window.open(whatsappUrl, '_blank');
   };
 

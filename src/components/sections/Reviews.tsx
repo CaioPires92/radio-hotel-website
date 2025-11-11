@@ -192,7 +192,7 @@ const Reviews = () => {
               {/* Contact Phone under review */}
               <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-navy/70">
                 <span className="text-sm">Telefone para reservas:</span>
-                <a href="tel:+551938922284" className="text-sm font-semibold hover:text-gold transition-colors">
+                <a href={`tel:${'+55 19 3892-2284'.replace(/\s|\(|\)|-/g, '')}`} className="text-sm font-semibold hover:text-gold transition-colors">
                   (19) 3892-2284
                 </a>
               </div>

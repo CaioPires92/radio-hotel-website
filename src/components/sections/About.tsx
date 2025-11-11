@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell, Smile } from 'lucide-react';
+import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell, Smile, Waves, TreePine, PlugZap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -19,6 +19,10 @@ export default function About() {
       title: t('about.features.parking.title')
     },
     {
+      icon: Waves,
+      title: 'Piscinas'
+    },
+    {
       icon: Coffee,
       title: t('about.features.breakfast.title')
     },
@@ -27,12 +31,20 @@ export default function About() {
       title: t('about.features.restaurant.title')
     },
     {
+      icon: TreePine,
+      title: 'Bosque'
+    },
+    {
       icon: Dumbbell,
       title: t('about.features.gym.title')
     },
     {
       icon: Smile,
       title: 'Monitoria de Lazer'
+    },
+    {
+      icon: PlugZap,
+      title: 'Carregador EV'
     },
     {
       icon: Users,

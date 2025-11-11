@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 type ImageItem = { src: string; alt: string }
 
@@ -10,11 +10,14 @@ type Props = {
   images: ImageItem[]
   className?: string
   intervalMs?: number
+  showDots?: boolean
 }
 
-export default function CardImageCarousel({ images, className, intervalMs = 3500 }: Props) {
+export default function CardImageCarousel({ images, className, intervalMs = 3500, showDots = false }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const autoplayRef = useRef<number | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
 
   useEffect(() => {
     if (!emblaApi) return
@@ -27,6 +30,15 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+  const scrollTo = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi || !showDots) return
+    setScrollSnaps(emblaApi.scrollSnapList())
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap())
+    emblaApi.on('select', onSelect)
+    onSelect()
+  }, [emblaApi, showDots])
 
   return (
     <div className={"relative overflow-hidden " + (className ?? '')} ref={emblaRef} aria-roledescription="carousel">
@@ -62,6 +74,21 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
       >
         <ChevronRight aria-hidden className="h-4 w-4" />
       </button>
+
+      {showDots && scrollSnaps.length > 1 && (
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-2 py-1">
+          {scrollSnaps.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => scrollTo(i)}
+              aria-label={`Ir ao slide ${i + 1}`}
+              aria-current={i === selectedIndex}
+              className={'h-1.5 w-1.5 rounded-full transition ' + (i === selectedIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/80')}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

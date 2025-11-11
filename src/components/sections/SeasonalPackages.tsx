@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Calendar, PartyPopper, Sun, Phone } from 'lucide-react';
+import { buildWhatsAppUrl } from '@/lib/config';
 
 const packages = [
   {
@@ -49,7 +50,7 @@ const packages = [
 export default function SeasonalPackages() {
   const handleBookingClick = () => {
     const msg = 'Olá! Quero informações dos pacotes de Natal/Réveillon/Férias.';
-    window.open(`https://wa.me/5519999999999?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(buildWhatsAppUrl(msg), '_blank');
   };
 
   return (
