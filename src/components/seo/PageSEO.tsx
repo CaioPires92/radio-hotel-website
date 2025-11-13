@@ -91,7 +91,7 @@ keywords: ['spa serra negra', 'trilhas ecológicas', 'bosque pinheiros'],
   },
   contact: {
     title: 'Contato e Localização - Como Chegar ao Radio Hotel',
-    description: 'Entre em contato conosco para reservas e informações. Localizado no centro de Serra Negra, SP, com fácil acesso e estacionamento gratuito.',
+    description: 'Entre em contato conosco para reservas e informações. Localizado no centro de Serra Negra, SP, com fácil acesso e estacionamento no local.',
     keywords: ['contato radio hotel', 'reservas serra negra', 'localização hotel', 'como chegar serra negra', 'telefone hotel'],
   },
 };

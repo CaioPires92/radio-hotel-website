@@ -110,12 +110,12 @@
     },
     "features": {
       "wifi": {
-        "title": "Wi-Fi Gratuito",
+        "title": "Wi-Fi",
         "description": "Internet de alta velocidad en todas las Ã¡reas"
       },
       "parking": {
         "title": "Estacionamiento",
-        "description": "Estacionamiento cubierto gratuito para huÃ©spedes"
+        "description": "Estacionamiento cubierto para huÃ©spedes"
       },
       "breakfast": {
         "title": "Desayuno",
@@ -262,16 +262,11 @@
         "name": "Suite de Lujo",
         "type": "Experiencia Premium",
         "description": "Los apartamentos de Lujo son 8 mÂ² mÃ¡s grandes que los EstÃ¡ndar, dan a la piscina y estÃ¡n equipados con minibar, telÃ©fono y aire acondicionado. Tienen suelo antialÃ©rgico para un mayor bienestar."
-      },
-      "quadruple": {
-        "name": "Suite CuÃ¡druple",
-        "type": "Para Familia",
-        "description": "Amplia suite con cuatro camas individuales, ideal para familias o grupos, con todas las comodidades para una estancia confortable."
       }
     },
     "amenities": {
-      "wifi": "Wi-Fi Gratuito",
-      "parking": "Estacionamiento Gratuito",
+      "wifi": "Wi-Fi",
+      "parking": "Estacionamiento",
       "minibar": "Minibar",
       "tv": "Smart TV",
       "bathroom": "BaÃ±o Privado",
@@ -306,8 +301,8 @@
     },
     "convention": {
       "title": "Centro de Convenciones",
-      "description": "El Centro de Convenciones del Radio Hotel es ideal para grandes eventos, ofreciendo 800 mÂ², ampliables a 1.200 mÂ², y capacidad para hasta 350 personas. Con un techo de 5 metros de altura, el espacio cuenta con los auditorios Millenium y Monterey y 5 salas modulares. EstÃ¡ totalmente climatizado (288.000 BTUs Mitsubishi) y equipado con tecnologÃ­a de punta, incluyendo recursos de TI, internet, multimedia, proyecciÃ³n y DVD, garantizando flexibilidad y confort para su evento.",
-      "capacity": "Hasta 350 personas",
+      "description": "Con 800 m² de área construida y capacidad para hasta 300 personas, el Centro de Convenciones del Radio Hotel cuenta con 5 metros de altura, dos plantas y 2 auditorios. El espacio está totalmente climatizado y equipado con Wi‑Fi de alta velocidad y proyección. Contáctanos para saber cómo podemos contribuir al éxito de tu evento.",
+      "capacity": "Hasta 300 personas",
       "features": {
         "audiovisual": "Sistema audiovisual completo",
         "wifi": "Wi-Fi de alta velocidad",
@@ -318,7 +313,9 @@
       },
       "clients": {
         "title": "Clientes en Convenciones"
-      }
+      },
+      "area": "800 m²",
+      "expandableArea": ""
     },
     "corporate": {
       "title": "Eventos Corporativos",
@@ -358,7 +355,7 @@
       "features": {
         "decoration": "DecoraciÃ³n temÃ¡tica",
         "gourmetBuffet": "Buffet gourmet",
-        "parking": "Estacionamiento gratuito",
+        "parking": "Estacionamiento",
         "technicalSupport": "Soporte tÃ©cnico",
         "audiovisual": "Sistema audiovisual"
       }
@@ -551,7 +548,7 @@
     },
     "feijoada": {
       "title": "Feijoada Tradicional",
-      "description": "SÃ¡bado de feijoada con mÃºsica brasileÃ±a y caipirinha libre.",
+      "description": "Sábado de feijoada con música brasileña.",
       "date": "",
       "time": "",
       "location": ""
@@ -565,12 +562,11 @@
     },
     "novemberHoliday": {
       "title": "Feriado de Noviembre",
-      "description": "Celebra el feriado con actividades especiales y gastronomÃ­a regional.",
+      "description": "Disfruta del feriado con comodidad y una estancia agradable en Radio Hotel.",
       "date": "",
       "time": "",
       "location": ""
     }
-    
   },
   "contact": {
     "title": "Ponte en Contacto",
@@ -611,7 +607,7 @@
     },
     "services": {
       "title": "Nuestros Servicios",
-      "wifi": "Wi-Fi Gratuito",
+      "wifi": "Wi-Fi",
       "parking": "Estacionamiento",
       "roomService": "Servicio a la HabitaciÃ³n",
       "restaurant": "Restaurante",
@@ -735,4 +731,3 @@
     }
   }
 }
-

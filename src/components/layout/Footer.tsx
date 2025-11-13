@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import Image from 'next/image';
-import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, EMAIL_RESERVAS } from '@/lib/config';
+import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, PHONE_RECEPCAO_MOBILE, EMAIL_RESERVAS } from '@/lib/config';
 import {
   Phone,
   Mail,
@@ -57,7 +57,7 @@ const Footer = () => {
     {
       icon: Phone,
       label: 'Recepção',
-      value: `${PHONE_RECEPCAO_1.replace('+55 ', '')}\n${PHONE_RECEPCAO_2.replace('+55 ', '')}`,
+      value: `${PHONE_RECEPCAO_1.replace('+55 ', '')}\n${PHONE_RECEPCAO_2.replace('+55 ', '')}\n${PHONE_RECEPCAO_MOBILE.replace('+55 ', '')}`,
       href: `tel:${PHONE_RECEPCAO_1.replace(/\s|\(|\)|-/g, '')}`,
     },
     {

@@ -1,7 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Events from '@/components/sections/Events';
-import ConventionClients from '@/components/sections/ConventionClients';
 import ConventionsHero from '@/components/sections/ConventionsHero';
 
 export default function ConventionsPage() {
@@ -10,7 +9,6 @@ export default function ConventionsPage() {
       <Navbar />
       <ConventionsHero heightClass="min-h-[50vh] md:min-h-[60vh]" />
       <Events />
-      <ConventionClients />
       <Footer />
     </main>
   );

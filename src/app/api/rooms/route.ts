@@ -25,7 +25,33 @@ export async function GET() {
     const dirents = fs.readdirSync(baseDir, { withFileTypes: true });
     const folders = dirents.filter(d => d.isDirectory());
 
-    const excluded = new Set(['112', '302', '305 - Apartamento Conjugado']);
+    const excluded = new Set([
+      '112',
+      '302',
+      '305',
+      '305 - Apartamento Conjugado',
+      '310',
+      '310 - Apartamento Conjugado',
+    ]);
+
+    const mapCaption = (rawName: string) => {
+      const n = rawName.toLowerCase();
+      if (n.includes('frente') || n.includes('rua')) return 'Apartamento Standard frente rua';
+      if (n.includes('standard')) return 'Apartamento Standard com vista interna';
+      if (n.includes('suíte master especial') || n.includes('suite master especial') || n.includes('master especial') || (n.includes('master') && n.includes('especial'))) return 'Suíte Master especial com sacada e vista para a piscina';
+      if (n.includes('suíte master') || n.includes('suite master') || n.includes('master')) return 'Suíte Master com sacada e vista para a piscina';
+      if ((n.includes('suíte luxo') || n.includes('suite luxo') || n.includes('luxo')) && n.includes('bosque')) return 'Suíte Luxo com vista para a piscina ou bosque';
+      if (n.includes('suíte luxo') || n.includes('suite luxo') || n.includes('luxo')) return 'Apartamento luxo com vista para a piscina ou jardim';
+      return 'Apartamento Standard com vista interna';
+    };
+
+    const mapBaseTitle = (rawName: string) => {
+      const n = rawName.toLowerCase();
+      if (n.includes('master')) return 'Suíte Master';
+      if (n.includes('luxo')) return 'Apartamento Luxo';
+      return 'Apartamento Standard';
+    };
+    // 1) Varre subpastas (quando existirem)
     for (const folder of folders) {
       if (excluded.has(folder.name)) {
         continue;
@@ -36,9 +62,11 @@ export async function GET() {
       if (files.length === 0) continue;
 
       const id = folder.name.toLowerCase().replace(/\s+/g, '-');
-      const name = folder.name;
-      const type = deriveType(name);
-      const description = type;
+      const label = mapCaption(folder.name);
+      const base = mapBaseTitle(folder.name);
+      const name = base; // título simples
+      const type = base;
+      const description = label; // subtítulo com detalhes
 
       const toPublicPath = (file: string) => `/images/rooms/${folder.name}/${file}`;
 
@@ -51,6 +79,29 @@ export async function GET() {
         amenities: [],
         tags: [name],
         gallery: files.map(file => ({ src: toPublicPath(file), tag: name }))
+      });
+    }
+
+    // 2) Também varre arquivos diretamente na pasta 'rooms' (atual estrutura)
+    const rootFiles = dirents.filter(d => d.isFile()).map(f => f.name).filter(isImage);
+    for (const file of rootFiles) {
+      const id = path.parse(file).name.toLowerCase().replace(/\s+/g, '-');
+      const label = mapCaption(file);
+      const base = mapBaseTitle(file);
+      const name = base;
+      const type = base;
+      const description = label;
+      const toPublicPath = (f: string) => `/images/rooms/${f}`;
+
+      rooms.push({
+        id,
+        name,
+        type,
+        description,
+        image: toPublicPath(file),
+        amenities: [],
+        tags: [name],
+        gallery: [{ src: toPublicPath(file), tag: name }]
       });
     }
   } catch (e) {

@@ -1,9 +1,10 @@
-// Contatos centralizados (placeholders até confirmação)
-export const WHATSAPP_NUMBER = '5519999999999'
+// Contatos centralizados
+export const WHATSAPP_NUMBER = '5519999903311'
 
 export const PHONE_RESERVAS = '+55 19 3892-2284'
 export const PHONE_RECEPCAO_1 = '+55 19 3892-3311'
 export const PHONE_RECEPCAO_2 = '+55 19 3892-1928'
+export const PHONE_RECEPCAO_MOBILE = '+55 19 99990-3311'
 
 export const EMAIL_RESERVAS = 'reservas@radiohotel.com.br'
 

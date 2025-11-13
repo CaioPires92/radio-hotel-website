@@ -100,7 +100,7 @@
     },
     "features": {
       "wifi": {
-        "title": "Wi-Fi Gratuito"
+        "title": "Wi-Fi"
       },
       "parking": {
         "title": "Estacionamento"
@@ -135,7 +135,7 @@
     },
     "features": {
       "wifi": {
-        "title": "Wi-Fi Gratuito"
+        "title": "Wi-Fi"
       },
       "parking": {
         "title": "Estacionamento"
@@ -189,15 +189,10 @@
         "name": "Suíte Master Especial",
         "type": "Experiência Premium",
         "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
-      },
-      "quadruple": {
-        "name": "Suite Familiar",
-        "type": "Para Família",
-        "description": "Ampla suíte com quatro camas de solteiro, ideal para famílias ou grupos, com todas as comodidades para uma estadia confortável."
       }
     },
     "amenities": {
-      "wifi": "Wi-Fi Gratuito",
+      "wifi": "Wi-Fi",
       "parking": "Estacionamento",
       "minibar": "Frigobar",
       "tv": "TV",
@@ -234,10 +229,10 @@
     },
     "convention": {
       "title": "Centro de Convenções",
-      "description": "Com 800 m² de área construída, expansível para 1.200 m² e capacidade para até 350 pessoas, o Centro de Convenções do Radio Hotel possui pé direito de 5 metros, dois pavimentos, 2 auditórios e 5 salas de reunião. O ambiente é totalmente climatizado pela Mitsubishi (288.000 BTUs) e equipado com recursos de informática, internet, multimídia, projeção e DVD. Importante: o Radio Hotel apenas cede o espaço; não realiza planejamento nem execução de eventos.",
-      "capacity": "Até 350 pessoas",
+      "description": "Com 800 m² de área construída e capacidade para até 300 pessoas, o Centro de Convenções do Radio Hotel possui pé‑direito de 5 metros, dois pavimentos e 2 auditórios. O ambiente é totalmente climatizado e equipado com Wi‑Fi e projeção. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.",
+      "capacity": "Até 300 pessoas",
       "area": "800 m²",
-      "expandableArea": "Expansível até 1.200 m²",
+      "expandableArea": "",
       "ceilingHeight": "Pé direito de 5 m",
       "floors": "2 pavimentos",
       "auditoriums": "2 auditórios",
@@ -297,7 +292,7 @@
       "features": {
         "decoration": "Decoração temática",
         "gourmetBuffet": "Buffet gourmet",
-        "parking": "Estacionamento gratuito",
+        "parking": "Estacionamento",
         "technicalSupport": "Suporte técnico",
         "audiovisual": "Sistema audiovisual"
       }
@@ -546,7 +541,7 @@
     },
     "feijoada": {
       "title": "Feijoada Tradicional",
-      "description": "Sábado de feijoada com música brasileira e caipirinha liberada.",
+      "description": "Sábado de feijoada com música brasileira.",
       "date": "",
       "time": "",
       "location": ""
@@ -560,7 +555,7 @@
     },
     "novemberHoliday": {
       "title": "Feriado de Novembro",
-      "description": "Celebre o feriado com atividades especiais e gastronomia regional.",
+      "description": "Aproveite o feriado com conforto e boa hospedagem no Radio Hotel.",
       "date": "",
       "time": "",
       "location": ""
@@ -605,7 +600,7 @@
     },
     "services": {
       "title": "Nossos Serviços",
-      "wifi": "Wi-Fi Gratuito",
+      "wifi": "Wi-Fi",
       "parking": "Estacionamento",
       "roomService": "Serviço de Quarto",
       "restaurant": "Restaurante",

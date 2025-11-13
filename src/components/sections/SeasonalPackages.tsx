@@ -79,13 +79,13 @@ export default function SeasonalPackages() {
           {packages.map((pkg, idx) => (
             <motion.div
               key={pkg.id}
-              className="relative rounded-2xl overflow-hidden border border-gold/20 bg-white shadow-sm"
+              className="relative rounded-2xl overflow-hidden border border-gold/20 bg-white shadow-sm h-full flex flex-col md:min-h-[560px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
               viewport={{ once: true }}
             >
-              <div className="relative h-44 sm:h-52">
+              <div className="relative h-60 sm:h-72 md:h-80">
                 <Image
                   src={pkg.image}
                   alt={pkg.title}
@@ -100,14 +100,14 @@ export default function SeasonalPackages() {
                     {pkg.id === 'natal' && <PartyPopper className="w-4 h-4" />}
                     {pkg.id === 'reveillon' && <Calendar className="w-4 h-4" />}
                     {pkg.id === 'ferias' && <Sun className="w-4 h-4" />}
-                    <span className="font-semibold">{pkg.title}</span>
+                    <span className="font-serif font-bold text-base sm:text-lg md:text-xl drop-shadow">{pkg.title}</span>
                   </div>
-                  <span className="text-sm bg-white/20 px-2 py-1 rounded-full">{pkg.date}</span>
+                  <span className="text-xs sm:text-sm md:text-base bg-white/25 px-3 py-1.5 rounded-full font-medium ring-1 ring-white/40">{pkg.date}</span>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6">
-                <ul className="text-navy/80 text-sm sm:text-base space-y-2 mb-4">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                <ul className="text-navy/80 text-sm sm:text-base space-y-2 mb-4 flex-1">
                   {pkg.perks.map((perk) => (
                     <li key={perk} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block" />
@@ -115,7 +115,7 @@ export default function SeasonalPackages() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto">
                   {/* <span className="text-navy font-semibold">{pkg.price}</span> */}
                   <Button
                     onClick={handleBookingClick}

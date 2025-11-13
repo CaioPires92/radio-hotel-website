@@ -24,7 +24,8 @@
     "lighthouse:mobile": "npx lighthouse http://localhost:3000 --output=json --output-path=.lighthouseci/lighthouse-report.json",
     "lighthouse:accessibility": "npx lighthouse http://localhost:3000 --only-categories=accessibility --output=json --output-path=.lighthouseci/lighthouse-accessibility.json",
     "optimize-images": "node scripts/optimize-images.js",
-    "optimize-images:replace": "node scripts/optimize-images.js && node scripts/replace-optimized-images.js"
+    "optimize-images:replace": "node scripts/optimize-images.js && node scripts/replace-optimized-images.js",
+    "thumbs:rooms": "node scripts/generate-room-thumbs.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

@@ -110,7 +110,7 @@
     },
     "features": {
       "wifi": {
-        "title": "Free Wi-Fi",
+        "title": "Wi-Fi",
         "description": "High-speed internet in all areas"
       },
       "parking": {
@@ -262,16 +262,11 @@
         "name": "Luxury Suite",
         "type": "Premium Experience",
         "description": "Luxury apartments are 8 m² larger than Standard rooms, face the pool, and are equipped with a minibar, telephone, and air conditioning. They have anti-allergenic flooring for greater well-being."
-      },
-      "quadruple": {
-        "name": "Quadruple Suite",
-        "type": "For Family",
-        "description": "Spacious suite with four single beds, ideal for families or groups, with all the amenities for a comfortable stay."
       }
     },
     "amenities": {
-      "wifi": "Free Wi-Fi",
-      "parking": "Free Parking",
+      "wifi": "Wi-Fi",
+      "parking": "Parking",
       "minibar": "Minibar",
       "tv": "Smart TV",
       "bathroom": "Private Bathroom",
@@ -306,8 +301,8 @@
     },
     "convention": {
       "title": "Convention Center",
-      "description": "The Radio Hotel Convention Center is ideal for large events, offering 800 m², expandable to 1,200 m², and capacity for up to 350 people. With a 5-meter high ceiling, the space features the Millenium and Monterey auditoriums and 5 modular rooms. It is fully air-conditioned (288,000 BTUs Mitsubishi) and equipped with state-of-the-art technology, including IT resources, internet, multimedia, projection, and DVD, ensuring flexibility and comfort for your event.",
-      "capacity": "Up to 350 people",
+      "description": "With 800 m² of built area and capacity for up to 300 people, the Radio Hotel Convention Center features a 5-meter ceiling height, two floors, and 2 auditoriums. The venue is fully air-conditioned and equipped with high-speed Wi‑Fi and projection. Contact us to learn how we can support the success of your event.",
+      "capacity": "Up to 300 people",
       "features": {
         "audiovisual": "Complete audiovisual system",
         "wifi": "High-speed Wi-Fi",
@@ -318,7 +313,9 @@
       },
       "clients": {
         "title": "Convention Clients"
-      }
+      },
+      "area": "800 m²",
+      "expandableArea": ""
     },
     "corporate": {
       "title": "Corporate Events",
@@ -358,7 +355,7 @@
       "features": {
         "decoration": "Themed decoration",
         "gourmetBuffet": "Gourmet buffet",
-        "parking": "Free parking",
+        "parking": "Parking",
         "technicalSupport": "Technical support",
         "audiovisual": "Audiovisual system"
       }
@@ -551,7 +548,7 @@
     },
     "feijoada": {
       "title": "Traditional Feijoada",
-      "description": "Saturday feijoada with Brazilian music and free caipirinha.",
+      "description": "Saturday feijoada with Brazilian music.",
       "date": "",
       "time": "",
       "location": ""
@@ -565,7 +562,7 @@
     },
     "novemberHoliday": {
       "title": "November Holiday",
-      "description": "Celebrate the holiday with special activities and regional gastronomy.",
+      "description": "Enjoy the holiday with comfort and a pleasant stay at Radio Hotel.",
       "date": "",
       "time": "",
       "location": ""
@@ -610,7 +607,7 @@
     },
     "services": {
       "title": "Our Services",
-      "wifi": "Free Wi-Fi",
+      "wifi": "Wi-Fi",
       "parking": "Parking",
       "restaurant": "Restaurant",
       "gym": "Gym",

@@ -40,6 +40,7 @@ export default function LazerPage() {
                 { src: '/images/facilities/piscina.jpg', alt: 'Piscina principal' },
                 { src: '/images/facilities/piscina1.jpg', alt: 'Piscina com área de descanso' },
                 { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao verde' },
+                { src: '/images/facilities/piscina3.jpg', alt: 'Nova área da piscina' },
               ]}
               className="h-80 md:h-96"
               showDots

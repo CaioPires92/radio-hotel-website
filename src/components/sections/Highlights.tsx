@@ -9,6 +9,7 @@ type Item = {
   description: string
   href: string
   images: { src: string; alt: string }[]
+  icon?: any
 }
 
 export default function Highlights() {
@@ -19,26 +20,19 @@ export default function Highlights() {
       title: t('highlights.leisure.title'),
       description: t('highlights.leisure.description'),
       href: '/lazer',
+      icon: Waves,
       images: [
         { src: '/images/facilities/piscina1.jpg', alt: 'Piscina do hotel com área de descanso' },
         { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao bosque' },
-        { src: '/images/facilities/brinquedo1.jpg', alt: 'Espaço de jogos e recreação' },
-      ],
-    },
-    {
-      title: t('highlights.bosque.title'),
-      description: t('highlights.bosque.description'),
-      href: '/lazer',
-      images: [
-        { src: '/images/facilities/sports.jpg', alt: 'Quadra de tênis' },
-        { src: '/images/facilities/facilities-2.jpg', alt: 'Quadra de beach tênis' },
-        { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa próxima ao bosque' },
+        { src: '/images/facilities/piscina3.jpg', alt: 'Nova área da piscina' },
+        { src: '/images/facilities/mini-club-1.jpg', alt: 'Espaço de jogos e recreação' },
       ],
     },
     {
       title: t('highlights.gastronomy.title'),
       description: t('highlights.gastronomy.description'),
       href: '/restaurante',
+      icon: Utensils,
       images: [
         { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
         { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
@@ -49,10 +43,11 @@ export default function Highlights() {
       title: t('highlights.comfort.title'),
       description: t('highlights.comfort.description'),
       href: '/acomodacoes',
+      icon: Leaf,
       images: [
-        { src: '/images/rooms/luxo-1.jpg', alt: 'Apartamento Luxo' },
-        { src: '/images/rooms/master-especial.jpg', alt: 'Suíte Master Especial' },
-        { src: '/images/rooms/standard-1.jpg', alt: 'Apartamento Standard' },
+        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', alt: 'Apartamento Luxo' },
+        { src: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', alt: 'Suíte Master Especial' },
+        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', alt: 'Apartamento Standard' },
       ],
     },
   ]
@@ -86,13 +81,13 @@ export default function Highlights() {
         <div className="space-y-16 md:space-y-24">
           {items.map((item, idx) => {
             const reverse = idx % 2 === 1
-            const Icon = [Waves, TreePine, Utensils, Leaf][idx] || Waves
+            const Icon = (item as any).icon || Waves
             return (
               <div key={item.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Card / Carousel */}
                 <div className={reverse ? 'order-2 lg:order-2' : 'order-1 lg:order-1'}>
-                  <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-64 sm:h-80">
-                    <CardImageCarousel images={item.images} className="h-64 sm:h-80" />
+                  <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-60 sm:h-72 md:h-80">
+                    <CardImageCarousel images={item.images} className="h-60 sm:h-72 md:h-80" fit="cover" />
                   </div>
                 </div>
 

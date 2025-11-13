@@ -50,7 +50,7 @@
 ## 🏢 Centro de Convenções
 
 * [x] Nome: **Centro de Convenções**.
-* [x] Capacidade: até **350 pessoas**.
+* [x] Capacidade: até **300 pessoas**.
 * [x] Remover: pavilhão e eventos para 4.  
 * [X] Alterar endereço.
 * [x] Pegar medidas dos espaços.
@@ -75,3 +75,4 @@
 ---
 
 Quer que eu já transforme essa lista em um **checklist formatado para Notion** (com banco de dados de tarefas, status, prazos e responsável) ou prefere que eu prepare em **Excel/Google Sheets** para controle rápido?
+

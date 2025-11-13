@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Send } from 'lucide-react'
-import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, EMAIL_RESERVAS, ADDRESS, SOCIALS } from '@/lib/config'
+import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, PHONE_RECEPCAO_MOBILE, EMAIL_RESERVAS, ADDRESS, SOCIALS } from '@/lib/config'
 import { useTranslation } from '@/components/i18n/I18nProvider'
 
 // Metadata movido para head.tsx para evitar export em componente cliente
@@ -16,6 +16,7 @@ export default function ContatoPage() {
   const reservasTelHref = `tel:${PHONE_RESERVAS.replace(/\s|\(|\)|-/g, '')}`
   const recepcao1Href = `tel:${PHONE_RECEPCAO_1.replace(/\s|\(|\)|-/g, '')}`
   const recepcao2Href = `tel:${PHONE_RECEPCAO_2.replace(/\s|\(|\)|-/g, '')}`
+  const recepcaoMobileHref = `tel:${PHONE_RECEPCAO_MOBILE.replace(/\s|\(|\)|-/g, '')}`
   const emailHref = `mailto:${EMAIL_RESERVAS}`
   const mapsQuery = encodeURIComponent(`${ADDRESS.street}, ${ADDRESS.city} - ${ADDRESS.region}`)
   const mapsHref = `https://maps.google.com/?q=${mapsQuery}`
@@ -97,7 +98,7 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
       <Navbar />
 
       {/* Header */}
-      <section className="relative py-16 md:py-20 text-white text-center overflow-hidden">
+      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="relative w-full h-full">
             <Image
@@ -109,9 +110,9 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
               priority={false}
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+          <div className="absolute inset-0 bg-navy/60" />
         </div>
-        <div className="relative max-w-4xl mx-auto px-6">
+        <div className="relative z-10 max-w-4xl px-6">
           <motion.h1
             className="text-4xl md:text-5xl font-serif font-bold mb-3"
             initial={{ opacity: 0, y: 20 }}
@@ -170,6 +171,7 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
                   <div className="flex flex-col">
                     <a href={recepcao1Href} className="hover:text-gold transition-colors">{PHONE_RECEPCAO_1.replace('+55 ', '')}</a>
                     <a href={recepcao2Href} className="hover:text-gold transition-colors">{PHONE_RECEPCAO_2.replace('+55 ', '')}</a>
+                    <a href={recepcaoMobileHref} className="hover:text-gold transition-colors">{PHONE_RECEPCAO_MOBILE.replace('+55 ', '')}</a>
                   </div>
                 </div>
                 <div className="pt-2">

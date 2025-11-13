@@ -75,12 +75,12 @@ export const hotelStructuredData = {
     },
     {
       '@type': 'LocationFeatureSpecification',
-      name: 'Wi-Fi gratuito',
+      name: 'Wi-Fi',
       value: true,
     },
     {
       '@type': 'LocationFeatureSpecification',
-      name: 'Estacionamento gratuito',
+      name: 'Estacionamento',
       value: true,
     },
     {

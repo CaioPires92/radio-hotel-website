@@ -21,54 +21,83 @@ const roomsData = (t: (key: string) => string) => {
     { icon: Wifi, name: t('accommodations.amenities.wifi') },
     { icon: Tv, name: t('accommodations.amenities.tv') },
     { icon: Coffee, name: t('accommodations.amenities.minibar') },
-    { icon: Phone, name: t('accommodations.amenities.telephone') },
+    { icon: Phone, name: t('accommodations.amenities.phone') },
   ];
 
-  const standard = {
-    id: 'standard',
-    name: t('accommodations.rooms.standard.name'),
-    type: t('accommodations.rooms.standard.type'),
-    description: t('accommodations.rooms.standard.description'),
-    image: '/images/rooms/standard-1.jpg',
-    amenities: commonAmenities,
-    tags: ['Suíte standard'],
-    gallery: [
-      { src: '/images/rooms/standard-1.jpg', tag: 'Suíte standard' },
-    ],
-  };
-
-  const luxury = {
-    id: 'luxury',
-    name: t('accommodations.rooms.luxury.name'),
-    type: t('accommodations.rooms.luxury.type'),
-    description: t('accommodations.rooms.luxury.description'),
-    image: '/images/rooms/luxo-2.jpg',
-    amenities: commonAmenities,
-    tags: ['Suíte master', 'Suíte master especial'],
-    gallery: [
-      { src: '/images/rooms/luxo-2.jpg', tag: 'Suíte master' },
-      // { src: '/images/rooms/master-especial.jpg', tag: 'Suíte master especial' }, // adicionar arquivo em public para habilitar
-    ],
-  };
-
-  const quadruple = {
-    id: 'quadruple',
-    name: t('accommodations.rooms.quadruple.name'),
-    type: t('accommodations.rooms.quadruple.type'),
-    description: t('accommodations.rooms.quadruple.description'),
-    image: '/images/rooms/quadruplo-2.jpg',
-    amenities: commonAmenities,
-    tags: ['Suíte com 2 camas de casal'],
-    gallery: [
-      { src: '/images/rooms/quadruplo-2.jpg', tag: 'Suíte com 2 camas de casal' },
-      // { src: '/images/rooms/suite-2-camas.jpg', tag: 'Suíte com 2 camas de casal' }, // adicionar arquivo em public para habilitar
-    ],
-  };
-
+  // Seis quartos com fotos disponíveis (fallback estático)
   return [
-    standard,
-    luxury,
-    quadruple,
+    {
+      id: 'std-frente-rua',
+      name: 'Apartamento Standard',
+      type: 'Frente rua',
+      description: 'Apartamento Standard frente rua',
+      image: '/images/rooms/Apartamento-Standard-frente-rua.jpg',
+      amenities: commonAmenities,
+      tags: ['Apartamento Standard frente rua'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Standard-frente-rua.jpg', tag: 'Apartamento Standard frente rua' },
+      ],
+    },
+    {
+      id: 'std-vista-interna',
+      name: 'Apartamento Standard',
+      type: 'Vista interna',
+      description: 'Apartamento Standard com vista interna',
+      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      amenities: commonAmenities,
+      tags: ['Apartamento Standard com vista interna'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', tag: 'Apartamento Standard com vista interna' },
+      ],
+    },
+    {
+      id: 'luxo-jardim',
+      name: 'Apartamento Luxo',
+      type: 'Piscina ou jardim',
+      description: 'Apartamento luxo com vista para a piscina ou jardim',
+      image: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+      amenities: commonAmenities,
+      tags: ['Apartamento luxo com vista para a piscina ou jardim'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'Apartamento luxo com vista para a piscina ou jardim' },
+      ],
+    },
+    {
+      id: 'luxo-bosque',
+      name: 'Apartamento Luxo',
+      type: 'Piscina ou bosque',
+      description: 'Suíte Luxo com vista para a piscina ou bosque',
+      image: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      amenities: commonAmenities,
+      tags: ['Suíte Luxo com vista para a piscina ou bosque'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo com vista para a piscina ou bosque' },
+      ],
+    },
+    {
+      id: 'master-sacada',
+      name: 'Suíte Master',
+      type: 'Com sacada',
+      description: 'Suíte Master com sacada e vista para a piscina',
+      image: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
+      amenities: commonAmenities,
+      tags: ['Suíte Master com sacada e vista para a piscina'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master com sacada e vista para a piscina' },
+      ],
+    },
+    {
+      id: 'master-especial',
+      name: 'Suíte Master',
+      type: 'Especial',
+      description: 'Suíte Master especial com sacada e vista para a piscina',
+      image: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
+      amenities: commonAmenities,
+      tags: ['Suíte Master especial com sacada e vista para a piscina'],
+      gallery: [
+        { src: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
+      ],
+    },
   ];
 };
 
@@ -79,6 +108,9 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const { t } = useTranslation();
   // Substitui variável por state para aceitar dados dinâmicos
   const [rooms, setRooms] = useState(roomsData(t));
+  const [allRooms, setAllRooms] = useState<any[]>(roomsData(t));
+  const categories = ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master'];
+  const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
 
   const nextRoom = () => {
     setCurrentRoom((prev) => (prev + 1) % rooms.length);
@@ -143,7 +175,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
       { icon: Wifi, name: t('accommodations.amenities.wifi') },
       { icon: Tv, name: t('accommodations.amenities.tv') },
       { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Phone, name: t('accommodations.amenities.telephone') },
+      { icon: Phone, name: t('accommodations.amenities.phone') },
     ];
 
     const fetchRooms = async () => {
@@ -153,12 +185,18 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
         const apiRooms = (data?.rooms ?? []).map((r: any) => ({
           ...r,
-          amenities: r.amenities?.length ? r.amenities : commonAmenities
+          amenities: r.amenities?.length ? r.amenities : commonAmenities,
+          // Garante que a particularidade apareça como tag visível
+          tags: Array.from(new Set([...(r.tags || []), r.description].filter(Boolean)))
         }));
 
         // Se encontrou categorias via API, usa elas; senão mantém as atuais
         if (apiRooms.length) {
-          setRooms(apiRooms);
+          const ordered = apiRooms.sort((a: any, b: any) => categories.indexOf(a.name) - categories.indexOf(b.name));
+          setAllRooms(ordered);
+          const initial = ordered.filter((r: any) => r.name === activeCategory);
+          setRooms(initial.length ? initial : ordered);
+          setCurrentRoom(0);
         }
       } catch {
         // Silencia erro e mantém fallback estático
@@ -167,6 +205,13 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
     fetchRooms();
   }, [t]);
+
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    const filtered = allRooms.filter((r: any) => r.name === cat);
+    setRooms(filtered.length ? filtered : allRooms);
+    setCurrentRoom(0);
+  };
 
   // Variante compacta para a Home
   if (compact) {
@@ -191,7 +236,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             </p>
           </motion.div>
 
-          {/* Prévia das acomodações (3 cards) */}
+          {/* Prévia das acomodações (3 categorias) */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
             initial={{ opacity: 0, y: 30 }}
@@ -199,36 +244,64 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {rooms.slice(0, 3).map((room) => (
-              <Card key={room.id} className="border-0 shadow-2xl bg-white">
-                <CardContent className="p-0">
-                  <div className="relative h-48">
-                    <Image
+            {(() => {
+              // Representantes fixos por categoria (thumbs oficiais)
+              const source = (allRooms && allRooms.length) ? allRooms : rooms
+              const findByKey = (key: string) => source.find((r: any) => (r.name || '').toLowerCase().includes(key))
+              const reps = [
+                { key: 'standard', label: 'Apto Standard', type: 'Vista interna', image: '/images/rooms/thumbs/Apartamento-Standard-com-vista-interna.jpg' },
+                { key: 'luxo', label: 'Suíte Luxo', type: 'Piscina ou jardim', image: '/images/rooms/thumbs/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg' },
+                { key: 'master', label: 'Suíte Master', type: 'Com sacada', image: '/images/rooms/thumbs/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg' },
+              ]
+
+              const cards = reps.map((rep) => {
+                const r: any = findByKey(rep.key) || {}
+                return {
+                  id: r.id || rep.key,
+                  name: rep.label,
+                  type: rep.type,
+                  description: r.description || '',
+                  image: rep.image,
+                }
+              })
+
+              return cards.map((room) => (
+              <Card key={room.id} className="border-0 shadow-2xl bg-white h-full flex flex-col md:min-h-[560px]">
+                <CardContent className="p-0 flex-1 flex flex-col">
+                  <div className="relative h-60 sm:h-72 md:h-80 bg-black overflow-hidden">
+                    <img
                       src={room.image}
-                      alt={`${room.name} - ${room.type}`}
-                      fill
-                      className="object-cover"
-                      quality={85}
+                      alt={room.description || room.name}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => { try { e.currentTarget.src = (room.image || '').replace('/thumbs/', '/'); } catch {} }}
                     />
-                    <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
-                      {room.type}
-                    </div>
+                    {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
+                      <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
+                        {room.type}
+                      </div>
+                    )}
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-3xl font-serif font-bold text-navy mb-1">{room.name}</h3>
-                    <p className="text-sm text-navy/70 mb-4">{room.description}</p>
-                    <Button
-                      onClick={() => handleBookingClick(room.name)}
-                      className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
-                      aria-label={`Reservar ${room.name}`}
-                    >
-                      <Phone className="w-4 h-4 mr-2" />
-                      {t('accommodations.buttons.bookNow')}
-                    </Button>
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-2">{room.name}</h3>
+                    {room.description && (
+                      <p className="text-sm text-navy/70 mb-4">{room.description}</p>
+                    )}
+                    <div className="mt-auto">
+                      <Button
+                        onClick={() => handleBookingClick(room.name)}
+                        className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
+                        aria-label={`Reservar ${room.name}`}
+                      >
+                        <Phone className="w-4 h-4 mr-2" />
+                        {t('accommodations.buttons.bookNow')}
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              ))
+            })()}
           </motion.div>
 
           {/* Link para página dedicada */}
@@ -266,6 +339,20 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
           </p>
         </motion.div>
 
+        {/* Filtro por categoria */}
+        <div className="flex justify-center gap-2 mb-6">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => handleCategoryChange(cat)}
+              className={`px-4 py-2 rounded-full border transition ${activeCategory === cat ? 'bg-gold text-navy border-gold' : 'bg-white text-navy border-gold/30 hover:bg-gold/10'}`}
+              aria-pressed={activeCategory === cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         {/* Room Carousel */}
         <div className="relative">
           <motion.div
@@ -279,10 +366,10 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Image Section */}
-                  <div className="lg:col-span-3 relative h-96 lg:h-auto group">
+                  <div className="lg:col-span-3 relative h-96 lg:aspect-[4/3] group bg-black">
                     <Image
                       src={rooms[currentRoom].image}
-                      alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.map(a => a.name).join(', ')}`}
+                      alt={`${rooms[currentRoom].description}`}
                       fill
                       className="object-cover"
                       priority
@@ -383,13 +470,13 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 >
                   <Card className="bg-white/95 border-0 rounded-2xl overflow-hidden shadow-2xl">
                     <CardContent className="p-0">
-                      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[75vh]">
+                      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[75vh] bg-white">
                         {rooms[currentRoom].gallery && rooms[currentRoom].gallery.length > 0 && (
                           <Image
                             src={rooms[currentRoom].gallery[currentPhotoIndex].src}
-                            alt={`${rooms[currentRoom].name} - ${rooms[currentRoom].gallery[currentPhotoIndex].tag ?? rooms[currentRoom].type}`}
+                            alt={`${rooms[currentRoom].description}`}
                             fill
-                            className="object-cover"
+                            className="object-contain"
                             quality={85}
                             priority
                           />
@@ -532,12 +619,12 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 : 'border-transparent hover:border-gold/50'
                 }`}>
                 <CardContent className="p-4">
-                  <div className="relative w-full h-32 mb-3 group">
+                  <div className="relative w-full h-32 mb-3 group bg-white">
                     <Image
                       src={room.image}
-                      alt={`${room.name} - ${room.type}`}
+                      alt={`${room.description}`}
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-contain rounded-lg"
                       quality={85}
                     />
                     <div className="absolute top-2 left-2">
@@ -563,7 +650,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                     </div>
                   </div>
                   <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
-                  <p className="text-sm text-navy/70 mb-2">{room.type}</p>
+                  <p className="text-sm text-navy/70 mb-2">{room.description}</p>
                   <div className="flex justify-between items-center">
                   </div>
                 </CardContent>
