@@ -254,21 +254,21 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   label: 'Apto Standard',
                   type: 'Standard',
                   description: 'Apto Standard com vista interna ou frente para rua',
-                  image: '/images/rooms/thumbs/Apartamento-Standard-com-vista-interna.jpg',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg',
                 },
                 {
                   key: 'luxo',
                   label: 'Suíte Luxo',
                   type: 'Luxo',
                   description: 'Apartamento luxo com vista para a piscina ou jardim',
-                  image: '/images/rooms/thumbs/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
                 },
                 {
                   key: 'master',
                   label: 'Suíte Master',
                   type: 'Master',
                   description: 'Suíte Master com sacada e vista para a piscina',
-                  image: '/images/rooms/thumbs/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
                 },
               ]
 
@@ -285,15 +285,27 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               })
 
               return cards.map((room) => (
-                <Card key={room.id} className="border-0 shadow-2xl bg-white h-full flex flex-col md:min-h-[560px] pt-0">
-                <CardContent className="p-0 flex-1 flex flex-col">
-                  <div className="relative bg-black overflow-hidden rounded-t-xl">
+                // Versão compacta usa o mesmo padrão de card grande da home
+                <Card
+                  key={room.id}
+                  className="group card-standard card-standard-hover border-0 h-full flex flex-col md:min-h-[500px] pt-0"
+                >
+                  <CardContent className="p-0 flex-1 flex flex-col">
+                    {/* Imagem 16:9 com crop central e thumbs otimizadas */}
+                    <div className="card-media-fixed bg-black rounded-t-xl">
                       <img
                         src={room.image}
                         alt={room.description || room.name}
                         loading="lazy"
-                      className="block w-full h-auto object-contain"
-                        onError={(e) => { try { e.currentTarget.src = (room.image || '').replace('/thumbs/', '/'); } catch { } }}
+                        // className="card-media-img-contain"
+                        className="card-media-img-cover"
+                        onError={(e) => {
+                          try {
+                            e.currentTarget.src = (room.image || '').replace('/thumbs-16x9/', '/')
+                          } catch {
+
+                          }
+                        }}
                       />
                       {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
                         <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
@@ -301,12 +313,13 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                         </div>
                       )}
                     </div>
-                  <div className="p-5 sm:p-6 flex-none flex flex-col">
-                      <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-2">{room.name}</h3>
+
+                    <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
+                      <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
                       {room.description && (
-                        <p className="text-sm text-navy/70 mb-4">{room.description}</p>
+                        <p className="text-sm text-navy/70">{room.description}</p>
                       )}
-                      <div className="mt-auto">
+                      <div className="mt-4">
                         <Button
                           onClick={() => handleBookingClick(room.name)}
                           className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
@@ -381,16 +394,17 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-2xl bg-white">
+            <Card className="border-0 shadow-2xl bg-white py-0">
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Image Section */}
-                  <div className="lg:col-span-3 relative h-96 lg:aspect-[4/3] group bg-black">
+                  {/* Imagem principal da página de acomodações: altura intermediária para bom destaque sem exagero */}
+                  <div className="lg:col-span-3 relative h-[460px] sm:h-[540px] lg:h-[620px] group bg-black overflow-hidden">
                     <Image
                       src={rooms[currentRoom].image}
                       alt={`${rooms[currentRoom].description}`}
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
                       priority
                       quality={85}
                     />
@@ -423,8 +437,8 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                     </div>
                   </div>
 
-                  {/* Content Section */}
-                  <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center">
+                  {/* Content Section – padding ajustado para alinhar melhor à altura da foto */}
+                  <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center">
                     <motion.div
                       key={currentRoom}
                       initial={{ opacity: 0, x: 20 }}
@@ -632,17 +646,17 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               onClick={() => setCurrentRoom(index)}
               whileHover={{ y: -5 }}
             >
-              <Card className={`border-2 transition-all duration-300 ${index === currentRoom
+              <Card className={`pt-0 border-2 transition-all duration-300 ${index === currentRoom
                 ? 'border-gold shadow-lg'
                 : 'border-transparent hover:border-gold/50'
                 }`}>
-                <CardContent className="p-4">
-                  <div className="relative w-full h-32 mb-3 group bg-white">
+                <CardContent className="p-0">
+                  <div className="relative w-full aspect-[4/3] group">
                     <Image
                       src={room.image}
                       alt={`${room.description}`}
                       fill
-                      className="object-contain rounded-lg"
+                      className="object-cover object-center"
                       quality={85}
                     />
                     <div className="absolute top-2 left-2">
@@ -652,7 +666,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                     </div>
 
                     {/* Botão "Ver fotos" que aparece no hover */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <button
                         onClick={(e) => {
                           e.stopPropagation(); // Previne ativação do onClick do card
@@ -667,8 +681,10 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                       </button>
                     </div>
                   </div>
-                  <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
-                  <p className="text-sm text-navy/70 mb-2">{room.description}</p>
+                  <div className="p-3">
+                    <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
+                    <p className="text-sm text-navy/70 mb-2">{room.description}</p>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

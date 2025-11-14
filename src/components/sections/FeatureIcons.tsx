@@ -41,7 +41,8 @@ export default function FeatureIcons() {
             return (
               <div
                 key={i}
-                className="flex items-center gap-3 bg-white rounded-xl p-3 md:p-4 ring-1 ring-gold/10 hover:ring-gold/30 transition shadow-sm"
+                // Mini card de ícone usa o mesmo padrão global .mini-card
+                className="mini-card mini-card-hover"
               >
                 <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gold/90 text-navy flex items-center justify-center shadow">
                   <Icon className="h-5 w-5 md:h-6 md:w-6" />

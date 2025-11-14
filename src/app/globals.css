@@ -128,6 +128,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -135,76 +136,146 @@
 
 /* Configuração para formato brasileiro de data */
 @layer components {
+
+  /* 
+    Sistema de cards principal
+    - Usado em: Pacotes Especiais, cards de acomodações e destaques da home.
+    - Mantém bordas, sombras e transições padronizadas para qualquer card “grande”.
+  */
+  .card-standard {
+    @apply rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg bg-white transition;
+  }
+
+  .card-standard-hover {
+    @apply hover:ring-gold/30 hover:shadow-xl hover:scale-[1.01];
+  }
+
+  /*
+    Wrapper de mídia com proporção fixa 16:9
+    - Garante que todas as capas de cards tenham mesma proporção.
+    - Em conjunto com .card-media-img-cover cria o crop central uniforme.
+  */
+  .card-media-16x9 {
+    @apply relative w-full aspect-[16/9] overflow-hidden;
+  }
+
+  .card-media-3x2 {
+    @apply relative w-full aspect-[3/2] overflow-hidden;
+  }
+
+  .card-media-4x3 {
+    @apply relative w-full aspect-[4/3] overflow-hidden;
+  }
+
+  .card-media-1x1 {
+    @apply relative w-full aspect-square overflow-hidden;
+  }
+
+  .card-media-3x4 {
+    @apply relative w-full aspect-[3/4] overflow-hidden;
+  }
+
+  .card-media-fixed {
+    @apply relative w-full h-[300px] md:h-[340px] overflow-hidden;
+  }
+
+  /* Imagem preenchendo completamente o wrapper com crop central (cover + center) */
+  .card-media-img-cover {
+    @apply absolute inset-0 w-full h-full object-cover object-center;
+  }
+
+  .card-media-img-contain {
+    @apply absolute inset-0 w-full h-full object-contain object-center;
+  }
+
+  /* Overlay escuro padronizado para usar em hovers de imagem */
+  .card-overlay-dark {
+    @apply absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  /*
+    Mini cards
+    - Usado para ícones de facilidades, chips de recursos e outros cards menores.
+    - Mantém altura visualmente consistente e mesma linguagem dos cards principais.
+  */
+  .mini-card {
+    @apply rounded-xl bg-white/90 ring-1 ring-gold/10 shadow-sm px-3 py-2 sm:px-4 sm:py-3 flex items-center gap-2;
+  }
+
+  .mini-card-hover {
+    @apply hover:ring-gold/30 hover:shadow-md hover:bg-white transition-colors duration-300;
+  }
+
   input[type="date"] {
     position: relative;
     font-family: inherit;
   }
-  
+
   /* Força o formato brasileiro dd/mm/yyyy */
   input[type="date"]::-webkit-datetime-edit {
     display: flex;
     align-items: center;
     padding: 0;
   }
-  
+
   /* Configuração FORÇADA para formato brasileiro dd/mm/yyyy */
   input[type="date"] {
     text-align: left !important;
     direction: ltr !important;
   }
-  
+
   /* Força ordem brasileira nos campos com !important */
   input[type="date"]::-webkit-datetime-edit-fields-wrapper {
     display: flex !important;
     flex-direction: row !important;
   }
-  
+
   /* Dia PRIMEIRO - ordem 1 */
   input[type="date"]::-webkit-datetime-edit-day-field {
     order: 1 !important;
     margin-right: 2px !important;
   }
-  
+
   /* Separadores - ordem 2 */
   input[type="date"]::-webkit-datetime-edit-text {
     order: 2 !important;
     padding: 0 1px !important;
   }
-  
+
   /* Mês SEGUNDO - ordem 3 */
   input[type="date"]::-webkit-datetime-edit-month-field {
     order: 3 !important;
     margin: 0 2px !important;
   }
-  
+
   /* Ano TERCEIRO - ordem 4 */
   input[type="date"]::-webkit-datetime-edit-year-field {
     order: 4 !important;
     margin-left: 2px !important;
   }
-  
+
   /* Configuração específica para Chrome/Webkit */
   @supports (-webkit-appearance: none) {
     input[type="date"]::-webkit-datetime-edit {
       display: flex !important;
       flex-direction: row !important;
     }
-    
+
     input[type="date"]::-webkit-datetime-edit-fields-wrapper {
       order: 0 !important;
     }
   }
-  
+
   /* Placeholder para formato brasileiro */
   input[type="date"]:invalid {
     color: #999;
   }
-  
+
   input[type="date"]:invalid:before {
     content: "dd/mm/aaaa";
     color: #999;
   }
-  
+
   /* Melhora a aparência do date picker */
   input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
@@ -214,11 +285,11 @@
     height: 20px;
     margin-left: 8px;
   }
-  
+
   input[type="date"]:hover::-webkit-calendar-picker-indicator {
     opacity: 1;
   }
-  
+
   /* Suporte para Firefox */
   @-moz-document url-prefix() {
     input[type="date"] {

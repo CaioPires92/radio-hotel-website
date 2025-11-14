@@ -84,9 +84,9 @@ export default function Highlights() {
             const Icon = (item as any).icon || Waves
             return (
               <div key={item.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-                {/* Card / Carousel */}
+                {/* Card / Carousel – usa o mesmo padrão visual de card da home */}
                 <div className={reverse ? 'order-2 lg:order-2' : 'order-1 lg:order-1'}>
-                  <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg">
+                  <div className="group card-standard card-standard-hover">
                     <CardImageCarousel images={item.images} fit="cover" />
                   </div>
                 </div>

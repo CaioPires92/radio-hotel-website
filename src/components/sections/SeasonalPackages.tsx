@@ -79,18 +79,20 @@ export default function SeasonalPackages() {
           {packages.map((pkg, idx) => (
             <motion.div
               key={pkg.id}
-              className="relative rounded-2xl overflow-hidden border border-gold/20 bg-white shadow-sm h-full flex flex-col md:min-h-[560px]"
+              // Card usa o padrão global card-standard para manter largura/altura e hover consistentes
+              className="group card-standard card-standard-hover h-full flex flex-col md:min-h-[560px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
               viewport={{ once: true }}
             >
-              <div className="relative h-60 sm:h-72 md:h-80">
+              {/* Wrapper de mídia 16:9 com crop central uniforme */}
+              <div className="card-media-16x9">
                 <Image
                   src={pkg.image}
                   alt={pkg.title}
                   fill
-                  className="object-cover"
+                  className="card-media-img-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={85}
                 />
@@ -106,7 +108,7 @@ export default function SeasonalPackages() {
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 flex-1 flex flex-col">
+              <div className="p-6 flex-1 flex flex-col gap-3">
                 <ul className="text-navy/80 text-sm sm:text-base space-y-2 mb-4 flex-1">
                   {pkg.perks.map((perk) => (
                     <li key={perk} className="flex items-center gap-2">

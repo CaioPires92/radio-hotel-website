@@ -179,7 +179,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-        >
+          >
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -191,8 +191,9 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 group-hover:shadow-lg">
-                  <CardContent className="px-3 py-2">
+                {/* Mini card de feature segue padrão global .mini-card */}
+                <Card className="mini-card mini-card-hover h-full border-0 bg-white/90 backdrop-blur-sm">
+                  <CardContent className="px-0 py-0">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
                         <Icon className="w-4 h-4 text-gold" />
