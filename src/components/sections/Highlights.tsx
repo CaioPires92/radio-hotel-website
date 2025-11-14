@@ -22,10 +22,10 @@ export default function Highlights() {
       href: '/lazer',
       icon: Waves,
       images: [
-        { src: '/images/facilities/piscina1.jpg', alt: 'Piscina do hotel com área de descanso' },
-        { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao bosque' },
-        { src: '/images/facilities/piscina3.jpg', alt: 'Nova área da piscina' },
-        { src: '/images/facilities/mini-club-1.jpg', alt: 'Espaço de jogos e recreação' },
+        { src: '/images/facilities/thumbs-16x9/piscina1.jpg', alt: 'Piscina do hotel com área de descanso' },
+        { src: '/images/facilities/thumbs-16x9/piscina2.jpg', alt: 'Piscina externa integrada ao bosque' },
+        { src: '/images/facilities/thumbs-16x9/piscina3.jpg', alt: 'Nova área da piscina' },
+        { src: '/images/facilities/thumbs-16x9/mini-club-1.jpg', alt: 'Espaço de jogos e recreação' },
       ],
     },
     {
@@ -34,9 +34,9 @@ export default function Highlights() {
       href: '/restaurante',
       icon: Utensils,
       images: [
-        { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
-        { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
-        { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
+        { src: '/images/restaurant/thumbs-16x9/restaurante1.jpg', alt: 'Ambiente do restaurante' },
+        { src: '/images/restaurant/thumbs-16x9/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
+        { src: '/images/restaurant/thumbs-16x9/restaurante3.jpg', alt: 'Restaurante Paradiso' },
       ],
     },
     {
@@ -45,9 +45,9 @@ export default function Highlights() {
       href: '/acomodacoes',
       icon: Leaf,
       images: [
-        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', alt: 'Apartamento Luxo' },
-        { src: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', alt: 'Suíte Master Especial' },
-        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', alt: 'Apartamento Standard' },
+        { src: '/images/rooms/thumbs-16x9/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', alt: 'Apartamento Luxo' },
+        { src: '/images/rooms/thumbs-16x9/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', alt: 'Suíte Master Especial' },
+        { src: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg', alt: 'Apartamento Standard' },
       ],
     },
   ]
@@ -86,8 +86,8 @@ export default function Highlights() {
               <div key={item.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Card / Carousel */}
                 <div className={reverse ? 'order-2 lg:order-2' : 'order-1 lg:order-1'}>
-                  <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-60 sm:h-72 md:h-80">
-                    <CardImageCarousel images={item.images} className="h-60 sm:h-72 md:h-80" fit="cover" />
+                  <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg">
+                    <CardImageCarousel images={item.images} fit="cover" />
                   </div>
                 </div>
 

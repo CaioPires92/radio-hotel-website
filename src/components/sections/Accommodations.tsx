@@ -33,7 +33,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Apartamento Standard frente rua',
       image: '/images/rooms/Apartamento-Standard-frente-rua.jpg',
       amenities: commonAmenities,
-      tags: ['Apartamento Standard frente rua'],
+      tags: ['Standard'],
       gallery: [
         { src: '/images/rooms/Apartamento-Standard-frente-rua.jpg', tag: 'Apartamento Standard frente rua' },
       ],
@@ -45,7 +45,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Apartamento Standard com vista interna',
       image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
       amenities: commonAmenities,
-      tags: ['Apartamento Standard com vista interna'],
+      tags: ['Standard'],
       gallery: [
         { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', tag: 'Apartamento Standard com vista interna' },
       ],
@@ -57,7 +57,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Apartamento luxo com vista para a piscina ou jardim',
       image: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
       amenities: commonAmenities,
-      tags: ['Apartamento luxo com vista para a piscina ou jardim'],
+      tags: ['Luxo'],
       gallery: [
         { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'Apartamento luxo com vista para a piscina ou jardim' },
       ],
@@ -69,7 +69,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Suíte Luxo com vista para a piscina ou bosque',
       image: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
       amenities: commonAmenities,
-      tags: ['Suíte Luxo com vista para a piscina ou bosque'],
+      tags: ['Luxo'],
       gallery: [
         { src: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo com vista para a piscina ou bosque' },
       ],
@@ -81,7 +81,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Suíte Master com sacada e vista para a piscina',
       image: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
-      tags: ['Suíte Master com sacada e vista para a piscina'],
+      tags: ['Master'],
       gallery: [
         { src: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master com sacada e vista para a piscina' },
       ],
@@ -93,7 +93,7 @@ const roomsData = (t: (key: string) => string) => {
       description: 'Suíte Master especial com sacada e vista para a piscina',
       image: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
-      tags: ['Suíte Master especial com sacada e vista para a piscina'],
+      tags: ['Master'],
       gallery: [
         { src: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
       ],
@@ -249,9 +249,27 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               const source = (allRooms && allRooms.length) ? allRooms : rooms
               const findByKey = (key: string) => source.find((r: any) => (r.name || '').toLowerCase().includes(key))
               const reps = [
-                { key: 'standard', label: 'Apto Standard', type: 'Vista interna', image: '/images/rooms/thumbs/Apartamento-Standard-com-vista-interna.jpg' },
-                { key: 'luxo', label: 'Suíte Luxo', type: 'Piscina ou jardim', image: '/images/rooms/thumbs/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg' },
-                { key: 'master', label: 'Suíte Master', type: 'Com sacada', image: '/images/rooms/thumbs/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg' },
+                {
+                  key: 'standard',
+                  label: 'Apto Standard',
+                  type: 'Standard',
+                  description: 'Apto Standard com vista interna ou frente para rua',
+                  image: '/images/rooms/thumbs/Apartamento-Standard-com-vista-interna.jpg',
+                },
+                {
+                  key: 'luxo',
+                  label: 'Suíte Luxo',
+                  type: 'Luxo',
+                  description: 'Apartamento luxo com vista para a piscina ou jardim',
+                  image: '/images/rooms/thumbs/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+                },
+                {
+                  key: 'master',
+                  label: 'Suíte Master',
+                  type: 'Master',
+                  description: 'Suíte Master com sacada e vista para a piscina',
+                  image: '/images/rooms/thumbs/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
+                },
               ]
 
               const cards = reps.map((rep) => {
@@ -260,46 +278,47 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   id: r.id || rep.key,
                   name: rep.label,
                   type: rep.type,
-                  description: r.description || '',
+                  // Descrição solicitada para cada categoria
+                  description: rep.description,
                   image: rep.image,
                 }
               })
 
               return cards.map((room) => (
-              <Card key={room.id} className="border-0 shadow-2xl bg-white h-full flex flex-col md:min-h-[560px]">
+                <Card key={room.id} className="border-0 shadow-2xl bg-white h-full flex flex-col md:min-h-[560px] pt-0">
                 <CardContent className="p-0 flex-1 flex flex-col">
-                  <div className="relative h-60 sm:h-72 md:h-80 bg-black overflow-hidden">
-                    <img
-                      src={room.image}
-                      alt={room.description || room.name}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onError={(e) => { try { e.currentTarget.src = (room.image || '').replace('/thumbs/', '/'); } catch {} }}
-                    />
-                    {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
-                      <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
-                        {room.type}
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-5 sm:p-6 flex-1 flex flex-col">
-                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-2">{room.name}</h3>
-                    {room.description && (
-                      <p className="text-sm text-navy/70 mb-4">{room.description}</p>
-                    )}
-                    <div className="mt-auto">
-                      <Button
-                        onClick={() => handleBookingClick(room.name)}
-                        className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
-                        aria-label={`Reservar ${room.name}`}
-                      >
-                        <Phone className="w-4 h-4 mr-2" />
-                        {t('accommodations.buttons.bookNow')}
-                      </Button>
+                  <div className="relative bg-black overflow-hidden rounded-t-xl">
+                      <img
+                        src={room.image}
+                        alt={room.description || room.name}
+                        loading="lazy"
+                      className="block w-full h-auto object-contain"
+                        onError={(e) => { try { e.currentTarget.src = (room.image || '').replace('/thumbs/', '/'); } catch { } }}
+                      />
+                      {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
+                        <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
+                          {room.type}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <div className="p-5 sm:p-6 flex-none flex flex-col">
+                      <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy mb-2">{room.name}</h3>
+                      {room.description && (
+                        <p className="text-sm text-navy/70 mb-4">{room.description}</p>
+                      )}
+                      <div className="mt-auto">
+                        <Button
+                          onClick={() => handleBookingClick(room.name)}
+                          className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
+                          aria-label={`Reservar ${room.name}`}
+                        >
+                          <Phone className="w-4 h-4 mr-2" />
+                          {t('accommodations.buttons.bookNow')}
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))
             })()}
           </motion.div>
@@ -464,7 +483,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 exit={{ opacity: 0 }}
                 onClick={handleCloseGallery} // Clique fora fecha a galeria
               >
-                <div 
+                <div
                   className="relative w-full max-w-6xl mx-auto"
                   onClick={(e) => e.stopPropagation()} // Previne fechamento ao clicar na imagem
                 >
@@ -526,9 +545,8 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                                 <button
                                   key={idx}
                                   onClick={() => setCurrentPhotoIndex(idx)}
-                                  className={`relative flex-shrink-0 w-12 h-8 sm:w-16 sm:h-10 md:w-20 md:h-12 rounded-lg overflow-hidden border-2 transition-colors ${
-                                    idx === currentPhotoIndex ? 'border-gold' : 'border-white/50 hover:border-white'
-                                  }`}
+                                  className={`relative flex-shrink-0 w-12 h-8 sm:w-16 sm:h-10 md:w-20 md:h-12 rounded-lg overflow-hidden border-2 transition-colors ${idx === currentPhotoIndex ? 'border-gold' : 'border-white/50 hover:border-white'
+                                    }`}
                                   aria-label={`Selecionar foto ${idx + 1}`}
                                 >
                                   <Image src={photo.src} alt={photo.tag ?? rooms[currentRoom].type} fill className="object-cover" quality={75} />
@@ -632,7 +650,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                         {room.type}
                       </span>
                     </div>
-                    
+
                     {/* Botão "Ver fotos" que aparece no hover */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
                       <button
@@ -651,8 +669,6 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   </div>
                   <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
                   <p className="text-sm text-navy/70 mb-2">{room.description}</p>
-                  <div className="flex justify-between items-center">
-                  </div>
                 </CardContent>
               </Card>
             </motion.div>
