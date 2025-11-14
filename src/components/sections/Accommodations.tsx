@@ -202,12 +202,12 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             {rooms.slice(0, 3).map((room) => (
               <Card key={room.id} className="border-0 shadow-2xl bg-white">
                 <CardContent className="p-0">
-                  <div className="relative h-48">
+                  <div className="relative h-48 rounded-t-2xl overflow-hidden">
                     <Image
                       src={room.image}
                       alt={`${room.name} - ${room.type}`}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-lg"
                       quality={85}
                     />
                     <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
@@ -279,7 +279,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Image Section */}
-                  <div className="lg:col-span-3 relative h-96 lg:h-auto group">
+                  <div className="lg:col-span-3 relative h-96 lg:h-auto group rounded-t-2xl overflow-hidden">
                     <Image
                       src={rooms[currentRoom].image}
                       alt={`${rooms[currentRoom].name} - Vista do quarto com ${rooms[currentRoom].amenities.map(a => a.name).join(', ')}`}
@@ -305,7 +305,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                     </div>
 
                     {/* Botão "Ver fotos" centralizado que aparece no hover */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-t-2xl">
                       <button
                         onClick={handleOpenGallery}
                         className="bg-white/95 hover:bg-white text-navy px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300"
@@ -383,7 +383,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 >
                   <Card className="bg-white/95 border-0 rounded-2xl overflow-hidden shadow-2xl">
                     <CardContent className="p-0">
-                      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[75vh]">
+                      <div className="relative h-[80vh] sm:h-[85vh] md:h-[90vh] lg:h-[90vh] rounded-t-2xl overflow-hidden">
                         {rooms[currentRoom].gallery && rooms[currentRoom].gallery.length > 0 && (
                           <Image
                             src={rooms[currentRoom].gallery[currentPhotoIndex].src}
@@ -433,22 +433,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
                         {/* Thumbnails - apenas se houver mais de uma foto */}
                         {rooms[currentRoom].gallery && rooms[currentRoom].gallery.length > 1 && (
-                          <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
-                            <div className="flex gap-1 sm:gap-2 overflow-x-auto pb-1 scrollbar-hide">
-                              {rooms[currentRoom].gallery?.map((photo, idx) => (
-                                <button
-                                  key={idx}
-                                  onClick={() => setCurrentPhotoIndex(idx)}
-                                  className={`relative flex-shrink-0 w-12 h-8 sm:w-16 sm:h-10 md:w-20 md:h-12 rounded-lg overflow-hidden border-2 transition-colors ${
-                                    idx === currentPhotoIndex ? 'border-gold' : 'border-white/50 hover:border-white'
-                                  }`}
-                                  aria-label={`Selecionar foto ${idx + 1}`}
-                                >
-                                  <Image src={photo.src} alt={photo.tag ?? rooms[currentRoom].type} fill className="object-cover" quality={75} />
-                                </button>
-                              ))}
-                            </div>
-                          </div>
+                          <></>
                         )}
 
                         {/* Indicador de posição */}
@@ -458,6 +443,25 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                           </div>
                         )}
                       </div>
+
+                      {rooms[currentRoom].gallery && rooms[currentRoom].gallery.length > 1 && (
+                        <div className="px-4 sm:px-6 pt-3">
+                          <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-1 scrollbar-hide">
+                            {rooms[currentRoom].gallery?.map((photo, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => setCurrentPhotoIndex(idx)}
+                                className={`relative flex-shrink-0 w-20 h-12 sm:w-24 sm:h-14 md:w-28 md:h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                                  idx === currentPhotoIndex ? 'border-gold' : 'border-white/50 hover:border-white'
+                                }`}
+                                aria-label={`Selecionar foto ${idx + 1}`}
+                              >
+                                <Image src={photo.src} alt={photo.tag ?? rooms[currentRoom].type} fill className="object-cover" quality={75} />
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {/* Outras acomodações */}
                       <div className="p-4 border-t flex flex-wrap gap-2 items-center justify-center">
@@ -512,65 +516,84 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
         </div>
 
         {/* Room Grid Preview */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {rooms.map((room, index) => (
-            <motion.div
-              key={room.id}
-              className={`cursor-pointer transition-all duration-300 ${index === currentRoom ? 'scale-105' : 'hover:scale-102'
-                }`}
-              onClick={() => setCurrentRoom(index)}
-              whileHover={{ y: -5 }}
-            >
-              <Card className={`border-2 transition-all duration-300 ${index === currentRoom
-                ? 'border-gold shadow-lg'
-                : 'border-transparent hover:border-gold/50'
-                }`}>
-                <CardContent className="p-4">
-                  <div className="relative w-full h-32 mb-3 group">
-                    <Image
-                      src={room.image}
-                      alt={`${room.name} - ${room.type}`}
-                      fill
-                      className="object-cover rounded-lg"
-                      quality={85}
-                    />
-                    <div className="absolute top-2 left-2">
-                      <span className="bg-navy/80 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                        {room.type}
-                      </span>
-                    </div>
-                    
-                    {/* Botão "Ver fotos" que aparece no hover */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation(); // Previne ativação do onClick do card
-                          setCurrentRoom(index);
-                          handleOpenGallery();
-                        }}
-                        className="bg-white/95 hover:bg-white text-navy px-3 py-2 rounded-full font-medium flex items-center gap-2 shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300 text-sm"
-                        aria-label={`Ver galeria de fotos de ${room.name}`}
-                      >
-                        <Camera className="w-3 h-3" />
-                        Ver fotos
-                      </button>
-                    </div>
-                  </div>
-                  <h4 className="font-serif font-semibold text-navy mb-1">{room.name}</h4>
-                  <p className="text-sm text-navy/70 mb-2">{room.type}</p>
-                  <div className="flex justify-between items-center">
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+    
+{/* Room Grid Preview */}
+{/* Room Grid Preview */}
+<motion.div
+  className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  viewport={{ once: true }}
+>
+  {rooms.map((room, index) => (
+    <motion.div
+      key={room.id}
+      className={`cursor-pointer transition-all duration-300 ${
+        index === currentRoom ? 'scale-105' : 'hover:scale-102'
+      }`}
+      onClick={() => setCurrentRoom(index)}
+      whileHover={{ y: -5 }}
+    >
+      {/* WRAPPER QUE MANDA NO RADIUS */}
+      <div
+        className={`rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
+          index === currentRoom
+            ? 'border-gold shadow-lg'
+            : 'border-transparent hover:border-gold/50'
+        }`}
+      >
+        <Card className="border-0 rounded-none shadow-none">
+          <CardContent className="p-0">
+            {/* IMAGEM */}
+            <div className="relative w-full h-48 group">
+              <Image
+                src={room.image}
+                alt={`${room.name} - ${room.type}`}
+                fill
+                className="object-cover"
+                quality={85}
+              />
+
+              <div className="absolute top-2 left-2">
+                <span className="bg-navy/80 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                  {room.type}
+                </span>
+              </div>
+
+              {/* Botão "Ver fotos" que aparece no hover */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Previne ativação do onClick do card
+                    setCurrentRoom(index);
+                    handleOpenGallery();
+                  }}
+                  className="bg-white/95 hover:bg-white text-navy px-3 py-2 rounded-full font-medium flex items-center gap-2 shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300 text-sm"
+                  aria-label={`Ver galeria de fotos de ${room.name}`}
+                >
+                  <Camera className="w-3 h-3" />
+                  Ver fotos
+                </button>
+              </div>
+            </div>
+
+            {/* TEXTO */}
+            <div className="p-4">
+              <h4 className="font-serif font-semibold text-navy mb-1">
+                {room.name}
+              </h4>
+              <p className="text-sm text-navy/70 mb-2">{room.type}</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
+
+
       </div>
     </section>
   );
