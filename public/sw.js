@@ -13,45 +13,61 @@ const STATIC_ASSETS = [
   // Add critical CSS and JS files here when available
 ];
 
-// Images to cache
+// Images to cache (ajuste essa lista conforme o que REALMENTE existe no /public)
 const IMAGE_ASSETS = [
   '/images/hero/hero1.jpg',
   '/images/hero/hero2.jpg',
   '/images/hero/hero3.jpg',
-  '/images/hero/hero4.jpg',
-  '/images/logo.png',
-  '/images/about/hotel-exterior.jpg',
-  '/images/about/hotel-interior.jpg',
+  // '/images/hero/hero4.jpg', // descomente se existir
+  '/logo.png',
+  '/logo-color.png',
+  '/about-hotel.jpg',
 ];
+
+// === Helper para cachear sem quebrar o install ===
+async function cacheAssetsSafely(cacheName, urls) {
+  const cache = await caches.open(cacheName);
+
+  await Promise.all(
+    urls.map(async (url) => {
+      try {
+        const response = await fetch(url, { cache: 'no-cache' });
+
+        if (!response || !response.ok) {
+          console.warn('Service Worker: Skip caching (status)', url, response && response.status);
+          return;
+        }
+
+        await cache.put(url, response.clone());
+        console.log('Service Worker: Cached:', url);
+      } catch (error) {
+        console.warn('Service Worker: Skip caching (error)', url, error);
+      }
+    })
+  );
+}
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...');
-  
+
   event.waitUntil(
-    Promise.all([
-      // Cache static assets
-      caches.open(STATIC_CACHE_NAME).then((cache) => {
-        console.log('Service Worker: Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      }),
-      // Cache images
-      caches.open(IMAGE_CACHE_NAME).then((cache) => {
-        console.log('Service Worker: Caching images');
-        return cache.addAll(IMAGE_ASSETS);
-      })
-    ]).then(() => {
+    (async () => {
+      await Promise.all([
+        cacheAssetsSafely(STATIC_CACHE_NAME, STATIC_ASSETS),
+        cacheAssetsSafely(IMAGE_CACHE_NAME, IMAGE_ASSETS),
+      ]);
+
       console.log('Service Worker: Installation complete');
-      // Force activation of new service worker
-      return self.skipWaiting();
-    })
+      await self.skipWaiting();
+    })()
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   console.log('Service Worker: Activating...');
-  
+
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -111,7 +127,7 @@ self.addEventListener('fetch', (event) => {
 
           // Determine which cache to use
           let cacheName = DYNAMIC_CACHE_NAME;
-          
+
           if (isImageRequest(request)) {
             cacheName = IMAGE_CACHE_NAME;
           } else if (isStaticAsset(request)) {
@@ -131,12 +147,12 @@ self.addEventListener('fetch', (event) => {
           if (request.destination === 'document') {
             return caches.match('/offline.html') || createOfflineResponse();
           }
-          
+
           // For images, return a placeholder
           if (isImageRequest(request)) {
             return createImagePlaceholder();
           }
-          
+
           // For other requests, return a generic error response
           return new Response('Offline - Content not available', {
             status: 503,
@@ -153,11 +169,11 @@ self.addEventListener('fetch', (event) => {
 // Background sync for form submissions
 self.addEventListener('sync', (event) => {
   console.log('Service Worker: Background sync triggered:', event.tag);
-  
+
   if (event.tag === 'booking-form') {
     event.waitUntil(syncBookingForms());
   }
-  
+
   if (event.tag === 'contact-form') {
     event.waitUntil(syncContactForms());
   }
@@ -166,7 +182,7 @@ self.addEventListener('sync', (event) => {
 // Push notifications
 self.addEventListener('push', (event) => {
   console.log('Service Worker: Push notification received');
-  
+
   const options = {
     body: event.data ? event.data.text() : 'Nova mensagem do Radio Hotel',
     icon: '/icons/icon-192x192.png',
@@ -189,7 +205,7 @@ self.addEventListener('push', (event) => {
       }
     ]
   };
-  
+
   event.waitUntil(
     self.registration.showNotification('Radio Hotel', options)
   );
@@ -198,9 +214,9 @@ self.addEventListener('push', (event) => {
 // Notification click handler
 self.addEventListener('notificationclick', (event) => {
   console.log('Service Worker: Notification clicked:', event.action);
-  
+
   event.notification.close();
-  
+
   if (event.action === 'explore') {
     event.waitUntil(
       clients.openWindow('/')
@@ -210,17 +226,17 @@ self.addEventListener('notificationclick', (event) => {
 
 // Helper functions
 function isImageRequest(request) {
-  return request.destination === 'image' || 
-         /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(new URL(request.url).pathname);
+  return request.destination === 'image' ||
+    /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(new URL(request.url).pathname);
 }
 
 function isStaticAsset(request) {
   const url = new URL(request.url);
   return url.pathname.startsWith('/_next/static/') ||
-         url.pathname.includes('.css') ||
-         url.pathname.includes('.js') ||
-         url.pathname === '/manifest.json' ||
-         url.pathname.startsWith('/icons/');
+    url.pathname.includes('.css') ||
+    url.pathname.includes('.js') ||
+    url.pathname === '/manifest.json' ||
+    url.pathname.startsWith('/icons/');
 }
 
 function createOfflineResponse() {
@@ -313,7 +329,7 @@ function createImagePlaceholder() {
       <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#0a0d29" font-family="Arial, sans-serif" font-size="14">Radio Hotel</text>
     </svg>
   `;
-  
+
   return new Response(svg, {
     headers: {
       'Content-Type': 'image/svg+xml',
@@ -326,11 +342,11 @@ async function syncBookingForms() {
   try {
     const cache = await caches.open('booking-forms');
     const requests = await cache.keys();
-    
+
     for (const request of requests) {
       const response = await cache.match(request);
       const formData = await response.json();
-      
+
       // Try to submit the form
       const submitResponse = await fetch('/api/booking', {
         method: 'POST',
@@ -339,7 +355,7 @@ async function syncBookingForms() {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (submitResponse.ok) {
         // Remove from cache if successful
         await cache.delete(request);
@@ -355,11 +371,11 @@ async function syncContactForms() {
   try {
     const cache = await caches.open('contact-forms');
     const requests = await cache.keys();
-    
+
     for (const request of requests) {
       const response = await cache.match(request);
       const formData = await response.json();
-      
+
       // Try to submit the form
       const submitResponse = await fetch('/api/contact', {
         method: 'POST',
@@ -368,7 +384,7 @@ async function syncContactForms() {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (submitResponse.ok) {
         // Remove from cache if successful
         await cache.delete(request);
