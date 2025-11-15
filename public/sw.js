@@ -1,50 +1,35 @@
-const CACHE_NAME = 'radio-hotel-v1';
-const STATIC_CACHE_NAME = 'radio-hotel-static-v1';
-const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v1';
-const IMAGE_CACHE_NAME = 'radio-hotel-images-v1';
+const CACHE_NAME = 'radio-hotel-v2';
+const STATIC_CACHE_NAME = 'radio-hotel-static-v2';
+const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v2';
+const IMAGE_CACHE_NAME = 'radio-hotel-images-v2';
 
-// Assets to cache immediately
+// Assets to cache imediatamente (coisas críticas, leves)
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
   '/favicon.ico',
   '/icons/icon-192x192.svg',
   '/icons/icon-512x512.svg',
-  // Add critical CSS and JS files here when available
 ];
 
-// Images to cache (ajuste essa lista conforme o que REALMENTE existe no /public)
+// Imagens "fixas" que vale a pena pré-cachear (hero, logo, etc)
 const IMAGE_ASSETS = [
   '/images/hero/hero1.jpg',
   '/images/hero/hero2.jpg',
   '/images/hero/hero3.jpg',
-  // '/images/hero/hero4.jpg', // descomente se existir
+  '/images/hero/hero4.jpg',
   '/logo.png',
   '/logo-color.png',
-  '/about-hotel.jpg',
 ];
 
-// === Helper para cachear sem quebrar o install ===
-async function cacheAssetsSafely(cacheName, urls) {
-  const cache = await caches.open(cacheName);
-
-  await Promise.all(
-    urls.map(async (url) => {
-      try {
-        const response = await fetch(url, { cache: 'no-cache' });
-
-        if (!response || !response.ok) {
-          console.warn('Service Worker: Skip caching (status)', url, response && response.status);
-          return;
-        }
-
-        await cache.put(url, response.clone());
-        console.log('Service Worker: Cached:', url);
-      } catch (error) {
-        console.warn('Service Worker: Skip caching (error)', url, error);
-      }
-    })
-  );
+// 🔹 Regra: não usar cache para as fotos de quartos
+function shouldBypassCache(request) {
+  const url = new URL(request.url);
+  // sempre buscar na rede essas
+  if (url.pathname.startsWith('/images/rooms/')) {
+    return true;
+  }
+  return false;
 }
 
 // Install event - cache static assets
@@ -52,15 +37,19 @@ self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...');
 
   event.waitUntil(
-    (async () => {
-      await Promise.all([
-        cacheAssetsSafely(STATIC_CACHE_NAME, STATIC_ASSETS),
-        cacheAssetsSafely(IMAGE_CACHE_NAME, IMAGE_ASSETS),
-      ]);
-
+    Promise.all([
+      caches.open(STATIC_CACHE_NAME).then((cache) => {
+        console.log('Service Worker: Caching static assets');
+        return cache.addAll(STATIC_ASSETS);
+      }),
+      caches.open(IMAGE_CACHE_NAME).then((cache) => {
+        console.log('Service Worker: Caching images');
+        return cache.addAll(IMAGE_ASSETS);
+      })
+    ]).then(() => {
       console.log('Service Worker: Installation complete');
-      await self.skipWaiting();
-    })()
+      return self.skipWaiting();
+    })
   );
 });
 
@@ -72,7 +61,6 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          // Delete old caches
           if (
             cacheName !== STATIC_CACHE_NAME &&
             cacheName !== DYNAMIC_CACHE_NAME &&
@@ -85,56 +73,52 @@ self.addEventListener('activate', (event) => {
       );
     }).then(() => {
       console.log('Service Worker: Activation complete');
-      // Take control of all pages
       return self.clients.claim();
     })
   );
 });
 
-// Fetch event - serve cached content when offline
+// Fetch event
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests
-  if (request.method !== 'GET') {
-    return;
-  }
+  if (request.method !== 'GET') return;
+  if (url.origin !== location.origin) return;
 
-  // Skip external requests
-  if (url.origin !== location.origin) {
+  // 🔹 BYPASS pro /images/rooms/* → sempre pega da rede
+  if (shouldBypassCache(request)) {
+    event.respondWith(
+      fetch(request).catch(() => {
+        console.warn('Service Worker: Falha ao buscar imagem de quarto, usando placeholder');
+        return createImagePlaceholder();
+      })
+    );
     return;
   }
 
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
-      // Return cached version if available
       if (cachedResponse) {
         console.log('Service Worker: Serving from cache:', request.url);
         return cachedResponse;
       }
 
-      // Otherwise, fetch from network
       return fetch(request)
         .then((response) => {
-          // Don't cache non-successful responses
           if (!response || response.status !== 200 || response.type !== 'basic') {
             return response;
           }
 
-          // Clone the response
           const responseToCache = response.clone();
 
-          // Determine which cache to use
           let cacheName = DYNAMIC_CACHE_NAME;
-
           if (isImageRequest(request)) {
             cacheName = IMAGE_CACHE_NAME;
           } else if (isStaticAsset(request)) {
             cacheName = STATIC_CACHE_NAME;
           }
 
-          // Cache the response
           caches.open(cacheName).then((cache) => {
             console.log('Service Worker: Caching new resource:', request.url);
             cache.put(request, responseToCache);
@@ -143,17 +127,14 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() => {
-          // If network fails, try to serve offline page for navigation requests
           if (request.destination === 'document') {
             return caches.match('/offline.html') || createOfflineResponse();
           }
 
-          // For images, return a placeholder
           if (isImageRequest(request)) {
             return createImagePlaceholder();
           }
 
-          // For other requests, return a generic error response
           return new Response('Offline - Content not available', {
             status: 503,
             statusText: 'Service Unavailable',
@@ -166,7 +147,7 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Background sync for form submissions
+// Background sync
 self.addEventListener('sync', (event) => {
   console.log('Service Worker: Background sync triggered:', event.tag);
 
@@ -193,16 +174,8 @@ self.addEventListener('push', (event) => {
       primaryKey: 1
     },
     actions: [
-      {
-        action: 'explore',
-        title: 'Ver Detalhes',
-        icon: '/icons/action-explore.png'
-      },
-      {
-        action: 'close',
-        title: 'Fechar',
-        icon: '/icons/action-close.png'
-      }
+      { action: 'explore', title: 'Ver Detalhes', icon: '/icons/action-explore.png' },
+      { action: 'close', title: 'Fechar', icon: '/icons/action-close.png' }
     ]
   };
 
@@ -211,20 +184,16 @@ self.addEventListener('push', (event) => {
   );
 });
 
-// Notification click handler
 self.addEventListener('notificationclick', (event) => {
   console.log('Service Worker: Notification clicked:', event.action);
-
   event.notification.close();
 
   if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/')
-    );
+    event.waitUntil(clients.openWindow('/'));
   }
 });
 
-// Helper functions
+// Helpers
 function isImageRequest(request) {
   return request.destination === 'image' ||
     /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(new URL(request.url).pathname);
@@ -314,14 +283,11 @@ function createOfflineResponse() {
     </body>
     </html>
   `, {
-    headers: {
-      'Content-Type': 'text/html',
-    },
+    headers: { 'Content-Type': 'text/html' },
   });
 }
 
 function createImagePlaceholder() {
-  // Create a simple SVG placeholder
   const svg = `
     <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
       <rect width="100%" height="100%" fill="#f6f5f1"/>
@@ -331,13 +297,10 @@ function createImagePlaceholder() {
   `;
 
   return new Response(svg, {
-    headers: {
-      'Content-Type': 'image/svg+xml',
-    },
+    headers: { 'Content-Type': 'image/svg+xml' },
   });
 }
 
-// Sync functions
 async function syncBookingForms() {
   try {
     const cache = await caches.open('booking-forms');
@@ -347,17 +310,13 @@ async function syncBookingForms() {
       const response = await cache.match(request);
       const formData = await response.json();
 
-      // Try to submit the form
       const submitResponse = await fetch('/api/booking', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (submitResponse.ok) {
-        // Remove from cache if successful
         await cache.delete(request);
         console.log('Service Worker: Booking form synced successfully');
       }
@@ -376,17 +335,13 @@ async function syncContactForms() {
       const response = await cache.match(request);
       const formData = await response.json();
 
-      // Try to submit the form
       const submitResponse = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (submitResponse.ok) {
-        // Remove from cache if successful
         await cache.delete(request);
         console.log('Service Worker: Contact form synced successfully');
       }
