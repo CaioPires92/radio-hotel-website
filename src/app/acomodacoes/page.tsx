@@ -1,4 +1,4 @@
-import Accommodations from '@/components/sections/Accommodations'
+import AccommodationsSimple from '@/components/sections/AccommodationsSimple'
 import AccommodationsHero from '@/components/sections/AccommodationsHero'
 import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
@@ -15,7 +15,7 @@ export default function AcomodacoesPage() {
     <main className="min-h-screen bg-cream">
       <Navbar />
       <AccommodationsHero heightClass="min-h-[50vh] md:min-h-[60vh]" />
-      <Accommodations />
+      <AccommodationsSimple />
       <Footer />
     </main>
   )
