@@ -67,11 +67,11 @@ const roomsData = (t: (key: string) => string) => {
       name: 'Apartamento Luxo',
       type: 'Piscina ou bosque',
       description: 'Suíte Luxo com vista para a piscina ou bosque',
-      image: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suíte-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo com vista para a piscina ou bosque' },
+        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo com vista para a piscina ou bosque' },
       ],
     },
     {
@@ -79,11 +79,11 @@ const roomsData = (t: (key: string) => string) => {
       name: 'Suíte Master',
       type: 'Com sacada',
       description: 'Suíte Master com sacada e vista para a piscina',
-      image: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
       tags: ['Master'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master com sacada e vista para a piscina' },
+        { src: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master com sacada e vista para a piscina' },
       ],
     },
     {
@@ -91,11 +91,11 @@ const roomsData = (t: (key: string) => string) => {
       name: 'Suíte Master',
       type: 'Especial',
       description: 'Suíte Master especial com sacada e vista para a piscina',
-      image: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
       tags: ['Master'],
       gallery: [
-        { src: '/images/rooms/Suíte-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
+        { src: '/images/rooms/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
       ],
     },
   ];
@@ -268,7 +268,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   label: 'Suíte Master',
                   type: 'Master',
                   description: 'Suíte Master com sacada e vista para a piscina',
-                  image: '/images/rooms/thumbs-16x9/Apartamento-Suíte-Master-com-sacada-e-vista-para-a-piscina.jpg',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
                 },
               ]
 
