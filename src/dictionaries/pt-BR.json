@@ -42,7 +42,7 @@
     },
     "vale-ouro-verde-museu-cafe": {
       "title": "Vale do Ouro Verde – Museu do Café",
-      "description": "A produão de caf em Serra Negra constitui uma das principais atividades agrcolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poder agendar uma visita monitorada e conhecer todo o processo de produão artesanal do caf, da evoluão nas formas de plantio a tcnicas de colheita, preparaão de grãos, torrefaão e moagem. Um pequeno museu rene a histria do caf, curiosidades e virtudes do produto, alm de equipamentos e ferramentas de poca. Localizaão: Estrada Municipal Bairro da Serra, Km 05."
+      "description": "A produão de café em Serra Negra constitui uma das principais atividades agrcolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poder agendar uma visita monitorada e conhecer todo o processo de produão artesanal do caf, da evoluão nas formas de plantio a tcnicas de colheita, preparaão de grãos, torrefaão e moagem. Um pequeno museu rene a histria do caf, curiosidades e virtudes do produto, alm de equipamentos e ferramentas de poca. Localizaão: Estrada Municipal Bairro da Serra, Km 05."
     },
     "sitio-bom-retiro-familia-carra": {
       "title": "Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados",
@@ -66,6 +66,11 @@
     "bookNow": "Reserve Agora",
     "menu": "Menu",
     "language": "Idioma"
+  },
+  "navbar": {
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"
+    }
   },
   "hero": {
     "title": "Radio Hotel Serra Negra",

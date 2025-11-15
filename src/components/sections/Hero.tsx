@@ -19,6 +19,11 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
   const [isBookingLoading, setIsBookingLoading] = useState(false);
   const [isPaused, setIsPaused] = useState(false); // Novo estado
   const { t } = useTranslation();
+  const bookNowLabel = (() => {
+    const v = t('navigation.bookNow');
+    return v === 'navigation.bookNow' ? 'Reservar agora' : v;
+  })();
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -56,14 +61,20 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
   ];
 
   useEffect(() => {
-    if (isPaused) return; // Não avança se estiver pausado
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handler = () => setReduceMotion(mq.matches);
+    handler();
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
+  useEffect(() => {
+    if (isPaused || reduceMotion) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
-
     return () => clearInterval(timer);
-  }, [slides.length, isPaused]); // Adicionar isPaused como dependência
+  }, [slides.length, isPaused, reduceMotion]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -220,24 +231,24 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
 
                 {/* CTA Buttons */}
                 <motion.div
-                  className="mt-4 md:mt-6 hidden sm:flex sm:flex-col md:flex-row gap-3 md:gap-6"
+                  className="mt-4 md:mt-6 flex flex-col md:flex-row gap-3 md:gap-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : 1.2 }}
                 >
                   <Button
                     onClick={handleBookingClick}
                     disabled={isBookingLoading}
                     size="lg"
                     className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-w-[160px] sm:min-w-[180px] sm:w-full md:w-auto flex items-center justify-center"
-                    aria-label={t('navigation.bookNow')}
+                    aria-label={bookNowLabel}
                   >
                     {isBookingLoading ? (
                       <LoadingSpinner size="md" color="navy" />
                     ) : (
                       <>
                         <Phone className="w-5 h-5 mr-2" />
-                        {t('navigation.bookNow')}
+                        {bookNowLabel}
                       </>
                     )}
                   </Button>
@@ -253,6 +264,21 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
                     {t('hero.discoverMore')}
                   </Button>
                 </motion.div>
+                {/* Controle explícito de carrossel */}
+                <div className="mt-2 flex gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() => setIsPaused(p => !p)}
+                    aria-pressed={isPaused}
+                    aria-label={isPaused ? t('hero.carousel.play') : t('hero.carousel.pause')}
+                    className="bg-gold text-navy hover:bg-gold/90"
+                  >
+                    {isPaused ? t('hero.carousel.play') : t('hero.carousel.pause')}
+                  </Button>
+                  {reduceMotion && (
+                    <span className="text-white/80 text-sm">Preferência de movimento reduzido ativa</span>
+                  )}
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

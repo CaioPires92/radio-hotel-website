@@ -1,5 +1,6 @@
 'use client'
 
+import type { ComponentType, SVGProps } from 'react'
 import { useTranslation } from '@/components/i18n/I18nProvider'
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel'
 import { ArrowRight, Waves, TreePine, Utensils, Leaf } from 'lucide-react'
@@ -9,7 +10,7 @@ type Item = {
   description: string
   href: string
   images: { src: string; alt: string }[]
-  icon?: any
+  icon?: ComponentType<SVGProps<SVGSVGElement>>
 }
 
 export default function Highlights() {
@@ -65,7 +66,7 @@ export default function Highlights() {
             className="pointer-events-none absolute -top-6 right-0 translate-x-6 hidden md:block opacity-10"
             aria-hidden
           >
-            <img src="/about-hotel.svg" alt="" className="w-56" />
+            <img src="/about-hotel.svg" alt="Elemento decorativo do hotel" className="w-56" />
           </div>
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('highlights.badge')}
@@ -81,18 +82,28 @@ export default function Highlights() {
         <div className="space-y-16 md:space-y-24">
           {items.map((item, idx) => {
             const reverse = idx % 2 === 1
-            const Icon = (item as any).icon || Waves
+            const Icon = item.icon || Waves
             return (
-              <div key={item.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div
+                key={item.title}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center"
+              >
                 {/* Card / Carousel – usa o mesmo padrão visual de card da home */}
                 <div className={reverse ? 'order-2 lg:order-2' : 'order-1 lg:order-1'}>
-                  <div className="group card-standard card-standard-hover">
+                  <div className="group card-standard card-standard-hover relative overflow-hidden">
                     <CardImageCarousel images={item.images} fit="cover" />
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full shadow">
+                        {item.title}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Text */}
-                <div className={reverse ? 'order-1 lg:order-1' : 'order-2 lg:order-2'}>
+                <div
+                  className={`${reverse ? 'order-1 lg:order-1' : 'order-2 lg:order-2'} mt-4 lg:mt-0`}
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-10 w-10 rounded-full bg-gold/90 text-navy flex items-center justify-center shadow">
                       <Icon className="h-5 w-5" />
@@ -106,7 +117,7 @@ export default function Highlights() {
                   </p>
                   <a
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-navy font-semibold hover:text-gold transition-colors"
+                    className="inline-flex items-center gap-2 text-sm md:text-base text-navy font-semibold px-4 py-2 border border-navy/15 rounded-full hover:border-gold hover:text-gold hover:bg-gold/5 transition-colors"
                     aria-label={`Saiba mais sobre ${item.title}`}
                   >
                     Saiba mais

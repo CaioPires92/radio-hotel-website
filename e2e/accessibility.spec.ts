@@ -47,7 +47,7 @@ test.describe('Advanced Accessibility Tests', () => {
 
   test('should have proper form labels', async ({ page }) => {
     // Open booking form to test form accessibility
-    await page.getByRole('button', { name: /reservar agora/i }).click();
+    await page.getByRole('region', { name: /hero\.carousel\.ariaLabel/i }).getByRole('button', { name: /reservar agora/i }).click();
     await expect(page.locator('[role="dialog"]')).toBeVisible();
     
     const inputs = await page.locator('input, select, textarea').all();

@@ -115,7 +115,7 @@ export default function LazerPage() {
               ]}
               className="h-80 md:h-96"
               showDots
-              fit="contain"
+              fit="cover"
             />
           </div>
         </div>

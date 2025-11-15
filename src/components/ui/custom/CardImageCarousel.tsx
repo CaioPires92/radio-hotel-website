@@ -16,28 +16,29 @@ type Props = {
 
 export default function CardImageCarousel({ images, className, intervalMs = 3500, showDots = true, fit = "cover" }: Props) {
   return (
-    <div className={(className ? className + " " : "") + "relative w-full h-full"} aria-roledescription="carousel">
-      <div className="relative w-full aspect-[16/9]">
-        <Swiper
-          className="absolute inset-0"
-          modules={[Autoplay, Pagination]}
-          autoplay={{ delay: intervalMs, disableOnInteraction: false }}
-          loop
-          slidesPerView={1}
-          pagination={showDots ? { clickable: true } : false}
-        >
-          {images.map((img, idx) => (
-            <SwiperSlide key={idx} className="w-full h-full flex items-center justify-center overflow-hidden">
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className={"block w-full h-full " + (fit === "cover" ? "object-cover" : "object-contain")}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+    <div
+      className={(className ? className + " " : "") + "relative w-full h-full bg-black"}
+      aria-roledescription="carousel"
+    >
+      <Swiper
+        className="absolute inset-0 w-full h-full"
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: intervalMs, disableOnInteraction: false }}
+        loop
+        slidesPerView={1}
+        pagination={showDots ? { clickable: true } : false}
+      >
+        {images.map((img, idx) => (
+          <SwiperSlide key={idx} className="w-full h-full flex items-center justify-center overflow-hidden">
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className={"block w-full h-full " + (fit === "cover" ? "object-cover" : "object-contain")}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   )
 }

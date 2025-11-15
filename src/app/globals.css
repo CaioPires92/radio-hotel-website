@@ -134,6 +134,23 @@
   }
 }
 
+/* Skip link para acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: #ffffff;
+  color: #0D1B4C;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
 /* Configuração para formato brasileiro de data */
 @layer components {
 
@@ -295,5 +312,15 @@
     input[type="date"] {
       text-align: left;
     }
+  }
+}
+
+/* Respeitar preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

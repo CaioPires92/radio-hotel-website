@@ -66,7 +66,7 @@ const Blog = () => {
                 <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
                   <Image
                     src={post.image}
-                    alt={`Imagem do post ${post.id}`}
+                    alt={t(`blog.${post.id}.title`)}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

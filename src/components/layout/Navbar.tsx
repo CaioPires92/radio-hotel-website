@@ -17,6 +17,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
+  const bookNowLabel = (() => {
+    const v = t('navigation.bookNow');
+    return v === 'navigation.bookNow' ? 'Reservar agora' : v;
+  })();
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -48,9 +52,8 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     if (onBookingClick) {
       onBookingClick();
     } else {
-      const message = t('navbar.whatsapp.bookingMessage');
-      const whatsappUrl = buildWhatsAppUrl(message);
-      window.open(whatsappUrl, '_blank');
+      // Fallback global: leva para a página de contato / reservas
+      window.location.href = '/contato';
     }
   };
 
@@ -72,7 +75,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <a href="/" className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3" aria-label="Radio Hotel">
               <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}
@@ -121,13 +124,13 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 ? 'bg-gold hover:bg-gold/90 text-navy'
                 : 'bg-white hover:bg-white/90 text-navy'
                 }`}
-              aria-label={t('navigation.bookNow')}
+              aria-label="Reservar pelo menu"
               
               // Prevent wrapping on mid screens
               style={{ minWidth: 160 }}
             >
               <Phone className="w-4 h-4 mr-2" />
-              {t('navigation.bookNow')}
+              {bookNowLabel}
             </Button>
           </div>
 

@@ -33,6 +33,7 @@ export default function ContatoPage() {
   const [website, setWebsite] = useState('') // honeypot
   const [errors, setErrors] = useState<{ nome?: string; email?: string; mensagem?: string }>({})
   const [statusMsg, setStatusMsg] = useState<string | null>(null)
+  const [statusType, setStatusType] = useState<'success' | 'error' | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -68,6 +69,7 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
 
   const handleEmailForm = () => {
     setStatusMsg(null)
+    setStatusType(null)
     if (!validate()) return
     if (website) return // honeypot preenchido, ignora
     const payload = { nome, email, telefone, mensagem, website }
@@ -87,9 +89,13 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
         }
         if (!res.ok) throw new Error('Server error')
         setStatusMsg(t('contactPage.form.feedback.success'))
+        setStatusType('success')
         setNome(''); setEmail(''); setTelefone(''); setMensagem('')
       })
-      .catch(() => setStatusMsg(t('contactPage.form.feedback.error')))
+      .catch(() => {
+        setStatusMsg(t('contactPage.form.feedback.error'))
+        setStatusType('error')
+      })
       .finally(() => setIsSubmitting(false))
   }
 
@@ -237,7 +243,17 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
                 </button>
               </div>
               <p className="sr-only" role="status" aria-live="polite">{statusMsg || ''}</p>
-              {statusMsg && <p className="mt-3 text-sm text-navy/80">{statusMsg}</p>}
+              {statusMsg && (
+                <div
+                  className={`mt-4 text-sm rounded-lg px-4 py-3 border ${
+                    statusType === 'success'
+                      ? 'bg-gold/10 border-gold/40 text-navy'
+                      : 'bg-red-50 border-red-200 text-red-800'
+                  }`}
+                >
+                  {statusMsg}
+                </div>
+              )}
             </div>
           </div>
 

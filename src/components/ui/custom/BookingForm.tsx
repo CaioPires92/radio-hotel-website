@@ -852,7 +852,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    disabled={isSubmitting || !formData.checkIn || !formData.checkOut || !formData.roomType}
+                    disabled={isSubmitting}
                     className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     aria-label={t('booking.submitAriaLabel')}
                   >

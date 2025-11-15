@@ -39,6 +39,8 @@ const Events = () => {
     },
   ];
 
+  const hasMultipleEvents = events.length > 1;
+
   const nextEvent = () => {
     setCurrentEvent((prev) => (prev + 1) % events.length);
   };
@@ -64,10 +66,10 @@ const Events = () => {
     <section
       id="events"
       className="py-20 bg-white"
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="region"
-      aria-label={t('events.carousel.ariaLabel')}
+      onKeyDown={hasMultipleEvents ? handleKeyDown : undefined}
+      tabIndex={hasMultipleEvents ? 0 : -1}
+      role={hasMultipleEvents ? 'region' : undefined}
+      aria-label={hasMultipleEvents ? t('events.carousel.ariaLabel') : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -111,11 +113,6 @@ const Events = () => {
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
-
-                    {/* Event Number */}
-                    <div className="absolute top-6 left-6 bg-gold text-navy font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center">
-                      {String(currentEvent + 1).padStart(2, '0')}
-                    </div>
                   </div>
 
                   {/* Content Section */}
@@ -205,40 +202,46 @@ const Events = () => {
             </Card>
           </motion.div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevEvent}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label={t('events.navigation.previous')}
-            tabIndex={0}
-          >
-            <ChevronLeft className="w-6 h-6 text-navy" />
-          </button>
-          <button
-            onClick={nextEvent}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
-            aria-label={t('events.navigation.next')}
-            tabIndex={0}
-          >
-            <ChevronRight className="w-6 h-6 text-navy" />
-          </button>
+          {/* Navigation Arrows (only when there is more than one event) */}
+          {hasMultipleEvents && (
+            <>
+              <button
+                onClick={prevEvent}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
+                aria-label={t('events.navigation.previous')}
+                tabIndex={0}
+              >
+                <ChevronLeft className="w-6 h-6 text-navy" />
+              </button>
+              <button
+                onClick={nextEvent}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10 focus:outline-none focus:ring-2 focus:ring-gold"
+                aria-label={t('events.navigation.next')}
+                tabIndex={0}
+              >
+                <ChevronRight className="w-6 h-6 text-navy" />
+              </button>
+            </>
+          )}
         </div>
 
-        {/* Event Indicators */}
-        <div className="flex justify-center mt-8 space-x-3">
-          {events.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentEvent(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${index === currentEvent
-                ? 'bg-gold scale-125'
-                : 'bg-navy/20 hover:bg-navy/40'
-                }`}
-              aria-label={`${t('events.navigation.viewEvent')} ${index + 1}`}
-              tabIndex={0}
-            />
-          ))}
-        </div>
+        {/* Event Indicators (only when there is more than one event) */}
+        {hasMultipleEvents && (
+          <div className="flex justify-center mt-8 space-x-3">
+            {events.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentEvent(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold ${index === currentEvent
+                  ? 'bg-gold scale-125'
+                  : 'bg-navy/20 hover:bg-navy/40'
+                  }`}
+                aria-label={`${t('events.navigation.viewEvent')} ${index + 1}`}
+                tabIndex={0}
+              />
+            ))}
+          </div>
+        )}
 
 
         <ConferenceTable />

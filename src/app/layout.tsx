@@ -82,6 +82,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: 'https://radiohotelserranegra.com.br',
+  },
 };
 
 export default function RootLayout({
@@ -208,6 +211,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <a href="#main-content" className="skip-link">Pular para o conteúdo principal</a>
         <I18nProvider initialLocale={locale}>
           <Analytics>
             <OfflineIndicator />

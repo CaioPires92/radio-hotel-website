@@ -30,12 +30,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: t('footer.quickLinks.home'), href: '#home' },
-    { name: t('footer.quickLinks.about'), href: '#about' },
-    { name: t('footer.quickLinks.accommodations'), href: '#accommodations' },
-    { name: t('footer.quickLinks.events'), href: '#events' },
-    { name: t('footer.quickLinks.gallery'), href: '#gallery' },
-    { name: t('footer.quickLinks.contact'), href: '#contact' },
+    { name: t('footer.quickLinks.home'), href: '/' },
+    { name: t('footer.quickLinks.about'), href: '/#about' },
+    { name: t('footer.quickLinks.accommodations'), href: '/acomodacoes' },
+    { name: t('footer.quickLinks.events'), href: '/conventions' },
+    { name: t('footer.quickLinks.contact'), href: '/contato' },
   ];
 
   const services = [
@@ -96,9 +95,16 @@ const Footer = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      window.open(href, '_blank');
+      return;
     }
+
+    if (href.startsWith('http')) {
+      window.open(href, '_blank');
+      return;
+    }
+
+    // Internal navigation (same tab)
+    window.location.href = href;
   };
 
   const handleWhatsAppClick = () => {

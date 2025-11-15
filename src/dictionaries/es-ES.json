@@ -66,6 +66,11 @@
     "language": "Idioma",
     "restaurant": "Restaurante"
   },
+  "navbar": {
+    "whatsapp": {
+      "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en el Radio Hotel Serra Negra. Â¿Pueden ayudarme?"
+    }
+  },
   "hero": {
     "title": "Radio Hotel Serra Negra",
     "subtitle": "TradiciÃ³n, Elegancia y Naturaleza",

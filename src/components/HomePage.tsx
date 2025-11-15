@@ -24,7 +24,7 @@ function HomePage() {
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
       <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
       <PromoRibbon />
