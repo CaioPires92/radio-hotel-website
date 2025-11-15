@@ -375,11 +375,15 @@ const Footer = () => {
                   Termos de Uso
                 </button>
                 <span>•</span>
-                <div className="flex items-center space-x-1">
-                  <span>Feito com</span>
-                  <Heart className="w-4 h-4 text-red-500 fill-current" />
-                  <span>em Serra Negra</span>
-                </div>
+                <a
+                  href="https://www.instagram.com/caiopires92/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold transition-colors duration-300"
+                  aria-label="desenvolvido por Caio Pires"
+                >
+                  desenvolvido por Caio Pires
+                </a>
               </div>
             </div>
           </div>
