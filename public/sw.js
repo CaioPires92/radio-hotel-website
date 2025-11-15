@@ -1,7 +1,7 @@
-const CACHE_NAME = 'radio-hotel-v2';
-const STATIC_CACHE_NAME = 'radio-hotel-static-v2';
-const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v2';
-const IMAGE_CACHE_NAME = 'radio-hotel-images-v2';
+const CACHE_NAME = 'radio-hotel-v3';
+const STATIC_CACHE_NAME = 'radio-hotel-static-v3';
+const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v3';
+const IMAGE_CACHE_NAME = 'radio-hotel-images-v3';
 
 // Assets to cache imediatamente (coisas críticas, leves)
 const STATIC_ASSETS = [
@@ -17,7 +17,6 @@ const IMAGE_ASSETS = [
   '/images/hero/hero1.jpg',
   '/images/hero/hero2.jpg',
   '/images/hero/hero3.jpg',
-  '/images/hero/hero4.jpg',
   '/logo.png',
   '/logo-color.png',
 ];
@@ -37,19 +36,27 @@ self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...');
 
   event.waitUntil(
-    Promise.all([
-      caches.open(STATIC_CACHE_NAME).then((cache) => {
+    (async () => {
+      const staticCache = await caches.open(STATIC_CACHE_NAME);
+      const imageCache = await caches.open(IMAGE_CACHE_NAME);
+      try {
         console.log('Service Worker: Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      }),
-      caches.open(IMAGE_CACHE_NAME).then((cache) => {
-        console.log('Service Worker: Caching images');
-        return cache.addAll(IMAGE_ASSETS);
-      })
-    ]).then(() => {
+        await staticCache.addAll(STATIC_ASSETS);
+      } catch (e) { }
+      console.log('Service Worker: Caching images');
+      await Promise.allSettled(
+        IMAGE_ASSETS.map(async (url) => {
+          try {
+            const res = await fetch(url);
+            if (res && res.ok) {
+              await imageCache.put(url, res.clone());
+            }
+          } catch (e) { }
+        })
+      );
       console.log('Service Worker: Installation complete');
       return self.skipWaiting();
-    })
+    })()
   );
 });
 
