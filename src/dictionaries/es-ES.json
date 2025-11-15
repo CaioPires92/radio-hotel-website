@@ -97,7 +97,9 @@
       "description": "Explora las bellezas naturales de la regiÃ³n, con cascadas cristalinas, senderos ecolÃ³gicos y una vista impresionante de la Serra da Mantiqueira."
     },
     "carousel": {
-      "ariaLabel": "Carrusel de imÃ¡genes del hotel"
+      "ariaLabel": "Carrusel de imÃ¡genes del hotel",
+      "play": "Reproducir",
+      "pause": "Pausar"
     },
     "whatsapp": {
       "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en el Radio Hotel Serra Negra. Â¿Pueden ayudarme?"

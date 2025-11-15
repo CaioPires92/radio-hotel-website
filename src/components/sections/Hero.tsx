@@ -264,21 +264,7 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
                     {t('hero.discoverMore')}
                   </Button>
                 </motion.div>
-                {/* Controle explícito de carrossel */}
-                <div className="mt-2 flex gap-2">
-                  <Button
-                    size="sm"
-                    onClick={() => setIsPaused(p => !p)}
-                    aria-pressed={isPaused}
-                    aria-label={isPaused ? t('hero.carousel.play') : t('hero.carousel.pause')}
-                    className="bg-gold text-navy hover:bg-gold/90"
-                  >
-                    {isPaused ? t('hero.carousel.play') : t('hero.carousel.pause')}
-                  </Button>
-                  {reduceMotion && (
-                    <span className="text-white/80 text-sm">Preferência de movimento reduzido ativa</span>
-                  )}
-                </div>
+                
               </motion.div>
             </AnimatePresence>
           </div>

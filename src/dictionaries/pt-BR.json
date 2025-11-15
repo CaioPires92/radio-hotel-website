@@ -98,7 +98,9 @@
       "description": "Explore as belezas naturais da região, com trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
     },
     "carousel": {
-      "ariaLabel": "Carrossel de imagens do hotel"
+      "ariaLabel": "Carrossel de imagens do hotel",
+      "play": "Reproduzir",
+      "pause": "Pausar"
     },
     "whatsapp": {
       "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"

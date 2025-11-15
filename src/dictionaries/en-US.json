@@ -97,7 +97,9 @@
       "description": "Explore the natural beauties of the region, with crystal-clear waterfalls, ecological trails and a stunning view of Serra da Mantiqueira."
     },
     "carousel": {
-      "ariaLabel": "Hotel image carousel"
+      "ariaLabel": "Hotel image carousel",
+      "play": "Play",
+      "pause": "Pause"
     },
     "whatsapp": {
       "bookingMessage": "Hello! I would like to make a reservation at Radio Hotel Serra Negra. Can you help me?"
