@@ -10,7 +10,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Clock,
   Facebook,
   Instagram,
   Wifi,
@@ -18,7 +17,6 @@ import {
   Utensils,
   Dumbbell,
   Waves,
-  Heart,
   ExternalLink,
   PlugZap
 } from 'lucide-react';

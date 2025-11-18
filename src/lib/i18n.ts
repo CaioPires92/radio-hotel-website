@@ -142,9 +142,8 @@ export function formatPhoneNumber(phone: string, locale: Locale): string {
 
 // Get direction for locale (for RTL languages)
 export function getTextDirection(locale: Locale): 'ltr' | 'rtl' {
-  // All our supported locales are LTR
-  // Add RTL locales here if needed (ar, he, fa, etc.)
-  return 'ltr';
+  const rtlLocales = new Set(['ar', 'he', 'fa', 'ur']);
+  return rtlLocales.has(locale) ? 'rtl' : 'ltr';
 }
 
 // Get locale-specific meta tags
@@ -170,7 +169,7 @@ export async function getDictionary(locale: Locale) {
   try {
     const dictionary = await import(`@/dictionaries/${locale}.json`);
     return dictionary.default;
-  } catch (error) {
+  } catch {
     console.warn(`Failed to load dictionary for locale ${locale}, falling back to ${defaultLocale}`);
     const fallback = await import(`@/dictionaries/${defaultLocale}.json`);
     return fallback.default;

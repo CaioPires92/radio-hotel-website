@@ -10,16 +10,21 @@ export async function GET() {
 
   const isImage = (file: string) => /\.(png|jpe?g|webp)$/i.test(file);
 
-  const deriveType = (name: string) => {
-    const lower = name.toLowerCase();
-    if (lower.includes('luxo') || lower.includes('master')) return 'Apartamento Luxo';
-    if (lower.includes('standard')) return 'Apartamento Standard';
-    if (lower.includes('frente')) return 'Apartamento Frente Rua';
-    if (lower.includes('conjugado')) return 'Apartamento Conjugado';
-    return 'Apartamento';
+  // deriveType não utilizado – categorização feita por mapBaseTitle
+
+  type RoomGalleryItem = { src: string; tag: string };
+  type Room = {
+    id: string;
+    name: string;
+    type: string;
+    description: string;
+    image: string;
+    amenities: string[];
+    tags: string[];
+    gallery: RoomGalleryItem[];
   };
 
-  const rooms: Array<any> = [];
+  const rooms: Room[] = [];
 
   try {
     const dirents = fs.readdirSync(baseDir, { withFileTypes: true });
@@ -104,7 +109,7 @@ export async function GET() {
         gallery: [{ src: toPublicPath(file), tag: name }]
       });
     }
-  } catch (e) {
+  } catch {
     // Em caso de erro, retorna lista vazia para não quebrar a UI
     return NextResponse.json({ rooms: [] }, { status: 200 });
   }

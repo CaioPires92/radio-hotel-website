@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDownIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import { useI18n, useLocales } from '@/hooks/useI18n';
+import type { Locale } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 
 interface LanguageSelectorProps {
@@ -51,8 +52,8 @@ export function LanguageSelector({
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
   
-  const handleLocaleChange = (newLocale: string) => {
-    setLocale(newLocale as any);
+  const handleLocaleChange = (newLocale: Locale) => {
+    setLocale(newLocale);
     setIsOpen(false);
   };
   
@@ -121,7 +122,7 @@ export function LanguageSelector({
           {locales.map((localeOption) => (
             <button
               key={localeOption.code}
-              onClick={() => handleLocaleChange(localeOption.code)}
+              onClick={() => handleLocaleChange(localeOption.code as Locale)}
               className={cn(
                 "w-full flex items-center gap-3 px-3 py-2 text-left",
                 "hover:bg-gray-100 dark:hover:bg-gray-700",

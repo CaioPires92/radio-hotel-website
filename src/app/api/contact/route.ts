@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     // TODO: Implement actual email sending (e.g., Nodemailer) when allowed/installed.
     console.log('[CONTACT] New message:', { nome, email, telefone, mensagem })
     return Response.json({ ok: true, message: 'Accepted' }, { status: 202 })
-  } catch (e) {
+  } catch {
     return Response.json({ ok: false, message: 'Server error' }, { status: 500 })
   }
 }

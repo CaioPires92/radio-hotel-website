@@ -7,7 +7,7 @@ interface I18nContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
-  dictionary: Record<string, any>;
+  dictionary: Record<string, unknown>;
   isLoading: boolean;
   formatCurrency: (amount: number) => string;
   formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => string;
@@ -27,7 +27,7 @@ interface I18nProviderProps {
 export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
   const [locale, setLocale] = useState<Locale>(initialLocale || 'pt-BR');
   const [isLoading, setIsLoading] = useState(false);
-  const [dictionary, setDictionary] = useState<Record<string, any>>({});
+  const [dictionary, setDictionary] = useState<Record<string, unknown>>({});
   
   // Load dictionary when locale changes
   useEffect(() => {
@@ -58,28 +58,26 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
   // Translation function that uses loaded dictionary
   const t = (key: string, params?: Record<string, string | number>) => {
     const keys = key.split('.');
-    let value: any = dictionary;
-    
+    let value: unknown = dictionary;
+
     for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+      if (value && typeof value === 'object' && k in (value as Record<string, unknown>)) {
+        value = (value as Record<string, unknown>)[k];
       } else {
-        // Return key if translation not found
         return key;
       }
     }
-    
+
     if (typeof value !== 'string') {
       return key;
     }
-    
-    // Replace parameters in the translation
+
     if (params) {
       return value.replace(/\{(\w+)\}/g, (match, paramKey) => {
         return params[paramKey]?.toString() || match;
       });
     }
-    
+
     return value;
   };
   
@@ -102,7 +100,7 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
     locale,
     setLocale,
     t,
-    dictionary: {},
+    dictionary,
     isLoading,
     formatCurrency,
     formatDate,

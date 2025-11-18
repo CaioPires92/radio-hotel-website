@@ -3,26 +3,10 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 
 export default function RestaurantePage() {
-  const restaurants = [
-    {
-      title: 'Restaurante Cinquentenário',
-      image: '/images/restaurant/restaurante2.jpg',
-      alt: 'Restaurante Cinquentenário',
-      description:
-        'Ambiente requintado e a tradição de sempre servir o melhor cardápio à la carte (domingo à quinta‑feira) ou buffet completo de frios, saladas e doces (finais de semana, feriados e períodos de alta temporada).',
-    },
-    {
-      title: 'Restaurante Paradiso',
-      image: '/images/restaurant/restaurante3.jpg',
-      alt: 'Restaurante Paradiso',
-      description:
-        'Junto ao bosque de mata nativa, de frente para as piscinas. Cardápio de grelhados e buffet completo de frios, saladas e doces, aberto nas altas temporadas e feriados.',
-    },
-  ];
+  // Conteúdo principal utiliza o carrossel diretamente; lista estática removida
 
   return (
     <>

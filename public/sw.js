@@ -1,4 +1,3 @@
-const CACHE_NAME = 'radio-hotel-v3';
 const STATIC_CACHE_NAME = 'radio-hotel-static-v3';
 const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v3';
 const IMAGE_CACHE_NAME = 'radio-hotel-images-v3';
@@ -42,7 +41,7 @@ self.addEventListener('install', (event) => {
       try {
         console.log('Service Worker: Caching static assets');
         await staticCache.addAll(STATIC_ASSETS);
-      } catch (e) { }
+      } catch { }
       console.log('Service Worker: Caching images');
       await Promise.allSettled(
         IMAGE_ASSETS.map(async (url) => {
@@ -51,7 +50,7 @@ self.addEventListener('install', (event) => {
             if (res && res.ok) {
               await imageCache.put(url, res.clone());
             }
-          } catch (e) { }
+          } catch { }
         })
       );
       console.log('Service Worker: Installation complete');

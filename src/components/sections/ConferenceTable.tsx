@@ -67,7 +67,7 @@ export default function ConferenceTable() {
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-gold">Sala</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold">m²</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-center">Auditório</th>
-              <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-center">Formato "U"</th>
+              <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-center">Formato &quot;U&quot;</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-center">Espinha</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-center">Reunião</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold">Pé direito (m)</th>

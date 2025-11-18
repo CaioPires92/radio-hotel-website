@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
-import { cn } from '@/lib/utils';
 import Analytics from '@/components/analytics/Analytics';
 import PWAInstaller, { OfflineIndicator, UpdateBanner } from '@/components/pwa/PWAInstaller';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
-import { getLocaleFromPathname, defaultLocale } from '@/lib/i18n';
+import { defaultLocale } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ['latin'],

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
@@ -9,7 +9,6 @@ import {
   Bed,
   Phone,
   X,
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
   MapPin,
@@ -39,7 +38,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   // =====================
   const pad2 = (n: number) => String(n).padStart(2, '0');
 
-  const isoToDisplay = (iso?: string) => {
+  const isoToDisplay = useCallback((iso?: string) => {
     if (!iso) return '';
     const d = new Date(iso);
     if (isNaN(d.getTime())) return '';
@@ -47,7 +46,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const mm = pad2(d.getMonth() + 1);
     const yyyy = d.getFullYear();
     return `${dd}/${mm}/${yyyy}`;
-  };
+  }, []);
 
   const displayToISO = (display?: string) => {
     if (!display) return '';
@@ -105,13 +104,12 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   });
 
   // Estados de exibição (dd/mm/aaaa) para evitar // e manter ISO internamente
-  const [checkInDisplay, setCheckInDisplay] = useState('');
-  const [checkOutDisplay, setCheckOutDisplay] = useState('');
+  const [checkInDisplay, setCheckInDisplay] = useState(isoToDisplay(formData.checkIn));
+  const [checkOutDisplay, setCheckOutDisplay] = useState(isoToDisplay(formData.checkOut));
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const checkInPickerRef = useRef<HTMLInputElement>(null);
-  const checkOutPickerRef = useRef<HTMLInputElement>(null);
+  // Removed unused input refs
   const [checkInOpen, setCheckInOpen] = useState(false);
   const [checkOutOpen, setCheckOutOpen] = useState(false);
   const checkInPopRef = useRef<HTMLDivElement>(null);
@@ -139,20 +137,16 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     };
   }, [isOpen, onClose]);
 
-  // Inicializa displays quando o componente monta e quando datas mudam
-  useEffect(() => {
-    setCheckInDisplay(isoToDisplay(formData.checkIn));
-    setCheckOutDisplay(isoToDisplay(formData.checkOut));
-  }, []);
+  // Displays seguem formData; estados iniciais já derivados no useState
 
   // Atualiza display quando formData é alterado programaticamente
   useEffect(() => {
     setCheckInDisplay(isoToDisplay(formData.checkIn));
-  }, [formData.checkIn]);
+  }, [formData.checkIn, isoToDisplay]);
 
   useEffect(() => {
     setCheckOutDisplay(isoToDisplay(formData.checkOut));
-  }, [formData.checkOut]);
+  }, [formData.checkOut, isoToDisplay]);
 
   // Garante que o check-out seja sempre após o check-in
   useEffect(() => {
@@ -164,7 +158,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       setCheckOutDisplay(isoToDisplay(minCheckOut));
       setErrors(prev => { const n = { ...prev }; delete n.checkOut; return n; });
     }
-  }, [formData.checkIn]);
+  }, [formData.checkIn, formData.checkOut, isoToDisplay]);
 
   const roomTypes = [
     { value: 'standard', label: t('booking.roomTypes.standard'), price: 100 },
@@ -277,21 +271,18 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   // Componente simples de calendário
   const DatePopover = ({
-    anchorRef,
     containerRef,
     isOpen,
     selectedIso,
     minIso,
     onSelect,
   }: {
-    anchorRef?: React.RefObject<HTMLElement>;
-    containerRef: React.RefObject<HTMLDivElement>;
+    containerRef: React.RefObject<HTMLDivElement | null>;
     isOpen: boolean;
     selectedIso?: string;
     minIso?: string;
     onSelect: (iso: string) => void;
   }) => {
-    if (!isOpen) return null;
     const base = selectedIso ? new Date(selectedIso) : (minIso ? new Date(minIso) : new Date());
     const [viewYear, setViewYear] = useState(base.getFullYear());
     const [viewMonth, setViewMonth] = useState(base.getMonth());
@@ -339,7 +330,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       setViewMonth(m.getMonth());
     };
 
-    return (
+    return isOpen ? (
       <div ref={containerRef} className="absolute z-50 mt-2 w-72 rounded-xl bg-white shadow-2xl border border-gray-200 p-3">
         <div className="flex items-center justify-between mb-2">
           <button type="button" onClick={prevMonth} className="p-2 rounded-lg hover:bg-gray-100" aria-label="Mês anterior">
@@ -380,7 +371,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
           })}
         </div>
       </div>
-    );
+    ) : null;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -496,25 +487,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     return tomorrow.toISOString().split('T')[0];
   };
 
-  const openCheckInPicker = () => {
-    const el = checkInPickerRef.current as any;
-    if (el && typeof el.showPicker === 'function') {
-      el.showPicker();
-    } else {
-      const v = document.getElementById('check-in-input');
-      (v as HTMLInputElement | null)?.focus?.();
-    }
-  };
-
-  const openCheckOutPicker = () => {
-    const el = checkOutPickerRef.current as any;
-    if (el && typeof el.showPicker === 'function') {
-      el.showPicker();
-    } else {
-      const v = document.getElementById('check-out-input');
-      (v as HTMLInputElement | null)?.focus?.();
-    }
-  };
+  // Removed unused showPicker helpers to comply with lint rules
 
   return (
     <AnimatePresence>

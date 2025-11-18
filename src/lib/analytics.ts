@@ -13,9 +13,13 @@ export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || '';
 export const HOTJAR_ID = process.env.NEXT_PUBLIC_HOTJAR_ID || '';
 
 // Google Analytics 4 Events
-export const gtag = (...args: any[]) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag(...args);
+type GtagFn = (...args: unknown[]) => void;
+export const gtag = (...args: unknown[]) => {
+  if (typeof window !== 'undefined') {
+    const w = window as unknown as { gtag?: GtagFn };
+    if (typeof w.gtag === 'function') {
+      w.gtag(...args);
+    }
   }
 };
 
@@ -120,29 +124,43 @@ export const trackImageGalleryView = (galleryType: string) => {
 };
 
 // Facebook Pixel Events
+type FbqFn = (type: 'track' | 'trackCustom', eventName: string, parameters?: Record<string, unknown>) => void;
 export const fbPixel = {
-  track: (eventName: string, parameters?: any) => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', eventName, parameters);
+  track: (eventName: string, parameters?: Record<string, unknown>) => {
+    if (typeof window !== 'undefined') {
+      const w = window as unknown as { fbq?: FbqFn };
+      if (typeof w.fbq === 'function') {
+        w.fbq('track', eventName, parameters);
+      }
     }
   },
-  trackCustom: (eventName: string, parameters?: any) => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('trackCustom', eventName, parameters);
+  trackCustom: (eventName: string, parameters?: Record<string, unknown>) => {
+    if (typeof window !== 'undefined') {
+      const w = window as unknown as { fbq?: FbqFn };
+      if (typeof w.fbq === 'function') {
+        w.fbq('trackCustom', eventName, parameters);
+      }
     }
   },
 };
 
 // Hotjar Events
+type HjFn = (...args: unknown[]) => void;
 export const hotjar = {
   event: (eventName: string) => {
-    if (typeof window !== 'undefined' && (window as any).hj) {
-      (window as any).hj('event', eventName);
+    if (typeof window !== 'undefined') {
+      const w = window as unknown as { hj?: HjFn };
+      if (typeof w.hj === 'function') {
+        w.hj('event', eventName);
+      }
     }
   },
-  identify: (userId: string, attributes?: any) => {
-    if (typeof window !== 'undefined' && (window as any).hj) {
-      (window as any).hj('identify', userId, attributes);
+  identify: (userId: string, attributes?: Record<string, unknown>) => {
+    if (typeof window !== 'undefined') {
+      const w = window as unknown as { hj?: HjFn };
+      if (typeof w.hj === 'function') {
+        w.hj('identify', userId, attributes);
+      }
     }
   },
 };
@@ -191,7 +209,7 @@ export const trackPerformance = () => {
 };
 
 // Error tracking
-export const trackError = (error: Error, errorInfo?: any) => {
+export const trackError = (error: Error, errorInfo?: unknown) => {
   event({
     action: 'javascript_error',
     category: 'error',

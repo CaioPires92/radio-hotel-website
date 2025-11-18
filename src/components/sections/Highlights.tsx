@@ -3,7 +3,8 @@
 import type { ComponentType, SVGProps } from 'react'
 import { useTranslation } from '@/components/i18n/I18nProvider'
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel'
-import { ArrowRight, Waves, TreePine, Utensils, Leaf } from 'lucide-react'
+import { ArrowRight, Waves, Utensils, Leaf } from 'lucide-react'
+import Image from 'next/image'
 
 type Item = {
   title: string
@@ -66,7 +67,7 @@ export default function Highlights() {
             className="pointer-events-none absolute -top-6 right-0 translate-x-6 hidden md:block opacity-10"
             aria-hidden
           >
-            <img src="/about-hotel.svg" alt="Elemento decorativo do hotel" className="w-56" />
+            <Image src="/about-hotel.svg" alt="Elemento decorativo do hotel" width={224} height={224} />
           </div>
           <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('highlights.badge')}

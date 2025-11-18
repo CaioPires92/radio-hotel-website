@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Pagination } from "swiper/modules"
 import "swiper/css"
+import Image from "next/image"
 
 type ImageItem = { src: string; alt: string }
 
@@ -30,12 +31,16 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx} className="w-full h-full flex items-center justify-center overflow-hidden">
-            <img
-              src={img.src}
-              alt={img.alt}
-              loading="lazy"
-              className={"block w-full h-full " + (fit === "cover" ? "object-cover" : "object-contain")}
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="100vw"
+                loading="lazy"
+                className={(fit === "cover" ? "object-cover" : "object-contain")}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -573,6 +573,13 @@
       "date": "",
       "time": "",
       "location": ""
+    },
+    "januaryVacation": {
+      "title": "January Vacation",
+      "description": "Special package with recreation and live music throughout the month.",
+      "date": "All January",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
     }
   },
   "contact": {

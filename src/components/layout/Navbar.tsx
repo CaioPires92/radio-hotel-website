@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { CompactLanguageSelector } from '@/components/i18n/LanguageSelector';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 import Image from 'next/image';
-import { buildWhatsAppUrl } from '@/lib/config';
+import Link from 'next/link';
 
 interface NavbarProps {
   onBookingClick?: () => void;
@@ -75,7 +75,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <a href="/" className="flex items-center gap-3" aria-label="Radio Hotel">
+            <Link href="/" className="flex items-center gap-3" aria-label="Radio Hotel">
               <div className={`relative transition-all duration-300 ${isScrolled ? 'w-24 h-16 md:h-20' : 'w-28 h-16 md:h-20'}`}>
                 <Image
                   src={isScrolled ? "/logo-color.png" : "/logo.png"}
@@ -89,7 +89,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               </div>
               <div className="hidden sm:block">
               </div>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Menu */}

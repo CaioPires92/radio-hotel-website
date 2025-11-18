@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Wifi, Coffee, Tv, Bath, Wind, Phone, X, Camera } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Wifi, Coffee, Tv, Wind, Phone, X, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -15,8 +15,21 @@ interface AccommodationsProps {
   compact?: boolean;
 }
 
-const roomsData = (t: (key: string) => string) => {
-  const commonAmenities = [
+type Amenity = { icon: typeof Wifi; name: string };
+type RoomGalleryItem = { src: string; tag: string };
+type Room = {
+  id: string;
+  name: string;
+  type: string;
+  description: string;
+  image: string;
+  amenities: Amenity[];
+  tags: string[];
+  gallery: RoomGalleryItem[];
+};
+
+const roomsData = (t: (key: string) => string): Room[] => {
+  const commonAmenities: Amenity[] = [
     { icon: Wind, name: t('accommodations.amenities.airConditioning') },
     { icon: Wifi, name: t('accommodations.amenities.wifi') },
     { icon: Tv, name: t('accommodations.amenities.tv') },
@@ -107,9 +120,9 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const { t } = useTranslation();
   // Substitui variável por state para aceitar dados dinâmicos
-  const [rooms, setRooms] = useState(roomsData(t));
-  const [allRooms, setAllRooms] = useState<any[]>(roomsData(t));
-  const categories = ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master'];
+  const [rooms, setRooms] = useState<Room[]>(roomsData(t));
+  const [allRooms, setAllRooms] = useState<Room[]>(roomsData(t));
+  const categories = useMemo(() => ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master'], []);
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
 
   const nextRoom = () => {
@@ -183,7 +196,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
         const res = await fetch('/api/rooms');
         const data = await res.json();
 
-        const apiRooms = (data?.rooms ?? []).map((r: any) => ({
+        const apiRooms: Room[] = (data?.rooms ?? []).map((r: Room) => ({
           ...r,
           amenities: r.amenities?.length ? r.amenities : commonAmenities,
           // Garante que a particularidade apareça como tag visível
@@ -192,9 +205,9 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
         // Se encontrou categorias via API, usa elas; senão mantém as atuais
         if (apiRooms.length) {
-          const ordered = apiRooms.sort((a: any, b: any) => categories.indexOf(a.name) - categories.indexOf(b.name));
+          const ordered = apiRooms.sort((a, b) => categories.indexOf(a.name) - categories.indexOf(b.name));
           setAllRooms(ordered);
-          const initial = ordered.filter((r: any) => r.name === activeCategory);
+          const initial = ordered.filter((r) => r.name === activeCategory);
           setRooms(initial.length ? initial : ordered);
           setCurrentRoom(0);
         }
@@ -204,11 +217,11 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
     };
 
     fetchRooms();
-  }, [t]);
+  }, [t, activeCategory, categories]);
 
   const handleCategoryChange = (cat: string) => {
     setActiveCategory(cat);
-    const filtered = allRooms.filter((r: any) => r.name === cat);
+    const filtered = allRooms.filter((r) => r.name === cat);
     setRooms(filtered.length ? filtered : allRooms);
     setCurrentRoom(0);
   };
@@ -246,8 +259,8 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
           >
             {(() => {
               // Representantes fixos por categoria (thumbs oficiais)
-              const source = (allRooms && allRooms.length) ? allRooms : rooms
-              const findByKey = (key: string) => source.find((r: any) => (r.name || '').toLowerCase().includes(key))
+              const source: Room[] = (allRooms && allRooms.length) ? allRooms : rooms
+              const findByKey = (key: string) => source.find((r) => (r.name || '').toLowerCase().includes(key))
               const reps = [
                 {
                   key: 'standard',
@@ -273,9 +286,9 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               ]
 
               const cards = reps.map((rep) => {
-                const r: any = findByKey(rep.key) || {}
+                const r = findByKey(rep.key);
                 return {
-                  id: r.id || rep.key,
+                  id: r?.id || rep.key,
                   name: rep.label,
                   type: rep.type,
                   // Descrição solicitada para cada categoria
@@ -293,19 +306,12 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   <CardContent className="p-0 flex-1 flex flex-col">
                     {/* Imagem 16:9 com crop central e thumbs otimizadas */}
                     <div className="card-media-fixed bg-black rounded-t-xl">
-                      <img
+                      <Image
                         src={room.image}
                         alt={room.description || room.name}
-                        loading="lazy"
-                        // className="card-media-img-contain"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="card-media-img-cover"
-                        onError={(e) => {
-                          try {
-                            e.currentTarget.src = (room.image || '').replace('/thumbs-16x9/', '/')
-                          } catch {
-
-                          }
-                        }}
                       />
                       {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
                         <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">

@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Send } from 'lucide-react'
+import { MapPin, MessageCircle, Facebook, Instagram, Send } from 'lucide-react'
 import { buildWhatsAppUrl, PHONE_RESERVAS, PHONE_RECEPCAO_1, PHONE_RECEPCAO_2, PHONE_RECEPCAO_MOBILE, EMAIL_RESERVAS, ADDRESS, SOCIALS } from '@/lib/config'
 import { useTranslation } from '@/components/i18n/I18nProvider'
 
@@ -17,7 +17,6 @@ export default function ContatoPage() {
   const recepcao1Href = `tel:${PHONE_RECEPCAO_1.replace(/\s|\(|\)|-/g, '')}`
   const recepcao2Href = `tel:${PHONE_RECEPCAO_2.replace(/\s|\(|\)|-/g, '')}`
   const recepcaoMobileHref = `tel:${PHONE_RECEPCAO_MOBILE.replace(/\s|\(|\)|-/g, '')}`
-  const emailHref = `mailto:${EMAIL_RESERVAS}`
   const mapsQuery = encodeURIComponent(`${ADDRESS.street}, ${ADDRESS.city} - ${ADDRESS.region}`)
   const mapsHref = `https://maps.google.com/?q=${mapsQuery}`
   const mapsEmbed = `https://www.google.com/maps?q=${mapsQuery}&output=embed`

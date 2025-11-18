@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Users, Clock, MapPin } from 'lucide-react';
+import { X, Calendar, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -61,6 +61,16 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       location: t('eventsModal.novemberHoliday.location'),
       image: '/images/events/ferias-julho.png',
       category: t('eventsModal.categories.holiday')
+    },
+    {
+      id: 'january-vacation',
+      title: t('eventsModal.januaryVacation.title'),
+      description: t('eventsModal.januaryVacation.description'),
+      date: t('eventsModal.januaryVacation.date'),
+      time: t('eventsModal.januaryVacation.time'),
+      location: t('eventsModal.januaryVacation.location'),
+      image: '/images/events/ferias-julho.png',
+      category: t('eventsModal.categories.packages')
     }
   ];
 
@@ -147,10 +157,12 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                         <CardContent className="p-0">
                           {/* Event Image */}
                           <div className="relative h-48 overflow-hidden rounded-t-lg">
-                            <img 
+                            <Image 
                               src={event.image} 
                               alt={event.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                             <div className="absolute top-3 left-3">
                               <Badge className="bg-gold text-navy">{event.category}</Badge>
@@ -215,10 +227,12 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Event Image */}
                     <div className="relative h-80 rounded-xl overflow-hidden">
-                      <img 
+                      <Image 
                         src={selectedEvent.image} 
                         alt={selectedEvent.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                     

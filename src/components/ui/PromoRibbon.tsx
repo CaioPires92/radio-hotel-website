@@ -10,19 +10,19 @@ export default function PromoRibbon() {
 
   const message =
     locale === 'en-US'
-      ? 'Dec 26–28 · 80th Anniversary Week · Special Program'
+      ? 'Special Program'
       : locale === 'es-ES'
-      ? '26–28 de diciembre · Semana del 80º aniversario · Programación especial'
-      : '26–28 de dezembro · Semana de Aniversário 80 anos · Programação Especial';
+      ? 'Programación especial'
+      : 'Programação especial';
 
   const cta = locale === 'en-US' ? 'Special program' : locale === 'es-ES' ? 'Programación especial' : 'Programação especial';
 
   const waText =
     locale === 'en-US'
-      ? "Hello! I'd like details about the 80th anniversary special program (Dec 26–28)."
+      ? "Hello! I'd like details about the special program."
       : locale === 'es-ES'
-      ? '¡Hola! Quiero saber sobre la programación especial del 80º aniversario (26 al 28 de diciembre).'
-      : 'Olá! Quero saber da programação especial do aniversário de 80 anos (26 a 28 de dezembro).';
+      ? '¡Hola! Quiero saber sobre la programación especial.'
+      : 'Olá! Quero saber da programação especial.';
 
   const waUrl = buildWhatsAppUrl(waText);
 

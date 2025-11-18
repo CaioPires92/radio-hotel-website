@@ -70,7 +70,7 @@ export default function PWAInstaller() {
     // Check if already installed
     const checkIfInstalled = () => {
       const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-      const isInWebAppiOS = (window.navigator as any).standalone === true;
+      const isInWebAppiOS = (window.navigator as unknown as { standalone?: boolean }).standalone === true;
       setIsInstalled(isStandalone || isInWebAppiOS);
     };
 
@@ -211,7 +211,7 @@ export function usePWA() {
     // Check installation status
     const checkInstallation = () => {
       const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-      const isInWebAppiOS = (window.navigator as any).standalone === true;
+      const isInWebAppiOS = (window.navigator as unknown as { standalone?: boolean }).standalone === true;
       setIsInstalled(isStandalone || isInWebAppiOS);
     };
 

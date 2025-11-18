@@ -1,0 +1,31 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "ignorePatterns": [
+    "src/components/_archive/**",
+    "src/**/*.test.tsx",
+    "src/test/**",
+    "scripts/**",
+    "public/sw.js"
+  ],
+  "overrides": [
+    {
+      "files": ["scripts/**/*.js"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    },
+    {
+      "files": ["public/sw.js"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["**/*.test.tsx", "src/test/**/*.tsx", "src/components/**/__tests__/**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@next/next/no-img-element": "off"
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 const images = [
   { src: 'https://picsum.photos/id/1018/1200/800', alt: 'Paisagem montanhosa ao entardecer' },
@@ -77,12 +78,14 @@ export default function Page() {
           >
             <div className="flex">
               {images.map((img, idx) => (
-                <div key={idx} className="flex-[0_0_100%] min-w-0">
-                  <img
+                <div key={idx} className="flex-[0_0_100%] min-w-0 relative h-72 sm:h-96">
+                  <Image
                     src={img.src}
                     alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 66vw"
+                    className="object-cover"
                     loading="lazy"
-                    className="w-full h-72 sm:h-96 object-cover"
                   />
                 </div>
               ))}

@@ -135,7 +135,7 @@
     "location": "Serra Negra, São Paulo",
     "description1": "Localizado no coração de Serra Negra, o Radio Hotel combina tradição e elegância em um ambiente único, cercado pela exuberante natureza da Serra da Mantiqueira.",
     "description2": "Há 80 anos, oferecemos uma experiência autêntica de hospitalidade, com cada detalhe pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
-    "anniversaryNote": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas. De 26 a 28 de dezembro, celebramos a Semana de Aniversário de 80 anos com programação especial.",
+    "anniversaryNote": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas.",
     "award": {
       "years": "80 Anos de Tradição",
       "excellence": "Excelência em Hospitalidade"
@@ -566,6 +566,13 @@
       "date": "",
       "time": "",
       "location": ""
+    },
+    "januaryVacation": {
+      "title": "Férias de Janeiro",
+      "description": "Pacote especial com recreação e música ao vivo durante todo o mês.",
+      "date": "Janeiro inteiro",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
     }
   },
   "contact": {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Calendar, Users, MapPin, Clock, Ruler, Maximize, ArrowUpDown, Building2, Layers, Wind, Wifi, Monitor, Disc } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, MapPin, Clock, Ruler, Maximize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';

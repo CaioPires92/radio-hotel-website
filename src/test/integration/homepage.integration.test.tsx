@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import HomePage from '@/app/page';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
 
 // Mock next/image

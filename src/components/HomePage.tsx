@@ -13,8 +13,6 @@ import EventsModal from '@/components/modals/EventsModal';
 import PopButton from '@/components/ui/PopButton';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import BackToTopButton from '@/components/ui/BackToTopButton';
-import SeasonalPackages from './sections/SeasonalPackages';
-import PromoRibbon from './ui/PromoRibbon';
 import Highlights from '@/components/sections/Highlights';
 import WaveDivider from '@/components/ui/WaveDivider';
 import BandSeparator from '@/components/ui/BandSeparator';
@@ -27,8 +25,8 @@ function HomePage() {
     <main id="main-content" className="min-h-screen">
       <Navbar onBookingClick={() => setIsBookingFormOpen(true)} />
       <Hero onBookingClick={() => setIsBookingFormOpen(true)} />
-      <PromoRibbon />
-      <SeasonalPackages />
+      
+      
 
       <About />
       {/* <Events /> */}

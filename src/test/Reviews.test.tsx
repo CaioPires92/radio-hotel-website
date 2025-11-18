@@ -40,7 +40,7 @@ vi.mock('@/hooks/useI18n', () => ({
 
 const renderWithI18n = (component: React.ReactElement) => {
   return render(
-    <I18nProvider locale="pt-BR">
+    <I18nProvider initialLocale="pt-BR">
       {component}
     </I18nProvider>
   );

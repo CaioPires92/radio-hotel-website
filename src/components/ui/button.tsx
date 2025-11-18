@@ -35,6 +35,12 @@ const buttonVariants = cva(
   }
 )
 
+type ButtonProps = React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+    'aria-label'?: string
+  }
+
 function Button({
   className,
   variant,
@@ -43,12 +49,9 @@ function Button({
   type = "button",
   children,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
+}: ButtonProps) {
   const Comp = asChild ? Slot : "button"
-  const ariaLabel = (props as any)["aria-label"] ?? (typeof children === "string" ? children : undefined)
+  const ariaLabel = props["aria-label"] ?? (typeof children === "string" ? children : undefined)
 
   return (
     <Comp

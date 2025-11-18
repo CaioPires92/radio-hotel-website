@@ -3,6 +3,7 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 type ImageItem = { src: string; alt: string }
 
@@ -83,12 +84,14 @@ export default function ImageCarousel({
             >
               <div className="flex">
                 {images.map((img, idx) => (
-                  <div key={idx} className="flex-[0_0_100%] min-w-0">
-                    <img
+                  <div key={idx} className="flex-[0_0_100%] min-w-0 relative h-64 sm:h-80 md:h-96">
+                    <Image
                       src={img.src}
                       alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 66vw"
+                      className="object-cover"
                       loading="lazy"
-                      className="w-full h-64 sm:h-80 md:h-96 object-cover"
                     />
                   </div>
                 ))}
