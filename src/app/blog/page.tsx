@@ -7,7 +7,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BlogHero from '@/components/sections/BlogHero';
 import { SOCIALS, buildWhatsAppUrl } from '@/lib/config';
-import { MapPin, Map, Instagram, Facebook, Linkedin, MessageCircle } from 'lucide-react';
+import { MapPin, Map, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
 const blogPosts = [
   {
