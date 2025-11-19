@@ -176,7 +176,7 @@ const Blog = () => {
                     if (!poi) return null;
                     const telHref = toTelHref(poi.phone);
                     return (
-                      <div className="mt-4 space-y-2 text-sm text-navy/80">
+                      <div className="mt-4 space-y-1 text-sm text-navy/70">
                         {poi.address && (
                           <div>
                             <span className="font-semibold">{t('blog.contacts.address')}:</span>{' '}
@@ -187,7 +187,7 @@ const Blog = () => {
                           <div>
                             <span className="font-semibold">{t('blog.contacts.phone')}:</span>{' '}
                             {telHref ? (
-                              <a href={telHref} className="hover:text-gold transition-colors" aria-label={`${t('blog.contacts.phone')}: ${poi.phone}`}>
+                              <a href={telHref} className="underline text-navy" aria-label={`${t('blog.contacts.phone')}: ${poi.phone}`}>
                                 {poi.phone}
                               </a>
                             ) : (
@@ -198,7 +198,7 @@ const Blog = () => {
                         {poi.locationUrl && (
                           <div className="flex flex-wrap items-center gap-2">
                             <span className="font-semibold">{t('blog.contacts.location')}:</span>
-                            <a href={poi.locationUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-navy hover:text-gold transition-colors" aria-label="Localização no mapa">
+                            <a href={poi.locationUrl} target="_blank" rel="noopener noreferrer" className="underline text-navy" aria-label="Localização no mapa">
                               Google Maps
                             </a>
                           </div>
@@ -210,7 +210,7 @@ const Blog = () => {
                               href={poi.instagramUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="underline underline-offset-4 text-navy hover:text-gold transition-colors"
+                              className="underline text-navy"
                               aria-label="Redes sociais do ponto turístico"
                             >
                               Instagram
@@ -226,7 +226,7 @@ const Blog = () => {
                                 href={buildWhatsAppUrl(t('blog.contacts.whatsappMessage'), num)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="underline underline-offset-4 text-navy hover:text-gold transition-colors"
+                                className="underline text-navy"
                                 aria-label={`${t('blog.contacts.whatsapp')}`}
                               >
                                 {t('blog.contacts.whatsapp')}
