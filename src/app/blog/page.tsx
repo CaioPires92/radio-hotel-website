@@ -7,6 +7,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BlogHero from '@/components/sections/BlogHero';
 import { SOCIALS, buildWhatsAppUrl } from '@/lib/config';
+import { MapPin, Map, Instagram, Facebook, Linkedin, MessageCircle } from 'lucide-react';
 
 const blogPosts = [
   {
@@ -117,9 +118,10 @@ const Blog = () => {
                 href={SOCIALS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy hover:text-gold transition-colors underline underline-offset-4"
+                className="text-navy underline"
                 aria-label="Instagram Radio Hotel Serra Negra"
               >
+                <Instagram className="inline-block w-4 h-4 mr-1 align-[-2px]" />
                 Instagram
               </a>
               <span className="text-navy/30">•</span>
@@ -127,18 +129,20 @@ const Blog = () => {
                 href={SOCIALS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy hover:text-gold transition-colors underline underline-offset-4"
+                className="text-navy underline"
                 aria-label="Facebook Radio Hotel Serra Negra"
               >
+                <Facebook className="inline-block w-4 h-4 mr-1 align-[-2px]" />
                 Facebook
               </a>
               <a
                 href={buildWhatsAppUrl(t('navbar.whatsapp.bookingMessage'))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 rounded-full bg-gold text-navy font-semibold hover:brightness-105 transition ml-2"
+                className="text-navy underline ml-2"
                 aria-label={t('contactPage.digital.ctaWhatsApp')}
               >
+                <MessageCircle className="inline-block w-4 h-4 mr-1 align-[-2px]" />
                 {t('contactPage.digital.ctaWhatsApp')}
               </a>
             </div>
@@ -179,7 +183,7 @@ const Blog = () => {
                       <div className="mt-4 space-y-1 text-sm text-navy/70">
                         {poi.address && (
                           <div>
-                            <span className="font-semibold">{t('blog.contacts.address')}:</span>{' '}
+                            <span className="font-semibold"><MapPin className="inline-block w-4 h-4 mr-1 align-[-2px]" />{t('blog.contacts.address')}:</span>{' '}
                             <span>{poi.address}</span>
                           </div>
                         )}
@@ -197,7 +201,7 @@ const Blog = () => {
                         )}
                         {poi.locationUrl && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-semibold">{t('blog.contacts.location')}:</span>
+                            <span className="font-semibold"><Map className="inline-block w-4 h-4 mr-1 align-[-2px]" />{t('blog.contacts.location')}:</span>
                             <a href={poi.locationUrl} target="_blank" rel="noopener noreferrer" className="underline text-navy" aria-label="Localização no mapa">
                               Google Maps
                             </a>
@@ -205,7 +209,7 @@ const Blog = () => {
                         )}
                         {poi.instagramUrl ? (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-semibold">{t('blog.contacts.instagram')}:</span>
+                            <span className="font-semibold"><Instagram className="inline-block w-4 h-4 mr-1 align-[-2px]" />{t('blog.contacts.instagram')}:</span>
                             <a
                               href={poi.instagramUrl}
                               target="_blank"
@@ -219,7 +223,7 @@ const Blog = () => {
                         ) : null}
                         {poi.whatsappNumbers?.length ? (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="font-semibold">{t('blog.contacts.contact')}:</span>
+                            <span className="font-semibold"><MessageCircle className="inline-block w-4 h-4 mr-1 align-[-2px]" />{t('blog.contacts.contact')}:</span>
                             {poi.whatsappNumbers.map((num, i) => (
                               <a
                                 key={i}
