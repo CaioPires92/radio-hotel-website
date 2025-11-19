@@ -15,6 +15,9 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Museu do Vinho e da Cachaça (Família Silotto): removido número secundário de WhatsApp de `whatsappNumbers`.
   - Validação: `npm run lint` (sem erros) e `npm run type-check` (OK).
 
+- Limpeza:
+  - `src/app/blog/page.tsx` — removido import não utilizado `Linkedin`.
+
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.
   - Componente `src/components/ui/PromoRibbon.tsx` permanece no código, mas não é mais utilizado.
