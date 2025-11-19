@@ -244,14 +244,14 @@
       "title": "Planejamento Personalizado",
       "description": "Nossa equipe especializada cuida de cada detalhe do seu evento, desde o planejamento até a execução, garantindo que tudo seja perfeito."
     },
-    "convention": {
-      "title": "Centro de Convenções",
-      "description": "Com 800 m² de área construída e capacidade para até 300 pessoas, o Centro de Convenções do Radio Hotel possui pé‑direito de 5 metros, dois pavimentos e 2 auditórios. O ambiente é totalmente climatizado e equipado com Wi‑Fi e projeção. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.",
-      "capacity": "Até 300 pessoas",
-      "area": "800 m²",
-      "expandableArea": "",
-      "ceilingHeight": "Pé direito de 5 m",
-      "floors": "2 pavimentos",
+      "convention": {
+        "title": "Centro de Convenções",
+        "description": "Possui 2 salas no formato auditório: Millenium e Monterrey. A sala Monterrey tem capacidade para até 60 pessoas. Os ambientes são climatizados e equipados com Wi‑Fi.",
+        "capacity": "Até 300 pessoas",
+        "area": "800 m²",
+        "expandableArea": "",
+        "ceilingHeight": "Pé direito de 5 m",
+        "floors": "2 pavimentos",
       "auditoriums": "2 auditórios",
       "meetingRooms": "5 salas de reunião modulares",
       "airConditioningBTUs": "Climatização Mitsubishi 288.000 BTUs",
