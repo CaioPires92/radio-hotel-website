@@ -34,6 +34,13 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Standard: removido “Ótimo custo-benefício” em `src/components/sections/AccommodationsSimple.tsx`.
   - Suíte Master: atualizado para “Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.” em `src/components/sections/AccommodationsSimple.tsx`.
 
+- Passeios (correções ortográficas em PT‑BR):
+  - `src/dictionaries/pt-BR.json` — revisão de acentuação e grafia em descrições:
+    - Família Silotto (Museu do Vinho e da Cachaça)
+    - Vale do Ouro Verde (Museu do Café)
+    - Sítio Bom Retiro – Família Carra
+    - Sítio Chapadão – Produção de Queijos
+
 ## Como registrar novas atualizações
 - Crie uma nova seção com a data do dia.
 - Descreva brevemente o que mudou e por quê.
