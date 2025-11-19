@@ -14,10 +14,10 @@ export default function RestaurantePage() {
 
       <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center text-center text-white">
         <Image src="/images/restaurant/restaurante1.jpg" alt="Restaurantes do Radio Hotel" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-navy/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-blue/70" />
         <div className="relative z-10 max-w-4xl px-6">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Restaurantes</h1>
-          <p className="text-white/90 text-lg">Experiências gastronômicas em ambientes únicos.</p>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 leading-tight">Restaurantes</h1>
+          <h2 className="text-xl md:text-2xl font-medium mb-6 text-white">Experiências gastronômicas em ambientes únicos.</h2>
         </div>
       </section>
 

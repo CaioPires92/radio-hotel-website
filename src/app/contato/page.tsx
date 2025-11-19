@@ -115,11 +115,11 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
               priority={false}
             />
           </div>
-          <div className="absolute inset-0 bg-navy/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-blue/70" />
         </div>
         <div className="relative z-10 max-w-4xl px-6">
           <motion.h1
-            className="text-4xl md:text-5xl font-serif font-bold mb-3"
+            className="text-5xl md:text-6xl font-serif font-bold mb-4 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -127,15 +127,15 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
           >
             {t('contactPage.header.title')}
           </motion.h1>
-          <motion.p
-            className="text-white/90"
+          <motion.h2
+            className="text-xl md:text-2xl font-medium mb-6 text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {t('contactPage.header.subtitle')}
-          </motion.p>
+          </motion.h2>
           {/* Hero apenas com título e subtítulo */}
         </div>
       </section>

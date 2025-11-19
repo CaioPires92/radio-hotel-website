@@ -39,3 +39,8 @@ Este documento registra as atualizações a partir de 2025-11-18.
 - Descreva brevemente o que mudou e por quê.
 - Referencie arquivos afetados usando caminhos relativos.
 - Após implementar, execute `npm run lint` e `npm run type-check`.
+- Padronização de tamanhos de títulos e subtítulos (igual à página Passeios):
+  - Restaurante: `src/app/restaurante/page.tsx` — `h1` agora `text-5xl md:text-6xl` e `h2` `text-xl md:text-2xl`.
+  - Contato: `src/app/contato/page.tsx` — `h1` padronizado e subtítulo convertido para `h2` com `text-white`.
+  - Convenções: `src/components/sections/ConventionsHero.tsx` — já usa `h1`/`h2` nos tamanhos padronizados.
+  - Acomodações: `src/components/sections/AccommodationsHero.tsx` — já usa `h1`/`h2` nos tamanhos padronizados.
