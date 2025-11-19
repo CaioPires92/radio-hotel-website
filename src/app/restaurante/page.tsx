@@ -54,6 +54,7 @@ export default function RestaurantePage() {
               className="h-[28rem] md:h-[36rem]"
               showDots
               fit="cover"
+              showCountBadge
             />
           </div>
         </div>

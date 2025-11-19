@@ -24,6 +24,10 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Paradiso: texto atualizado e acrescentado que é aberto nos feriados.
   - Aumentada a fonte das frases remanescentes (`text-lg md:text-xl`).
   - Slide de fotos ampliado: altura aumentada para `h-[28rem] md:h-[36rem]`.
+  - Adicionada bolinha discreta com total de fotos no carrossel (badge).
+
+- Componentes:
+  - `src/components/ui/custom/CardImageCarousel.tsx` — novo prop opcional `showCountBadge` para exibir o total de imagens.
 
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.
