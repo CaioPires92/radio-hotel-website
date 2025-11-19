@@ -39,6 +39,56 @@ const blogPosts = [
   },
 ];
 
+type PoiContact = {
+  address?: string;
+  phone?: string;
+  whatsappNumbers?: string[]; // E.164: 55 + DDD + número
+  instagramUrl?: string | null;
+};
+
+const poiContacts: Record<string, PoiContact> = {
+  'alto-da-serra': {
+    address: 'Ponto turístico em Serra Negra (sem endereço oficial completo).',
+    phone: '(19) 3892-9600',
+    instagramUrl: 'https://www.instagram.com/explore/locations/517385048302614/alto-da-serra-serra-negra/',
+  },
+  'fontana-di-trevi': {
+    address: 'Av. Deputado Pomeu Campos Vergal, Serra Negra – SP, 13930-000',
+    instagramUrl: null,
+  },
+  'teleferico-cristo-redentor': {
+    address: 'Praça Sesquicentenário, 143 – Centro, Serra Negra – SP',
+    phone: '(19) 3892-1598',
+    instagramUrl: 'https://www.instagram.com/explore/locations/243540196/teleferico-cristo-redentor---serra-negra/',
+  },
+  'vale-ouro-verde-museu-cafe': {
+    address: 'Estrada Municipal Amathis Franchi, km 05 – Vale do Ouro Verde, Serra Negra – SP',
+    whatsappNumbers: ['5519971476542'],
+  },
+  'museu-vinho-cachaca-silotto': {
+    address: 'Rodovia SP-360, km 158,5 – Sítio São Pedro, Serra Negra – SP',
+    whatsappNumbers: ['5519971493543', '5519997755028'],
+    instagramUrl: 'https://www.instagram.com/familiasilotto/',
+  },
+  'sitio-bom-retiro-familia-carra': {
+    address: 'Rodovia SP-105, Km 9 – Serra Negra – SP',
+    whatsappNumbers: ['5519997222961'],
+    instagramUrl: 'https://www.instagram.com/familiacarra/',
+  },
+  'sitio-chapadao-queijos': {
+    address: 'Rodovia SP-105, km 5,5 – Bairro Santo Aleixo, Serra Negra – SP',
+    whatsappNumbers: ['5519999846555'],
+    instagramUrl: 'https://www.instagram.com/afazendachapadao/',
+  },
+};
+
+function toTelHref(phone?: string) {
+  if (!phone) return undefined;
+  const digits = phone.replace(/\D/g, '');
+  const e164 = digits.startsWith('55') ? `+${digits}` : `+55${digits}`;
+  return `tel:${e164}`;
+}
+
 const Blog = () => {
   const { t } = useTranslation();
 
@@ -112,6 +162,64 @@ const Blog = () => {
                   <p className="text-navy/80 leading-relaxed">
                     {t(`blog.${post.id}.description`)}
                   </p>
+
+                  {/* Contact details */}
+                  {(() => {
+                    const poi = poiContacts[post.id];
+                    if (!poi) return null;
+                    const telHref = toTelHref(poi.phone);
+                    return (
+                      <div className="mt-4 space-y-2 text-sm text-navy/80">
+                        {poi.address && (
+                          <div>
+                            <span className="font-semibold">{t('blog.contacts.address')}:</span>{' '}
+                            <span>{poi.address}</span>
+                          </div>
+                        )}
+                        {poi.phone && (
+                          <div>
+                            <span className="font-semibold">{t('blog.contacts.phone')}:</span>{' '}
+                            {telHref ? (
+                              <a href={telHref} className="hover:text-gold transition-colors" aria-label={`${t('blog.contacts.phone')}: ${poi.phone}`}>
+                                {poi.phone}
+                              </a>
+                            ) : (
+                              <span>{poi.phone}</span>
+                            )}
+                          </div>
+                        )}
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold">{t('blog.contacts.instagram')}:</span>
+                          {poi.instagramUrl ? (
+                            <a href={poi.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-navy hover:text-gold transition-colors" aria-label="Instagram do ponto turístico">
+                              Instagram
+                            </a>
+                          ) : (
+                            <span>{t('blog.contacts.notAvailable')}</span>
+                          )}
+                        </div>
+                        {poi.whatsappNumbers?.length ? (
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+                            <span className="font-semibold">{t('blog.contacts.whatsapp')}:</span>
+                            <div className="flex flex-wrap gap-2 mt-1 sm:mt-0">
+                              {poi.whatsappNumbers.map((num, i) => (
+                                <a
+                                  key={i}
+                                  href={buildWhatsAppUrl(t('blog.contacts.whatsappMessage'), num)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-gold text-navy font-semibold hover:brightness-105 transition"
+                                  aria-label={`${t('blog.contacts.whatsapp')} (${num})`}
+                                >
+                                  {`WhatsApp ${i + 1}`}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })()}
                 </div>
               </motion.div>
             ))}

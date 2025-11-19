@@ -24,6 +24,14 @@
   "blog": {
     "subtitle": "Stay up to date with the latest news and discover the best tourist attractions in Serra Negra.",
     "intro": "Serra Negra offers experiences for every traveler: city viewpoints and icons — Alto da Serra, Cable Car to Christ the Redeemer, and the Trevi Fountain replica — plus rural tourism on visiting farms. There you can follow artisanal production of wines and cachaças (Família Silotto), coffee from planting to roasting (Vale do Ouro Verde), farm-made cheeses (Sítio Chapadão), and spirits and rustic sweets (Sítio Bom Retiro – Família Carra). Advance booking recommended.",
+    "contacts": {
+      "address": "Address",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "notAvailable": "not available",
+      "whatsappMessage": "Hello! I'd like more information."
+    },
     "alto-da-serra": {
       "title": "Alto da Serra (Serra Negra)",
       "description": "Get ready for a breathtaking view at Alto da Serra, the highest point in the region at an altitude of 1,310m! From there, you can contemplate one of the most beautiful landscapes of the Water Circuit, seeing more than 10 neighboring cities. Access is via Rua 14 de Julho. An unforgettable experience for those who love nature and photography!"

@@ -24,6 +24,14 @@
   "blog": {
     "subtitle": "Fique por dentro das últimas novidades e descubra os melhores pontos turísticos da cidade.",
     "intro": "Serra Negra reúne passeios para todos os perfis: mirantes e ícones da cidade — Alto da Serra, Teleférico ao Cristo Redentor e a réplica da Fontana di Trevi — e experiências de turismo rural em fazendas abertas à visitação. Lá você acompanha produções artesanais de vinhos e cachaças (Família Silotto), café do plantio à torrefação (Vale do Ouro Verde), queijos feitos na fazenda (Sítio Chapadão) e destilados e doces de roça (Sítio Bom Retiro – Família Carra). Agendamento prévio recomendado.",
+    "contacts": {
+      "address": "Endereço",
+      "phone": "Telefone",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "notAvailable": "não disponível",
+      "whatsappMessage": "Olá! Gostaria de mais informações."
+    },
     "alto-da-serra": {
       "title": "Alto da Serra (Serra Negra)",
       "description": "Prepare-se para uma vista de tirar o fôlego no Alto da Serra, o ponto culminante da região com 1.310m de altitude! De lá, você pode contemplar uma das paisagens mais belas do Circuito das Águas, avistando mais de 10 cidades vizinhas. O acesso é feito pela Rua 14 de Julho. Uma experiência inesquecível para quem ama natureza e fotografia!"

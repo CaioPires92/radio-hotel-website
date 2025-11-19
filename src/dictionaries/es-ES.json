@@ -51,6 +51,14 @@
     "sitio-chapadao-queijos": {
       "title": "Sítio Chapadão – Elaboración de Quesos",
       "description": "Acompaña el proceso de la leche al queso y prueba queso fresco, ricota, queso semicurado y cuajada elaborados en la finca."
+    },
+    "contacts": {
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "notAvailable": "no disponible",
+      "whatsappMessage": "¡Hola! Me gustaría más información."
     }
   },
   "navigation": {
