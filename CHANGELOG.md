@@ -23,6 +23,7 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Removidas informações detalhadas de cardápio (à la carte/buffet) do Cinquentenário.
   - Paradiso: texto atualizado e acrescentado que é aberto nos feriados.
   - Aumentada a fonte das frases remanescentes (`text-lg md:text-xl`).
+  - Slide de fotos ampliado: altura aumentada para `h-[28rem] md:h-[36rem]`.
 
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.

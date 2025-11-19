@@ -44,14 +44,14 @@ export default function RestaurantePage() {
           </div>
 
           {/* Galeria à direita (com slide) */}
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-[28rem] md:h-[36rem]">
             <CardImageCarousel
               images={[
                 { src: '/images/restaurant/restaurante1.jpg', alt: 'Ambiente do restaurante' },
                 { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
                 { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
               ]}
-              className="h-80 md:h-96"
+              className="h-[28rem] md:h-[36rem]"
               showDots
               fit="cover"
             />
