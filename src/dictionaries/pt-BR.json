@@ -28,7 +28,8 @@
       "address": "Endereço",
       "phone": "Telefone",
       "whatsapp": "WhatsApp",
-      "instagram": "Instagram",
+      "instagram": "Redes sociais",
+      "location": "Localização",
       "notAvailable": "não disponível",
       "whatsappMessage": "Olá! Gostaria de mais informações."
     },

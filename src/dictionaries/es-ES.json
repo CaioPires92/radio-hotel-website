@@ -56,7 +56,8 @@
       "address": "Dirección",
       "phone": "Teléfono",
       "whatsapp": "WhatsApp",
-      "instagram": "Instagram",
+      "instagram": "Redes sociales",
+      "location": "Ubicación",
       "notAvailable": "no disponible",
       "whatsappMessage": "¡Hola! Me gustaría más información."
     }

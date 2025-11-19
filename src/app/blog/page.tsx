@@ -44,13 +44,14 @@ type PoiContact = {
   phone?: string;
   whatsappNumbers?: string[]; // E.164: 55 + DDD + número
   instagramUrl?: string | null;
+  locationUrl?: string;
 };
 
 const poiContacts: Record<string, PoiContact> = {
   'alto-da-serra': {
     address: 'Ponto turístico em Serra Negra (sem endereço oficial completo).',
-    phone: '(19) 3892-9600',
-    instagramUrl: 'https://www.instagram.com/explore/locations/517385048302614/alto-da-serra-serra-negra/',
+    instagramUrl: 'https://www.instagram.com/espacosantarosasn/',
+    locationUrl: 'https://www.google.com/maps/dir/-22.6202854,-46.6995035/Alto+da+Serra+-+Alto+da+Serra,+Serra+Negra+-+SP/data=!4m10!4m9!1m1!4e1!1m5!1m4!1s0x94c922ae2bce4df7:0xaf49b917fa40df7!8m2!3d-22.619121!4d-46.6774705!3e0?utm_source=mstt_0',
   },
   'fontana-di-trevi': {
     address: 'Av. Deputado Pomeu Campos Vergal, Serra Negra – SP, 13930-000',
@@ -186,6 +187,14 @@ const Blog = () => {
                             ) : (
                               <span>{poi.phone}</span>
                             )}
+                          </div>
+                        )}
+                        {poi.locationUrl && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="font-semibold">{t('blog.contacts.location')}:</span>
+                            <a href={poi.locationUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-navy hover:text-gold transition-colors" aria-label="Localização no mapa">
+                              Google Maps
+                            </a>
                           </div>
                         )}
                         <div className="flex flex-wrap items-center gap-2">
