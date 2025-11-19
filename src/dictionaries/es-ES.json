@@ -2,7 +2,7 @@
   "common": {
     "loading": "Cargando...",
     "error": "Error",
-    "success": "Ã‰xito",
+    "success": "Éxito",
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "close": "Cerrar",
@@ -12,11 +12,11 @@
     "back": "Volver",
     "next": "Siguiente",
     "previous": "Anterior",
-    "more": "MÃ¡s",
+    "more": "Más",
     "less": "Menos",
     "all": "Todos",
     "none": "Ninguno",
-    "yes": "SÃ­",
+    "yes": "Sí",
     "no": "No",
     "or": "o",
     "and": "y"
@@ -60,69 +60,69 @@
     "blog": "Blog",
     "contact": "Contacto",
     "about": "Sobre",
-    "gallery": "GalerÃ­a",
+    "gallery": "Galería",
     "bookNow": "Reservar Ahora",
-    "menu": "MenÃº",
+    "menu": "Menú",
     "language": "Idioma",
     "restaurant": "Restaurante"
   },
   "navbar": {
     "whatsapp": {
-      "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en el Radio Hotel Serra Negra. Â¿Pueden ayudarme?"
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en el Radio Hotel Serra Negra. ¿Pueden ayudarme?"
     }
   },
   "hero": {
     "title": "Radio Hotel Serra Negra",
-    "subtitle": "TradiciÃ³n, Elegancia y Naturaleza",
-    "description": "Descubre un refugio de lujo en el corazÃ³n de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapÃ©uticas.",
+    "subtitle": "Tradición, Elegancia y Naturaleza",
+    "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapéuticas.",
     "cta": "Haz tu Reserva",
-    "scrollDown": "DesplÃ¡zate hacia abajo",
-    "discoverMore": "Descubre MÃ¡s",
+    "scrollDown": "Desplázate hacia abajo",
+    "discoverMore": "Descubre Más",
     "previousSlide": "Diapositiva anterior",
     "nextSlide": "Siguiente diapositiva",
     "goToSlide": "Ir a diapositiva",
     "slide1": {
       "title": "Radio Hotel Serra Negra — 80 años",
-      "subtitle": "TradiciÃ³n, Elegancia y Naturaleza",
-      "description": "Descubre un refugio de lujo en el corazÃ³n de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapÃ©uticas."
+      "subtitle": "Tradición, Elegancia y Naturaleza",
+      "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapéuticas."
     },
     "slide2": {
-      "title": "Aguas Radiactivas TerapÃ©uticas",
-      "subtitle": "Bienestar y RelajaciÃ³n",
-      "description": "Disfruta de los beneficios Ãºnicos de las aguas radiactivas de Serra Negra, conocidas por sus propiedades terapÃ©uticas y relajantes."
+      "title": "Aguas Radiactivas Terapéuticas",
+      "subtitle": "Bienestar y Relajación",
+      "description": "Disfruta de los beneficios únicos de las aguas radiactivas de Serra Negra, conocidas por sus propiedades terapéuticas y relajantes."
     },
     "slide3": {
       "title": "Naturaleza Exuberante",
       "subtitle": "Cascadas y Senderos",
-      "description": "Explora las bellezas naturales de la regiÃ³n, con cascadas cristalinas, senderos ecolÃ³gicos y una vista impresionante de la Serra da Mantiqueira."
+      "description": "Explora las bellezas naturales de la región, con cascadas cristalinas, senderos ecológicos y una vista impresionante de la Serra da Mantiqueira."
     },
     "carousel": {
-      "ariaLabel": "Carrusel de imÃ¡genes del hotel",
+      "ariaLabel": "Carrusel de imágenes del hotel",
       "play": "Reproducir",
       "pause": "Pausar"
     },
-    "whatsapp": {
-      "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en el Radio Hotel Serra Negra. Â¿Pueden ayudarme?"
+  "whatsapp": {
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en el Radio Hotel Serra Negra. ¿Pueden ayudarme?"
     }
   },
   "about": {
     "badge": "Sobre el Hotel",
     "title": "Sobre Radio Hotel",
-    "location": "Serra Negra, SÃ£o Paulo",
-    "description1": "Ubicado en el corazÃ³n de Serra Negra, Radio Hotel combina tradiciÃ³n y elegancia en un ambiente Ãºnico, rodeado de la exuberante naturaleza de la Serra da Mantiqueira.",
+    "location": "Serra Negra, São Paulo",
+    "description1": "Ubicado en el corazón de Serra Negra, Radio Hotel combina tradición y elegancia en un ambiente único, rodeado de la exuberante naturaleza de la Serra da Mantiqueira.",
     "description2": "Desde hace 80 años, ofrecemos una experiencia auténtica de hospitalidad, con cada detalle pensado para proporcionar momentos inolvidables a nuestros huéspedes.",
     "award": {
-      "years": "80 AÃ±os de TradiciÃ³n",
+      "years": "80 Años de Tradición",
       "excellence": "Excelencia en Hospitalidad"
     },
     "features": {
       "wifi": {
         "title": "Wi-Fi",
-        "description": "Internet de alta velocidad en todas las Ã¡reas"
+        "description": "Internet de alta velocidad en todas las áreas"
       },
       "parking": {
         "title": "Estacionamiento",
-        "description": "Estacionamiento cubierto para huÃ©spedes"
+        "description": "Estacionamiento cubierto para huéspedes"
       },
       "breakfast": {
         "title": "Desayuno",
@@ -141,38 +141,38 @@
         "description": "Espacios para convenciones y celebraciones"
       }
     },
-    "stats": {
-      "years": "AÃ±os de TradiciÃ³n",
-      "park": "mÂ² de Ãrea Verde",
-      "rating": "CalificaciÃ³n de HuÃ©spedes",
-      "location": "UbicaciÃ³n Privilegiada"
+  "stats": {
+      "years": "Años de Tradición",
+      "park": "m² de Área Verde",
+      "rating": "Calificación de Huéspedes",
+      "location": "Ubicación Privilegiada"
     }
   },
   "highlights": {
     "badge": "Nuestros Destacados",
     "title": "Lo que nos hace especiales",
-    "subtitle": "Descubre las experiencias Ãºnicas que te esperan",
+    "subtitle": "Descubre las experiencias únicas que te esperan",
     "location": {
-      "title": "UbicaciÃ³n Privilegiada",
-      "description": "En el corazÃ³n de Serra Negra, rodeado de naturaleza y cerca de las principales atracciones de la regiÃ³n.",
+      "title": "Ubicación Privilegiada",
+      "description": "En el corazón de Serra Negra, rodeado de naturaleza y cerca de las principales atracciones de la región.",
       "features": [
         "A 5 minutos del centro",
         "Acceso a senderos y cascadas",
-        "Vista panorÃ¡mica de la Serra da Mantiqueira"
+        "Vista panorámica de la Serra da Mantiqueira"
       ]
     },
     "wellness": {
-      "title": "Bienestar y RelajaciÃ³n",
-      "description": "Espacios diseÃ±ados para tu bienestar, con Ã¡reas de ocio y contacto con la naturaleza.",
+      "title": "Bienestar y Relajación",
+      "description": "Espacios diseñados para tu bienestar, con áreas de ocio y contacto con la naturaleza.",
       "features": [
-        "Piscina al aire libre con vista a las montaÃ±as",
+        "Piscina al aire libre con vista a las montañas",
         "Gimnasio con equipos modernos",
-        "Jardines y Ã¡reas de descanso"
+        "Jardines y áreas de descanso"
       ]
     },
     "gastronomy": {
       "title": "Restaurantes",
-      "description": "Dos restaurantes: CinquentenÃ¡rio (a la carta/buffet) y Paradiso (a la parrilla/buffet).",
+      "description": "Dos restaurantes: Cinquentenário (a la carta/buffet) y Paradiso (a la parrilla/buffet).",
       "features": [
         "Desayuno tradicional mineiro",
         "Restaurante de platos regionales",
@@ -184,17 +184,17 @@
       "description": "Alojamientos cuidadosamente decorados con todas las comodidades para una estancia inolvidable.",
       "features": [
         "Habitaciones elegantes y acogedoras",
-        "Ropa de cama y baÃ±o premium",
+        "Ropa de cama y baño premium",
         "Comodidades modernas"
       ]
     },
     "service": {
       "title": "Servicio Personalizado",
-      "description": "Equipo atento y dedicado, listo para hacer tu experiencia Ãºnica e inolvidable.",
+      "description": "Equipo atento y dedicado, listo para hacer tu experiencia única e inolvidable.",
       "features": [
-        "RecepciÃ³n 24 horas",
-        "Servicio de conserjerÃ­a",
-        "OrientaciÃ³n turÃ­stica"
+        "Recepción 24 horas",
+        "Servicio de conserjería",
+        "Orientación turística"
       ]
     },
     "business": {
@@ -203,12 +203,12 @@
       "features": [
         "Centro de convenciones",
         "Equipos audiovisuales",
-        "Apoyo en planificaciÃ³n de eventos"
+        "Apoyo en planificación de eventos"
       ]
     },
     "natureLocation": {
-      "title": "Naturaleza y UbicaciÃ³n Privilegiada",
-      "description": "En el corazÃ³n de Serra Negra, rodeado de Ã¡reas verdes, senderos y paisajes de la Mantiqueira."
+      "title": "Naturaleza y Ubicación Privilegiada",
+      "description": "En el corazón de Serra Negra, rodeado de áreas verdes, senderos y paisajes de la Mantiqueira."
     },
     "leisure": {
       "title": "Ocio",
@@ -226,11 +226,11 @@
       "highlight": "Estancia Perfecta",
       "line2": "Te Espera"
     },
-    "subtitle": "Reserva ahora y descubre por quÃ© Radio Hotel es la opciÃ³n preferida de quienes buscan tradiciÃ³n, comodidad y naturaleza en perfecta armonÃ­a.",
+    "subtitle": "Reserva ahora y descubre por qué Radio Hotel es la opción preferida de quienes buscan tradición, comodidad y naturaleza en perfecta armonía.",
     "stats": {
-      "tradition": "AÃ±os de TradiciÃ³n",
-      "rating": "CalificaciÃ³n de HuÃ©spedes",
-      "location": "UbicaciÃ³n Privilegiada"
+      "tradition": "Años de Tradición",
+      "rating": "Calificación de Huéspedes",
+      "location": "Ubicación Privilegiada"
     },
     "buttons": {
       "bookNow": "Reservar Ahora",
@@ -239,7 +239,7 @@
       "availabilityAriaLabel": "Verificar disponibilidad de habitaciones"
     },
     "whatsapp": {
-      "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en Radio Hotel. Â¿Pueden ayudarme con disponibilidad y tarifas?"
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en Radio Hotel. ¿Pueden ayudarme con disponibilidad y tarifas?"
     },
     "fallback": {
       "title": "Tu Estancia Perfecta Te Espera"
@@ -248,27 +248,27 @@
   "accommodations": {
     "badge": "Nuestros Alojamientos",
     "title": "Comodidad y Elegancia",
-    "subtitle": "Descubre nuestras habitaciones cuidadosamente diseÃ±adas para tu estancia perfecta",
+    "subtitle": "Descubre nuestras habitaciones cuidadosamente diseñadas para tu estancia perfecta",
     "viewDetails": "Ver Detalles",
     "buttons": {
       "bookNow": "Reservar Ahora",
       "viewAll": "Ver Alojamientos"
     },
     "navigation": {
-      "previous": "HabitaciÃ³n anterior",
-      "next": "Siguiente habitaciÃ³n",
-      "viewRoom": "Ver detalles de la habitaciÃ³n"
+      "previous": "Habitación anterior",
+      "next": "Siguiente habitación",
+      "viewRoom": "Ver detalles de la habitación"
     },
     "rooms": {
       "standard": {
-        "name": "HabitaciÃ³n EstÃ¡ndar",
+        "name": "Habitación Estándar",
         "type": "Alojamiento Confortable",
-        "description": "Las habitaciones EstÃ¡ndar son internas o dan a la calle y cuentan con ventanas termoacÃºsticas (tecnologÃ­a alemana), minibar, telÃ©fono y aire acondicionado, garantizando confort y silencio."
+        "description": "Las habitaciones Estándar son internas o dan a la calle y cuentan con ventanas termoacústicas (tecnología alemana), minibar, teléfono y aire acondicionado, garantizando confort y silencio."
       },
       "luxury": {
         "name": "Suite de Lujo",
         "type": "Experiencia Premium",
-        "description": "Los apartamentos de Lujo son 8 mÂ² mÃ¡s grandes que los EstÃ¡ndar, dan a la piscina y estÃ¡n equipados con minibar, telÃ©fono y aire acondicionado. Tienen suelo antialÃ©rgico para un mayor bienestar."
+        "description": "Los apartamentos de Lujo son 8 m² más grandes que los Estándar, dan a la piscina y están equipados con minibar, teléfono y aire acondicionado. Tienen suelo antialérgico para un mayor bienestar."
       }
     },
     "amenities": {
@@ -276,19 +276,19 @@
       "parking": "Estacionamiento",
       "minibar": "Minibar",
       "tv": "Smart TV",
-      "bathroom": "BaÃ±o Privado",
+      "bathroom": "Baño Privado",
       "airConditioning": "Aire Acondicionado"
     },
     "whatsapp": {
-      "bookingMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en Radio Hotel. Â¿Pueden ayudarme con disponibilidad y tarifas?"
+      "bookingMessage": "¡Hola! Me gustaría hacer una reserva en Radio Hotel. ¿Pueden ayudarme con disponibilidad y tarifas?"
     }
   },
   "events": {
     "badge": "Eventos",
     "title": "Convenciones",
-    "subtitle": "Momentos inolvidables en un entorno Ãºnico",
-    "description": "Celebra tu evento soÃ±ado en nuestros espacios elegantes, rodeados de naturaleza.",
-    "viewMore": "Ver MÃ¡s",
+    "subtitle": "Momentos inolvidables en un entorno único",
+    "description": "Celebra tu evento soñado en nuestros espacios elegantes, rodeados de naturaleza.",
+    "viewMore": "Ver Más",
     "bookEvent": "Solicitar Presupuesto",
     "capacity": "Capacidad",
     "requestQuote": {
@@ -296,15 +296,15 @@
       "ariaLabel": "Solicitar presupuesto para"
     },
     "features": {
-      "title": "CaracterÃ­sticas Incluidas"
+      "title": "Características Incluidas"
     },
     "specialist": {
       "button": "Hablar con Especialista",
       "ariaLabel": "Hablar con especialista en eventos"
     },
     "planning": {
-      "title": "PlanificaciÃ³n Personalizada",
-      "description": "Nuestro equipo especializado se encarga de cada detalle de tu evento, desde la planificaciÃ³n hasta la ejecuciÃ³n, asegurando que todo sea perfecto."
+      "title": "Planificación Personalizada",
+      "description": "Nuestro equipo especializado se encarga de cada detalle de tu evento, desde la planificación hasta la ejecución, asegurando que todo sea perfecto."
     },
     "convention": {
       "title": "Centro de Convenciones",
@@ -313,10 +313,10 @@
       "features": {
         "audiovisual": "Sistema audiovisual completo",
         "wifi": "Wi-Fi de alta velocidad",
-        "airConditioning": "ClimatizaciÃ³n central",
+        "airConditioning": "Climatización central",
         "soundSystem": "Sistema de sonido profesional",
-        "lighting": "IluminaciÃ³n escÃ©nica",
-        "coffeeBreak": "Ãrea para coffee break"
+        "lighting": "Iluminación escénica",
+        "coffeeBreak": "Área para coffee break"
       },
       "clients": {
         "title": "Clientes en Convenciones"
@@ -328,49 +328,49 @@
       "title": "Eventos Corporativos",
       "description": "Salas ejecutivas equipadas para reuniones, entrenamientos y presentaciones empresariales en ambiente profesional.",
       "capacity": "10-50 personas",
-      "duration": "Medio dÃ­a o dÃ­a completo",
+      "duration": "Medio día o día completo",
       "location": "Salas Ejecutivas",
       "features": {
         "multimedia": "Sistema multimedia completo",
         "videoConference": "Videoconferencia HD",
-        "coffeeBreak": "Ãrea para coffee break",
+        "coffeeBreak": "Área para coffee break",
         "parking": "Estacionamiento exclusivo",
-        "technicalSupport": "Soporte tÃ©cnico especializado"
+        "technicalSupport": "Soporte técnico especializado"
       }
     },
     "wedding": {
       "title": "Bodas",
-      "description": "Celebra el amor en un entorno romÃ¡ntico rodeado de naturaleza, con jardines exuberantes y vista panorÃ¡mica de las montaÃ±as.",
+      "description": "Celebra el amor en un entorno romántico rodeado de naturaleza, con jardines exuberantes y vista panorámica de las montañas.",
       "capacity": "Hasta 150 invitados",
       "duration": "Evento completo",
-      "location": "Jardines y SalÃ³n Noble",
+      "location": "Jardines y Salón Noble",
       "features": {
         "ceremony": "Ceremonia al aire libre",
-        "reception": "SalÃ³n para recepciÃ³n",
-        "decoration": "DecoraciÃ³n personalizada",
+        "reception": "Salón para recepción",
+        "decoration": "Decoración personalizada",
         "catering": "Buffet completo",
         "music": "Sistema de sonido",
-        "photography": "Espacios fotogrÃ¡ficos"
+        "photography": "Espacios fotográficos"
       }
     },
     "social": {
       "title": "Eventos Sociales",
-      "description": "CumpleaÃ±os, graduaciones y celebraciones especiales en un ambiente acogedor y elegante.",
+      "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante.",
       "capacity": "Hasta 80 personas",
       "duration": "4-6 horas",
-      "location": "SalÃ³n Social",
+      "location": "Salón Social",
       "features": {
-        "decoration": "DecoraciÃ³n temÃ¡tica",
+        "decoration": "Decoración temática",
         "gourmetBuffet": "Buffet gourmet",
         "parking": "Estacionamiento",
-        "technicalSupport": "Soporte tÃ©cnico",
+        "technicalSupport": "Soporte técnico",
         "audiovisual": "Sistema audiovisual"
       }
     },
     "types": {
       "wedding": {
         "name": "Bodas",
-        "description": "Celebra el amor en un entorno romÃ¡ntico e inolvidable."
+        "description": "Celebra el amor en un entorno romántico e inolvidable."
       },
       "corporate": {
         "name": "Eventos Corporativos",
@@ -378,7 +378,7 @@
       },
       "social": {
         "name": "Eventos Sociales",
-        "description": "CumpleaÃ±os, graduaciones y celebraciones especiales en un ambiente acogedor y elegante."
+        "description": "Cumpleaños, graduaciones y celebraciones especiales en un ambiente acogedor y elegante."
       }
     }
   },
@@ -387,82 +387,82 @@
     "subtitle": "Todo para tu Comodidad y Bienestar",
     "pool": {
       "name": "Piscina Climatizada",
-      "description": "RelÃ¡jate en nuestra piscina climatizada con vista a la naturaleza."
+      "description": "Relájate en nuestra piscina climatizada con vista a la naturaleza."
     },
     "spa": {
       "name": "Spa y Bienestar",
-      "description": "Tratamientos relajantes con aguas radioactivas terapÃ©uticas."
+      "description": "Tratamientos relajantes con aguas radioactivas terapéuticas."
     },
     "restaurant": {
       "name": "Restaurante",
-      "description": "GastronomÃ­a refinada con ingredientes locales y recetas tradicionales."
+      "description": "Gastronomía refinada con ingredientes locales y recetas tradicionales."
     },
     "gym": {
       "name": "Gimnasio",
-      "description": "Mantente activo con equipos modernos y vista panorÃ¡mica."
+      "description": "Mantente activo con equipos modernos y vista panorámica."
     },
     "trails": {
-      "name": "Senderos EcolÃ³gicos",
-      "description": "Explora la naturaleza en senderos seguros y bien seÃ±alizados."
+      "name": "Senderos Ecológicos",
+      "description": "Explora la naturaleza en senderos seguros y bien señalizados."
     },
     "waterfall": {
       "name": "Cascada Privada",
-      "description": "Disfruta de nuestra cascada particular para momentos Ãºnicos."
+      "description": "Disfruta de nuestra cascada particular para momentos únicos."
     }
   },
   "restaurant": {
     "title": "Restaurante",
-    "subtitle": "Sabores AutÃ©nticos de la Sierra",
-    "description": "Nuestra cocina celebra los sabores regionales con tÃ©cnicas contemporÃ¡neas, ofreciendo una experiencia gastronÃ³mica Ãºnica.",
-    "menu": "MenÃº",
+    "subtitle": "Sabores Auténticos de la Sierra",
+    "description": "Nuestra cocina celebra los sabores regionales con técnicas contemporáneas, ofreciendo una experiencia gastronómica única.",
+    "menu": "Menú",
     "reserveTable": "Reservar Mesa",
-    "openingHours": "Horario de AtenciÃ³n",
+    "openingHours": "Horario de Atención",
     "breakfast": "Desayuno",
     "lunch": "Almuerzo",
     "dinner": "Cena"
   },
   "booking": {
     "title": "Haz tu Reserva",
-    "subtitle": "Reserve su estadÃ­a en Radio Hotel y disfrute de momentos Ãºnicos en Serra Negra",
+    "subtitle": "Reserve su estadía en Radio Hotel y disfrute de momentos únicos en Serra Negra",
     "checkIn": "Check-in",
     "checkOut": "Check-out",
     "adults": "Adultos",
-    "children": "NiÃ±os",
-    "childAge": "Edad del niÃ±o",
-    "child": "NiÃ±o",
-    "childrenAges": "Edades de los NiÃ±os",
+    "children": "Niños",
+    "childAge": "Edad del niño",
+    "child": "Niño",
+    "childrenAges": "Edades de los Niños",
     "adultSingular": "adulto",
     "adultPlural": "adultos",
-    "childSingular": "niÃ±o",
-    "childPlural": "niÃ±os",
-    "roomType": "Tipo de HabitaciÃ³n",
+    "childSingular": "niño",
+    "childPlural": "niños",
+    "roomType": "Tipo de Habitación",
     "accommodationType": "Tipo de Alojamiento",
     "selectAccommodation": "Selecciona un alojamiento",
     "specialRequests": "Solicitudes Especiales",
-    "specialRequestsPlaceholder": "Describe tus necesidades especiales, preferencias dietÃ©ticas, requisitos de accesibilidad, etc.",
+    "specialRequestsPlaceholder": "Describe tus necesidades especiales, preferencias dietéticas, requisitos de accesibilidad, etc.",
     "name": "Nombre Completo",
-    "email": "Correo ElectrÃ³nico",
-    "phone": "TelÃ©fono",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
     "submit": "Enviar Solicitud",
     "submitButton": "Enviar Solicitud por WhatsApp",
     "submitAriaLabel": "Enviar solicitud de reserva por WhatsApp",
     "sending": "Enviando...",
-    "whatsappRedirect": "SerÃ¡s redirigido a WhatsApp para completar tu reserva",
+    "whatsappRedirect": "Serás redirigido a WhatsApp para completar tu reserva",
     "currency": "$",
     "perNight": "por noche",
     "roomTypes": {
-      "standard": "HabitaciÃ³n EstÃ¡ndar",
-      "deluxe": "HabitaciÃ³n Deluxe",
+      "standard": "Habitación Estándar",
+      "deluxe": "Habitación Deluxe",
       "suiteMaster": "Suite Master",
       "suiteFamily": "Suite Familiar"
     },
     "summary": {
       "title": "Resumen de Reserva",
-      "period": "PerÃ­odo",
+      "period": "Período",
       "nights": "Noches",
-      "guests": "HuÃ©spedes",
+      "guests": "Huéspedes",
       "adults": "adultos",
-      "children": "niÃ±os",
+      "children": "niños",
       "estimatedValue": "Valor Estimado"
     },
     "whatsapp": {
@@ -470,60 +470,60 @@
       "checkIn": "Check-in",
       "checkOut": "Check-out",
       "nights": "Noches",
-      "guests": "HuÃ©spedes",
+      "guests": "Huéspedes",
       "adults": "Adultos",
-      "children": "NiÃ±os",
-      "childrenAges": "Edades de los niÃ±os",
-      "years": "aÃ±os",
+      "children": "Niños",
+      "childrenAges": "Edades de los niños",
+      "years": "años",
       "accommodation": "Alojamiento",
       "estimatedValue": "Valor Estimado",
       "observations": "Observaciones",
-      "confirmation": "Espero confirmaciÃ³n de disponibilidad y tarifas finales"
+      "confirmation": "Espero confirmación de disponibilidad y tarifas finales"
     },
-    "whatsappMessage": "Â¡Hola! Me gustarÃ­a hacer una reserva en Radio Hotel del {checkIn} al {checkOut}, {adults} adulto(s) y {children} niÃ±o(s). Tipo de habitaciÃ³n: {roomType}.",
+    "whatsappMessage": "¡Hola! Me gustaría hacer una reserva en Radio Hotel del {checkIn} al {checkOut}, {adults} adulto(s) y {children} niño(s). Tipo de habitación: {roomType}.",
     "validation": {
       "required": "Este campo es obligatorio",
-      "email": "Correo electrÃ³nico invÃ¡lido",
-      "phone": "TelÃ©fono invÃ¡lido",
+      "email": "Correo electrónico inválido",
+      "phone": "Teléfono inválido",
       "checkInRequired": "La fecha de check-in es obligatoria",
       "checkOutRequired": "La fecha de check-out es obligatoria",
-      "checkOutAfterCheckIn": "El check-out debe ser despuÃ©s del check-in",
+      "checkOutAfterCheckIn": "El check-out debe ser después del check-in",
       "checkInPastDate": "La fecha de check-in no puede ser en el pasado"
     }
   },
   "reviews": {
-    "title": "Lo que dicen nuestros huÃ©spedes",
+    "title": "Lo que dicen nuestros huéspedes",
     "subtitle": "Experiencias reales de quienes se han hospedado con nosotros",
-    "verified": "ReseÃ±a Verificada",
+    "verified": "Reseña Verificada",
     "navigation": {
-      "previous": "ReseÃ±a anterior",
-      "next": "Siguiente reseÃ±a"
+      "previous": "Reseña anterior",
+      "next": "Siguiente reseña"
     },
     "cta": {
-      "text": "Â¿Quieres ser parte de estas historias? Â¡Reserva tu estancia ahora!",
+      "text": "¿Quieres ser parte de estas historias? ¡Reserva tu estancia ahora!",
       "button": "Hacer Reserva"
     },
     "review1": {
-      "comment": "Â¡Una experiencia increÃ­ble! Radio Hotel superÃ³ todas mis expectativas. La ubicaciÃ³n es perfecta y el servicio es excepcional."
+      "comment": "¡Una experiencia increíble! Radio Hotel superó todas mis expectativas. La ubicación es perfecta y el servicio es excepcional."
     },
     "review2": {
-      "comment": "Â¡QuÃ© lugar tan maravilloso! La combinaciÃ³n perfecta entre elegancia y naturaleza. Â¡Definitivamente volverÃ©!"
+      "comment": "¡Qué lugar tan maravilloso! La combinación perfecta entre elegancia y naturaleza. ¡Definitivamente volveré!"
     },
     "review3": {
-      "comment": "AmÃ© cada momento de mi estancia. El hotel tiene una atmÃ³sfera Ãºnica y el personal es muy atento."
+      "comment": "Amé cada momento de mi estancia. El hotel tiene una atmósfera única y el personal es muy atento."
     },
     "review4": {
-      "comment": "Â¡Excelente hotel! Desde el check-in hasta el check-out, todo fue perfecto. Lo recomiendo para quienes buscan calidad y comodidad."
+      "comment": "¡Excelente hotel! Desde el check-in hasta el check-out, todo fue perfecto. Lo recomiendo para quienes buscan calidad y comodidad."
     },
     "review5": {
-      "comment": "Â¡Una joya escondida en Serra Negra! Radio Hotel ofrece una experiencia premium rodeada de naturaleza."
+      "comment": "¡Una joya escondida en Serra Negra! Radio Hotel ofrece una experiencia premium rodeada de naturaleza."
     }
   },
   "eventsModal": {
     "title": "Eventos Especiales",
     "subtitle": "",
     "categories": {
-      "gastronomy": "GastronomÃ­a",
+      "gastronomy": "Gastronomía",
       "wellness": "Bienestar",
       "packages": "Paquetes",
       "holiday": "Feriados",
@@ -535,20 +535,20 @@
       "location": ""
     },
     "buttons": {
-      "bookWhatsApp": "Reservar vÃ­a WhatsApp"
+      "bookWhatsApp": "Reservar vía WhatsApp"
     },
     "navigation": {
       "backToEvents": "Volver a Eventos"
     },
     "whatsapp": {
-      "bookingMessage": "Â¡Hola! Me gustarÃ­a reservar para el evento",
-      "onDay": "el dÃ­a",
+      "bookingMessage": "¡Hola! Me gustaría reservar para el evento",
+      "onDay": "el día",
       "atTime": "a las",
-      "helpRequest": "Â¿Pueden ayudarme?"
+      "helpRequest": "¿Pueden ayudarme?"
     },
     "italianNight": {
       "title": "Noche Italiana",
-      "description": "Una noche especial con lo mejor de la cocina italiana, mÃºsica en vivo y ambiente romÃ¡ntico.",
+      "description": "Una noche especial con lo mejor de la cocina italiana, música en vivo y ambiente romántico.",
       "date": "",
       "time": "",
       "location": ""
@@ -562,7 +562,7 @@
     },
     "guidedTour": {
       "title": "Tour Guiado por la Naturaleza",
-      "description": "Explora las bellezas naturales de Serra Negra con nuestro guÃ­a especializado.",
+      "description": "Explora las bellezas naturales de Serra Negra con nuestro guía especializado.",
       "date": "",
       "time": "",
       "location": ""
@@ -584,46 +584,46 @@
   },
   "contact": {
     "title": "Ponte en Contacto",
-    "subtitle": "Estamos AquÃ­ para Ayudar",
-    "address": "DirecciÃ³n",
-    "phone": "TelÃ©fono",
-    "email": "Correo ElectrÃ³nico",
+    "subtitle": "Estamos Aquí para Ayudar",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "email": "Correo Electrónico",
     "whatsapp": "WhatsApp",
     "socialMedia": "Redes Sociales",
     "form": {
-      "title": "EnvÃ­a un Mensaje",
+      "title": "Envía un Mensaje",
       "name": "Nombre",
-      "email": "Correo ElectrÃ³nico",
+      "email": "Correo Electrónico",
       "subject": "Asunto",
       "message": "Mensaje",
       "send": "Enviar Mensaje",
-      "success": "Â¡Mensaje enviado con Ã©xito!",
-      "error": "Error al enviar mensaje. IntÃ©ntalo de nuevo."
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar mensaje. Inténtalo de nuevo."
     },
     "location": {
-      "title": "Nuestra UbicaciÃ³n",
-      "description": "Ubicado en el corazÃ³n de Serra Negra, con fÃ¡cil acceso a las principales atracciones de la ciudad."
+      "title": "Nuestra Ubicación",
+      "description": "Ubicado en el corazón de Serra Negra, con fácil acceso a las principales atracciones de la ciudad."
     }
   },
   "footer": {
-    "description": "Radio Hotel Serra Negra - TradiciÃ³n, elegancia y naturaleza en perfecta armonÃ­a.",
+    "description": "Radio Hotel Serra Negra - Tradición, elegancia y naturaleza en perfecta armonía.",
     "logo": {
       "alt": "Logo Radio Hotel Serra Negra"
     },
     "quickLinks": {
-      "title": "Enlaces RÃ¡pidos",
+      "title": "Enlaces Rápidos",
       "home": "Inicio",
       "about": "Acerca de",
       "accommodations": "Alojamientos",
       "events": "Eventos",
-      "gallery": "GalerÃ­a",
+      "gallery": "Galería",
       "contact": "Contacto"
     },
     "services": {
       "title": "Nuestros Servicios",
       "wifi": "Wi-Fi",
       "parking": "Estacionamiento",
-      "roomService": "Servicio a la HabitaciÃ³n",
+      "roomService": "Servicio a la Habitación",
       "restaurant": "Restaurante",
       "gym": "Gimnasio",
       "pool": "Piscina"
@@ -631,55 +631,55 @@
     "contact": {
       "title": "Contacto",
       "phone": {
-        "label": "TelÃ©fono"
+        "label": "Teléfono"
       },
       "email": {
         "label": "Email"
       },
       "address": {
-        "label": "DirecciÃ³n",
+        "label": "Dirección",
         "value": "Calle de las Aguas Radioactivas, 123\nSerra Negra - SP\nCEP: 13930-000"
       },
       "hours": {
         "label": "Horario de Funcionamiento",
-        "value": "24 horas al dÃ­a\n7 dÃ­as a la semana"
+        "value": "24 horas al día\n7 días a la semana"
       }
     },
     "whatsapp": {
-      "message": "Â¡Hola! Me gustarÃ­a mÃ¡s informaciÃ³n sobre Radio Hotel."
+      "message": "¡Hola! Me gustaría más información sobre Radio Hotel."
     },
-    "followUs": "SÃ­guenos",
+    "followUs": "Síguenos",
     "newsletter": {
       "title": "Newsletter",
       "description": "Recibe ofertas especiales y noticias",
       "placeholder": "Tu email",
       "subscribe": "Suscribirse"
     },
-    "copyright": "Â© 2024 Radio Hotel Serra Negra. Todos los derechos reservados.",
-    "privacy": "PolÃ­tica de Privacidad",
-    "terms": "TÃ©rminos de Uso"
+    "copyright": "© 2024 Radio Hotel Serra Negra. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Uso"
   },
   "pwa": {
     "install": {
       "title": "Instalar Radio Hotel",
-      "description": "Acceso rÃ¡pido y sin conexiÃ³n",
-      "message": "Instala nuestra app para una experiencia mÃ¡s rÃ¡pida, notificaciones de ofertas especiales y acceso sin conexiÃ³n.",
+      "description": "Acceso rápido y sin conexión",
+      "message": "Instala nuestra app para una experiencia más rápida, notificaciones de ofertas especiales y acceso sin conexión.",
       "install": "Instalar App",
       "notNow": "Ahora no"
     },
-    "offline": "EstÃ¡s sin conexiÃ³n. Algunas funcionalidades pueden estar limitadas.",
-    "updateAvailable": "Â¡Nueva versiÃ³n disponible!",
+    "offline": "Estás sin conexión. Algunas funcionalidades pueden estar limitadas.",
+    "updateAvailable": "¡Nueva versión disponible!",
     "update": "Actualizar"
   },
   "meta": {
     "title": "Radio Hotel Serra Negra - Hotel de Lujo en Serra Negra, SP",
-    "description": "Descubre Radio Hotel, un refugio de elegancia y tradiciÃ³n en el corazÃ³n de Serra Negra, SP. Rodeado de naturaleza exuberante, cascadas y mucho verde, ofrecemos una experiencia Ãºnica de hospitalidad premium con aguas radioactivas terapÃ©uticas.",
-    "keywords": "hotel serra negra, hotel de lujo sp, alojamiento serra negra, radio hotel, hotel hacienda, turismo serra negra, hotel naturaleza, eventos corporativos, bodas serra negra, hotel boutique, aguas radioactivas, spa serra negra, hotel con piscina, destination wedding, hotel romÃ¡ntico"
+    "description": "Descubre Radio Hotel, un refugio de elegancia y tradición en el corazón de Serra Negra, SP. Rodeado de naturaleza exuberante, cascadas y mucho verde, ofrecemos una experiencia única de hospitalidad premium con aguas radioactivas terapéuticas.",
+    "keywords": "hotel serra negra, hotel de lujo sp, alojamiento serra negra, radio hotel, hotel hacienda, turismo serra negra, hotel naturaleza, eventos corporativos, bodas serra negra, hotel boutique, aguas radioactivas, spa serra negra, hotel con piscina, destination wedding, hotel romántico"
   },
   "accessibility": {
     "skipToContent": "Saltar al contenido",
-    "openMenu": "Abrir menÃº",
-    "closeMenu": "Cerrar menÃº",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
     "previousSlide": "Diapositiva anterior",
     "nextSlide": "Siguiente diapositiva",
     "playVideo": "Reproducir video",

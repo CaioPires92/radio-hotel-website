@@ -43,7 +43,7 @@ function getRooms(t: (key: string) => string): Room[] {
       id: 'std',
       name: 'Apartamento Standard',
       type: 'Standard',
-      description: 'Ótimo custo-benefício, vista interna ou frente para rua.',
+      description: 'Vista interna ou frente para rua.',
       image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
       amenities: commonAmenities,
       gallery: [
@@ -79,7 +79,7 @@ function getRooms(t: (key: string) => string): Room[] {
       id: 'master',
       name: 'Suíte Master',
       type: 'Master',
-      description: 'Suíte maior, com sacada e a melhor vista do hotel.',
+      description: 'Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.',
       image: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
       gallery: [

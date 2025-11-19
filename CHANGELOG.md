@@ -54,3 +54,11 @@ Este documento registra as atualizações a partir de 2025-11-18.
 - Passeios (correções em EN/ES):
   - `src/dictionaries/en-US.json` — ajustes de coerência nas descrições (sem tradução literal de termos locais; ex.: “semi‑cured cheese”).
   - `src/dictionaries/es-ES.json` — correção de acentos e grafia (teleférico, réplica, manténgase), revisão de termos (“semicurado”, “equipamiento”).
+
+- Dicionário ES — correção ampla de encoding e acentuação:
+  - `src/dictionaries/es-ES.json` — substituição de caracteres mal‑codificados (`Ã`, `Â`, `â€`, etc.) por acentuação correta (ex.: “Menú”, “Teléfono”, “Dirección”, “Ubicación”, “Años”, “Tradición”).
+  - Ajustes em seções: `hero`, `about`, `highlights`, `parallax`, `accommodations`, `events`, `facilities`, `restaurant`, `booking`, `reviews`, `footer`, `pwa`, `meta`, `accessibility`.
+  - Verificado com busca de padrões e validação: nenhum resíduo de encoding incorreto restante.
+
+- Dicionário EN — revisão geral:
+  - `src/dictionaries/en-US.json` — verificado consistência, sem ocorrências de encoding incorreto.

@@ -31,7 +31,7 @@ export default function ConventionsHero({ heightClass = 'min-h-[50vh] md:min-h-[
             sizes="100vw"
             quality={85}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/70 to-blue/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-blue/70" />
         </div>
       </div>
 
@@ -55,7 +55,7 @@ export default function ConventionsHero({ heightClass = 'min-h-[50vh] md:min-h-[
               </motion.h1>
 
               <motion.h2
-                className="text-xl md:text-2xl font-light mb-6 text-gold"
+                className="text-xl md:text-2xl font-medium mb-6 text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}

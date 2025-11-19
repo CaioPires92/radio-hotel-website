@@ -25,7 +25,6 @@ export default function LazerPage() {
           {/* Texto à esquerda */}
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy">Piscina</h2>
-            <p className="text-navy/80 text-lg">Piscina e salão de jogos.</p>
             <p className="text-navy/75">
               Desfrute de momentos de relaxamento nas piscinas cercadas pela natureza e
               diversão no nosso espaço de jogos para todas as idades.
