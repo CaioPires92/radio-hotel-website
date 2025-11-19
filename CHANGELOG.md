@@ -25,9 +25,11 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Aumentada a fonte das frases remanescentes (`text-lg md:text-xl`).
   - Slide de fotos ampliado: altura aumentada para `h-[28rem] md:h-[36rem]`.
   - Adicionada bolinha discreta com total de fotos no carrossel (badge).
+  - Estilizadas bolinhas de paginação no rodapé das fotos (Swiper): discretas e com destaque suave no ativo.
 
 - Componentes:
   - `src/components/ui/custom/CardImageCarousel.tsx` — novo prop opcional `showCountBadge` para exibir o total de imagens.
+  - `src/app/globals.css` — estilos para `.swiper-pagination` e bullets.
 
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.
