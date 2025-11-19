@@ -51,7 +51,7 @@ export default function RestaurantePage() {
                 { src: '/images/restaurant/restaurante2.jpg', alt: 'Restaurante Cinquentenário' },
                 { src: '/images/restaurant/restaurante3.jpg', alt: 'Restaurante Paradiso' },
               ]}
-              className="h-[28rem] md:h-[36rem]"
+              className="h-[28rem] md:h-[36rem] restaurant-dots"
               showDots
               fit="cover"
             />

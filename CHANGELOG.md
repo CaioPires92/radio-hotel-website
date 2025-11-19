@@ -28,6 +28,7 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Estilizadas bolinhas de paginação no rodapé das fotos (Swiper): discretas e com destaque suave no ativo.
   - Aumentada a visibilidade dos dots: tamanho `8px`, fundo branco translúcido e borda suave.
   - Correção de posicionamento e centralização dos dots: `.swiper-pagination` com `left/right: 0`, `display:flex` e `justify-content:center`.
+  - Dots circulares apenas na página Restaurante (`.restaurant-dots` escopo CSS).
 
 - Tabelas:
   - `src/app/globals.css` — `th` agora usa negrito globalmente para maior legibilidade.

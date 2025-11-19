@@ -352,3 +352,8 @@
     transform: scale(1.2);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
   }
+
+  .restaurant-dots .swiper-pagination-bullet,
+  .restaurant-dots .swiper-pagination-bullet-active {
+    border-radius: 9999px;
+  }
