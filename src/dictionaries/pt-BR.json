@@ -27,9 +27,10 @@
     "contacts": {
       "address": "Endereço",
       "phone": "Telefone",
-      "whatsapp": "WhatsApp",
+      "whatsapp": "Whatsapp",
       "instagram": "Redes sociais",
       "location": "Localização",
+      "contact": "Contato",
       "notAvailable": "não disponível",
       "whatsappMessage": "Olá! Gostaria de mais informações."
     },
@@ -51,15 +52,15 @@
     },
     "vale-ouro-verde-museu-cafe": {
       "title": "Vale do Ouro Verde – Museu do Café",
-      "description": "A produção de café em Serra Negra constitui uma das principais atividades agrícolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poderá agendar uma visita monitorada e conhecer todo o processo de produção artesanal do café, da evolução nas formas de plantio às técnicas de colheita, preparação de grãos, torrefação e moagem. Um pequeno museu reúne a história do café, curiosidades e virtudes do produto, além de equipamentos e ferramentas de época. Localização: Estrada Municipal Bairro da Serra, km 5."
+      "description": "A produção de café em Serra Negra constitui uma das principais atividades agrícolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poderá agendar uma visita monitorada e conhecer todo o processo de produção artesanal do café, da evolução nas formas de plantio às técnicas de colheita, preparação de grãos, torrefação e moagem. Um pequeno museu reúne a história do café, curiosidades e virtudes do produto, além de equipamentos e ferramentas de época."
     },
     "sitio-bom-retiro-familia-carra": {
       "title": "Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados",
-      "description": "Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos (branca, envelhecida, cachaça azul e destilada com flores de laranjeira), grappa, rum e conhaque. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga. Localização: SP 105, km 9."
+      "description": "Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos (branca, envelhecida, cachaça azul e destilada com flores de laranjeira), grappa, rum e conhaque. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga."
     },
     "sitio-chapadao-queijos": {
       "title": "Sítio Chapadão – Produção de Queijos",
-      "description": "O Sítio produz os melhores queijos da região, que levam a marca \"Queijos da Fazenda\". No local, o visitante terá a oportunidade de presenciar todo o processo de produção, desde a ordenha no curral à degustação do produto final, entre queijos frescal, ricota de leite e ricota temperada, queijo meia cura e coalhada. Localização: SP 105, km 9."
+      "description": "O Sítio produz os melhores queijos da região, que levam a marca \"Queijos da Fazenda\". No local, o visitante terá a oportunidade de presenciar todo o processo de produção, desde a ordenha no curral à degustação do produto final, entre queijos frescal, ricota de leite e ricota temperada, queijo meia cura e coalhada."
     }
   },
   "navigation": {

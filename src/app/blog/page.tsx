@@ -49,37 +49,44 @@ type PoiContact = {
 
 const poiContacts: Record<string, PoiContact> = {
   'alto-da-serra': {
-    address: 'Ponto turístico em Serra Negra (sem endereço oficial completo).',
+    address: 'Rua Paulo Marchi, 3079 - Jardim Gustavo, Serra Negra - SP',
     instagramUrl: 'https://www.instagram.com/espacosantarosasn/',
     locationUrl: 'https://www.google.com/maps/dir/-22.6202854,-46.6995035/Alto+da+Serra+-+Alto+da+Serra,+Serra+Negra+-+SP/data=!4m10!4m9!1m1!4e1!1m5!1m4!1s0x94c922ae2bce4df7:0xaf49b917fa40df7!8m2!3d-22.619121!4d-46.6774705!3e0?utm_source=mstt_0',
   },
   'fontana-di-trevi': {
-    address: 'Av. Deputado Pomeu Campos Vergal, Serra Negra – SP, 13930-000',
+    address: 'Av. Deputado Pomeu Campos Vergal, Serra Negra – SP',
     instagramUrl: null,
+    locationUrl:
+      'https://www.google.de/maps/place/Fontana+di+Trevi+em+Serra+Negra/@-22.6100055,-46.7050937,17z/data=!3m1!4b1!4m6!3m5!1s0x94c9199f6374d031:0xe1c5336db6515312!8m2!3d-22.6100105!4d-46.7002228!16s%2Fg%2F11k4b8h95v?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D',
   },
   'teleferico-cristo-redentor': {
-    address: 'Praça Sesquicentenário, 143 – Centro, Serra Negra – SP',
-    phone: '(19) 3892-1598',
-    instagramUrl: 'https://www.instagram.com/explore/locations/243540196/teleferico-cristo-redentor---serra-negra/',
+    address: 'R. Cristo Redentor, 157 - Lot. Vale do Sol, Serra Negra',
+    instagramUrl: null,
+    locationUrl:
+      'https://www.google.com/maps/place/Cristo+Redentor+de+Serra+Negra/@-22.6041517,-46.7016246,17z/data=!3m1!4b1!4m6!3m5!1s0x94c919af9d840e0f:0x55e3a025772f7564!8m2!3d-22.6041567!4d-46.6990497!16s%2Fg%2F11f6d8ptg5?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D',
   },
   'vale-ouro-verde-museu-cafe': {
     address: 'Estrada Municipal Amathis Franchi, km 05 – Vale do Ouro Verde, Serra Negra – SP',
     whatsappNumbers: ['5519971476542'],
+    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Estrada+Municipal+Amathis+Franchi,+Km+05+-+Vale+do+Ouro+Verde,+Serra+Negra+-+SP',
   },
   'museu-vinho-cachaca-silotto': {
     address: 'Rodovia SP-360, km 158,5 – Sítio São Pedro, Serra Negra – SP',
     whatsappNumbers: ['5519971493543', '5519997755028'],
     instagramUrl: 'https://www.instagram.com/familiasilotto/',
+    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-360,+Km+158,5+-+Sítio+São+Pedro,+Serra+Negra+-+SP',
   },
   'sitio-bom-retiro-familia-carra': {
     address: 'Rodovia SP-105, Km 9 – Serra Negra – SP',
     whatsappNumbers: ['5519997222961'],
     instagramUrl: 'https://www.instagram.com/familiacarra/',
+    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-105,+Km+9+-+Serra+Negra+-+SP',
   },
   'sitio-chapadao-queijos': {
     address: 'Rodovia SP-105, km 5,5 – Bairro Santo Aleixo, Serra Negra – SP',
     whatsappNumbers: ['5519999846555'],
     instagramUrl: 'https://www.instagram.com/afazendachapadao/',
+    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-105,+Km+5,5+-+Bairro+Santo+Aleixo,+Serra+Negra+-+SP',
   },
 };
 
@@ -164,7 +171,6 @@ const Blog = () => {
                     {t(`blog.${post.id}.description`)}
                   </p>
 
-                  {/* Contact details */}
                   {(() => {
                     const poi = poiContacts[post.id];
                     if (!poi) return null;
@@ -197,33 +203,35 @@ const Blog = () => {
                             </a>
                           </div>
                         )}
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span className="font-semibold">{t('blog.contacts.instagram')}:</span>
-                          {poi.instagramUrl ? (
-                            <a href={poi.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-navy hover:text-gold transition-colors" aria-label="Instagram do ponto turístico">
+                        {poi.instagramUrl ? (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="font-semibold">{t('blog.contacts.instagram')}:</span>
+                            <a
+                              href={poi.instagramUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline underline-offset-4 text-navy hover:text-gold transition-colors"
+                              aria-label="Redes sociais do ponto turístico"
+                            >
                               Instagram
                             </a>
-                          ) : (
-                            <span>{t('blog.contacts.notAvailable')}</span>
-                          )}
-                        </div>
+                          </div>
+                        ) : null}
                         {poi.whatsappNumbers?.length ? (
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                            <span className="font-semibold">{t('blog.contacts.whatsapp')}:</span>
-                            <div className="flex flex-wrap gap-2 mt-1 sm:mt-0">
-                              {poi.whatsappNumbers.map((num, i) => (
-                                <a
-                                  key={i}
-                                  href={buildWhatsAppUrl(t('blog.contacts.whatsappMessage'), num)}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center px-3 py-1 rounded-full bg-gold text-navy font-semibold hover:brightness-105 transition"
-                                  aria-label={`${t('blog.contacts.whatsapp')} (${num})`}
-                                >
-                                  {`WhatsApp ${i + 1}`}
-                                </a>
-                              ))}
-                            </div>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="font-semibold">{t('blog.contacts.contact')}:</span>
+                            {poi.whatsappNumbers.map((num, i) => (
+                              <a
+                                key={i}
+                                href={buildWhatsAppUrl(t('blog.contacts.whatsappMessage'), num)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline underline-offset-4 text-navy hover:text-gold transition-colors"
+                                aria-label={`${t('blog.contacts.whatsapp')}`}
+                              >
+                                {t('blog.contacts.whatsapp')}
+                              </a>
+                            ))}
                           </div>
                         ) : null}
                       </div>
