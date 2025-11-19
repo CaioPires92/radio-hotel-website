@@ -99,3 +99,5 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - `src/dictionaries/pt-BR.json` — removido “Com 800 m² de área construída...” da descrição e atualizado para: “Possui 2 salas no formato auditório: Millenium e Monterrey. A sala Monterrey tem capacidade para até 60 pessoas. Os ambientes são climatizados e equipados com Wi‑Fi.”
 - Convenções — indicadores:
   - `pt-BR`, `en-US`, `es-ES` — removido indicador de área ("800 m²") dos dicionários (`events.convention.area`).
+- Convenções — conteúdo:
+  - `src/dictionaries/pt-BR.json` — adicionada a frase: “Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.” ao final da descrição de convenções.
