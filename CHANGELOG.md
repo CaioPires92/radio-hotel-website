@@ -93,3 +93,5 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - `src/dictionaries/en-US.json` — verificado consistência, sem ocorrências de encoding incorreto.
 - Tabelas:
   - `src/components/sections/ConferenceTable.tsx` — cabeçalhos agora usam fonte sans (`font-sans`, Inter) para melhorar leitura.
+- Convenções — tabela de salas:
+  - `src/components/sections/ConferenceTable.tsx` — atualizado valor de Auditório da sala Monterrey de 100 para 60.

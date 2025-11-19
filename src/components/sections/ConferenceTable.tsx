@@ -17,7 +17,7 @@ const conferenceRooms = [
   {
     name: 'Monterrey',
     sqm: 125,
-    auditorium: 100,
+    auditorium: 60,
     u_shape: 36,
     herringbone: 42,
     meeting: '-',
