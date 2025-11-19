@@ -8,6 +8,13 @@ Este documento registra as atualizações a partir de 2025-11-18.
 - Inclua referências a arquivos e caminhos quando útil.
 - Valide as alterações com `npm run lint` e `npm run type-check`.
 
+## 2025-11-19
+- Blog — atualização de contatos dos pontos de interesse:
+  - `src/app/blog/page.tsx`
+  - Vale do Ouro Verde — Museu do Café: `locationUrl` atualizado para link de lugar (Google Maps Place) em vez de busca.
+  - Museu do Vinho e da Cachaça (Família Silotto): removido número secundário de WhatsApp de `whatsappNumbers`.
+  - Validação: `npm run lint` (sem erros) e `npm run type-check` (OK).
+
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.
   - Componente `src/components/ui/PromoRibbon.tsx` permanece no código, mas não é mais utilizado.

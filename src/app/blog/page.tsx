@@ -69,11 +69,11 @@ const poiContacts: Record<string, PoiContact> = {
   'vale-ouro-verde-museu-cafe': {
     address: 'Estrada Municipal Amathis Franchi, km 05 – Vale do Ouro Verde, Serra Negra – SP',
     whatsappNumbers: ['5519971476542'],
-    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Estrada+Municipal+Amathis+Franchi,+Km+05+-+Vale+do+Ouro+Verde,+Serra+Negra+-+SP',
+    locationUrl: 'https://www.google.com/maps/place/Museu+do+Caf%C3%A9+-+Emp%C3%B3rio+e+Cafeteria/@-22.6021613,-46.6623062,17z/data=!3m1!4b1!4m6!3m5!1s0x94c917e26d2d3125:0xea64fb156e28ef49!8m2!3d-22.6021663!4d-46.6574353!16s%2Fg%2F11b73n1wjs?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D',
   },
   'museu-vinho-cachaca-silotto': {
     address: 'Rodovia SP-360, km 158,5 – Sítio São Pedro, Serra Negra – SP',
-    whatsappNumbers: ['5519971493543', '5519997755028'],
+    whatsappNumbers: ['5519971493543'],
     instagramUrl: 'https://www.instagram.com/familiasilotto/',
     locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-360,+Km+158,5+-+Sítio+São+Pedro,+Serra+Negra+-+SP',
   },
@@ -81,7 +81,7 @@ const poiContacts: Record<string, PoiContact> = {
     address: 'Rodovia SP-105, Km 9 – Serra Negra – SP',
     whatsappNumbers: ['5519997222961'],
     instagramUrl: 'https://www.instagram.com/familiacarra/',
-    locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-105,+Km+9+-+Serra+Negra+-+SP',
+    locationUrl: 'https://www.google.com/maps/place/Fam%C3%ADlia+Carra/@-22.5800196,-46.7718494,17z/data=!3m1!4b1!4m6!3m5!1s0x94c91ebfd43d102b:0xb93a7c7532605b3c!8m2!3d-22.5800246!4d-46.7669785!16s%2Fg%2F11c2kfx3vl?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D',
   },
   'sitio-chapadao-queijos': {
     address: 'Rodovia SP-105, km 5,5 – Bairro Santo Aleixo, Serra Negra – SP',
