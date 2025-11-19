@@ -29,6 +29,9 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Aumentada a visibilidade dos dots: tamanho `8px`, fundo branco translúcido e borda suave.
   - Correção de posicionamento e centralização dos dots: `.swiper-pagination` com `left/right: 0`, `display:flex` e `justify-content:center`.
 
+- Tabelas:
+  - `src/app/globals.css` — `th` agora usa negrito globalmente para maior legibilidade.
+
 - Componentes:
   - `src/components/ui/custom/CardImageCarousel.tsx` — novo prop opcional `showCountBadge` para exibir o total de imagens.
   - `src/app/globals.css` — estilos para `.swiper-pagination` e bullets.
