@@ -22,35 +22,35 @@
     "and": "y"
   },
   "blog": {
-    "subtitle": "MantÃ©ngase al dÃ­a con las Ãºltimas noticias y descubra las mejores atracciones turÃ­sticas de Serra Negra.",
+    "subtitle": "Manténgase al día con las últimas noticias y descubra las mejores atracciones turísticas de Serra Negra.",
     "alto-da-serra": {
       "title": "Alto da Serra (Serra Negra)",
-      "description": "Â¡PrepÃ¡rese para una vista impresionante en el Alto da Serra, el punto mÃ¡s alto de la regiÃ³n con una altitud de 1.310m! Desde allÃ­, se puede contemplar uno de los paisajes mÃ¡s bellos del Circuito de las Aguas, avistando mÃ¡s de 10 ciudades vecinas. El acceso es por la Rua 14 de Julho. Â¡Una experiencia inolvidable para los amantes de la naturaleza y la fotografÃ­a!"
+      "description": "¡Prepárese para una vista impresionante en el Alto da Serra, el punto más alto de la región, con una altitud de 1.310 m! Desde allí se contempla uno de los paisajes más bellos del Circuito de las Aguas, avistando más de 10 ciudades vecinas. El acceso es por la Rua 14 de Julho. ¡Una experiencia inolvidable para amantes de la naturaleza y la fotografía!"
     },
     "fontana-di-trevi": {
-      "title": "Fontana Di Trevi - Serra Negra/SP",
-      "description": "Â¡DÃ©jese encantar por la deslumbrante rÃ©plica de la Fontana di Trevi en Serra Negra! Un punto turÃ­stico imperdible para tomar fotos increÃ­bles y, por supuesto, hacer ese pedido especial lanzando una moneda. Venga a ver esta belleza arquitectÃ³nica que trae el encanto de Italia al interior de SÃ£o Paulo. Â¡Visite y enamÃ³rese!"
+      "title": "Fontana di Trevi - Serra Negra/SP",
+      "description": "Déjese encantar por la deslumbrante réplica de la Fontana di Trevi en Serra Negra. Un punto turístico imperdible para tomar fotos increíbles y, por supuesto, pedir un deseo lanzando una moneda. Venga a ver esta belleza arquitectónica que trae el encanto de Italia al interior de São Paulo. ¡Visite y enamórese!"
     },
     "teleferico-cristo-redentor": {
-      "title": "TelefÃ©rico y Cristo Redentor",
-      "description": "Â¡Suba a Serra Negra de una manera emocionante! Tome el TelefÃ©rico en la PraÃ§a JoÃ£o Zelante y disfrute de un paseo con vistas panorÃ¡micas de la ciudad. Â¡Le lleva directamente al Cristo Redentor, en la cima del Pico do Fonseca! Desde allÃ­ arriba, la estatua de 18 metros le da la bienvenida con una vista espectacular, perfecta para fotos y momentos de paz. Â¡Es el combo perfecto de aventura y contemplaciÃ³n!"
+      "title": "Teleférico y Cristo Redentor",
+      "description": "¡Suba a Serra Negra de una manera emocionante! Tome el teleférico en la Praça João Zelante y disfrute de un paseo con vistas panorámicas de la ciudad. Lo lleva directamente al Cristo Redentor, en la cima del Pico do Fonseca. Desde allí, la estatua de 18 metros le da la bienvenida con una vista espectacular, perfecta para fotos y momentos de paz. ¡El combo perfecto de aventura y contemplación!"
     },
-    "intro": "Serra Negra ofrece paseos para todos los perfiles: miradores e iconos de la ciudad â€” Alto da Serra, TelefÃ©rico al Cristo Redentor y la rÃ©plica de la Fontana di Trevi â€” y experiencias de turismo rural en haciendas abiertas a la visita. AllÃ­ se puede acompaÃ±ar la producciÃ³n artesanal de vinos y cachaÃ§as (Familia Silotto), cafÃ© desde el cultivo hasta el tueste (Vale do Ouro Verde), quesos hechos en la finca (SÃ­tio ChapadÃ£o) y destilados y dulces de campo (SÃ­tio Bom Retiro â€“ Familia Carra). Se recomienda reservar con antelaciÃ³n.",
+    "intro": "Serra Negra ofrece paseos para todos los perfiles: miradores e iconos de la ciudad — Alto da Serra, teleférico al Cristo Redentor y la réplica de la Fontana di Trevi — y experiencias de turismo rural en haciendas abiertas a la visita. Allí se puede acompañar la producción artesanal de vinos y cachaça (Familia Silotto), café desde el cultivo hasta el tueste (Vale do Ouro Verde), quesos hechos en la finca (Sítio Chapadão) y destilados y dulces de campo (Sítio Bom Retiro – Familia Carra). Se recomienda reservar con antelación.",
     "museu-vinho-cachaca-silotto": {
-      "title": "Museo del Vino y de la CachaÃ§a â€“ Familia Silotto",
-      "description": "TradiciÃ³n italiana en la producciÃ³n artesanal de vinos y cachaÃ§as en un viÃ±edo centenario, con degustaciones y productos tÃ­picos de campo."
+      "title": "Museo del Vino y de la Cachaça – Familia Silotto",
+      "description": "Tradición italiana en la producción artesanal de vinos y cachaça en un viñedo centenario, con degustaciones y productos típicos de campo."
     },
     "vale-ouro-verde-museu-cafe": {
-      "title": "Vale do Ouro Verde â€“ Museo del CafÃ©",
-      "description": "Visita guiada al proceso del cafÃ©, desde el cultivo hasta el tueste, con un pequeÃ±o museo de historia y equipos."
+      "title": "Vale do Ouro Verde – Museo del Café",
+      "description": "Visita guiada al proceso del café, desde el cultivo hasta el tueste, con un pequeño museo de historia y equipamiento."
     },
     "sitio-bom-retiro-familia-carra": {
-      "title": "SÃ­tio Bom Retiro â€“ Familia Carra â€“ Vinos y Destilados",
-      "description": "ProducciÃ³n artesanal de vinos de uva y naranja, cachaÃ§as, grappa y aguardientes, ademÃ¡s de melaza, rapadura y otros dulces de campo."
+      "title": "Sítio Bom Retiro – Familia Carra – Vinos y Destilados",
+      "description": "Producción artesanal de vinos de uva y de naranja, cachaça, grappa y aguardientes, además de melaza, rapadura y otros dulces de campo."
     },
     "sitio-chapadao-queijos": {
-      "title": "SÃ­tio ChapadÃ£o â€“ ElaboraciÃ³n de Quesos",
-      "description": "AcompaÃ±a el proceso de la leche al queso y prueba frescal, ricota, meiaâ€‘cura y cuajada elaborados en la finca."
+      "title": "Sítio Chapadão – Elaboración de Quesos",
+      "description": "Acompaña el proceso de la leche al queso y prueba queso fresco, ricota, queso semicurado y cuajada elaborados en la finca."
     }
   },
   "navigation": {

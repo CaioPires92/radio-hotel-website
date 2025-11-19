@@ -51,3 +51,6 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Contato: `src/app/contato/page.tsx` — `h1` padronizado e subtítulo convertido para `h2` com `text-white`.
   - Convenções: `src/components/sections/ConventionsHero.tsx` — já usa `h1`/`h2` nos tamanhos padronizados.
   - Acomodações: `src/components/sections/AccommodationsHero.tsx` — já usa `h1`/`h2` nos tamanhos padronizados.
+- Passeios (correções em EN/ES):
+  - `src/dictionaries/en-US.json` — ajustes de coerência nas descrições (sem tradução literal de termos locais; ex.: “semi‑cured cheese”).
+  - `src/dictionaries/es-ES.json` — correção de acentos e grafia (teleférico, réplica, manténgase), revisão de termos (“semicurado”, “equipamiento”).
