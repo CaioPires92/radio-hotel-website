@@ -6,6 +6,7 @@ import { useTranslation } from '@/components/i18n/I18nProvider';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BlogHero from '@/components/sections/BlogHero';
+import { SOCIALS, buildWhatsAppUrl } from '@/lib/config';
 
 const blogPosts = [
   {
@@ -52,6 +53,37 @@ const Blog = () => {
             <p className="text-navy/80 leading-relaxed whitespace-pre-line">
               {t('blog.intro')}
             </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="text-navy/70 font-medium">{t('footer.followUs')}</span>
+              <a
+                href={SOCIALS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-navy hover:text-gold transition-colors underline underline-offset-4"
+                aria-label="Instagram Radio Hotel Serra Negra"
+              >
+                Instagram
+              </a>
+              <span className="text-navy/30">•</span>
+              <a
+                href={SOCIALS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-navy hover:text-gold transition-colors underline underline-offset-4"
+                aria-label="Facebook Radio Hotel Serra Negra"
+              >
+                Facebook
+              </a>
+              <a
+                href={buildWhatsAppUrl(t('navbar.whatsapp.bookingMessage'))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 rounded-full bg-gold text-navy font-semibold hover:brightness-105 transition ml-2"
+                aria-label={t('contactPage.digital.ctaWhatsApp')}
+              >
+                {t('contactPage.digital.ctaWhatsApp')}
+              </a>
+            </div>
           </div>
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
