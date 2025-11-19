@@ -97,3 +97,5 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - `src/components/sections/ConferenceTable.tsx` — atualizado valor de Auditório da sala Monterrey de 100 para 60.
 - Convenções — conteúdo:
   - `src/dictionaries/pt-BR.json` — removido “Com 800 m² de área construída...” da descrição e atualizado para: “Possui 2 salas no formato auditório: Millenium e Monterrey. A sala Monterrey tem capacidade para até 60 pessoas. Os ambientes são climatizados e equipados com Wi‑Fi.”
+- Convenções — indicadores:
+  - `pt-BR`, `en-US`, `es-ES` — removido indicador de área ("800 m²") dos dicionários (`events.convention.area`).
