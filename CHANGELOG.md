@@ -20,6 +20,20 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Inclusão do item em `src/components/modals/EventsModal.tsx`.
   - Traduções adicionadas em `src/dictionaries/pt-BR.json`, `src/dictionaries/en-US.json`, `src/dictionaries/es-ES.json`.
 
+- Ajustes de contraste e padronização de headers (overlay + subtítulo em branco):
+  - Blog: `src/components/sections/BlogHero.tsx` — overlay `from-navy/80 to-blue/70` e `h2` com `text-white` e `font-medium`.
+  - Convenções: `src/components/sections/ConventionsHero.tsx` — overlay escurecido e `h2` com `text-white`.
+  - Acomodações: `src/components/sections/AccommodationsHero.tsx` — overlay escurecido e `h2` com `text-white`.
+  - Restaurante: `src/app/restaurante/page.tsx` — header com overlay escurecido.
+  - Contato: `src/app/contato/page.tsx` — header com overlay escurecido.
+
+- Conteúdo de lazer:
+  - Removido parágrafo “Piscina e salão de jogos.” em `src/app/lazer/page.tsx`.
+
+- Acomodações — ajustes de textos:
+  - Standard: removido “Ótimo custo-benefício” em `src/components/sections/AccommodationsSimple.tsx`.
+  - Suíte Master: atualizado para “Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.” em `src/components/sections/AccommodationsSimple.tsx`.
+
 ## Como registrar novas atualizações
 - Crie uma nova seção com a data do dia.
 - Descreva brevemente o que mudou e por quê.
