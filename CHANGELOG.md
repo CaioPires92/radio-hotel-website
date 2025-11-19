@@ -18,6 +18,12 @@ Este documento registra as atualizações a partir de 2025-11-18.
 - Limpeza:
   - `src/app/blog/page.tsx` — removido import não utilizado `Linkedin`.
 
+- Restaurante — ajustes de conteúdo e tipografia:
+  - `src/app/restaurante/page.tsx`
+  - Removidas informações detalhadas de cardápio (à la carte/buffet) do Cinquentenário.
+  - Paradiso: texto atualizado e acrescentado que é aberto nos feriados.
+  - Aumentada a fonte das frases remanescentes (`text-lg md:text-xl`).
+
 ## 2025-11-18
 - Ocultado o banner superior de “Programação especial” na Home.
   - Componente `src/components/ui/PromoRibbon.tsx` permanece no código, mas não é mais utilizado.

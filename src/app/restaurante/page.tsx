@@ -30,17 +30,14 @@ export default function RestaurantePage() {
             <div className="space-y-4">
               <div className="space-y-0">
                 <h3 className="text-xl md:text-2xl font-serif font-semibold text-navy">Restaurante Cinquentenário:</h3>
-                <p className="text-navy/80">
-                  Ambiente requintado e a tradição de sempre servir o melhor cardápio à la carte (domingo à
-                  quinta-feira) ou buffet completo de frios, saladas e doces (finais de semana, feriados e
-                  períodos de alta temporada).
+                <p className="text-lg md:text-xl text-navy/80">
+                  Ambiente requintado e a tradição de sempre servir o melhor cardápio.
                 </p>
               </div>
               <div className="space-y-0">
                 <h3 className="text-xl md:text-2xl font-serif font-semibold text-navy">Restaurante Paradiso:</h3>
-                <p className="text-navy/80">
-                  Junto ao bosque de mata nativa, de frente para as piscinas. Cardápio de grelhados e buffet completo
-                  de frios, saladas e doces.
+                <p className="text-lg md:text-xl text-navy/80">
+                  Junto ao bosque de mata nativa, de frente para as piscinas. Aberto nos feriados.
                 </p>
               </div>
             </div>
