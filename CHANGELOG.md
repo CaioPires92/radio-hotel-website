@@ -26,6 +26,7 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - Slide de fotos ampliado: altura aumentada para `h-[28rem] md:h-[36rem]`.
   - Adicionada bolinha discreta com total de fotos no carrossel (badge).
   - Estilizadas bolinhas de paginação no rodapé das fotos (Swiper): discretas e com destaque suave no ativo.
+  - Aumentada a visibilidade dos dots: tamanho `8px`, fundo branco translúcido e borda suave.
 
 - Componentes:
   - `src/components/ui/custom/CardImageCarousel.tsx` — novo prop opcional `showCountBadge` para exibir o total de imagens.
