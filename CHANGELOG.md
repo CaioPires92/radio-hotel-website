@@ -90,3 +90,5 @@ Este documento registra as atualizações a partir de 2025-11-18.
 
 - Dicionário EN — revisão geral:
   - `src/dictionaries/en-US.json` — verificado consistência, sem ocorrências de encoding incorreto.
+- Tabelas:
+  - `src/components/sections/ConferenceTable.tsx` — cabeçalhos agora usam fonte sans (`font-sans`, Inter) para melhorar leitura.

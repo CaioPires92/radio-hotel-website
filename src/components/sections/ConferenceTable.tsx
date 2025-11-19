@@ -62,7 +62,7 @@ export default function ConferenceTable() {
       <div className="overflow-x-auto shadow-2xl rounded-xl border border-gold/20">
         <table className="min-w-full divide-y divide-gold/10 text-left text-navy">
           {/* Cabeçalhos da Tabela */}
-          <thead className="bg-navy/5 font-serif">
+          <thead className="bg-navy/5 font-sans">
             <tr className="text-sm uppercase tracking-wider text-navy/90">
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold text-gold">Sala</th>
               <th scope="col" className="px-4 py-3 md:px-6 md:py-4 font-bold">m²</th>
