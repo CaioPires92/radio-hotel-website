@@ -86,7 +86,7 @@ export default function PasseiosTestPage() {
           <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
-                { src: '/images/facilities/benedetti.peg.jpeg', alt: 'Fazenda Benedetti' },
+                { src: '/images/facilities/benedetti.jpg', alt: 'Fazenda Benedetti' },
               ]}
               className="h-80 md:h-96"
               showDots
