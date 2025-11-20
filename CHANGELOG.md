@@ -107,3 +107,6 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - `src/dictionaries/pt-BR.json` — descrição consolidada com capacidade total, pé‑direito, nomes das salas (Milênio e Monterey), lotação por sala em formato auditório e climatização/Wi‑Fi.
 - Convenções — conteúdo (pt-BR):
   - `src/dictionaries/pt-BR.json` — removida a frase inicial “Com 800 m² de área construída e capacidade para até 300 pessoas,” (e o início equivalente), mantendo detalhes das salas e climatização/Wi‑Fi.
+- Acomodações — renomeação:
+  - `src/components/sections/Accommodations.tsx` — alterado “Suíte Luxo” para “Apto Luxo” (descrição, tag da galeria e label de cartão).
+  - `src/app/api/rooms/route.ts` — resposta de descrição ajustada para “Apto Luxo com vista para a piscina ou bosque”.

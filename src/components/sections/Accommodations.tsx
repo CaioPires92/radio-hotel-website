@@ -79,12 +79,12 @@ const roomsData = (t: (key: string) => string): Room[] => {
       id: 'luxo-bosque',
       name: 'Apartamento Luxo',
       type: 'Piscina ou bosque',
-      description: 'Suíte Luxo com vista para a piscina ou bosque',
+      description: 'Apto Luxo com vista para a piscina ou bosque',
       image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo com vista para a piscina ou bosque' },
+        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Apto Luxo com vista para a piscina ou bosque' },
       ],
     },
     {
@@ -271,7 +271,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 },
                 {
                   key: 'luxo',
-                  label: 'Suíte Luxo',
+                  label: 'Apto Luxo',
                   type: 'Luxo',
                   description: 'Apartamento luxo com vista para a piscina ou jardim',
                   image: '/images/rooms/thumbs-16x9/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
