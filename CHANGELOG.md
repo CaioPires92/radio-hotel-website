@@ -103,3 +103,5 @@ Este documento registra as atualizações a partir de 2025-11-18.
   - `src/dictionaries/pt-BR.json` — adicionada a frase: “Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.” ao final da descrição de convenções.
 - Convenções — conteúdo (pt-BR):
   - `src/dictionaries/pt-BR.json` — descrição atualizada conforme solicitado: “Com capacidade para até 300 pessoas, o Centro de Convenções do Radio Hotel possui pé-direito de 5 metros e duas salas equipadas. Contamos com a Sala Milênio (até 300 pessoas em formato auditório) e a Sala Monterey (até 60 pessoas em formato auditório). As salas têm ambiente climatizado e equipado com Wi-Fi. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.”
+- Convenções — ajustes finais:
+  - `src/dictionaries/pt-BR.json` — descrição consolidada com capacidade total, pé‑direito, nomes das salas (Milênio e Monterey), lotação por sala em formato auditório e climatização/Wi‑Fi.
