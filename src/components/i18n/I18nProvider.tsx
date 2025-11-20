@@ -1,6 +1,15 @@
 'use client';
 
 import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
+import ptBR from '@/dictionaries/pt-BR.json';
+import enUS from '@/dictionaries/en-US.json';
+import esES from '@/dictionaries/es-ES.json';
+
+const LOCALE_MAP = {
+  'pt-BR': ptBR as unknown as Record<string, unknown>,
+  'en-US': enUS as unknown as Record<string, unknown>,
+  'es-ES': esES as unknown as Record<string, unknown>,
+} as const;
 import { Locale } from '@/lib/i18n';
 
 interface I18nContextType {
@@ -22,37 +31,20 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 interface I18nProviderProps {
   children: ReactNode;
   initialLocale?: Locale;
+  initialDictionary?: Record<string, unknown>;
 }
 
-export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
+export function I18nProvider({ children, initialLocale, initialDictionary }: I18nProviderProps) {
   const [locale, setLocale] = useState<Locale>(initialLocale || 'pt-BR');
   const [isLoading, setIsLoading] = useState(false);
-  const [dictionary, setDictionary] = useState<Record<string, unknown>>({});
-  
-  // Load dictionary when locale changes
+  const [dictionary, setDictionary] = useState<Record<string, unknown>>(
+    initialDictionary || LOCALE_MAP[(initialLocale || 'pt-BR') as keyof typeof LOCALE_MAP]
+  );
+
   useEffect(() => {
-    const loadDictionary = async () => {
-      setIsLoading(true);
-      try {
-        const dict = await import(`@/dictionaries/${locale}.json`);
-        setDictionary(dict.default || dict);
-      } catch (error) {
-        console.error(`Failed to load dictionary for locale ${locale}:`, error);
-        // Fallback to Portuguese if dictionary fails to load
-        if (locale !== 'pt-BR') {
-          try {
-            const fallbackDict = await import(`@/dictionaries/pt-BR.json`);
-            setDictionary(fallbackDict.default || fallbackDict);
-          } catch (fallbackError) {
-            console.error('Failed to load fallback dictionary:', fallbackError);
-          }
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    
-    loadDictionary();
+    setIsLoading(true);
+    setDictionary(LOCALE_MAP[(locale as keyof typeof LOCALE_MAP)] || LOCALE_MAP['pt-BR']);
+    setIsLoading(false);
   }, [locale]);
   
   // Translation function that uses loaded dictionary

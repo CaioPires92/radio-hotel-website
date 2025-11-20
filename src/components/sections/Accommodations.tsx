@@ -3,6 +3,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Wifi, Coffee, Tv, Wind, Phone, X, Camera } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import type { Swiper as SwiperClass } from 'swiper'
+import { Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css'
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
@@ -67,12 +71,12 @@ const roomsData = (t: (key: string) => string): Room[] => {
       id: 'luxo-jardim',
       name: 'Apartamento Luxo',
       type: 'Piscina ou jardim',
-      description: 'Apartamento luxo com vista para a piscina ou jardim',
+      description: 'apto luxo com vista para a piscina ou jardim',
       image: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'Apartamento luxo com vista para a piscina ou jardim' },
+        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'apto luxo com vista para a piscina ou jardim' },
       ],
     },
     {
@@ -140,6 +144,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
 
 const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const [currentRoom, setCurrentRoom] = useState(0);
+  const [swiper, setSwiper] = useState<SwiperClass | null>(null)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const { t } = useTranslation();
@@ -149,13 +154,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const categories = useMemo(() => ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master', 'Apto Conjugado', 'Suíte Luxo'], []);
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
 
-  const nextRoom = () => {
-    setCurrentRoom((prev) => (prev + 1) % rooms.length);
-  };
 
-  const prevRoom = () => {
-    setCurrentRoom((prev) => (prev - 1 + rooms.length) % rooms.length);
-  };
 
   const handleOpenGallery = () => {
     setCurrentPhotoIndex(0);
@@ -273,9 +272,9 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             </p>
           </motion.div>
 
-          {/* Prévia das acomodações (3 categorias) */}
+          {/* Prévia das acomodações – versão compacta com Swiper */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -297,7 +296,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   key: 'luxo',
                   label: 'Apto Luxo',
                   type: 'Luxo',
-                  description: 'Apartamento luxo com vista para a piscina ou jardim',
+                  description: 'apto luxo com vista para a piscina ou jardim',
                   image: '/images/rooms/thumbs-16x9/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
                 },
                 {
@@ -335,48 +334,60 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                 }
               })
 
-              return cards.map((room) => (
-                // Versão compacta usa o mesmo padrão de card grande da home
-                <Card
-                  key={room.id}
-                  className="group card-standard card-standard-hover border-0 h-full flex flex-col md:min-h-[500px] pt-0"
+              return (
+                <Swiper
+                  className="overflow-hidden pb-16 md:pb-20"
+                  modules={[Pagination, Autoplay]}
+                  slidesPerView={1}
+                  spaceBetween={16}
+                  breakpoints={{
+                    768: { slidesPerView: 2, spaceBetween: 16 },
+                    1024: { slidesPerView: 3, spaceBetween: 20 },
+                  }}
+                  loop
+                  autoplay={{ delay: 4500, disableOnInteraction: false }}
+                  pagination={{ clickable: true }}
                 >
-                  <CardContent className="p-0 flex-1 flex flex-col">
-                    {/* Imagem 16:9 com crop central e thumbs otimizadas */}
-                    <div className="card-media-fixed bg-black rounded-t-xl">
-                      <Image
-                        src={room.image}
-                        alt={room.description || room.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="card-media-img-cover"
-                      />
-                      {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
-                        <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
-                          {room.type}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
-                      <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
-                      {room.description && (
-                        <p className="text-sm text-navy/70">{room.description}</p>
-                      )}
-                      <div className="mt-4">
-                        <Button
-                          onClick={() => handleBookingClick(room.name)}
-                          className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
-                          aria-label={`Reservar ${room.name}`}
-                        >
-                          <Phone className="w-4 h-4 mr-2" />
-                          {t('accommodations.buttons.bookNow')}
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))
+                  {cards.map((room) => (
+                    <SwiperSlide key={room.id}>
+                      <Card className="group card-standard card-standard-hover border-0 h-full flex flex-col md:min-h-[500px] pt-0">
+                        <CardContent className="p-0 flex-1 flex flex-col">
+                          <div className="card-media-fixed bg-black rounded-t-xl">
+                            <Image
+                              src={room.image}
+                              alt={room.description || room.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="card-media-img-cover"
+                            />
+                            {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
+                              <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
+                                {room.type}
+                              </div>
+                            )}
+                          </div>
+                          <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
+                            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
+                            {room.description && (
+                              <p className="text-sm text-navy/70">{room.description}</p>
+                            )}
+                            <div className="mt-4">
+                              <Button
+                                onClick={() => handleBookingClick(room.name)}
+                                className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
+                                aria-label={`Reservar ${room.name}`}
+                              >
+                                <Phone className="w-4 h-4 mr-2" />
+                                {t('accommodations.buttons.bookNow')}
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )
             })()}
           </motion.div>
 
@@ -429,107 +440,98 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
           ))}
         </div>
 
-        {/* Room Carousel */}
+        {/* Room Carousel (Swiper) */}
         <div className="relative">
-          <motion.div
+          <Swiper
             className="overflow-hidden rounded-2xl"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            modules={[Pagination, Autoplay]}
+            slidesPerView={1}
+            loop
+            autoplay={{ delay: 4500, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            onSwiper={(s) => setSwiper(s)}
+            onSlideChange={(s) => { setCurrentRoom(s.realIndex); setCurrentPhotoIndex(0); }}
           >
-            <Card className="border-0 shadow-2xl bg-white py-0">
-              <CardContent className="p-0">
-                <div className="grid lg:grid-cols-5 gap-0">
-                  {/* Image Section */}
-                  {/* Imagem principal da página de acomodações: altura intermediária para bom destaque sem exagero */}
-                  <div className="lg:col-span-3 relative h-[460px] sm:h-[540px] lg:h-[620px] group bg-black overflow-hidden">
-                    <Image
-                      src={rooms[currentRoom].image}
-                      alt={`${rooms[currentRoom].description}`}
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      quality={85}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-
-                    {/* Room Type Badge */}
-                    <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
-                      {rooms[currentRoom].type}
-                    </div>
-
-                    {/* Tags da suíte visíveis */}
-                    <div className="absolute top-6 right-6 flex flex-wrap gap-2">
-                      {rooms[currentRoom].tags?.map((tag, idx) => (
-                        <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Botão "Ver fotos" centralizado que aparece no hover */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <button
-                        onClick={handleOpenGallery}
-                        className="bg-white/95 hover:bg-white text-navy px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300"
-                        aria-label="Abrir galeria de fotos"
-                      >
-                        <Camera className="w-4 h-4" />
-                        Ver fotos
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Content Section – padding ajustado para alinhar melhor à altura da foto */}
-                  <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center">
-                    <motion.div
-                      key={currentRoom}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <h3 className="text-3xl font-serif font-bold text-navy mb-2">
-                        {rooms[currentRoom].name}
-                      </h3>
-
-                      <p className="text-navy/80 mb-6 leading-relaxed">
-                        {rooms[currentRoom].description}
-                      </p>
-
-                      {/* Amenities */}
-                      <div className="mb-8">
-                        <h4 className="font-semibold text-navy mb-3">Comodidades:</h4>
-                        <div className="grid grid-cols-3 gap-3">
-                          {rooms[currentRoom].amenities.map((amenity, index) => {
-                            const Icon = amenity.icon;
-                            return (
-                              <div key={index} className="flex flex-col items-center text-center group">
-                                <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-2 group-hover:bg-gold/20 transition-colors duration-300">
-                                  <Icon className="w-5 h-5 text-gold" />
-                                </div>
-                                <span className="text-xs text-navy/70">{amenity.name}</span>
-                              </div>
-                            );
-                          })}
+            {rooms.map((room) => (
+              <SwiperSlide key={room.id}>
+                <Card className="border-0 shadow-2xl bg-white py-0">
+                  <CardContent className="p-0">
+                    <div className="grid lg:grid-cols-5 gap-0">
+                      <div className="lg:col-span-3 relative h-[460px] sm:h-[540px] lg:h-[620px] group bg-black overflow-hidden">
+                        <Image
+                          src={room.image}
+                          alt={`${room.description}`}
+                          fill
+                          className="object-cover object-center"
+                          priority
+                          quality={85}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+                        <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
+                          {room.type}
+                        </div>
+                        <div className="absolute top-6 right-6 flex flex-wrap gap-2">
+                          {room.tags?.map((tag, idx) => (
+                            <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <button
+                            onClick={handleOpenGallery}
+                            className="bg-white/95 hover:bg-white text-navy px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300"
+                            aria-label="Abrir galeria de fotos"
+                          >
+                            <Camera className="w-4 h-4" />
+                            Ver fotos
+                          </button>
                         </div>
                       </div>
-
-                      {/* CTA Button */}
-                      <Button
-                        onClick={() => handleBookingClick(rooms[currentRoom].name)}
-                        className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-full"
-                        aria-label={`Reservar ${rooms[currentRoom].name}`}
-                      >
-                        <Phone className="w-4 h-4 mr-2" />
-                        {t('accommodations.buttons.bookNow')}
-                      </Button>
-                    </motion.div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                      <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center">
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <h3 className="text-3xl font-serif font-bold text-navy mb-2">
+                            {room.name}
+                          </h3>
+                          <p className="text-navy/80 mb-6 leading-relaxed">
+                            {room.description}
+                          </p>
+                          <div className="mb-8">
+                            <h4 className="font-semibold text-navy mb-3">Comodidades:</h4>
+                            <div className="grid grid-cols-3 gap-3">
+                              {room.amenities.map((amenity, index) => {
+                                const Icon = amenity.icon;
+                                return (
+                                  <div key={index} className="flex flex-col items-center text-center group">
+                                    <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center mb-2 group-hover:bg-gold/20 transition-colors duration-300">
+                                      <Icon className="w-5 h-5 text-gold" />
+                                    </div>
+                                    <span className="text-xs text-navy/70">{amenity.name}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          <Button
+                            onClick={() => handleBookingClick(room.name)}
+                            className="bg-gold hover:bg-gold/90 text-navy font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 w-full"
+                            aria-label={`Reservar ${room.name}`}
+                          >
+                            <Phone className="w-4 h-4 mr-2" />
+                            {t('accommodations.buttons.bookNow')}
+                          </Button>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
           {/* Galeria (modal) responsivo */}
           <AnimatePresence>
@@ -644,14 +646,14 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
           {/* Navigation Arrows */}
           <button
-            onClick={prevRoom}
+            onClick={() => swiper?.slidePrev()}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
             aria-label={t('accommodations.navigation.previous')}
           >
             <ChevronLeft className="w-6 h-6 text-navy" />
           </button>
           <button
-            onClick={nextRoom}
+            onClick={() => swiper?.slideNext()}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
             aria-label={t('accommodations.navigation.next')}
           >
@@ -659,20 +661,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
           </button>
         </div>
 
-        {/* Room Indicators */}
-        <div className="flex justify-center mt-8 space-x-3">
-          {rooms.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentRoom(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentRoom
-                ? 'bg-gold scale-125'
-                : 'bg-navy/20 hover:bg-navy/40'
-                }`}
-              aria-label={`${t('accommodations.navigation.viewRoom')} ${index + 1}`}
-            />
-          ))}
-        </div>
+
 
         {/* Room Grid Preview */}
         <motion.div

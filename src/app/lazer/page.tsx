@@ -77,7 +77,7 @@ export default function LazerPage() {
           {/* Texto à esquerda */}
           <div className="space-y-4">
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Lazer para toda a família</h3>
-            
+
             <div className="space-y-0">
               <h4 className="text-xl font-serif font-semibold text-navy">Bosque</h4>
               <p className="text-navy/75 mt-0">
@@ -119,7 +119,7 @@ export default function LazerPage() {
         </div>
       </section>
 
-      
+
 
       {/* Seção subsequente 3: Salão de Jogos (slide à esquerda, texto à direita) */}
       <section className="py-12 bg-cream">
@@ -157,11 +157,11 @@ export default function LazerPage() {
         </div>
       </section>
 
-      
 
-      {/* Trilhas e Natureza removido conforme solicitado */}
 
-      
+
+
+
 
       <Footer />
     </>

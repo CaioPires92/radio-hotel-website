@@ -56,12 +56,18 @@ export default function PWAInstaller() {
       }
     };
 
-    // Register immediately if document is ready, otherwise wait
-    if (document.readyState === 'complete') {
-      registerServiceWorker();
-    } else {
-      window.addEventListener('load', registerServiceWorker);
-      return () => window.removeEventListener('load', registerServiceWorker);
+    const isProd = process.env.NODE_ENV === 'production';
+    if (isProd) {
+      if (document.readyState === 'complete') {
+        registerServiceWorker();
+      } else {
+        window.addEventListener('load', registerServiceWorker);
+        return () => window.removeEventListener('load', registerServiceWorker);
+      }
+    } else if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((r) => r.unregister());
+      });
     }
 
     // Check if PWA is supported

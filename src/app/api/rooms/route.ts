@@ -46,7 +46,7 @@ export async function GET() {
       if (n.includes('suíte master especial') || n.includes('suite master especial') || n.includes('master especial') || (n.includes('master') && n.includes('especial'))) return 'Suíte Master especial com sacada e vista para a piscina';
       if (n.includes('suíte master') || n.includes('suite master') || n.includes('master')) return 'Suíte Master com sacada e vista para a piscina';
       if ((n.includes('suíte luxo') || n.includes('suite luxo') || n.includes('luxo')) && n.includes('bosque')) return 'Apto Luxo com vista para a piscina ou bosque';
-      if (n.includes('suíte luxo') || n.includes('suite luxo') || n.includes('luxo')) return 'Apartamento luxo com vista para a piscina ou jardim';
+      if (n.includes('suíte luxo') || n.includes('suite luxo') || n.includes('luxo')) return 'apto luxo com vista para a piscina ou jardim';
       return 'Apartamento Standard com vista interna';
     };
 

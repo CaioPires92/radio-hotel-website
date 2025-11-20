@@ -4,7 +4,7 @@ import './globals.css';
 import Analytics from '@/components/analytics/Analytics';
 import PWAInstaller, { OfflineIndicator, UpdateBanner } from '@/components/pwa/PWAInstaller';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
-import { defaultLocale } from '@/lib/i18n';
+import { defaultLocale, getDictionary } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,6 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
     default: 'Radio Hotel - Experiência Exclusiva em Serra Negra',
     template: '%s | Radio Hotel Serra Negra'
@@ -86,13 +87,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   // Get locale from URL or use default
   const locale = defaultLocale; // Server-side rendering uses default locale
+  const dictionary = await getDictionary(locale);
 
   return (
     <html lang={locale} className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
@@ -211,7 +213,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <a href="#main-content" className="skip-link">Pular para o conteúdo principal</a>
-        <I18nProvider initialLocale={locale}>
+        <I18nProvider initialLocale={locale} initialDictionary={dictionary}>
           <Analytics>
             <OfflineIndicator />
             <UpdateBanner />

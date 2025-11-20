@@ -61,6 +61,14 @@
     "sitio-chapadao-queijos": {
       "title": "Sítio Chapadão – Produção de Queijos",
       "description": "O Sítio produz os melhores queijos da região, que levam a marca \"Queijos da Fazenda\". No local, o visitante terá a oportunidade de presenciar todo o processo de produção, desde a ordenha no curral à degustação do produto final, entre queijos frescal, ricota de leite e ricota temperada, queijo meia cura e coalhada."
+    },
+    "trenzinho-maria-fumaca": {
+      "title": "Trenzinho Maria Fumaça e Tia Linda",
+      "description": "Embarque nesta aventura! O Tradicional passeio de Trenzinho é uma atração turística imperdível para toda a família desde 1991! São oito quilômetros de percurso, passando pelo centro da cidade e com duração média de cinquenta minutos. Segue pelos principais pontos turísticos da cidade e faz uma parada programada de 10 minutos no Parque Fontes Santo Agostinho e Santa Luzia. Aproveite ao máximo este delicioso passeio com descontração e lazer. Saída em frente à Rodoviária."
+    },
+    "fazenda-benedetti": {
+      "title": "Fazenda Benedetti",
+      "description": "A Fazenda Benedetti está localizada entre Serra Negra e Amparo, no Circuito das Águas Paulista, oferecendo experiências autênticas de lazer rural, produtos artesanais e contato com a natureza. Com mais de 90 anos de tradição, produz premiadas cachaças, licores, vinhos, mel e delícias de padaria artesanal. O espaço conta com empório, cafeteria, panetteria, apiário e loja virtual, destacando qualidade, história e atendimento acolhedor. Ideal para famílias aproveitarem momentos especiais, degustando cafés e produtos frescos em meio à natureza. Venha conhecer e se encantar com a tradição Benedetti!"
     }
   },
   "navigation": {
@@ -246,7 +254,7 @@
     },
       "convention": {
         "title": "Centro de Convenções",
-        "description": "O Centro de Convenções do Radio Hotel possui pé-direito de 5 metros e duas salas equipadas. Contamos com a Sala Milênio (até 300 pessoas em formato auditório) e a Sala Monterey (até 60 pessoas em formato auditório). As salas têm ambiente climatizado e equipado com Wi-Fi. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.",
+        "description": "O Centro de Convenções do Radio Hotel possui pé-direito de 5 metros e duas salas equipadas. Contamos com a Sala Milênio, com capacidade para até 300 pessoas em formato auditório, e a Sala Monterey, com capacidade para até 60 pessoas em formato auditório. As salas têm ambiente climatizado e equipado com Wi-Fi. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.",
         "capacity": "Até 300 pessoas",
         "area": "",
         "expandableArea": "",

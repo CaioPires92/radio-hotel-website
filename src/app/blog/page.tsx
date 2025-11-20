@@ -38,6 +38,14 @@ const blogPosts = [
     id: 'sitio-chapadao-queijos',
     image: '/images/facilities/chapadao.jpg',
   },
+  {
+    id: 'trenzinho-maria-fumaca',
+    image: '/images/facilities/trenzinho.jpg',
+  },
+  {
+    id: 'fazenda-benedetti',
+    image: '/images/facilities/benedetti.peg.jpeg',
+  },
 ];
 
 type PoiContact = {
@@ -88,6 +96,18 @@ const poiContacts: Record<string, PoiContact> = {
     whatsappNumbers: ['5519999846555'],
     instagramUrl: 'https://www.instagram.com/afazendachapadao/',
     locationUrl: 'https://www.google.com/maps/search/?api=1&query=Rodovia+SP-105,+Km+5,5+-+Bairro+Santo+Aleixo,+Serra+Negra+-+SP',
+  },
+  'trenzinho-maria-fumaca': {
+    address: 'Av. 23 de Setembro - Estância Suíça, Serra Negra - SP',
+    whatsappNumbers: ['5519997643614'],
+    instagramUrl: 'https://www.instagram.com/trenzinhomariafumaca/',
+    locationUrl: 'https://maps.google.com/maps?ll=-22.609194,-46.702379&z=15&t=m&hl=pt-BR&gl=US&mapclient=embed&cid=8848056373113614187',
+  },
+  'fazenda-benedetti': {
+    address: 'Circuito das Águas Paulista, Amparo-SP • Rod. SP-360, Km 138, Amparo/Serra Negra',
+    whatsappNumbers: ['5519971144731'],
+    instagramUrl: 'https://www.instagram.com/fazendabenedetti/',
+    locationUrl: 'https://www.google.com/maps?ll=-22.680037,-46.732812&z=16&t=m&hl=en&gl=BR&mapclient=embed&cid=3735467585740457921',
   },
 };
 

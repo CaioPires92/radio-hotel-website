@@ -44,7 +44,6 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
     { name: t('navigation.accommodations'), href: '/acomodacoes' },
     { name: t('navigation.events'), href: '/conventions' },
     { name: t('navigation.restaurant'), href: '/restaurante' },
-    { name: t('navigation.blog'), href: '/blog' },
     { name: t('navigation.contact'), href: '/contato' },
   ];
 
@@ -109,6 +108,19 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                   {item.name}
                 </motion.a>
               ))}
+              <div className="relative group">
+                <button
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'}`}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {t('navigation.blog')}
+                </button>
+                <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[180px]">
+                  <Link href="/blog" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios (Blog)</Link>
+                  <Link href="/passeios-test" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios Teste</Link>
+                </div>
+              </div>
               {/* Language Selector */}
               <div className="hidden xl:block ml-2 xl:ml-4">
                 <CompactLanguageSelector className="text-sm" isScrolled={isScrolled} />
@@ -181,6 +193,28 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               {item.name}
             </motion.a>
           ))}
+          <motion.a
+            href="/blog"
+            className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
+            onClick={() => setIsOpen(false)}
+            tabIndex={isOpen ? 0 : -1}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            Passeios (Blog)
+          </motion.a>
+          <motion.a
+            href="/passeios-test"
+            className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
+            onClick={() => setIsOpen(false)}
+            tabIndex={isOpen ? 0 : -1}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            Passeios Teste
+          </motion.a>
           {/* Language Selector Mobile */}
           <div className="px-3 py-2 border-t border-gray-200">
             <div className="flex items-center justify-center">

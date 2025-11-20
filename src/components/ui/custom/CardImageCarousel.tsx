@@ -23,7 +23,7 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
       aria-roledescription="carousel"
     >
       <Swiper
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full pb-20 md:pb-24"
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: intervalMs, disableOnInteraction: false }}
         loop
