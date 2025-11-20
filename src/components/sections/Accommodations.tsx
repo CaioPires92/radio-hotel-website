@@ -88,6 +88,30 @@ const roomsData = (t: (key: string) => string): Room[] => {
       ],
     },
     {
+      id: 'conjugado',
+      name: 'Apto Conjugado',
+      type: 'Conjugado',
+      description: 'Apto Conjugado ideal para famílias, com ambientes integrados',
+      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      amenities: commonAmenities,
+      tags: ['Conjugado'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', tag: 'Apto Conjugado' },
+      ],
+    },
+    {
+      id: 'suite-luxo',
+      name: 'Suíte Luxo',
+      type: 'Luxo',
+      description: 'Suíte Luxo com vista para a piscina ou bosque',
+      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      amenities: commonAmenities,
+      tags: ['Luxo'],
+      gallery: [
+        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo' },
+      ],
+    },
+    {
       id: 'master-sacada',
       name: 'Suíte Master',
       type: 'Com sacada',
@@ -122,7 +146,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   // Substitui variável por state para aceitar dados dinâmicos
   const [rooms, setRooms] = useState<Room[]>(roomsData(t));
   const [allRooms, setAllRooms] = useState<Room[]>(roomsData(t));
-  const categories = useMemo(() => ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master'], []);
+  const categories = useMemo(() => ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master', 'Apto Conjugado', 'Suíte Luxo'], []);
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
 
   const nextRoom = () => {
@@ -282,6 +306,20 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   type: 'Master',
                   description: 'Suíte Master com sacada e vista para a piscina',
                   image: '/images/rooms/thumbs-16x9/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+                },
+                {
+                  key: 'conjugado',
+                  label: 'Apto Conjugado',
+                  type: 'Conjugado',
+                  description: 'Apto Conjugado ideal para famílias',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg',
+                },
+                {
+                  key: 'suíte',
+                  label: 'Suíte Luxo',
+                  type: 'Luxo',
+                  description: 'Suíte Luxo com vista para a piscina ou bosque',
+                  image: '/images/rooms/thumbs-16x9/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
                 },
               ]
 

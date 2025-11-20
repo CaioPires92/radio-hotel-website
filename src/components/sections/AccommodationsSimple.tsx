@@ -76,6 +76,34 @@ function getRooms(t: (key: string) => string): Room[] {
       ],
     },
     {
+      id: 'conjugado',
+      name: 'Apto Conjugado',
+      type: 'Conjugado',
+      description: 'Ideal para famílias, com ambientes integrados.',
+      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      amenities: commonAmenities,
+      gallery: [
+        {
+          src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+          tag: 'Conjugado (ambientes integrados)',
+        },
+      ],
+    },
+    {
+      id: 'suite-luxo',
+      name: 'Suíte Luxo',
+      type: 'Luxo',
+      description: 'Suíte Luxo com vista para a piscina ou bosque.',
+      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      amenities: commonAmenities,
+      gallery: [
+        {
+          src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+          tag: 'Suíte Luxo (vista bosque/piscina)',
+        },
+      ],
+    },
+    {
       id: 'master',
       name: 'Suíte Master',
       type: 'Master',

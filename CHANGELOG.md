@@ -110,3 +110,6 @@ Este documento registra as atualizações a partir de 2025-11-18.
 - Acomodações — renomeação:
   - `src/components/sections/Accommodations.tsx` — alterado “Suíte Luxo” para “Apto Luxo” (descrição, tag da galeria e label de cartão).
   - `src/app/api/rooms/route.ts` — resposta de descrição ajustada para “Apto Luxo com vista para a piscina ou bosque”.
+- Acomodações — novas categorias:
+  - `src/components/sections/Accommodations.tsx` — adicionados “Apto Conjugado” e “Suíte Luxo” às categorias, com dados de fallback (imagem e descrição), e inclusão na prévia compacta.
+  - `src/components/sections/AccommodationsSimple.tsx` — adicionados “Apto Conjugado” e “Suíte Luxo” à lista simples de acomodações.
