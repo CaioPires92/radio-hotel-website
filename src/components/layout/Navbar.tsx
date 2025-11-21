@@ -16,6 +16,7 @@ interface NavbarProps {
 const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPasseiosOpen, setIsPasseiosOpen] = useState(false);
   const { t } = useTranslation();
   const bookNowLabel = (() => {
     const v = t('navigation.bookNow');
@@ -104,15 +105,22 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                   {item.name}
                 </motion.a>
               ))}
-              <div className="relative group inline-block">
+              <div
+                className="relative inline-block"
+                onMouseEnter={() => setIsPasseiosOpen(true)}
+                onMouseLeave={() => setIsPasseiosOpen(false)}
+              >
                 <button
+                  type="button"
                   className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold text-navy`}
                   aria-haspopup="true"
-                  aria-expanded="false"
+                  aria-expanded={isPasseiosOpen}
+                  onClick={() => setIsPasseiosOpen(!isPasseiosOpen)}
                 >
                   Passeios
                 </button>
-                <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[180px] z-50">
+                <div className={`absolute left-0 top-full ${isPasseiosOpen ? 'block' : 'hidden'} bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[200px] z-50`}
+                >
                   <Link href="/blog" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios (Blog)</Link>
                   <Link href="/passeios-test" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios Teste</Link>
                 </div>
@@ -130,7 +138,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               onClick={handleBookingClick}
               className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gold hover:bg-gold/90 text-navy`}
               aria-label="Reservar pelo menu"
-              
+
               // Prevent wrapping on mid screens
               style={{ minWidth: 160 }}
             >
@@ -140,7 +148,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           </div>
 
           {/* Mobile menu button */}
-        <div className="min-[812px]:hidden">
+          <div className="min-[812px]:hidden">
             <Button
               onClick={() => setIsOpen(!isOpen)}
               onKeyDown={handleKeyDown}
@@ -160,7 +168,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
       {/* Mobile Menu */}
       <motion.div
         id="mobile-menu"
-            className={`min-[812px]:hidden ${isOpen ? 'block' : 'hidden'
+        className={`min-[812px]:hidden ${isOpen ? 'block' : 'hidden'
           } bg-white/95 backdrop-blur-md border-t border-gray-200`}
         initial={{ opacity: 0, height: 0 }}
         animate={{
