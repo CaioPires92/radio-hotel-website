@@ -16,7 +16,6 @@ interface NavbarProps {
 const Navbar = ({ onBookingClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPasseiosOpen, setIsPasseiosOpen] = useState(false);
   const { t } = useTranslation();
   const bookNowLabel = (() => {
     const v = t('navigation.bookNow');
@@ -59,7 +58,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-lg'
+        : 'bg-transparent'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -96,7 +98,8 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold text-navy`}
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -105,22 +108,15 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                   {item.name}
                 </motion.a>
               ))}
-              <div
-                className="relative inline-block"
-                onMouseEnter={() => setIsPasseiosOpen(true)}
-                onMouseLeave={() => setIsPasseiosOpen(false)}
-              >
+              <div className="relative group inline-block">
                 <button
-                  type="button"
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold text-navy`}
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'}`}
                   aria-haspopup="true"
-                  aria-expanded={isPasseiosOpen}
-                  onClick={() => setIsPasseiosOpen(!isPasseiosOpen)}
+                  aria-expanded="false"
                 >
                   Passeios
                 </button>
-                <div className={`absolute left-0 top-full ${isPasseiosOpen ? 'block' : 'hidden'} bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[200px] z-50`}
-                >
+                <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[180px] z-50">
                   <Link href="/blog" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios (Blog)</Link>
                   <Link href="/passeios-test" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios Teste</Link>
                 </div>
@@ -136,7 +132,10 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           <div className="hidden min-[812px]:block flex-shrink-0">
             <Button
               onClick={handleBookingClick}
-              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gold hover:bg-gold/90 text-navy`}
+              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${isScrolled
+                ? 'bg-gold hover:bg-gold/90 text-navy'
+                : 'bg-white hover:bg-white/90 text-navy'
+                }`}
               aria-label="Reservar pelo menu"
 
               // Prevent wrapping on mid screens
@@ -154,7 +153,8 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               onKeyDown={handleKeyDown}
               variant="ghost"
               size="sm"
-              className={`p-2 text-navy hover:text-gold`}
+              className={`p-2 ${isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
+                }`}
               aria-label={isOpen ? t('navbar.mobile.closeMenu') : t('navbar.mobile.openMenu')}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
