@@ -58,10 +58,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/95 backdrop-blur-md shadow-lg'
-        : 'bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -98,8 +95,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'
-                    }`}
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold text-navy`}
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -110,7 +106,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               ))}
               <div className="relative group inline-block">
                 <button
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'}`}
+                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold text-navy`}
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
@@ -132,10 +128,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
           <div className="hidden min-[812px]:block flex-shrink-0">
             <Button
               onClick={handleBookingClick}
-              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg ${isScrolled
-                ? 'bg-gold hover:bg-gold/90 text-navy'
-                : 'bg-white hover:bg-white/90 text-navy'
-                }`}
+              className={`font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gold hover:bg-gold/90 text-navy`}
               aria-label="Reservar pelo menu"
               
               // Prevent wrapping on mid screens
@@ -153,8 +146,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
               onKeyDown={handleKeyDown}
               variant="ghost"
               size="sm"
-              className={`p-2 ${isScrolled ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
-                }`}
+              className={`p-2 text-navy hover:text-gold`}
               aria-label={isOpen ? t('navbar.mobile.closeMenu') : t('navbar.mobile.openMenu')}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
