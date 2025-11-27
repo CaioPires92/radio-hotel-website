@@ -1,0 +1,77 @@
+{
+  "name": "Radio Hotel Serra Negra",
+  "short_name": "Radio Hotel",
+  "description": "Hotel de luxo em Serra Negra, SP. Tradição, elegância e natureza em perfeita harmonia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f5f1",
+  "theme_color": "#0a0d29",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["travel", "hospitality", "luxury"],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/desktop-home.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage do Radio Hotel"
+    },
+    {
+      "src": "/images/screenshots/mobile-home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Homepage Mobile do Radio Hotel"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Fazer Reserva",
+      "short_name": "Reservar",
+      "description": "Faça sua reserva diretamente",
+      "url": "/?booking=true"
+    },
+    {
+      "name": "Acomodações",
+      "short_name": "Quartos",
+      "description": "Veja nossas acomodações",
+      "url": "/#accommodations"
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato conosco",
+      "url": "/#contact"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://radiohotel.com.br/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

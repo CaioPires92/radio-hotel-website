@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: var(--font-geist-mono);
+  --color-gold: var(--gold);
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-cream: var(--cream);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F5F5F5;
+  --foreground: #0D1B4C;
+  --card: #ffffff;
+  --card-foreground: #0D1B4C;
+  --popover: #ffffff;
+  --popover-foreground: #0D1B4C;
+  --primary: #0D1B4C;
+  --primary-foreground: #F5F5F5;
+  --accent-gold: #C5A253;
+  --navy: #0D1B4C;
+  --blue: #16446e;
+  --gold: #C5A253;
+  --cream: #F5F5F5;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  th {
+    @apply font-bold;
+  }
+}
+
+/* Skip link para acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: #ffffff;
+  color: #0D1B4C;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Configuração para formato brasileiro de data */
+@layer components {
+
+  /* 
+    Sistema de cards principal
+    - Usado em: Pacotes Especiais, cards de acomodações e destaques da home.
+    - Mantém bordas, sombras e transições padronizadas para qualquer card “grande”.
+  */
+  .card-standard {
+    @apply rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg bg-white transition;
+  }
+
+  .card-standard-hover {
+    @apply hover:ring-gold/30 hover:shadow-xl hover:scale-[1.01];
+  }
+
+  /*
+    Wrapper de mídia com proporção fixa 16:9
+    - Garante que todas as capas de cards tenham mesma proporção.
+    - Em conjunto com .card-media-img-cover cria o crop central uniforme.
+  */
+  .card-media-16x9 {
+    @apply relative w-full aspect-[16/9] overflow-hidden;
+  }
+
+  .card-media-3x2 {
+    @apply relative w-full aspect-[3/2] overflow-hidden;
+  }
+
+  .card-media-4x3 {
+    @apply relative w-full aspect-[4/3] overflow-hidden;
+  }
+
+  .card-media-1x1 {
+    @apply relative w-full aspect-square overflow-hidden;
+  }
+
+  .card-media-3x4 {
+    @apply relative w-full aspect-[3/4] overflow-hidden;
+  }
+
+  .card-media-fixed {
+    @apply relative w-full h-[300px] md:h-[340px] overflow-hidden;
+  }
+
+  /* Imagem preenchendo completamente o wrapper com crop central (cover + center) */
+  .card-media-img-cover {
+    @apply absolute inset-0 w-full h-full object-cover object-center;
+  }
+
+  .card-media-img-contain {
+    @apply absolute inset-0 w-full h-full object-contain object-center;
+  }
+
+  /* Overlay escuro padronizado para usar em hovers de imagem */
+  .card-overlay-dark {
+    @apply absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  /*
+    Mini cards
+    - Usado para ícones de facilidades, chips de recursos e outros cards menores.
+    - Mantém altura visualmente consistente e mesma linguagem dos cards principais.
+  */
+  .mini-card {
+    @apply rounded-xl bg-white/90 ring-1 ring-gold/10 shadow-sm px-3 py-2 sm:px-4 sm:py-3 flex items-center gap-2;
+  }
+
+  .mini-card-hover {
+    @apply hover:ring-gold/30 hover:shadow-md hover:bg-white transition-colors duration-300;
+  }
+
+  input[type="date"] {
+    position: relative;
+    font-family: inherit;
+  }
+
+  /* Força o formato brasileiro dd/mm/yyyy */
+  input[type="date"]::-webkit-datetime-edit {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* Configuração FORÇADA para formato brasileiro dd/mm/yyyy */
+  input[type="date"] {
+    text-align: left !important;
+    direction: ltr !important;
+  }
+
+  /* Força ordem brasileira nos campos com !important */
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  /* Dia PRIMEIRO - ordem 1 */
+  input[type="date"]::-webkit-datetime-edit-day-field {
+    order: 1 !important;
+    margin-right: 2px !important;
+  }
+
+  /* Separadores - ordem 2 */
+  input[type="date"]::-webkit-datetime-edit-text {
+    order: 2 !important;
+    padding: 0 1px !important;
+  }
+
+  /* Mês SEGUNDO - ordem 3 */
+  input[type="date"]::-webkit-datetime-edit-month-field {
+    order: 3 !important;
+    margin: 0 2px !important;
+  }
+
+  /* Ano TERCEIRO - ordem 4 */
+  input[type="date"]::-webkit-datetime-edit-year-field {
+    order: 4 !important;
+    margin-left: 2px !important;
+  }
+
+  /* Configuração específica para Chrome/Webkit */
+  @supports (-webkit-appearance: none) {
+    input[type="date"]::-webkit-datetime-edit {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+
+    input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+      order: 0 !important;
+    }
+  }
+
+  /* Placeholder para formato brasileiro */
+  input[type="date"]:invalid {
+    color: #999;
+  }
+
+  input[type="date"]:invalid:before {
+    content: "dd/mm/aaaa";
+    color: #999;
+  }
+
+  /* Melhora a aparência do date picker */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+  }
+
+  input[type="date"]:hover::-webkit-calendar-picker-indicator {
+    opacity: 1;
+  }
+
+  /* Suporte para Firefox */
+  @-moz-document url-prefix() {
+    input[type="date"] {
+      text-align: left;
+    }
+  }
+}
+
+/* Respeitar preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.swiper-pagination {
+  position: absolute !important;
+  bottom: 8px !important;
+  left: 0 !important;
+  right: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  z-index: 20 !important;
+  margin-top: 16px !important;
+}
+
+@media (min-width: 768px) {
+  .swiper-pagination {
+    bottom: 12px !important;
+    margin-top: 20px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swiper-pagination {
+    bottom: 20px !important;
+    margin-top: 24px !important;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  border-radius: 9999px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #b2ab70;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.restaurant-dots .swiper-pagination-bullet,
+.restaurant-dots .swiper-pagination-bullet-active {
+  border-radius: 9999px;
+}

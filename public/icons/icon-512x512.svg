@@ -1,0 +1,42 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#0a0d29"/>
+  
+  <!-- Inner circles with gradient effect -->
+  <circle cx="256" cy="256" r="220" fill="#16446e"/>
+  <circle cx="256" cy="256" r="180" fill="#b2ab70"/>
+  <circle cx="256" cy="256" r="140" fill="#f6f5f1"/>
+  
+  <!-- Radio Hotel logo -->
+  <text x="256" y="230" text-anchor="middle" fill="#0a0d29" font-family="serif" font-size="80" font-weight="bold">RH</text>
+  <text x="256" y="290" text-anchor="middle" fill="#0a0d29" font-family="serif" font-size="32" font-weight="normal">HOTEL</text>
+  <text x="256" y="320" text-anchor="middle" fill="#16446e" font-family="serif" font-size="18" font-weight="normal">SERRA NEGRA</text>
+  
+  <!-- Decorative rings -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#0a0d29" stroke-width="2" opacity="0.3"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#0a0d29" stroke-width="1" opacity="0.2"/>
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#b2ab70" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Decorative elements around the logo -->
+  <g opacity="0.6">
+    <!-- Top -->
+    <circle cx="256" cy="80" r="4" fill="#f6f5f1"/>
+    <circle cx="256" cy="432" r="4" fill="#f6f5f1"/>
+    <!-- Left and Right -->
+    <circle cx="80" cy="256" r="4" fill="#f6f5f1"/>
+    <circle cx="432" cy="256" r="4" fill="#f6f5f1"/>
+    <!-- Diagonals -->
+    <circle cx="148" cy="148" r="3" fill="#f6f5f1"/>
+    <circle cx="364" cy="148" r="3" fill="#f6f5f1"/>
+    <circle cx="148" cy="364" r="3" fill="#f6f5f1"/>
+    <circle cx="364" cy="364" r="3" fill="#f6f5f1"/>
+  </g>
+  
+  <!-- Subtle leaf pattern -->
+  <g opacity="0.1" fill="#f6f5f1">
+    <path d="M200 100 Q220 80 240 100 Q220 120 200 100" />
+    <path d="M272 100 Q292 80 312 100 Q292 120 272 100" />
+    <path d="M200 412 Q220 392 240 412 Q220 432 200 412" />
+    <path d="M272 412 Q292 392 312 412 Q292 432 272 412" />
+  </g>
+</svg>

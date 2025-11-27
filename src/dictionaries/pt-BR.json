@@ -1,0 +1,753 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Fechar",
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "more": "Mais",
+    "less": "Menos",
+    "all": "Todos",
+    "none": "Nenhum",
+    "yes": "Sim",
+    "no": "Não",
+    "or": "ou",
+    "and": "e"
+  },
+  "blog": {
+    "subtitle": "Fique por dentro das últimas novidades e descubra os melhores pontos turísticos da cidade.",
+    "intro": "Serra Negra reúne passeios para todos os perfis: mirantes e ícones da cidade — Alto da Serra, Teleférico ao Cristo Redentor e a réplica da Fontana di Trevi — e experiências de turismo rural em fazendas abertas à visitação. Lá você acompanha produções artesanais de vinhos e cachaças (Família Silotto), café do plantio à torrefação (Vale do Ouro Verde), queijos feitos na fazenda (Sítio Chapadão) e destilados e doces de roça (Sítio Bom Retiro – Família Carra). Agendamento prévio recomendado.",
+    "contacts": {
+      "address": "Endereço",
+      "phone": "Telefone",
+      "whatsapp": "Whatsapp",
+      "instagram": "Redes sociais",
+      "location": "Localização",
+      "contact": "Contato",
+      "notAvailable": "não disponível",
+      "whatsappMessage": "Olá! Gostaria de mais informações."
+    },
+    "alto-da-serra": {
+      "title": "Alto da Serra (Serra Negra)",
+      "description": "Prepare-se para uma vista de tirar o fôlego no Alto da Serra, o ponto culminante da região com 1.310m de altitude! De lá, você pode contemplar uma das paisagens mais belas do Circuito das Águas, avistando mais de 10 cidades vizinhas. O acesso é feito pela Rua 14 de Julho. Uma experiência inesquecível para quem ama natureza e fotografia!"
+    },
+    "fontana-di-trevi": {
+      "title": "Fontana Di Trevi - Serra Negra/SP",
+      "description": "Encante-se com a deslumbrante réplica da Fontana di Trevi em Serra Negra! Um ponto turístico imperdível para tirar fotos incríveis e, claro, fazer aquele pedido especial jogando uma moeda. Venha conferir essa beleza arquitetônica que traz o charme da Itália para o interior de São Paulo. Visite e se apaixone!"
+    },
+    "teleferico-cristo-redentor": {
+      "title": "Teleférico e Cristo Redentor",
+      "description": "Suba a Serra Negra de um jeito emocionante! Pegue o Teleférico na Praça João Zelante e desfrute de um passeio com vistas panorâmicas da cidade. Ele te leva diretamente ao Cristo Redentor, no topo do Pico do Fonseca! Lá de cima, a estátua de 18 metros te recebe com um visual espetacular, perfeito para fotos e momentos de paz. É o combo perfeito de aventura e contemplação!"
+    },
+    "museu-vinho-cachaca-silotto": {
+      "title": "Museu do Vinho e da Cachaça – Família Silotto",
+      "description": "Experimente toda a tradição italiana na fabricação de bebidas artesanais. Vinhos elaborados com uvas cultivadas em nossa propriedade, em nosso parreiral de mais de 100 anos. Ambiente preservado, mantendo os traços rústicos do passado. Venha desfrutar de momentos agradáveis junto à natureza, degustando um bom vinho.\nProdutos: vinhos artesanais, cachaça artesanal, grappa, vinagre de vinho, café moído, queijos, doces, mel e demais produtos da roça.\nContamos também com playground e animais de fazenda."
+    },
+    "vale-ouro-verde-museu-cafe": {
+      "title": "Vale do Ouro Verde – Museu do Café",
+      "description": "A produção de café em Serra Negra constitui uma das principais atividades agrícolas desenvolvidas na cidade. Na Fazenda Vale do Ouro Verde, o turista poderá agendar uma visita monitorada e conhecer todo o processo de produção artesanal do café, da evolução nas formas de plantio às técnicas de colheita, preparação de grãos, torrefação e moagem. Um pequeno museu reúne a história do café, curiosidades e virtudes do produto, além de equipamentos e ferramentas de época."
+    },
+    "sitio-bom-retiro-familia-carra": {
+      "title": "Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados",
+      "description": "Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos (branca, envelhecida, cachaça azul e destilada com flores de laranjeira), grappa, rum e conhaque. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga."
+    },
+    "sitio-chapadao-queijos": {
+      "title": "Sítio Chapadão – Produção de Queijos",
+      "description": "O Sítio produz os melhores queijos da região, que levam a marca \"Queijos da Fazenda\". No local, o visitante terá a oportunidade de presenciar todo o processo de produção, desde a ordenha no curral à degustação do produto final, entre queijos frescal, ricota de leite e ricota temperada, queijo meia cura e coalhada."
+    },
+    "trenzinho-maria-fumaca": {
+      "title": "Trenzinho Maria Fumaça e Tia Linda",
+      "description": "Embarque nesta aventura! O Tradicional passeio de Trenzinho é uma atração turística imperdível para toda a família desde 1991! São oito quilômetros de percurso, passando pelo centro da cidade e com duração média de cinquenta minutos. Segue pelos principais pontos turísticos da cidade e faz uma parada programada de 10 minutos no Parque Fontes Santo Agostinho e Santa Luzia. Aproveite ao máximo este delicioso passeio com descontração e lazer. Saída em frente à Rodoviária."
+    },
+    "fazenda-benedetti": {
+      "title": "Fazenda Benedetti",
+      "description": "A Fazenda Benedetti está localizada entre Serra Negra e Amparo, no Circuito das Águas Paulista, oferecendo experiências autênticas de lazer rural, produtos artesanais e contato com a natureza. Com mais de 90 anos de tradição, produz premiadas cachaças, licores, vinhos, mel e delícias de padaria artesanal. O espaço conta com empório, cafeteria, panetteria, apiário e loja virtual, destacando qualidade, história e atendimento acolhedor. Ideal para famílias aproveitarem momentos especiais, degustando cafés e produtos frescos em meio à natureza. Venha conhecer e se encantar com a tradição Benedetti!"
+    }
+  },
+  "navigation": {
+    "home": "Início",
+    "accommodations": "Acomodações",
+    "events": "Convenções",
+    "blog": "Passeios",
+    "facilities": "Facilidades",
+    "restaurant": "Restaurante",
+    "contact": "Contato",
+    "about": "Sobre",
+    "gallery": "Galeria",
+    "bookNow": "Reserve Agora",
+    "menu": "Menu",
+    "language": "Idioma"
+  },
+  "navbar": {
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"
+    }
+  },
+  "hero": {
+    "title": "Radio Hotel Serra Negra",
+    "subtitle": "Tradição, Elegância e Natureza",
+    "description": "Descubra um refúgio de luxo no coração de Serra Negra, cercado pela natureza exuberante e águas radioativas terapêuticas.",
+    "cta": "Faça sua Reserva",
+    "scrollDown": "Role para baixo",
+    "discoverMore": "Descubra Mais",
+    "previousSlide": "Slide anterior",
+    "nextSlide": "Próximo slide",
+    "goToSlide": "Ir para slide",
+    "slide1": {
+        "title": "Radio Hotel Serra Negra — 80 anos",
+        "subtitle": "Tradição, elegância e natureza",
+        "description": "O nome ‘Radio’ vem das célebres águas radioativas de Serra Negra, famosas por suas propriedades terapêuticas."
+      },
+    "slide2": {
+      "title": "Águas Radioativas Terapêuticas",
+      "subtitle": "Bem-estar e Relaxamento",
+      "description": "Desfrute dos benefícios únicos das águas radioativas de Serra Negra, conhecidas por suas propriedades terapêuticas e relaxantes."
+    },
+    "slide3": {
+      "title": "Natureza Exuberante",
+      "subtitle": "Trilhas e Paisagens",
+      "description": "Explore as belezas naturais da região, com trilhas ecológicas e uma vista deslumbrante da Serra da Mantiqueira."
+    },
+    "carousel": {
+      "ariaLabel": "Carrossel de imagens do hotel",
+      "play": "Reproduzir",
+      "pause": "Pausar"
+    },
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel Serra Negra. Podem me ajudar?"
+    },
+    "features": {
+      "wifi": {
+        "title": "Wi-Fi"
+      },
+      "parking": {
+        "title": "Estacionamento"
+      },
+      "breakfast": {
+        "title": "Café da Manhã"
+      },
+      "restaurant": {
+        "title": "Restaurante"
+      },
+      "gym": {
+        "title": "Academia"
+      },
+      "events": {
+        "title": "Eventos"
+      },
+      "leisure-monitoring": {
+        "title": "Monitoria de Lazer"
+      }
+    }
+  },
+  "about": {
+    "badge": "Sobre o Hotel",
+    "title": "Sobre o Radio Hotel",
+    "location": "Serra Negra, São Paulo",
+    "description1": "Localizado no coração de Serra Negra, o Radio Hotel combina tradição e elegância em um ambiente único, cercado pela exuberante natureza da Serra da Mantiqueira.",
+    "description2": "Há 80 anos, oferecemos uma experiência autêntica de hospitalidade, com cada detalhe pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
+    "anniversaryNote": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas.",
+    "award": {
+      "years": "80 Anos de Tradição",
+      "excellence": "Excelência em Hospitalidade"
+    },
+    "features": {
+      "wifi": {
+        "title": "Wi-Fi"
+      },
+      "parking": {
+        "title": "Estacionamento"
+      },
+      "breakfast": {
+        "title": "Café da Manhã"
+      },
+      "restaurant": {
+        "title": "Restaurante"
+      },
+      "gym": {
+        "title": "Academia"
+      },
+      "events": {
+        "title": "Eventos"
+      }
+    },
+    "stats": {
+      "years": "Anos de Tradição",
+      "park": "m² de Área Verde",
+      "rating": "Avaliação dos Hóspedes",
+      "location": "Localização Privilegiada"
+    }
+  },
+  "accommodations": {
+    "badge": "Nossas Acomodações",
+    "title": "Conforto e Elegância",
+    "subtitle": "em Cada Detalhe",
+    "viewDetails": "Ver Detalhes",
+    "buttons": {
+      "bookNow": "Reservar Agora",
+      "viewAll": "Ver Acomodações"
+    },
+    "navigation": {
+      "previous": "Quarto anterior",
+      "next": "Próximo quarto",
+      "viewRoom": "Ver quarto"
+    },
+    "rooms": {
+      "standard": {
+        "name": "Quarto Standard",
+        "type": "Acomodação Confortável",
+        "description": "Apartamentos Standard são internos ou de frente para a rua e possuem janelas termo-acústicas (tecnologia alemã), frigobar, telefone e ar condicionado, garantindo conforto e silêncio."
+      },
+      "luxury": {
+        "name": "Suíte Master Especial",
+        "type": "Experiência Premium",
+        "description": "Apartamentos Luxo são 8 m² maiores que os Standard, voltados para a piscina, equipados com frigobar, telefone e ar condicionado. Possuem piso anti-alérgico para maior bem-estar."
+      }
+    },
+    "amenities": {
+      "wifi": "Wi-Fi",
+      "parking": "Estacionamento",
+      "minibar": "Frigobar",
+      "tv": "TV",
+      "bathroom": "Banheiro Privativo",
+      "airConditioning": "Ar-Condicionado",
+      "phone": "Telefone"
+    },
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de fazer uma reserva para o"
+    }
+  },
+  "events": {
+    "badge": "Eventos",
+    "title": "Convenções",
+    "subtitle": "Momentos Inesquecíveis em um Cenário Único",
+    "description": "Realize seu evento dos sonhos em nossos espaços elegantes, cercados pela natureza.",
+    "viewMore": "Ver Mais",
+    "bookEvent": "Solicitar Orçamento",
+    "capacity": "Capacidade",
+    "requestQuote": {
+      "button": "Solicitar Orçamento",
+      "ariaLabel": "Solicitar orçamento para"
+    },
+    "features": {
+      "title": "Recursos Inclusos"
+    },
+    "specialist": {
+      "button": "Falar com Especialista",
+      "ariaLabel": "Falar com especialista em eventos"
+    },
+    "planning": {
+      "title": "Planejamento Personalizado",
+      "description": "Nossa equipe especializada cuida de cada detalhe do seu evento, desde o planejamento até a execução, garantindo que tudo seja perfeito."
+    },
+      "convention": {
+        "title": "Centro de Convenções",
+        "description": "O Centro de Convenções do Radio Hotel possui pé-direito de 5 metros e duas salas equipadas. Contamos com a Sala Milênio, com capacidade para até 300 pessoas em formato auditório, e a Sala Monterey, com capacidade para até 60 pessoas em formato auditório. As salas têm ambiente climatizado e equipado com Wi-Fi. Consulte-nos para saber mais sobre como podemos contribuir para a realização do seu evento.",
+        "capacity": "Até 300 pessoas",
+        "area": "",
+        "expandableArea": "",
+        "ceilingHeight": "Pé direito de 5 m",
+        "floors": "2 pavimentos",
+      "auditoriums": "2 auditórios",
+      "meetingRooms": "5 salas de reunião modulares",
+      "airConditioningBTUs": "Climatização Mitsubishi 288.000 BTUs",
+      "internet": "Internet de alta velocidade",
+      "multimedia": "Multimídia de ponta",
+      "projection": "Projeção de ponta",
+      "dvd": "DVD",
+      "features": {
+        "audiovisual": "Sistema audiovisual completo",
+        "wifi": "Wi-Fi de alta velocidade",
+        "airConditioning": "Climatização central",
+        "soundSystem": "Sistema de som profissional",
+        "lighting": "Iluminação cênica",
+        "coffeeBreak": "Área para coffee break"
+      },
+      "clients": {
+        "title": "Relação de alguns clientes do Radio Hotel, em convenções:"
+      }
+    },
+    "corporate": {
+      "title": "Eventos Corporativos",
+      "description": "Salas executivas equipadas para reuniões, treinamentos e apresentações empresariais em ambiente profissional.",
+      "capacity": "10-50 pessoas",
+      "duration": "Meio período ou dia completo",
+      "location": "Salas Executivas",
+      "features": {
+        "multimedia": "Sistema multimídia completo",
+        "videoConference": "Videoconferência HD",
+        "coffeeBreak": "Área para coffee break",
+        "parking": "Estacionamento exclusivo",
+        "technicalSupport": "Suporte técnico especializado"
+      }
+    },
+    "wedding": {
+      "title": "Casamentos",
+      "description": "Celebre o amor em um cenário romântico cercado pela natureza, com jardins exuberantes e vista panorâmica das montanhas.",
+      "capacity": "Até 150 convidados",
+      "duration": "Evento completo",
+      "location": "Jardins e Salão Nobre",
+      "features": {
+        "ceremony": "Cerimônia ao ar livre",
+        "reception": "Salão para recepção",
+        "decoration": "Decoração personalizada",
+        "catering": "Buffet completo",
+        "music": "Sistema de som",
+        "photography": "Espaços fotográficos"
+      }
+    },
+    "social": {
+      "title": "Eventos Sociais",
+      "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante.",
+      "capacity": "Até 80 pessoas",
+      "duration": "4-6 horas",
+      "location": "Salão Social",
+      "features": {
+        "decoration": "Decoração temática",
+        "gourmetBuffet": "Buffet gourmet",
+        "parking": "Estacionamento",
+        "technicalSupport": "Suporte técnico",
+        "audiovisual": "Sistema audiovisual"
+      }
+    },
+    "types": {
+      "wedding": {
+        "name": "Casamentos",
+        "description": "Celebre o amor em um cenário romântico e inesquecível."
+      },
+      "corporate": {
+        "name": "Eventos Corporativos",
+        "description": "Espaços profissionais para reuniões, conferências e treinamentos."
+      },
+      "social": {
+        "name": "Eventos Sociais",
+        "description": "Aniversários, formaturas e celebrações especiais em ambiente acolhedor e elegante."
+      }
+    }
+  },
+  "highlights": {
+    "badge": "Destaques",
+    "title": "Experiências Únicas",
+    "subtitle": "Descubra tudo o que torna o Radio Hotel especial",
+    "gastronomy": {
+      "title": "Restaurantes",
+      "description": "Restaurantes Cinquentenário e Paradiso: à la carte/buffet e grelhados, com saladas e doces."
+    },
+    "comfort": {
+      "title": "Acomodações",
+      "description": "Acomodações sofisticadas, projetadas para oferecer conforto e acessibilidade."
+    },
+    "business": {
+      "title": "Eventos Corporativos",
+      "description": "Espaços profissionais para seus negócios"
+    },
+    "natureLocation": {
+      "description": "No coração de Serra Negra, cercado por áreas verdes, trilhas e paisagens da Mantiqueira.",
+      "title": "Natureza Exuberante e Localização Privilegiada"
+    },
+    "leisure": {
+      "description": "Piscina e salão de jogos.",
+      "title": "Lazer"
+    },
+    "bosque": {
+      "title": "Lazer ao Ar Livre",
+      "description": "Atividades esportivas, sala de jogos e contato com a natureza para momentos inesquecíveis."
+    }
+  },
+  "facilities": {
+    "title": "Nossas Facilidades",
+    "subtitle": "Tudo para o Seu Conforto e Bem-Estar",
+    "spa": {
+      "name": "Spa & Wellness",
+      "description": "Tratamentos relaxantes com águas radioativas terapêuticas."
+    },
+    "restaurant": {
+      "name": "Restaurante",
+      "description": "Gastronomia refinada com ingredientes locais e receitas tradicionais."
+    },
+    "gym": {
+      "name": "Academia",
+      "description": "Um espaço para cuidar de si, com equipamentos modernos e uma vista inspiradora para a natureza."
+    },
+    "leisure-monitoring": {
+      "name": "Monitoria de Lazer",
+      "description": "Atividades e entretenimento para todas as idades com nossa equipe de monitores."
+    },
+    "trails": {
+      "name": "Trilhas Ecológicas",
+      "description": "Explore a natureza em trilhas seguras e bem sinalizadas."
+    }
+  },
+  "parallax": {
+    "badge": "Experiência Única",
+    "title": {
+      "line1": "Viva uma experiência",
+      "highlight": "inesquecível",
+      "line2": "em Serra Negra"
+    },
+    "subtitle": "Onde a tradição encontra a natureza em perfeita harmonia",
+    "stats": {
+      "tradition": "Anos de Tradição",
+      "rating": "Avaliação dos Hóspedes",
+      "location": "Localização Privilegiada"
+    },
+    "buttons": {
+      "bookNow": "Reservar Agora",
+      "checkAvailability": "Verificar Disponibilidade",
+      "bookingAriaLabel": "Fazer reserva via WhatsApp",
+      "availabilityAriaLabel": "Verificar disponibilidade via telefone"
+    },
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel."
+    },
+    "fallback": {
+      "title": "Radio Hotel Serra Negra"
+    }
+  },
+  "restaurant": {
+    "title": "Nosso Restaurante",
+    "subtitle": "Gastronomia de excelência em ambiente acolhedor",
+    "description": "Desfrute de pratos elaborados com ingredientes frescos e regionais, em um ambiente elegante com vista para os jardins do hotel.",
+    "menu": {
+      "breakfast": "Café da Manhã",
+      "lunch": "Almoço",
+      "dinner": "Jantar",
+      "drinks": "Bebidas"
+    },
+    "hours": {
+      "breakfast": "06:30 - 10:00",
+      "lunch": "12:00 - 15:00",
+      "dinner": "19:00 - 22:30"
+    }
+  },
+  "booking": {
+    "title": "Faça sua Reserva",
+    "subtitle": "Reserve sua estadia e desfrute de momentos únicos",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "adults": "Adultos",
+    "children": "Crianças",
+    "childAge": "Idade da criança",
+    "child": "Criança",
+    "childrenAges": "Idades das Crianças",
+    "adultSingular": "adulto",
+    "adultPlural": "adultos",
+    "childSingular": "criança",
+    "childPlural": "crianças",
+    "roomType": "Tipo de Quarto",
+    "accommodationType": "Tipo de Acomodação",
+    "selectAccommodation": "Selecione uma acomodação",
+    "specialRequests": "Solicitações Especiais",
+    "specialRequestsPlaceholder": "Descreva suas necessidades especiais, preferências alimentares, acessibilidade, etc.",
+    "name": "Nome Completo",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "submit": "Enviar Solicitação",
+    "submitButton": "Enviar Solicitação via WhatsApp",
+    "submitAriaLabel": "Enviar solicitação de reserva via WhatsApp",
+    "sending": "Enviando...",
+    "whatsappRedirect": "Você será redirecionado para o WhatsApp para finalizar sua reserva",
+    "currency": "R$",
+    "perNight": "diária",
+    "roomTypes": {
+      "standard": "Standard",
+      "deluxe": "Luxo",
+      "suiteMaster": "Suíte",
+      "suiteFamily": "Família"
+    },
+    "summary": {
+      "title": "Resumo da Reserva",
+      "period": "Período",
+      "nights": "Noites",
+      "guests": "Hóspedes",
+      "adults": "adultos",
+      "children": "crianças",
+      "estimatedValue": "Valor Estimado"
+    },
+    "whatsapp": {
+      "title": "Solicitação de Reserva - Radio Hotel",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
+      "nights": "Noites",
+      "guests": "Hóspedes",
+      "adults": "Adultos",
+      "children": "Crianças",
+      "childrenAges": "Idades das crianças",
+      "years": "anos",
+      "accommodation": "Acomodação",
+      "estimatedValue": "Valor Estimado",
+      "observations": "Observações",
+      "confirmation": "Aguardo confirmação da disponibilidade e valores finais"
+    },
+    "whatsappMessage": "Olá! Gostaria de fazer uma reserva no Radio Hotel para {checkIn} até {checkOut}, {adults} adulto(s) e {children} criança(s). Tipo de quarto: {roomType}.",
+    "validation": {
+      "required": "Este campo é obrigatório",
+      "email": "E-mail inválido",
+      "phone": "Telefone inválido",
+      "checkInRequired": "Data de check-in é obrigatória",
+      "checkOutRequired": "Data de check-out é obrigatória",
+      "checkOutAfterCheckIn": "Check-out deve ser após check-in",
+      "checkInPastDate": "A data de check-in não pode ser no passado"
+    }
+  },
+  "reviews": {
+    "title": "O que nossos hóspedes dizem",
+    "subtitle": "Experiências reais de quem já se hospedou conosco",
+    "verified": "Avaliação Verificada",
+    "navigation": {
+      "previous": "Avaliação anterior",
+      "next": "Próxima avaliação"
+    },
+    "cta": {
+      "text": "Quer fazer parte dessas histórias? Reserve já sua estadia!",
+      "button": "Fazer Reserva"
+    },
+    "review1": {
+      "comment": "Uma experiência incrível! O Radio Hotel superou todas as minhas expectativas. A localização é perfeita e o atendimento é excepcional."
+    },
+    "review2": {
+      "comment": "Que lugar maravilhoso! A combinação perfeita entre elegância e natureza. Voltarei com certeza!"
+    },
+    "review3": {
+      "comment": "Adorei cada momento da minha estadia. O hotel tem uma atmosfera única e os funcionários são muito atenciosos."
+    },
+    "review4": {
+      "comment": "Excelente hotel! Desde a recepção até o check-out, tudo foi perfeito. Recomendo para quem busca qualidade e conforto."
+    },
+    "review5": {
+      "comment": "Uma joia escondida em Serra Negra! O Radio Hotel oferece uma experiência premium em meio à natureza."
+    }
+  },
+  "eventsModal": {
+    "title": "Programação Especial",
+    "subtitle": "",
+    "categories": {
+      "gastronomy": "Gastronomia",
+      "wellness": "Bem-estar",
+      "packages": "Pacotes",
+      "holiday": "Feriados",
+      "family": "Família"
+    },
+    "labels": {
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    "buttons": {
+      "bookWhatsApp": "Reservar via WhatsApp"
+    },
+    "navigation": {
+      "backToEvents": "Voltar aos Eventos"
+    },
+    "whatsapp": {
+      "bookingMessage": "Olá! Gostaria de reservar para o evento",
+      "onDay": "no dia",
+      "atTime": "às",
+      "helpRequest": "Podem me ajudar?"
+    },
+    "italianNight": {
+      "title": "Noite Italiana",
+      "description": "Uma noite especial com o melhor da culinária italiana, música ao vivo e ambiente romântico.",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    "feijoada": {
+      "title": "Feijoada Tradicional",
+      "description": "Sábado de feijoada com música brasileira.",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    "guidedTour": {
+      "title": "Área do Bosque",
+      "description": "Explore as belezas naturais de Serra Negra com nosso guia especializado.",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    "novemberHoliday": {
+      "title": "Feriado de Novembro",
+      "description": "Aproveite o feriado com conforto e boa hospedagem no Radio Hotel.",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    "januaryVacation": {
+      "title": "Férias de Janeiro",
+      "description": "Pacote especial com recreação e música ao vivo durante todo o mês.",
+      "date": "Janeiro inteiro",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    }
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Estamos Aqui para Ajudar",
+    "address": "Endereço",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "socialMedia": "Redes Sociais",
+    "form": {
+      "title": "Envie uma Mensagem",
+      "name": "Nome",
+      "email": "E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente."
+    },
+    "location": {
+      "title": "Nossa Localização",
+      "description": "Localizado no coração de Serra Negra, com fácil acesso às principais atrações da cidade."
+    }
+  },
+  "footer": {
+    "description": "Radio Hotel Serra Negra - Tradição, elegância e natureza em perfeita harmonia.",
+    "logo": {
+      "alt": "Logo Radio Hotel Serra Negra"
+    },
+    "quickLinks": {
+      "title": "Links Rápidos",
+      "home": "Início",
+      "about": "Sobre",
+      "accommodations": "Acomodações",
+      "events": "Eventos",
+      "gallery": "Galeria",
+      "contact": "Contato"
+    },
+    "services": {
+      "title": "Nossos Serviços",
+      "wifi": "Wi-Fi",
+      "parking": "Estacionamento",
+      "roomService": "Serviço de Quarto",
+      "restaurant": "Restaurante",
+      "gym": "Academia",
+      "pool": "Piscina"
+    },
+    "contact": {
+      "title": "Contato",
+      "phone": {
+        "label": "Telefone"
+      },
+      "email": {
+        "label": "E-mail"
+      },
+      "address": {
+        "label": "Endereço",
+        "value": "Rua das Águas Radioativas, 123\nSerra Negra - SP\nCEP: 13.930-063"
+      },
+      "hours": {
+        "label": "Horário de Funcionamento",
+        "value": "24 horas por dia\n7 dias por semana"
+      }
+    },
+    "whatsapp": {
+      "message": "Olá! Gostaria de mais informações sobre o Radio Hotel."
+    },
+    "followUs": "Siga-nos",
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Receba ofertas especiais e novidades",
+      "placeholder": "Seu e-mail",
+      "subscribe": "Inscrever-se"
+    },
+    "copyright": "© 2024 Radio Hotel Serra Negra. Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "pwa": {
+    "install": {
+      "title": "Instalar Radio Hotel",
+      "description": "Acesso rápido e offline",
+      "message": "Instale nosso app para uma experiência mais rápida, notificações de ofertas especiais e acesso offline.",
+      "install": "Instalar App",
+      "notNow": "Agora não"
+    },
+    "offline": "Você está offline. Algumas funcionalidades podem estar limitadas.",
+    "updateAvailable": "Nova versão disponível!",
+    "update": "Atualizar"
+  },
+  "meta": {
+    "title": "Radio Hotel Serra Negra - Hotel de Luxo em Serra Negra, SP",
+    "description": "Descubra o Radio Hotel, um refúgio de elegância e tradição no coração de Serra Negra, SP. Cercado pela natureza exuberante e muito verde, oferecemos uma experiência única de hospitalidade premium com águas radioativas terapêuticas.",
+    "keywords": "hotel serra negra, hotel de luxo sp, hospedagem serra negra, radio hotel, hotel fazenda, turismo serra negra, hotel natureza, eventos corporativos, casamentos serra negra, hotel boutique, águas radioativas, spa serra negra, hotel com piscina, destination wedding, hotel romântico"
+  },
+  "accessibility": {
+    "skipToContent": "Pular para o conteúdo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "previousSlide": "Slide anterior",
+    "nextSlide": "Próximo slide",
+    "playVideo": "Reproduzir vídeo",
+    "pauseVideo": "Pausar vídeo",
+    "openModal": "Abrir modal",
+    "closeModal": "Fechar modal",
+    "scrollToTop": "Voltar ao topo"
+  },
+  "contactPage": {
+    "header": {
+      "title": "Entre em contato",
+      "subtitle": "Estamos à disposição para ajudar no que precisar"
+    },
+    "phones": {
+      "title": "Telefones",
+      "reservations": "Informações e Reservas",
+      "reception": "Recepção"
+    },
+    "digital": {
+      "title": "Canais Digitais",
+      "whatsapp": "WhatsApp",
+      "email": "E-mail",
+      "ctaWhatsApp": "Conversar no WhatsApp"
+    },
+    "address": {
+      "title": "Nosso Endereço",
+      "viewMap": "Abrir no Google Maps",
+      "copy": "Copiar Endereço",
+      "copied": "Endereço copiado!",
+      "mapTitle": "Mapa do endereço do Radio Hotel"
+    },
+    "form": {
+      "title": "Envie uma mensagem",
+      "fields": {
+        "name": "Nome",
+        "email": "E-mail",
+        "phone": "Telefone",
+        "message": "Mensagem"
+      },
+      "placeholders": {
+        "name": "Seu nome",
+        "email": "voce@exemplo.com",
+        "phone": "(19) 99999-9999",
+        "message": "Como podemos ajudar?"
+      },
+      "actions": {
+        "sendWhatsApp": "Enviar no WhatsApp",
+        "sendEmail": "Enviar por E-mail"
+      },
+      "mailSubject": "Contato pelo site - Radio Hotel",
+      "errors": {
+        "nameRequired": "Por favor, informe seu nome.",
+        "emailInvalid": "Informe um e-mail válido.",
+        "messageRequired": "Por favor, escreva sua mensagem."
+      },
+      "feedback": {
+        "success": "Mensagem enviada com sucesso.",
+        "error": "Não foi possível enviar sua mensagem agora. Tente novamente."
+      }
+    },
+    "social": {
+      "title": "Links das Redes Sociais"
+    }
+  }
+}
