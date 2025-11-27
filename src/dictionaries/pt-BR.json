@@ -101,9 +101,9 @@
     "nextSlide": "Próximo slide",
     "goToSlide": "Ir para slide",
     "slide1": {
-      "title": "Radio Hotel Serra Negra — 80 anos",
+      "title": "Radio Hotel Serra Negra",
       "subtitle": "Tradição, elegância e natureza",
-      "description": "Em 2025, o Radio Hotel completa 80 anos. O nome ‘Radio’ vem das célebres águas radioativas de Serra Negra, famosas por suas propriedades terapêuticas."
+      "description": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas."
     },
     "slide2": {
       "title": "Águas Radioativas Terapêuticas",
@@ -152,10 +152,10 @@
     "title": "Sobre o Radio Hotel",
     "location": "Serra Negra, São Paulo",
     "description1": "Localizado no coração de Serra Negra, o Radio Hotel combina tradição e elegância em um ambiente único, cercado pela exuberante natureza da Serra da Mantiqueira.",
-    "description2": "Há 80 anos, oferecemos uma experiência autêntica de hospitalidade, com cada detalhe pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
+    "description2": "Oferecemos uma experiência autêntica de hospitalidade, com cada detalhe pensado para proporcionar momentos inesquecíveis aos nossos hóspedes.",
     "anniversaryNote": "O nome ‘Radio’ vem das famosas águas radioativas de Serra Negra, reconhecidas por suas propriedades terapêuticas.",
     "award": {
-      "years": "80 Anos de Tradição",
+      "years": "Tradição",
       "excellence": "Excelência em Hospitalidade"
     },
     "features": {
@@ -186,9 +186,9 @@
     }
   },
   "promoRibbon": {
-    "message": "26–28 de dezembro · Semana de Aniversário 80 anos · Programação Especial",
-    "cta": "Programação especial",
-    "whatsappMessage": "Olá! Quero saber da programação especial do aniversário de 80 anos (26 a 28 de dezembro)."
+    "message": "",
+    "cta": "",
+    "whatsappMessage": ""
   },
   "accommodations": {
     "badge": "Nossas Acomodações",

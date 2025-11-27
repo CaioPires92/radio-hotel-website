@@ -92,9 +92,9 @@
     "nextSlide": "Siguiente diapositiva",
     "goToSlide": "Ir a diapositiva",
     "slide1": {
-      "title": "Radio Hotel Serra Negra — 80 años",
+      "title": "Radio Hotel Serra Negra",
       "subtitle": "Tradición, Elegancia y Naturaleza",
-      "description": "Descubre un refugio de lujo en el corazón de Serra Negra, rodeado de naturaleza exuberante y aguas radiactivas terapéuticas."
+      "description": "El nombre ‘Radio’ proviene de las famosas aguas radiactivas de Serra Negra, conocidas por sus propiedades terapéuticas."
     },
     "slide2": {
       "title": "Aguas Radiactivas Terapéuticas",
@@ -120,9 +120,9 @@
     "title": "Sobre Radio Hotel",
     "location": "Serra Negra, São Paulo",
     "description1": "Ubicado en el corazón de Serra Negra, Radio Hotel combina tradición y elegancia en un ambiente único, rodeado de la exuberante naturaleza de la Serra da Mantiqueira.",
-    "description2": "Desde hace 80 años, ofrecemos una experiencia auténtica de hospitalidad, con cada detalle pensado para proporcionar momentos inolvidables a nuestros huéspedes.",
+    "description2": "Ofrecemos una experiencia auténtica de hospitalidad, con cada detalle pensado para proporcionar momentos inolvidables a nuestros huéspedes.",
     "award": {
-      "years": "80 Años de Tradición",
+      "years": "Tradición",
       "excellence": "Excelencia en Hospitalidad"
     },
     "features": {

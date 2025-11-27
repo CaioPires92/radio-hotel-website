@@ -65,9 +65,9 @@ export default PageSEO;
 // Predefined SEO configurations for different pages
 export const seoConfigs = {
   home: {
-    title: 'Radio Hotel Serra Negra — 80 anos',
-    description: 'Em 2025, o Radio Hotel completa 80 anos. O nome “Radio” vem das águas radioativas de Serra Negra, famosas por suas propriedades terapêuticas. Viva tradição, elegância e natureza em um endereço único.',
-    keywords: ['hotel serra negra', 'hotel de luxo sp', 'hospedagem serra negra', 'radio hotel', 'hotel fazenda', 'turismo serra negra', '80 anos', 'águas radioativas'],
+    title: 'Radio Hotel Serra Negra',
+    description: 'O nome “Radio” vem das águas radioativas de Serra Negra, famosas por suas propriedades terapêuticas. Viva tradição, elegância e natureza em um endereço único.',
+    keywords: ['hotel serra negra', 'hotel de luxo sp', 'hospedagem serra negra', 'radio hotel', 'hotel fazenda', 'turismo serra negra', 'águas radioativas'],
   },
   accommodations: {
     title: 'Acomodações de Luxo - Suítes e Apartamentos',
