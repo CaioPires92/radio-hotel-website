@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, MapPin, Star, Phone } from 'lucide-react';
+import { MapPin, Star, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -17,7 +17,8 @@ interface HeroProps {
 const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:min-h-[80vh] lg:h-screen' }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBookingLoading, setIsBookingLoading] = useState(false);
-  const [isPaused, setIsPaused] = useState(false); // Novo estado
+  const [isPaused, setIsPaused] = useState(false);
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
   const { t } = useTranslation();
   const bookNowLabel = (() => {
     const v = t('navigation.bookNow');
@@ -108,6 +109,43 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}  // Pausar ao entrar com mouse
       onMouseLeave={() => setIsPaused(false)} // Retomar ao sair com mouse
+      onTouchStart={(e) => {
+        setDragStartX(e.touches[0].clientX);
+        setIsPaused(true);
+      }}
+      onTouchEnd={(e) => {
+        if (dragStartX !== null) {
+          const deltaX = e.changedTouches[0].clientX - dragStartX;
+          if (Math.abs(deltaX) > 50) {
+            if (deltaX < 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          }
+        }
+        setIsPaused(false);
+        setDragStartX(null);
+      }}
+      onPointerDown={(e) => {
+        if (e.pointerType === 'mouse' && e.buttons !== 1) return;
+        setDragStartX(e.clientX);
+        setIsPaused(true);
+      }}
+      onPointerUp={(e) => {
+        if (dragStartX !== null) {
+          const deltaX = e.clientX - dragStartX;
+          if (Math.abs(deltaX) > 50) {
+            if (deltaX < 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          }
+        }
+        setIsPaused(false);
+        setDragStartX(null);
+      }}
       tabIndex={0}
       role="region"
       aria-label={t('hero.carousel.ariaLabel')}
@@ -271,23 +309,7 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
         </div>
       </div>
 
-      {/* Navigation Arrows (hidden on mobile) */}
-      <button
-        onClick={prevSlide}
-        className="hidden min-[812px]:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
-        aria-label={t('hero.previousSlide')}
-        tabIndex={0}
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="hidden min-[812px]:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gold"
-        aria-label={t('hero.nextSlide')}
-        tabIndex={0}
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
+      
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
