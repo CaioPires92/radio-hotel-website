@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, ChevronLeft, ChevronRight, Phone, Wifi, Coffee, Tv, Wind, X } from 'lucide-react';
 import Image from 'next/image';
@@ -126,7 +126,7 @@ function getRooms(t: (key: string) => string): Room[] {
 
 export default function AccommodationsSimple() {
   const { t } = useTranslation();
-  const rooms = getRooms(t);
+  const rooms = useMemo(() => getRooms(t), [t]);
 
   const [selectedRoomId, setSelectedRoomId] = useState<string | null>(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -136,10 +136,10 @@ export default function AccommodationsSimple() {
   const isGalleryOpen = !!selectedRoom;
 
   useEffect(() => {
-    if (selectedRoom) {
+    if (selectedRoomId) {
       setCurrentPhotoIndex(0);
     }
-  }, [selectedRoomId, selectedRoom]);
+  }, [selectedRoomId]);
 
   useEffect(() => {
     if (isGalleryOpen && closeButtonRef.current) {
