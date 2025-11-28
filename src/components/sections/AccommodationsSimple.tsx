@@ -317,6 +317,7 @@ export default function AccommodationsSimple() {
               <div className="relative w-full h-full bg-black">
                 {selectedRoom.gallery.length > 0 && (
                   <Image
+                    key={`${selectedRoom.id}-${currentPhotoIndex}`}
                     src={selectedRoom.gallery[currentPhotoIndex].src}
                     alt={
                       selectedRoom.gallery[currentPhotoIndex].tag ||
