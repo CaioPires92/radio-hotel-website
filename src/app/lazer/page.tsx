@@ -15,7 +15,7 @@ export default function LazerPage() {
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Lazer e Atividades</h1>
-          <p className="text-white/90 text-lg">Piscinas, academia e salão de jogos.</p>
+          <p className="text-white/90 text-lg">Piscinas ao ar livre, academia completa e salão de jogos; bosque com atividades e recreação.</p>
         </div>
       </section>
 
@@ -26,8 +26,9 @@ export default function LazerPage() {
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy">Piscina</h2>
             <p className="text-navy/75">
-              Desfrute de momentos de relaxamento nas piscinas cercadas pela natureza e
-              diversão no nosso espaço de jogos para todas as idades.
+              Desfrute de momentos de relaxamento nas piscinas cercadas pela natureza, aproveite a academia completa
+              e a diversão no nosso salão de jogos para todas as idades. No bosque, vivencie atividades ao ar livre
+              com uma programação de recreação que integra família e bem‑estar.
             </p>
           </div>
 
@@ -35,7 +36,6 @@ export default function LazerPage() {
           <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
             <CardImageCarousel
               images={[
-                { src: '/images/facilities/piscina.jpg', alt: 'Piscina principal' },
                 { src: '/images/facilities/piscina1.jpg', alt: 'Piscina com área de descanso' },
                 { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao verde' },
                 { src: '/images/facilities/piscina3.jpg', alt: 'Nova área da piscina' },
