@@ -52,6 +52,8 @@ export default function Highlights() {
         { src: '/images/rooms/thumbs-16x9/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', alt: 'Apartamento Luxo' },
         { src: '/images/rooms/thumbs-16x9/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', alt: 'Suíte Master Especial' },
         { src: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg', alt: 'Apartamento Standard' },
+        { src: '/images/rooms/thumbs-16x9/Apartamento-Standard-frente-rua.jpg', alt: 'Apartamento Standard (frente rua)' },
+        { src: '/images/rooms/thumbs-16x9/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', alt: 'Suíte Luxo' },
       ],
     },
   ]

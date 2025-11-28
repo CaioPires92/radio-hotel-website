@@ -15,7 +15,7 @@ export default function LazerPage() {
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Lazer e Atividades</h1>
-          <p className="text-white/90 text-lg">Piscinas ao ar livre, academia completa e salão de jogos; bosque com atividades e recreação.</p>
+          <p className="text-white/90 text-lg">Piscinas, academia, salão de jogos, bosque, atividades e recreação.</p>
         </div>
       </section>
 
