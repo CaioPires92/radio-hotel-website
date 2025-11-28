@@ -94,11 +94,11 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Suíte Luxo',
       type: 'Luxo',
       description: 'Suíte Luxo com vista para a piscina ou bosque.',
-      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      image: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
       amenities: commonAmenities,
       gallery: [
         {
-          src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+          src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
           tag: 'Suíte Luxo (vista bosque/piscina)',
         },
       ],
@@ -108,11 +108,11 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Suíte Master',
       type: 'Master',
       description: 'Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.',
-      image: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
       amenities: commonAmenities,
       gallery: [
         {
-          src: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+          src: '/images/rooms/Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
           tag: 'Master com sacada',
         },
         {
