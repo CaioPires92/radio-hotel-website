@@ -84,11 +84,12 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Apartamento Luxo',
       type: 'Piscina ou bosque',
       description: 'Apto Luxo com vista para a piscina ou bosque',
-      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      image: '/images/rooms/Apartamento-luxo.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Apto Luxo com vista para a piscina ou bosque' },
+        { src: '/images/rooms/Apartamento-luxo.jpg', tag: 'Apto Luxo (quarto)' },
+        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'Apto Luxo com vista para a piscina ou jardim' },
       ],
     },
     {
@@ -108,11 +109,12 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Suíte Luxo',
       type: 'Luxo',
       description: 'Suíte Luxo com vista para a piscina ou bosque',
-      image: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+      image: '/images/rooms/suite-luxo.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo' },
+        { src: '/images/rooms/suite-luxo.jpg', tag: 'Suíte Luxo' },
+        { src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo (vista bosque/piscina)' },
       ],
     },
     {
@@ -304,7 +306,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   label: 'Suíte Master',
                   type: 'Master',
                   description: 'Suíte Master com sacada e vista para a piscina',
-                  image: '/images/rooms/thumbs-16x9/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+                  image: '/images/rooms/thumbs-16x9/Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
                 },
                 {
                   key: 'conjugado',
@@ -318,7 +320,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   label: 'Suíte Luxo',
                   type: 'Luxo',
                   description: 'Suíte Luxo com vista para a piscina ou bosque',
-                  image: '/images/rooms/thumbs-16x9/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+                  image: '/images/rooms/thumbs-16x9/suite-luxo.jpg',
                 },
               ]
 
