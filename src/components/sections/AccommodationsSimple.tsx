@@ -62,16 +62,16 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Apartamento Luxo',
       type: 'Luxo',
       description: 'Mais espaço e vista para a piscina ou jardim.',
-      image: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+      image: '/images/rooms/Apartamento-luxo.jpg',
       amenities: commonAmenities,
       gallery: [
         {
-          src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
-          tag: 'Luxo com vista piscina/jardim',
+          src: '/images/rooms/Apartamento-luxo.jpg',
+          tag: 'Luxo (quarto)',
         },
         {
-          src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
-          tag: 'Luxo com vista bosque',
+          src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+          tag: 'Luxo com vista piscina/jardim',
         },
       ],
     },
