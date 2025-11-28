@@ -70,7 +70,7 @@ function getRooms(t: (key: string) => string): Room[] {
           tag: 'Luxo com vista piscina/jardim',
         },
         {
-          src: '/images/rooms/Apartamento-Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+          src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
           tag: 'Luxo com vista bosque',
         },
       ],
