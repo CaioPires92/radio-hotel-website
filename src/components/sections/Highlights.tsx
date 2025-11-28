@@ -54,6 +54,8 @@ export default function Highlights() {
         { src: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg', alt: 'Apartamento Standard' },
         { src: '/images/rooms/thumbs-16x9/Apartamento-Standard-frente-rua.jpg', alt: 'Apartamento Standard (frente rua)' },
         { src: '/images/rooms/thumbs-16x9/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', alt: 'Suíte Luxo' },
+        { src: '/images/rooms/thumbs-16x9/conjugado.jpg', alt: 'Apto Conjugado' },
+        { src: '/images/rooms/thumbs-16x9/conjugado2.jpg', alt: 'Apto Conjugado (variação)' },
       ],
     },
   ]
