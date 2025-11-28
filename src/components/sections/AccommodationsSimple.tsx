@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, ChevronLeft, ChevronRight, Phone, Wifi, Coffee, Tv, Wind, X } from 'lucide-react';
 import Image from 'next/image';
@@ -147,6 +147,8 @@ export default function AccommodationsSimple() {
     }
   }, [isGalleryOpen]);
 
+
+
   const handleBookingClick = (roomName: string) => {
     const message = `${t('accommodations.whatsapp.bookingMessage')} ${roomName}`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -157,19 +159,34 @@ export default function AccommodationsSimple() {
     setSelectedRoomId(roomId);
   };
 
-  const handleCloseGallery = () => {
+  const handleCloseGallery = useCallback(() => {
     setSelectedRoomId(null);
-  };
+  }, []);
 
-  const nextPhoto = () => {
+  const nextPhoto = useCallback(() => {
     if (!selectedRoom || !selectedRoom.gallery.length) return;
     setCurrentPhotoIndex((prev) => (prev + 1) % selectedRoom.gallery.length);
-  };
+  }, [selectedRoom]);
 
-  const prevPhoto = () => {
+  const prevPhoto = useCallback(() => {
     if (!selectedRoom || !selectedRoom.gallery.length) return;
     setCurrentPhotoIndex((prev) => (prev - 1 + selectedRoom.gallery.length) % selectedRoom.gallery.length);
-  };
+  }, [selectedRoom]);
+
+  useEffect(() => {
+    if (!isGalleryOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        nextPhoto();
+      } else if (e.key === 'ArrowLeft') {
+        prevPhoto();
+      } else if (e.key === 'Escape') {
+        handleCloseGallery();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isGalleryOpen, nextPhoto, prevPhoto, handleCloseGallery]);
 
   return (
     <section
@@ -292,7 +309,7 @@ export default function AccommodationsSimple() {
             aria-modal="true"
             aria-labelledby="accommodation-gallery-title"
             onClick={handleCloseGallery}
-      >
+          >
             <div
               className="relative w-full max-w-5xl mx-auto h-[70vh] md:h-[80vh]"
               onClick={(e) => e.stopPropagation()}
@@ -354,6 +371,27 @@ export default function AccommodationsSimple() {
                     </button>
                     <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
                       {currentPhotoIndex + 1} / {selectedRoom.gallery.length}
+                    </div>
+
+                    {/* Thumbnails */}
+                    <div className="absolute bottom-3 left-3 right-24 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                      {selectedRoom.gallery.map((photo, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentPhotoIndex(idx)}
+                          aria-label={`Ver foto ${idx + 1}`}
+                          className={`relative h-12 w-16 rounded-md overflow-hidden ring-1 ring-white/40 ${idx === currentPhotoIndex ? 'outline outline-2 outline-gold' : ''}`}
+                        >
+                          <Image
+                            src={photo.src}
+                            alt={photo.tag || selectedRoom.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 64px, 128px"
+                            quality={70}
+                          />
+                        </button>
+                      ))}
                     </div>
                   </>
                 )}
