@@ -462,10 +462,10 @@
     "currency": "R$",
     "perNight": "diária",
     "roomTypes": {
-      "standard": "Standard",
-      "deluxe": "Luxo",
-      "suiteMaster": "Suíte",
-      "suiteFamily": "Família"
+      "standard": "Apartamento Standard",
+      "deluxe": "Apartamento Luxo",
+      "suiteMaster": "Suíte Master",
+      "suiteFamily": "Apto Conjugado"
     },
     "summary": {
       "title": "Resumo da Reserva",
