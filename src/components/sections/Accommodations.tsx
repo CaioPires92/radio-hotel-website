@@ -134,11 +134,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Suíte Master',
       type: 'Especial',
       description: 'Suíte Master especial com sacada e vista para a piscina',
-      image: '/images/rooms/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/suite-master2.jpg',
       amenities: commonAmenities,
       tags: ['Master'],
       gallery: [
-        { src: '/images/rooms/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
+        { src: '/images/rooms/suite-master2.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
       ],
     },
   ];

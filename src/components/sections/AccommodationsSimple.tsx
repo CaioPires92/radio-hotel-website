@@ -124,7 +124,7 @@ function getRooms(t: (key: string) => string): Room[] {
           tag: 'Master com sacada',
         },
         {
-          src: '/images/rooms/Suite-Master-especial-com-sacada-e-vista-para-a-piscina.jpg',
+          src: '/images/rooms/suite-master2.jpg',
           tag: 'Master especial',
         },
       ],
