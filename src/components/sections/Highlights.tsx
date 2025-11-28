@@ -28,6 +28,8 @@ export default function Highlights() {
         { src: '/images/facilities/thumbs-16x9/piscina2.jpg', alt: 'Piscina externa integrada ao bosque' },
         { src: '/images/facilities/thumbs-16x9/piscina3.jpg', alt: 'Nova área da piscina' },
         { src: '/images/facilities/thumbs-16x9/mini-club-1.jpg', alt: 'Espaço de jogos e recreação' },
+        { src: '/images/facilities/thumbs-16x9/mini-club-2.jpg', alt: 'Mini clube para crianças' },
+        { src: '/images/facilities/thumbs-16x9/ar-livre-beach-tenis.jpg', alt: 'Quadra de beach tênis ao ar livre' },
       ],
     },
     {

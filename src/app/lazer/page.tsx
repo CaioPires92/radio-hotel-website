@@ -39,6 +39,10 @@ export default function LazerPage() {
                 { src: '/images/facilities/piscina1.jpg', alt: 'Piscina com área de descanso' },
                 { src: '/images/facilities/piscina2.jpg', alt: 'Piscina externa integrada ao verde' },
                 { src: '/images/facilities/piscina3.jpg', alt: 'Nova área da piscina' },
+                { src: '/images/facilities/piscina4.jpg', alt: 'Piscina com deck ampliado' },
+                { src: '/images/facilities/piscina8.jpg', alt: 'Piscina ao ar livre' },
+                { src: '/images/facilities/piscina9.jpg', alt: 'Área da piscina com vista para o bosque' },
+                { src: '/images/facilities/piscina10.jpg', alt: 'Piscina integrada às áreas de lazer' },
               ]}
               className="h-80 md:h-96"
               showDots
