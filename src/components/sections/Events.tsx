@@ -112,7 +112,7 @@ const Events = () => {
                       className="object-cover"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent" />
+                    <div className="absolute inset-0 bg-navy/20 bg-gradient-to-r from-navy/20 to-transparent" />
                   </div>
 
                   {/* Content Section */}
