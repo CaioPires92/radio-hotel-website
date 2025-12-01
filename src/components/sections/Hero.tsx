@@ -171,7 +171,7 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
                 sizes="100vw"
                 quality={85}
               />
-              <div className="absolute inset-0 bg-navy/60 bg-gradient-to-r from-navy/70 to-blue/60" />
+              <div className="absolute inset-0 bg-navy bg-gradient-to-r from-navy to-blue opacity-60" />
               {/* Pattern sutil por cima do gradiente */}
               <div
                 className="absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:360px] opacity-[0.08]"

@@ -115,7 +115,7 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
               priority={false}
             />
           </div>
-          <div className="absolute inset-0 bg-navy/60 bg-gradient-to-r from-navy/80 to-blue/70" />
+          <div className="absolute inset-0 bg-navy bg-gradient-to-r from-navy to-blue opacity-70" />
         </div>
         <div className="relative z-10 max-w-4xl px-6">
           <motion.h1

@@ -31,7 +31,7 @@ export default function ConventionsHero({ heightClass = 'min-h-[50vh] md:min-h-[
             sizes="100vw"
             quality={85}
           />
-          <div className="absolute inset-0 bg-navy/60 bg-gradient-to-r from-navy/80 to-blue/70" />
+          <div className="absolute inset-0 bg-navy bg-gradient-to-r from-navy to-blue opacity-70" />
         </div>
       </div>
 

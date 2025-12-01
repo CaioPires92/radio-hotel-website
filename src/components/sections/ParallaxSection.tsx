@@ -79,12 +79,12 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
 
       {/* Animated Overlay */}
       <motion.div
-        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-navy/80 via-navy/75 to-navy/90"
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-navy via-navy to-navy"
         style={{ opacity: overlayOpacity }}
       />
 
       {/* Base Overlay for Better Contrast */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-navy/60" />
+      <div className="absolute inset-0 z-10 pointer-events-none bg-navy" style={{ opacity: 0.6 }} />
 
       {/* Decorative Elements - Reduced opacity and better positioning */}
       <div className="absolute inset-0 pointer-events-none z-20">
@@ -123,7 +123,7 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-5 sm:mb-7"
+            className="inline-flex items-center space-x-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 sm:px-6 py-2 mb-5 sm:mb-7 badge-gold-soft"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -167,15 +167,15 @@ const ParallaxSection = ({ onBookingClick, backgroundSrc = "/images/hero/hero1.j
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20 badge-card-soft">
               <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">80</div>
               <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.tradition')}</div>
             </div>
-            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20 badge-card-soft">
               <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">8.9</div>
               <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.rating')}</div>
             </div>
-            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20">
+            <div className="text-center p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-gold/20 badge-card-soft">
               <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold mb-1 sm:mb-2">9.9</div>
               <div className="text-white text-xs sm:text-sm uppercase tracking-wider">{t('parallax.stats.location')}</div>
             </div>
