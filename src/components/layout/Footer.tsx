@@ -144,7 +144,7 @@ const Footer = () => {
             priority={false}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/85 to-black/90" />
+        <div className="absolute inset-0 bg-black/75 bg-gradient-to-b from-black/80 via-black/85 to-black/90" />
       </div>
 
       {/* Decorative Elements */}
