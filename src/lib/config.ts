@@ -12,7 +12,7 @@ export const ADDRESS = {
   street: 'R. Cel. Pedro Penteado, 387',
   city: 'Serra Negra',
   region: 'SP',
-  postalCode: '',
+  postalCode: '13.930-063',
   country: 'BR',
 }
 
