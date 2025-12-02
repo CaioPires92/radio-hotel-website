@@ -44,15 +44,15 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Apartamento Standard',
       type: 'Standard',
       description: 'Vista interna ou frente para rua.',
-      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      image: '/images/rooms/Apartamento-standard-interno.jpg',
       amenities: commonAmenities,
       gallery: [
         {
-          src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
-          tag: 'Standard com vista interna',
+          src: '/images/rooms/Apartamento-standard-interno.jpg',
+          tag: 'Standard vista interna',
         },
         {
-          src: '/images/rooms/Apartamento-Standard-frente-rua.jpg',
+          src: '/images/rooms/Apartamento-standard-interno2.jpg',
           tag: 'Standard frente rua',
         },
       ],
@@ -116,11 +116,11 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Suíte Master',
       type: 'Master',
       description: 'Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.',
-      image: '/images/rooms/Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/Suite-Master-com-sacada.jpg',
       amenities: commonAmenities,
       gallery: [
         {
-          src: '/images/rooms/Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+          src: '/images/rooms/Suite-Master-com-sacada.jpg',
           tag: 'Master com sacada',
         },
         {

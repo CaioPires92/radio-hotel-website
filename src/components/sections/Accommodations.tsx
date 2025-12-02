@@ -48,11 +48,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Apartamento Standard',
       type: 'Frente rua',
       description: 'Apartamento Standard frente rua',
-      image: '/images/rooms/Apartamento-Standard-frente-rua.jpg',
+      image: '/images/rooms/Apartamento-standard-interno2.jpg',
       amenities: commonAmenities,
       tags: ['Standard'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Standard-frente-rua.jpg', tag: 'Apartamento Standard frente rua' },
+        { src: '/images/rooms/Apartamento-standard-interno2.jpg', tag: 'Apartamento Standard frente rua' },
       ],
     },
     {
@@ -60,11 +60,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Apartamento Standard',
       type: 'Vista interna',
       description: 'Apartamento Standard com vista interna',
-      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      image: '/images/rooms/Apartamento-standard-interno.jpg',
       amenities: commonAmenities,
       tags: ['Standard'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', tag: 'Apartamento Standard com vista interna' },
+        { src: '/images/rooms/Apartamento-standard-interno.jpg', tag: 'Apartamento Standard vista interna' },
       ],
     },
     {
@@ -122,11 +122,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Suíte Master',
       type: 'Com sacada',
       description: 'Suíte Master com sacada e vista para a piscina',
-      image: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg',
+      image: '/images/rooms/Suite-Master-com-sacada.jpg',
       amenities: commonAmenities,
       tags: ['Master'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Suite-Master-com-sacada-e-vista-para-a-piscina.jpg', tag: 'Suíte Master com sacada e vista para a piscina' },
+        { src: '/images/rooms/Suite-Master-com-sacada.jpg', tag: 'Suíte Master com sacada' },
       ],
     },
     {
