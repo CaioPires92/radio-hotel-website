@@ -113,7 +113,7 @@ const Events = () => {
                       priority
                       unoptimized
                     />
-                    <div className="absolute inset-0 bg-navy bg-gradient-to-r from-navy to-transparent opacity-20" />
+                    <div className="absolute inset-0 bg-navy" style={{ opacity: 0.25 }} />
                   </div>
 
                   {/* Content Section */}
