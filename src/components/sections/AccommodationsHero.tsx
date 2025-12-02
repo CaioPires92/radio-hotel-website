@@ -11,7 +11,7 @@ interface AccommodationsHeroProps {
 
 export default function AccommodationsHero({
   heightClass = 'min-h-[50vh] md:min-h-[60vh]',
-  imageSrc = '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+  imageSrc = '/images/rooms/Apartamento-luxo.jpg',
 }: AccommodationsHeroProps) {
   const { t } = useTranslation();
 

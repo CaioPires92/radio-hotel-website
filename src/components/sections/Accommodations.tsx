@@ -72,11 +72,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Apartamento Luxo',
       type: 'Piscina ou jardim',
       description: 'apto luxo com vista para a piscina ou jardim',
-      image: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg',
+      image: '/images/rooms/Apartamento-luxo2.jpg',
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'apto luxo com vista para a piscina ou jardim' },
+        { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'apto luxo com vista para a piscina ou jardim' },
       ],
     },
     {
@@ -89,7 +89,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       tags: ['Luxo'],
       gallery: [
         { src: '/images/rooms/Apartamento-luxo.jpg', tag: 'Apto Luxo (quarto)' },
-        { src: '/images/rooms/Apartamento-luxo-com-vista-para-a-piscina-ou-jardim.jpg', tag: 'Apto Luxo com vista para a piscina ou jardim' },
+        { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'Apto Luxo com vista para a piscina ou jardim' },
       ],
     },
     {
