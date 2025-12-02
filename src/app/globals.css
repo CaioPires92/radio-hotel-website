@@ -467,6 +467,29 @@
   .lucide { stroke: currentColor !important; fill: none !important; }
 }
 
+/* Fallbacks globais para navegadores sem suporte ao canal alfa com barra (rgb / a) */
+@supports not (color: rgb(0 0 0 / 0.5)) {
+  .text-gold { color: #C5A253 !important; }
+  .text-navy { color: #0D1B4C !important; }
+  .text-navy\/80 { color: rgba(13, 27, 76, 0.8) !important; }
+  .text-navy\/90 { color: rgba(13, 27, 76, 0.9) !important; }
+  .text-white { color: #ffffff !important; }
+
+  .bg-navy { background-color: #0D1B4C !important; }
+  .bg-black { background-color: #000000 !important; }
+  .bg-white { background-color: #ffffff !important; }
+  .bg-navy\/5 { background-color: rgba(13, 27, 76, 0.05) !important; }
+  .bg-navy\/20 { background-color: rgba(13, 27, 76, 0.2) !important; }
+  .bg-gold\/20 { background-color: rgba(197, 162, 83, 0.2) !important; }
+  .bg-gold\/90 { background-color: rgba(197, 162, 83, 0.9) !important; }
+
+  .border-gold\/20 { border-color: rgba(197, 162, 83, 0.2) !important; }
+  .divide-gold\/10 > :not([hidden]) ~ :not([hidden]) { border-color: rgba(197, 162, 83, 0.1) !important; }
+}
+
+/* Garantir ícones Lucide com stroke visível em qualquer ambiente */
+.lucide { stroke: currentColor; fill: none; }
+
 /* Preview manual do visual Win7/IE11 em navegadores modernos.
    Envolve a página em um wrapper .win7-preview (ex: /ie-home). */
 .win7-preview .card-overlay-dark {
