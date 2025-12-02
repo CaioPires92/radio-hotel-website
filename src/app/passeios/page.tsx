@@ -1,4 +1,8 @@
-'use client';
+export const metadata = {
+  title: 'Passeios - Radio Hotel Serra Negra',
+  description: 'Passeios em Serra Negra e região: Trenzinho Maria Fumaça, Fazenda Benedetti, Museu do Vinho, Vale do Ouro Verde, Fontana di Trevi, Teleférico e Cristo Redentor.',
+  keywords: ['passeios serra negra', 'turismo serra negra', 'atrações serra negra', 'radio hotel passeios'],
+};
 
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -6,7 +10,7 @@ import Image from 'next/image';
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 import { Button } from '@/components/ui/button';
 
-export default function PasseiosTestPage() {
+export default function PasseiosPage() {
   return (
     <>
       <Navbar />
@@ -147,68 +151,6 @@ export default function PasseiosTestPage() {
             <CardImageCarousel
               images={[
                 { src: '/images/facilities/vale-ouro.jpg', alt: 'Vale do Ouro Verde – Museu do Café' },
-              ]}
-              className="h-80 md:h-96"
-              showDots
-              fit="cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
-            <CardImageCarousel
-              images={[
-                { src: '/images/facilities/carra.jpg', alt: 'Sítio Bom Retiro – Família Carra' },
-              ]}
-              className="h-80 md:h-96"
-              showDots
-              fit="cover"
-            />
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados</h3>
-            <p className="text-navy/75">Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos, grappa, rum e conhaque. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga.</p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a href="https://www.google.com/maps/place/Fam%C3%ADlia+Carra/@-22.5800196,-46.7718494,17z/data=!3m1!4b1!4m6!3m5!1s0x94c91ebfd43d102b:0xb93a7c7532605b3c!8m2!3d-22.5800246!4d-46.7669785!16s%2Fg%2F11c2kfx3vl?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver localização no mapa">
-                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full">Localização</Button>
-              </a>
-              <a href="https://www.instagram.com/familiacarra/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
-                <Button className="bg-navy hover:bg-navy/90 text-white font-semibold px-4 py-2 rounded-full">Instagram</Button>
-              </a>
-              <a href="https://api.whatsapp.com/send/?phone=5519997222961&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
-                <Button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-full">WhatsApp</Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">Sítio Chapadão – Produção de Queijos</h3>
-            <p className="text-navy/75">O Sítio produz os melhores queijos da região, que levam a marca &quot;Queijos da Fazenda&quot;. No local, o visitante terá a oportunidade de presenciar todo o processo de produção, desde a ordenha no curral à degustação do produto final, entre queijos frescal, ricota de leite e ricota temperada, queijo meia cura e coalhada.</p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a href="https://www.google.com/maps/search/?api=1&query=Rodovia+SP-105,+Km+5,5+-+Bairro+Santo+Aleixo,+Serra+Negra+-+SP" target="_blank" rel="noopener noreferrer" aria-label="Ver localização no mapa">
-                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full">Localização</Button>
-              </a>
-              <a href="https://www.instagram.com/afazendachapadao/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
-                <Button className="bg-navy hover:bg-navy/90 text-white font-semibold px-4 py-2 rounded-full">Instagram</Button>
-              </a>
-              <a href="https://api.whatsapp.com/send/?phone=5519999846555&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
-                <Button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-full">WhatsApp</Button>
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
-            <CardImageCarousel
-              images={[
-                { src: '/images/facilities/chapadao.jpg', alt: 'Sítio Chapadão – Produção de Queijos' },
               ]}
               className="h-80 md:h-96"
               showDots

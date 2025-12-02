@@ -108,19 +108,12 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
                   {item.name}
                 </motion.a>
               ))}
-              <div className="relative group inline-block">
-                <button
-                  className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'}`}
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Passeios
-                </button>
-                <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg ring-1 ring-black/10 rounded-md min-w-[180px] z-50">
-                  <Link href="/blog" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios (Blog)</Link>
-                  <Link href="/passeios-test" className="block px-4 py-2 text-sm text-navy hover:bg-cream/60">Passeios Teste</Link>
-                </div>
-              </div>
+              <Link
+                href="/passeios"
+                className={`px-1 xl:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-gold ${isScrolled ? 'text-navy' : 'text-white'}`}
+              >
+                Passeios
+              </Link>
               {/* Language Selector */}
               <div className="hidden xl:block ml-2 xl:ml-4">
                 <CompactLanguageSelector className="text-sm" isScrolled={isScrolled} />
@@ -194,7 +187,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             </motion.a>
           ))}
           <motion.a
-            href="/blog"
+            href="/passeios"
             className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
             onClick={() => setIsOpen(false)}
             tabIndex={isOpen ? 0 : -1}
@@ -202,18 +195,7 @@ const Navbar = ({ onBookingClick }: NavbarProps) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            Passeios (Blog)
-          </motion.a>
-          <motion.a
-            href="/passeios-test"
-            className="block px-3 py-2 text-base font-medium text-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold focus:bg-gold/10 rounded"
-            onClick={() => setIsOpen(false)}
-            tabIndex={isOpen ? 0 : -1}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            Passeios Teste
+            Passeios
           </motion.a>
           {/* Language Selector Mobile */}
           <div className="px-3 py-2 border-t border-gray-200">
