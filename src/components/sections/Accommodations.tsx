@@ -97,11 +97,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Apto Conjugado',
       type: 'Conjugado',
       description: 'Apto Conjugado ideal para famílias, com ambientes integrados',
-      image: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg',
+      image: '/images/rooms/conjugado.jpg',
       amenities: commonAmenities,
       tags: ['Conjugado'],
       gallery: [
-        { src: '/images/rooms/Apartamento-Standard-com-vista-interna.jpg', tag: 'Apto Conjugado' },
+        { src: '/images/rooms/conjugado.jpg', tag: 'Apto Conjugado' },
       ],
     },
     {
@@ -313,7 +313,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   label: 'Apto Conjugado',
                   type: 'Conjugado',
                   description: 'Apto Conjugado ideal para famílias',
-                  image: '/images/rooms/thumbs-16x9/Apartamento-Standard-com-vista-interna.jpg',
+                  image: '/images/rooms/thumbs-16x9/conjugado.jpg',
                 },
                 {
                   key: 'suíte',
@@ -338,73 +338,73 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
 
               return (
                 <div className="relative">
-                <Swiper
-                  className="overflow-hidden pb-16 md:pb-20"
-                  modules={[Pagination, Autoplay]}
-                  slidesPerView={1}
-                  spaceBetween={16}
-                  breakpoints={{
-                    768: { slidesPerView: 2, spaceBetween: 16 },
-                    1024: { slidesPerView: 3, spaceBetween: 20 },
-                  }}
-                  loop
-                  autoplay={{ delay: 4500, disableOnInteraction: false }}
-                  pagination={{ clickable: true }}
-                  onSwiper={(s) => setSwiper(s)}
-                >
-                  {cards.map((room) => (
-                    <SwiperSlide key={room.id}>
-                      <Card className="group card-standard card-standard-hover border-0 h-full flex flex-col md:min-h-[500px] pt-0">
-                        <CardContent className="p-0 flex-1 flex flex-col">
-                          <div className="card-media-fixed bg-black rounded-t-xl">
-                            <Image
-                              src={room.image}
-                              alt={room.description || room.name}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              className="card-media-img-cover"
-                            />
-                            {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
-                              <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
-                                {room.type}
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
-                            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
-                            {room.description && (
-                              <p className="text-sm text-navy/70">{room.description}</p>
-                            )}
-                            <div className="mt-4">
-                              <Button
-                                onClick={() => handleBookingClick(room.name)}
-                                className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
-                                aria-label={`Reservar ${room.name}`}
-                              >
-                                <Phone className="w-4 h-4 mr-2" />
-                                {t('accommodations.buttons.bookNow')}
-                              </Button>
+                  <Swiper
+                    className="overflow-hidden pb-16 md:pb-20"
+                    modules={[Pagination, Autoplay]}
+                    slidesPerView={1}
+                    spaceBetween={16}
+                    breakpoints={{
+                      768: { slidesPerView: 2, spaceBetween: 16 },
+                      1024: { slidesPerView: 3, spaceBetween: 20 },
+                    }}
+                    loop
+                    autoplay={{ delay: 4500, disableOnInteraction: false }}
+                    pagination={{ clickable: true }}
+                    onSwiper={(s) => setSwiper(s)}
+                  >
+                    {cards.map((room) => (
+                      <SwiperSlide key={room.id}>
+                        <Card className="group card-standard card-standard-hover border-0 h-full flex flex-col md:min-h-[500px] pt-0">
+                          <CardContent className="p-0 flex-1 flex flex-col">
+                            <div className="card-media-fixed bg-black rounded-t-xl">
+                              <Image
+                                src={room.image}
+                                alt={room.description || room.name}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className="card-media-img-cover"
+                              />
+                              {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
+                                <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
+                                  {room.type}
+                                </div>
+                              )}
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-                <button
-                  onClick={() => swiper?.slidePrev()}
-                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
-                  aria-label={t('accommodations.navigation.previous')}
-                >
-                  <ChevronLeft className="w-5 h-5" color="#FFFFFF" />
-                </button>
-                <button
-                  onClick={() => swiper?.slideNext()}
-                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
-                  aria-label={t('accommodations.navigation.next')}
-                >
-                  <ChevronRight className="w-5 h-5" color="#FFFFFF" />
-                </button>
+                            <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
+                              <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
+                              {room.description && (
+                                <p className="text-sm text-navy/70">{room.description}</p>
+                              )}
+                              <div className="mt-4">
+                                <Button
+                                  onClick={() => handleBookingClick(room.name)}
+                                  className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full w-full"
+                                  aria-label={`Reservar ${room.name}`}
+                                >
+                                  <Phone className="w-4 h-4 mr-2" />
+                                  {t('accommodations.buttons.bookNow')}
+                                </Button>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <button
+                    onClick={() => swiper?.slidePrev()}
+                    className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+                    aria-label={t('accommodations.navigation.previous')}
+                  >
+                    <ChevronLeft className="w-5 h-5" color="#FFFFFF" />
+                  </button>
+                  <button
+                    onClick={() => swiper?.slideNext()}
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+                    aria-label={t('accommodations.navigation.next')}
+                  >
+                    <ChevronRight className="w-5 h-5" color="#FFFFFF" />
+                  </button>
                 </div>
               )
             })()}
