@@ -113,7 +113,7 @@ export default function Highlights() {
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-10 w-10 rounded-full bg-gold/90 text-navy flex items-center justify-center shadow">
-                      <Icon className="h-5 w-5 text-navy" />
+                      <Icon className="h-5 w-5" color="#0D1B4C" />
                     </div>
                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy">
                       {item.title}

@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 
 type Feature = {
-  icon: React.ComponentType<{ className?: string }>
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   label: string
 }
 
@@ -45,7 +45,7 @@ export default function FeatureIcons() {
                 className="mini-card mini-card-hover"
               >
                 <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gold/90 text-navy flex items-center justify-center shadow">
-                  <Icon className="h-5 w-5 md:h-6 md:w-6 text-navy" />
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" color="#0D1B4C" />
                 </div>
                 <span className="text-navy font-semibold tracking-wide text-sm md:text-base">
                   {f.label}

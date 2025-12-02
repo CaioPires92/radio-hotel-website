@@ -196,7 +196,7 @@ export default function About() {
                   <CardContent className="px-0 py-0">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                        <Icon className="w-4 h-4 text-gold" />
+                        <Icon className="w-4 h-4" color="#C5A253" />
                       </div>
                       <h4 className="font-semibold text-navy text-sm">{feature.title}</h4>
                     </div>

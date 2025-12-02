@@ -195,7 +195,7 @@ const Footer = () => {
                       className={`w-10 h-10 bg-white/10 hover:bg-gold/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.color}`}
                       aria-label={t(`footer.social.${social.name.toLowerCase()}.ariaLabel`)}
                     >
-                      <Icon className="w-5 h-5 text-white" />
+                      <Icon className="w-5 h-5" color="#FFFFFF" />
                     </button>
                   );
                 })}
@@ -210,7 +210,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-semibold text-gold mb-6 flex items-center">
-                <ExternalLink className="w-5 h-5 mr-2" />
+                <ExternalLink className="w-5 h-5 mr-2" color="#C5A253" />
                 {t('footer.quickLinks.title')}
               </h4>
               <ul className="space-y-3">
@@ -243,7 +243,7 @@ const Footer = () => {
                   return (
                     <li key={service.name} className="flex items-center space-x-3 group">
                       <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center group-hover:bg-gold/30 transition-colors duration-300">
-                        <Icon className="w-4 h-4 text-gold" />
+                        <Icon className="w-4 h-4" color="#C5A253" />
                       </div>
                       <span className="text-white group-hover:text-gold transition-colors duration-300">
                         {service.name}
@@ -275,7 +275,7 @@ const Footer = () => {
                           className="flex items-start space-x-3 text-left w-full hover:text-gold transition-colors duration-300"
                         >
                           <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center mt-0.5 group-hover:bg-gold/30 transition-colors duration-300">
-                            <Icon className="w-4 h-4 text-gold" />
+                            <Icon className="w-4 h-4" color="#C5A253" />
                           </div>
                           <div>
                             <div className="text-sm text-white/90 mb-1">{contact.label}</div>
