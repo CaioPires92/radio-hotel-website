@@ -337,6 +337,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
               })
 
               return (
+                <div className="relative">
                 <Swiper
                   className="overflow-hidden pb-16 md:pb-20"
                   modules={[Pagination, Autoplay]}
@@ -349,6 +350,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   loop
                   autoplay={{ delay: 4500, disableOnInteraction: false }}
                   pagination={{ clickable: true }}
+                  onSwiper={(s) => setSwiper(s)}
                 >
                   {cards.map((room) => (
                     <SwiperSlide key={room.id}>
@@ -389,6 +391,21 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                     </SwiperSlide>
                   ))}
                 </Swiper>
+                <button
+                  onClick={() => swiper?.slidePrev()}
+                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+                  aria-label={t('accommodations.navigation.previous')}
+                >
+                  <ChevronLeft className="w-5 h-5" color="#FFFFFF" />
+                </button>
+                <button
+                  onClick={() => swiper?.slideNext()}
+                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+                  aria-label={t('accommodations.navigation.next')}
+                >
+                  <ChevronRight className="w-5 h-5" color="#FFFFFF" />
+                </button>
+                </div>
               )
             })()}
           </motion.div>
