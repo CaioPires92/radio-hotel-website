@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Award, Users, Star, Wifi, Car, Coffee, Utensils, Dumbbell, Smile, Waves, TreePine, PlugZap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 import { useTranslation } from '@/components/i18n/I18nProvider';
 
 export default function About() {
@@ -78,18 +77,14 @@ export default function About() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              {/* Main Carousel with overlay */}
+              {/* Main Image fixa com overlay */}
               <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <CardImageCarousel
-                  images={[
-                    { src: '/images/hero/hero1.jpg', alt: 'Radio Hotel - Vista Externa 1' },
-                    { src: '/images/hero/hero2.jpg', alt: 'Radio Hotel - Vista Externa 2' },
-                    { src: '/images/hero/hero3.jpg', alt: 'Radio Hotel - Vista Externa 3' },
-                  ]}
-                  className="h-[500px]"
-                  showDots
-                  showArrows
-                  fit="cover"
+                <Image
+                  src="/about-hotel.jpg"
+                  alt="Radio Hotel - Vista Externa"
+                  fill
+                  className="object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent" />
               </div>
