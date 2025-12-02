@@ -66,7 +66,7 @@ export default function Highlights() {
         {/* Cabeçalho da seção com pattern sutil */}
         <div className="relative text-center mb-12 md:mb-16">
           <div
-            className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-10"
+            className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-10 highlights-pattern-overlay"
             aria-hidden
           />
           <div
@@ -100,7 +100,7 @@ export default function Highlights() {
                   <div className="group card-standard card-standard-hover relative overflow-hidden">
                     <CardImageCarousel images={item.images} fit="cover" className="h-72 md:h-96" />
                     <div className="absolute top-3 left-3">
-                      <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full shadow">
+                      <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full shadow chip-dark">
                         {item.title}
                       </span>
                     </div>

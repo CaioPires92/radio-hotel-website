@@ -31,7 +31,7 @@ export default function FeatureIcons() {
   return (
     <section className="relative py-10 md:py-14 bg-cream">
       <div
-        className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-[0.04] feature-icons-pattern-overlay"
         aria-hidden
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

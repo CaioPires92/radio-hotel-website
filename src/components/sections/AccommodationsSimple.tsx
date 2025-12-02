@@ -309,7 +309,7 @@ export default function AccommodationsSimple() {
       <AnimatePresence>
         {isGalleryOpen && selectedRoom && (
           <motion.div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 win7-overlay-fix"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
