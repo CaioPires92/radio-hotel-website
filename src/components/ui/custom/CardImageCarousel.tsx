@@ -38,14 +38,14 @@ export default function CardImageCarousel({ images, className, intervalMs = 3500
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx} className="w-full h-full flex items-center justify-center overflow-hidden">
-            <div className={`relative w-full h-full ${fit === 'contain' ? 'pt-8 sm:pt-10' : ''}`}>
+            <div className="relative w-full h-full">
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
                 sizes="100vw"
                 loading="lazy"
-                className={(fit === "cover" ? "object-cover" : "object-contain object-top")}
+                className={(fit === "cover" ? "object-cover" : "object-contain")}
               />
             </div>
           </SwiperSlide>
