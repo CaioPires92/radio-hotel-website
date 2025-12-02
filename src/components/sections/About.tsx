@@ -98,9 +98,9 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center">
-                    <Award className="w-6 h-6 text-gold" />
-                  </div>
+                    <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center">
+                      <Award className="w-6 h-6" color="#C5A253" />
+                    </div>
                   <div>
                     <h4 className="font-serif font-semibold text-navy">{t('about.award.years')}</h4>
                     <p className="text-gold font-medium">{t('about.award.excellence')}</p>
