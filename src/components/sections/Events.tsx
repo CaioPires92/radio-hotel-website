@@ -111,6 +111,7 @@ const Events = () => {
                       fill
                       className="object-cover"
                       priority
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-navy/20 bg-gradient-to-r from-navy/20 to-transparent" />
                   </div>

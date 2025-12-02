@@ -375,3 +375,141 @@
 .restaurant-dots .swiper-pagination-bullet-active {
   border-radius: 9999px;
 }
+
+/* ===========================================
+   WIN7 / IE11  FALLBACKS PARA OVERLAYS
+   Alvo: IE11 / Edge Legacy (inclui Windows 7)
+   =========================================== */
+
+/* IE10/IE11 detection hack */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  /* Overlay genérico para full-screen (modais, galeria, etc.) */
+  .win7-overlay-fix {
+    background: #000 !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    filter: alpha(opacity=60) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 1. Card overlay escuro genrico */
+  .card-overlay-dark {
+    background: #000 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    filter: alpha(opacity=40) !important;
+    /* nada de blur, nada de mix-blend-mode */
+  }
+
+  /* 2. Mini-cards globais  remover Tailwind bg-white/90 baseado em var() */
+  .mini-card {
+    background: #fff !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    filter: alpha(opacity=90) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 3. Qualquer coisa com backdrop-blur vira s um fundo translcido */
+  .ie-no-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 4. Badges / chips com bg-black/60, bg-gold/20 etc  garantir rgba antigo */
+  .chip-dark,
+  .badge-dark {
+    background: #000 !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    filter: alpha(opacity=60) !important;
+  }
+
+  .badge-gold-soft {
+    background: #caa86a !important;
+    background: rgba(202, 168, 106, 0.2) !important;
+    filter: alpha(opacity=20) !important;
+  }
+
+  .badge-card-soft {
+    background: #ffffff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    filter: alpha(opacity=5) !important;
+  }
+
+  /* 5. Pattern overlays decorativos  remove o bg-image se der problema */
+  .highlights-pattern-overlay,
+  .feature-icons-pattern-overlay {
+    background-image: none !important;
+    background: rgba(0, 0, 0, 0.03) !important; /* vu leve */
+    opacity: 1 !important;
+  }
+
+  /* Fallbacks de cores para navegadores antigos sem var() e color functions */
+  .text-gold { color: #C5A253 !important; }
+  .text-navy { color: #0D1B4C !important; }
+  .text-navy\/80 { color: rgba(13, 27, 76, 0.8) !important; }
+  .text-navy\/90 { color: rgba(13, 27, 76, 0.9) !important; }
+  .text-white { color: #ffffff !important; }
+
+  .bg-navy { background-color: #0D1B4C !important; }
+  .bg-black { background-color: #000000 !important; }
+  .bg-white { background-color: #ffffff !important; }
+  .bg-navy\/5 { background-color: rgba(13, 27, 76, 0.05) !important; }
+  .bg-navy\/20 { background-color: rgba(13, 27, 76, 0.2) !important; }
+  .bg-gold\/20 { background-color: rgba(197, 162, 83, 0.2) !important; }
+
+  .border-gold\/20 { border-color: rgba(197, 162, 83, 0.2) !important; }
+  .divide-gold\/10 > :not([hidden]) ~ :not([hidden]) { border-color: rgba(197, 162, 83, 0.1) !important; }
+
+  /* Garantir ícones Lucide com stroke visível */
+  .lucide { stroke: currentColor !important; fill: none !important; }
+}
+
+/* Preview manual do visual Win7/IE11 em navegadores modernos.
+   Envolve a página em um wrapper .win7-preview (ex: /ie-home). */
+.win7-preview .card-overlay-dark {
+  background: #000;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.win7-preview .win7-overlay-fix {
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.win7-preview .mini-card {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.win7-preview .ie-no-blur,
+.win7-preview .backdrop-blur-sm,
+.win7-preview .backdrop-blur {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.win7-preview .chip-dark,
+.win7-preview .badge-dark {
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.win7-preview .badge-gold-soft {
+  background: #caa86a;
+  background: rgba(202, 168, 106, 0.2);
+}
+
+.win7-preview .badge-card-soft {
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.win7-preview .highlights-pattern-overlay,
+.win7-preview .feature-icons-pattern-overlay {
+  background-image: none;
+  background: rgba(0, 0, 0, 0.03);
+  opacity: 1;
+}
