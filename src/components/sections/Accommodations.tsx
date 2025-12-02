@@ -46,25 +46,25 @@ const roomsData = (t: (key: string) => string): Room[] => {
     {
       id: 'std-frente-rua',
       name: 'Apartamento Standard',
-      type: 'Frente rua',
+      type: 'Apartamento Standard',
       description: 'Apartamento Standard frente rua',
       image: '/images/rooms/Apartamento-standard-interno2.jpg',
       amenities: commonAmenities,
       tags: ['Standard'],
       gallery: [
-        { src: '/images/rooms/Apartamento-standard-interno2.jpg', tag: 'Apartamento Standard frente rua' },
+        { src: '/images/rooms/Apartamento-standard-interno2.jpg', tag: 'Apartamento Standard' },
       ],
     },
     {
       id: 'std-vista-interna',
       name: 'Apartamento Standard',
-      type: 'Vista interna',
+      type: 'Apartamento Standard',
       description: 'Apartamento Standard com vista interna',
       image: '/images/rooms/Apartamento-standard-interno.jpg',
       amenities: commonAmenities,
       tags: ['Standard'],
       gallery: [
-        { src: '/images/rooms/Apartamento-standard-interno.jpg', tag: 'Apartamento Standard vista interna' },
+        { src: '/images/rooms/Apartamento-standard-interno.jpg', tag: 'Apartamento Standard' },
       ],
     },
     {
@@ -88,8 +88,8 @@ const roomsData = (t: (key: string) => string): Room[] => {
       amenities: commonAmenities,
       tags: ['Luxo'],
       gallery: [
-        { src: '/images/rooms/Apartamento-luxo.jpg', tag: 'Apto Luxo (quarto)' },
-        { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'Apto Luxo com vista para a piscina ou jardim' },
+        { src: '/images/rooms/Apartamento-luxo.jpg', tag: 'Luxo (quarto)' },
+        { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'Luxo com vista piscina/jardim' },
       ],
     },
     {

@@ -49,11 +49,11 @@ function getRooms(t: (key: string) => string): Room[] {
       gallery: [
         {
           src: '/images/rooms/Apartamento-standard-interno.jpg',
-          tag: 'Standard vista interna',
+          tag: 'Standard',
         },
         {
           src: '/images/rooms/Apartamento-standard-interno2.jpg',
-          tag: 'Standard frente rua',
+          tag: 'Standard',
         },
       ],
     },
@@ -103,11 +103,11 @@ function getRooms(t: (key: string) => string): Room[] {
       gallery: [
         {
           src: '/images/rooms/suite-luxo.jpg',
-          tag: 'Suíte Luxo',
+          tag: 'Luxo (quarto)',
         },
         {
           src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
-          tag: 'Suíte Luxo (vista bosque/piscina)',
+          tag: 'Luxo com vista piscina/jardim',
         },
       ],
     },
