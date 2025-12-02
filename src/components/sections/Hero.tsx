@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Star, Phone } from 'lucide-react';
+import { MapPin, Star, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -326,6 +326,24 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
           />
         ))}
       </div>
+
+      {/* Arrow Navigation */}
+      <button
+        type="button"
+        aria-label={t('hero.carousel.prev')}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+        onClick={prevSlide}
+      >
+        <ChevronLeft className="w-5 h-5" color="#FFFFFF" />
+      </button>
+      <button
+        type="button"
+        aria-label={t('hero.carousel.next')}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/35 hover:bg-black/50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+        onClick={nextSlide}
+      >
+        <ChevronRight className="w-5 h-5" color="#FFFFFF" />
+      </button>
 
       {/* Scroll Indicator */}
       <motion.div
