@@ -458,6 +458,10 @@
   .bg-white { background-color: #ffffff !important; }
   .bg-navy\/5 { background-color: rgba(13, 27, 76, 0.05) !important; }
   .bg-navy\/20 { background-color: rgba(13, 27, 76, 0.2) !important; }
+  .bg-navy\/60 { background-color: rgba(13, 27, 76, 0.6) !important; }
+  .bg-black\/35 { background-color: rgba(0, 0, 0, 0.35) !important; }
+  .bg-black\/50 { background-color: rgba(0, 0, 0, 0.5) !important; }
+  .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6) !important; }
   .bg-gold\/20 { background-color: rgba(197, 162, 83, 0.2) !important; }
 
   .border-gold\/20 { border-color: rgba(197, 162, 83, 0.2) !important; }
@@ -487,6 +491,10 @@
   .bg-white { background-color: #ffffff !important; }
   .bg-navy\/5 { background-color: rgba(13, 27, 76, 0.05) !important; }
   .bg-navy\/20 { background-color: rgba(13, 27, 76, 0.2) !important; }
+  .bg-navy\/60 { background-color: rgba(13, 27, 76, 0.6) !important; }
+  .bg-black\/35 { background-color: rgba(0, 0, 0, 0.35) !important; }
+  .bg-black\/50 { background-color: rgba(0, 0, 0, 0.5) !important; }
+  .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6) !important; }
   .bg-gold\/20 { background-color: rgba(197, 162, 83, 0.2) !important; }
   .bg-gold\/90 { background-color: rgba(197, 162, 83, 0.9) !important; }
 
