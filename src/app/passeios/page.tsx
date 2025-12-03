@@ -24,6 +24,38 @@ export default function PasseiosPage() {
         </div>
       </section>
 
+      <section className="py-12 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold text-navy font-semibold max-w-max">Parada de Natal 2025</div>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">🎅 Parada de Natal 2025 ✨</h3>
+            <p className="text-navy/80">Em dezembro, Serra Negra se enche de magia com as encantadoras Paradas de Natal, um evento gratuito que promete emocionar toda a família!</p>
+            <p className="text-navy/75">As apresentações acontecem nos dias 13, 17, 20, 23, 25 e 27 de dezembro, sempre às 20h, na Rua Cel. Pedro Penteado.</p>
+            <p className="text-navy/75">O espetáculo reúne atores, músicos e personagens natalinos em desfiles repletos de luz, música e emoção, transformando as ruas do centro em um verdadeiro cenário de encantamento.</p>
+            <div className="text-sm text-navy/70">Rua Coronel Pedro Penteado, Serra Negra - SP</div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <a href="https://serranegra.sp.gov.br/turismo/-programacao-dos-shows-do-natal-luzes-da-serra-2025-" target="_blank" rel="noopener noreferrer" aria-label="Ver programação completa">
+                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold px-4 py-2 rounded-full">Programação completa</Button>
+              </a>
+              <a href="https://visiteserranegra.com.br/eventos/parada-de-natal-24/" target="_blank" rel="noopener noreferrer" aria-label="Saiba mais sobre a Parada de Natal">
+                <Button className="bg-navy hover:bg-navy/90 text-white font-semibold px-4 py-2 rounded-full">Saiba mais</Button>
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">
+            <CardImageCarousel
+              images={[
+                { src: '/images/events/parada-de-natal.jpg', alt: 'Parada de Natal 2025' },
+              ]}
+              className="h-80 md:h-96"
+              showDots
+              fit="cover"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-lg h-80 md:h-96">

@@ -226,6 +226,8 @@ const Hero = ({ onBookingClick, heightClass = 'min-h-[50vh] sm:min-h-[65vh] md:m
                   </div>
                 </motion.div>
 
+                {null}
+
                 {/* Main Title */}
                 <motion.h1
                   className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 leading-tight"

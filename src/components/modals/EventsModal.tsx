@@ -18,6 +18,7 @@ interface Event {
   location: string;
   image: string;
   category: string;
+  url?: string;
 }
 
 
@@ -38,7 +39,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       description: t('eventsModal.italianNight.description'),
       date: t('eventsModal.italianNight.date'),
       time: t('eventsModal.italianNight.time'),
-      location: t('eventsModal.italianNight.location'),
+      location: t('eventsModal.italianNight.location') || 'Radio Hotel Serra Negra',
       image: '/images/events/noite-italiana.png',
       category: t('eventsModal.categories.gastronomy')
     },
@@ -48,11 +49,22 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       description: t('eventsModal.feijoada.description'),
       date: t('eventsModal.feijoada.date'),
       time: t('eventsModal.feijoada.time'),
-      location: t('eventsModal.feijoada.location'),
+      location: t('eventsModal.feijoada.location') || 'Radio Hotel Serra Negra',
       image: '/images/events/sabado-feijoada.png',
       category: t('eventsModal.categories.gastronomy')
     },
-    
+    {
+      id: 'christmas-parade-2025',
+      title: 'Parada de Natal 2025',
+      description:
+        'Em dezembro, Serra Negra se enche de magia com as encantadoras Paradas de Natal, um evento gratuito que promete emocionar toda a família! O espetáculo reúne atores, músicos e personagens natalinos em desfiles repletos de luz, música e emoção, transformando as ruas do centro em um verdadeiro cenário de encantamento.',
+      date: '13, 17, 20, 23, 25 e 27 de dezembro',
+      time: '20h',
+      location: 'Rua Coronel Pedro Penteado, Serra Negra - SP',
+      image: '/images/events/parada-de-natal.jpg',
+      category: t('eventsModal.categories.holiday'),
+      url: 'https://www.serranegra.sp.gov.br/eventos/abertura-do-natal-luzes-da-serra-2025-sera-em-14-de-novembro'
+    },
     {
       id: 'january-vacation',
       title: t('eventsModal.januaryVacation.title'),
@@ -125,7 +137,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
               >
                 <X className="w-5 h-5" />
               </button>
-              
+
               <div className="pr-12">
                 <h2 className="text-3xl font-serif font-bold mb-2">{t('eventsModal.title')}</h2>
                 <p className="text-white/95">{t('eventsModal.subtitle')}</p>
@@ -144,12 +156,12 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                     >
                       <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-0 bg-cream/50 hover:bg-white"
-                            onClick={() => setSelectedEvent(event)}>
+                        onClick={() => setSelectedEvent(event)}>
                         <CardContent className="p-0">
                           {/* Event Image */}
                           <div className="relative h-48 overflow-hidden rounded-t-lg">
-                            <Image 
-                              src={event.image} 
+                            <Image
+                              src={event.image}
                               alt={event.title}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -159,17 +171,17 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                               <Badge className="bg-gold text-navy">{event.category}</Badge>
                             </div>
                           </div>
-                          
+
                           {/* Event Info */}
                           <div className="p-4 space-y-3">
                             <h3 className="font-serif font-semibold text-navy text-lg group-hover:text-gold transition-colors">
                               {event.title}
                             </h3>
-                            
+
                             <p className="text-sm text-navy/70 line-clamp-2">
                               {event.description}
                             </p>
-                            
+
                             <div className="space-y-2">
                               {event.date && (
                                 <div className="flex items-center gap-2 text-sm text-navy/60">
@@ -177,14 +189,14 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                                   <span>{event.date}</span>
                                 </div>
                               )}
-                              
+
                               {event.time && (
                                 <div className="flex items-center gap-2 text-sm text-navy/60">
                                   <Clock className="w-4 h-4" />
                                   <span>{event.time}</span>
                                 </div>
                               )}
-                              
+
                               {event.location && (
                                 <div className="flex items-center gap-2 text-sm text-navy/60">
                                   <MapPin className="w-4 h-4" />
@@ -192,7 +204,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                                 </div>
                               )}
                             </div>
-                            
+
 
                           </div>
                         </CardContent>
@@ -214,19 +226,19 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                   >
                     <span>← {t('eventsModal.navigation.backToEvents')}</span>
                   </button>
-                  
+
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Event Image */}
                     <div className="relative h-80 rounded-xl overflow-hidden">
-                      <Image 
-                        src={selectedEvent.image} 
+                      <Image
+                        src={selectedEvent.image}
                         alt={selectedEvent.title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                    
+
                     {/* Event Details */}
                     <div className="space-y-6">
                       <div>
@@ -238,7 +250,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                           {selectedEvent.description}
                         </p>
                       </div>
-                      
+
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-3">
                           {selectedEvent.date && (
@@ -250,7 +262,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                               </div>
                             </div>
                           )}
-                          
+
                           {selectedEvent.time && (
                             <div className="flex items-center gap-3">
                               <Clock className="w-5 h-5 text-gold" />
@@ -261,7 +273,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                             </div>
                           )}
                         </div>
-                        
+
                         <div className="space-y-3">
                           {selectedEvent.location && (
                             <div className="flex items-center gap-3">
@@ -272,18 +284,29 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                               </div>
                             </div>
                           )}
-                          
+
 
                         </div>
                       </div>
-                      
+
                       <div className="pt-6 border-t border-gold/20">
-                        <button
-                          onClick={() => handleBookEvent(selectedEvent)}
-                          className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 px-6 rounded-lg transition-colors"
-                        >
-                          {t('eventsModal.buttons.bookWhatsApp')}
-                        </button>
+                        {selectedEvent.id === 'christmas-parade-2025' ? (
+                          <a
+                            href={selectedEvent.url || 'https://www.serranegra.sp.gov.br/eventos/abertura-do-natal-luzes-da-serra-2025-sera-em-14-de-novembro'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full inline-flex items-center justify-center bg-navy hover:bg-navy/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                          >
+                            Saiba mais
+                          </a>
+                        ) : (
+                          <button
+                            onClick={() => handleBookEvent(selectedEvent)}
+                            className="w-full bg-gold hover:bg-gold/90 text-navy font-semibold py-3 px-6 rounded-lg transition-colors"
+                          >
+                            {t('eventsModal.buttons.bookWhatsApp')}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

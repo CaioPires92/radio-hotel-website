@@ -5,7 +5,7 @@ import { motion, Variants } from 'framer-motion';
 // 1. Estrutura de Dados das Salas
 const conferenceRooms = [
   {
-    name: 'Millenium',
+    name: 'Milenium',
     sqm: 360,
     auditorium: 300,
     u_shape: 48,

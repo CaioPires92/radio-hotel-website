@@ -56,7 +56,7 @@
 * [x] Pegar medidas dos espaços.
 * [x] Manter info do site antigo.
 * [x] Remover: recursos inclusos e **mapa**.
-* [x] Principais auditórios: **Millenium e Monterey**.
+* [x] Principais auditórios: **Milenium e Monterey**.
 
 ---
 
