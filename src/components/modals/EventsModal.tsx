@@ -52,16 +52,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       image: '/images/events/sabado-feijoada.png',
       category: t('eventsModal.categories.gastronomy')
     },
-    {
-      id: '5',
-      title: t('eventsModal.novemberHoliday.title'),
-      description: t('eventsModal.novemberHoliday.description'),
-      date: t('eventsModal.novemberHoliday.date'),
-      time: t('eventsModal.novemberHoliday.time'),
-      location: t('eventsModal.novemberHoliday.location'),
-      image: '/images/events/ferias-julho.png',
-      category: t('eventsModal.categories.holiday')
-    },
+    
     {
       id: 'january-vacation',
       title: t('eventsModal.januaryVacation.title'),

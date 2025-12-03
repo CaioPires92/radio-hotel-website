@@ -37,7 +37,7 @@ export default function RestaurantePage() {
               <div className="space-y-0">
                 <h3 className="text-xl md:text-2xl font-serif font-semibold text-navy">Restaurante Paradiso:</h3>
                 <p className="text-lg md:text-xl text-navy/80">
-                  Junto ao bosque de mata nativa, de frente para as piscinas. Aberto nos feriados.
+                  De frente para as piscinas. Aberto nos Meses de Janeiro e Julho e Pacotes de feriados.
                 </p>
               </div>
             </div>

@@ -82,7 +82,7 @@ function getRooms(t: (key: string) => string): Room[] {
       id: 'conjugado',
       name: 'Apto Conjugado',
       type: 'Conjugado',
-      description: 'Ideal para famílias, com ambientes integrados.',
+      description: 'Apartamento Familiar com dois dormitórios e um toalete',
       image: '/images/rooms/conjugado.jpg',
       amenities: commonAmenities,
       tags: ['Conjugado'],
