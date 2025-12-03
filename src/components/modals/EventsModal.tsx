@@ -62,7 +62,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       time: '20h',
       location: 'Rua Coronel Pedro Penteado, Serra Negra - SP',
       image: '/images/events/parada-de-natal.jpg',
-      category: t('eventsModal.categories.holiday'),
+      category: t('eventsModal.categories.christmas'),
       url: 'https://www.serranegra.sp.gov.br/eventos/abertura-do-natal-luzes-da-serra-2025-sera-em-14-de-novembro'
     },
     {

@@ -111,7 +111,7 @@
       "play": "Reproducir",
       "pause": "Pausar"
     },
-  "whatsapp": {
+    "whatsapp": {
       "bookingMessage": "¡Hola! Me gustaría hacer una reserva en el Radio Hotel Serra Negra. ¿Pueden ayudarme?"
     }
   },
@@ -151,7 +151,7 @@
         "description": "Espacios para convenciones y celebraciones"
       }
     },
-  "stats": {
+    "stats": {
       "years": "Años de Tradición",
       "park": "m² de Área Verde",
       "rating": "Calificación de Huéspedes",
@@ -537,7 +537,8 @@
       "wellness": "Bienestar",
       "packages": "Paquetes",
       "holiday": "Feriados",
-      "family": "Familia"
+      "family": "Familia",
+      "christmas": "Natal"
     },
     "labels": {
       "date": "",
