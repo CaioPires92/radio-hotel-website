@@ -27,6 +27,7 @@ type Room = {
   image: string;
   amenities: Amenity[];
   gallery: GalleryPhoto[];
+  tags?: string[];
 };
 
 function getRooms(t: (key: string) => string): Room[] {
@@ -46,14 +47,15 @@ function getRooms(t: (key: string) => string): Room[] {
       description: 'Vista interna ou frente para rua.',
       image: '/images/rooms/Apartamento-standard-interno.jpg',
       amenities: commonAmenities,
+      tags: ['Standard vista interna', 'Standard frente rua'],
       gallery: [
         {
           src: '/images/rooms/Apartamento-standard-interno.jpg',
-          tag: 'Standard',
+          tag: 'Standard vista interna',
         },
         {
           src: '/images/rooms/Apartamento-standard-interno2.jpg',
-          tag: 'Standard',
+          tag: 'Standard frente rua',
         },
       ],
     },
@@ -64,6 +66,7 @@ function getRooms(t: (key: string) => string): Room[] {
       description: 'Mais espaço e vista para a piscina ou jardim.',
       image: '/images/rooms/Apartamento-luxo.jpg',
       amenities: commonAmenities,
+      tags: ['Luxo (quarto)', 'Luxo com vista piscina/jardim'],
       gallery: [
         {
           src: '/images/rooms/Apartamento-luxo.jpg',
@@ -82,14 +85,15 @@ function getRooms(t: (key: string) => string): Room[] {
       description: 'Ideal para famílias, com ambientes integrados.',
       image: '/images/rooms/conjugado.jpg',
       amenities: commonAmenities,
+      tags: ['Conjugado'],
       gallery: [
         {
           src: '/images/rooms/conjugado.jpg',
-          tag: 'Conjugado (ambientes integrados)',
+          tag: 'Conjugado',
         },
         {
           src: '/images/rooms/conjugado2.jpg',
-          tag: 'Conjugado (variação)',
+          tag: 'Conjugado',
         },
       ],
     },
@@ -100,6 +104,7 @@ function getRooms(t: (key: string) => string): Room[] {
       description: 'Suíte Luxo com vista para a piscina ou bosque.',
       image: '/images/rooms/suite-luxo.jpg',
       amenities: commonAmenities,
+      tags: ['Luxo (quarto)', 'Luxo com vista piscina/jardim'],
       gallery: [
         {
           src: '/images/rooms/suite-luxo.jpg',
@@ -118,6 +123,7 @@ function getRooms(t: (key: string) => string): Room[] {
       description: 'Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.',
       image: '/images/rooms/Suite-Master-com-sacada.jpg',
       amenities: commonAmenities,
+      tags: ['Master com sacada', 'Master especial'],
       gallery: [
         {
           src: '/images/rooms/Suite-Master-com-sacada.jpg',
@@ -248,6 +254,13 @@ export default function AccommodationsSimple() {
                       {room.type}
                     </span>
                   </div>
+                  <div className="absolute top-3 right-3 flex flex-wrap gap-2">
+                    {(room.tags && room.tags.length ? room.tags : [room.type]).map((tag, idx) => (
+                      <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="p-5 flex flex-col gap-4 flex-1">
@@ -346,11 +359,9 @@ export default function AccommodationsSimple() {
                   >
                     {selectedRoom.name}
                   </span>
-                  {selectedRoom.gallery[currentPhotoIndex].tag && (
-                    <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full inline-flex max-w-max">
-                      {selectedRoom.gallery[currentPhotoIndex].tag}
-                    </span>
-                  )}
+                  <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full inline-flex max-w-max">
+                    {selectedRoom.gallery[currentPhotoIndex].tag || selectedRoom.type}
+                  </span>
                 </div>
 
                 <button
@@ -409,6 +420,6 @@ export default function AccommodationsSimple() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </section >
   );
 }
