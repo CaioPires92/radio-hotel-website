@@ -106,7 +106,7 @@ function getRooms(t: (key: string) => string): Room[] {
           tag: 'Luxo (quarto)',
         },
         {
-          src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg',
+          src: '/images/rooms/suite-luxo2.jpg',
           tag: 'Luxo com vista piscina/jardim',
         },
       ],

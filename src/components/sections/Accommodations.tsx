@@ -114,7 +114,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       tags: ['Luxo'],
       gallery: [
         { src: '/images/rooms/suite-luxo.jpg', tag: 'Suíte Luxo' },
-        { src: '/images/rooms/Suite-Luxo-com-vista-para-a-piscina-ou-bosque.jpg', tag: 'Suíte Luxo (vista bosque/piscina)' },
+        { src: '/images/rooms/suite-luxo2.jpg', tag: 'Suíte Luxo (vista bosque/piscina)' },
       ],
     },
     {
