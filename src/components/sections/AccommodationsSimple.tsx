@@ -121,16 +121,16 @@ function getRooms(t: (key: string) => string): Room[] {
       name: 'Suíte Master',
       type: 'Master',
       description: 'Suíte ampla com duas camas de casal king size, no mesmo ambiente, com sacada e vista para a piscina.',
-      image: '/images/rooms/Suite-Master-com-sacada.jpg',
+      image: '/images/rooms/Suite-Master2.jpg',
       amenities: commonAmenities,
       tags: ['Master com sacada', 'Master especial'],
       gallery: [
         {
-          src: '/images/rooms/Suite-Master-com-sacada.jpg',
+          src: '/images/rooms/Suite-Master.jpg',
           tag: 'Master com sacada',
         },
         {
-          src: '/images/rooms/Suite-Master-com-sacada2.jpg',
+          src: '/images/rooms/Suite-Master2.jpg',
           tag: 'Master especial',
         },
       ],
