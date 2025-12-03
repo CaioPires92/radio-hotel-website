@@ -7,6 +7,7 @@ export const metadata = {
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Image from 'next/image';
+import PasseiosHero from '@/components/sections/PasseiosHero';
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 import { Button } from '@/components/ui/button';
 
@@ -15,15 +16,7 @@ export default function PasseiosPage() {
     <>
       <Navbar />
 
-      <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center text-center text-white">
-        <div className="absolute inset-0 bg-[url('/images/hero/hero3.jpg')] bg-cover bg-center" aria-hidden />
-        <Image src="/images/hero/hero3.jpg" alt="Passeios em Serra Negra" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-navy/60" />
-        <div className="relative z-10 max-w-4xl px-6">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Passeios</h1>
-          <p className="text-white/90 text-lg">Experiências pela cidade e região.</p>
-        </div>
-      </section>
+      <PasseiosHero heightClass="min-h-[50vh] md:min-h-[60vh]" />
 
       <section className="py-12 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
