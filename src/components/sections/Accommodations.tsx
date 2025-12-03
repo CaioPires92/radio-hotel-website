@@ -486,9 +486,11 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                           quality={85}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-                        <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
-                          {room.type}
-                        </div>
+                        {room.name?.toLowerCase().includes('master') && (
+                          <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
+                            {room.type}
+                          </div>
+                        )}
                         <div className="absolute top-6 right-6 flex flex-wrap gap-2">
                           {room.tags?.map((tag, idx) => (
                             <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
@@ -581,11 +583,13 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                         )}
 
                         {/* Tag visível */}
-                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                          <span className="bg-navy text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-md">
-                            {rooms[currentRoom].gallery?.[currentPhotoIndex]?.tag ?? rooms[currentRoom].type}
-                          </span>
-                        </div>
+                        {rooms[currentRoom].name?.toLowerCase().includes('master') && (
+                          <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                            <span className="bg-navy text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-md">
+                              {rooms[currentRoom].gallery?.[currentPhotoIndex]?.tag ?? rooms[currentRoom].type}
+                            </span>
+                          </div>
+                        )}
 
                         {/* Botão fechar */}
                         <button
@@ -711,11 +715,13 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                       className="object-cover object-center"
                       quality={85}
                     />
-                    <div className="absolute top-2 left-2">
-                      <span className="bg-navy/80 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                        {room.type}
-                      </span>
-                    </div>
+                    {room.name?.toLowerCase().includes('master') && (
+                      <div className="absolute top-2 left-2">
+                        <span className="bg-navy/80 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                          {room.type}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Botão "Ver fotos" que aparece no hover */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
