@@ -127,6 +127,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       tags: ['Master'],
       gallery: [
         { src: '/images/rooms/Suite-Master-com-sacada.jpg', tag: 'Suíte Master com sacada' },
+        { src: '/images/rooms/suite-master2.jpg', tag: 'Suíte Master especial' },
       ],
     },
     {

@@ -243,13 +243,11 @@ export default function AccommodationsSimple() {
                     quality={85}
                     sizes="(min-width: 1024px) 33vw, 100vw"
                   />
-                  {room.name.toLowerCase().includes('master') && (
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-gold text-navy text-xs font-semibold px-3 py-1 rounded-full shadow">
-                        {room.type}
-                      </span>
-                    </div>
-                  )}
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-gold text-navy text-xs font-semibold px-3 py-1 rounded-full shadow">
+                      {room.type}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="p-5 flex flex-col gap-4 flex-1">
@@ -341,21 +339,19 @@ export default function AccommodationsSimple() {
                   />
                 )}
 
-                {selectedRoom.name.toLowerCase().includes('master') && (
-                  <div className="absolute top-3 left-3 right-24 flex flex-col gap-1">
-                    <span
-                      id="accommodation-gallery-title"
-                      className="bg-black/70 text-white text-xs sm:text-sm px-3 py-1 rounded-full inline-flex max-w-max"
-                    >
-                      {selectedRoom.name}
+                <div className="absolute top-3 left-3 right-24 flex flex-col gap-1">
+                  <span
+                    id="accommodation-gallery-title"
+                    className="bg-black/70 text-white text-xs sm:text-sm px-3 py-1 rounded-full inline-flex max-w-max"
+                  >
+                    {selectedRoom.name}
+                  </span>
+                  {selectedRoom.gallery[currentPhotoIndex].tag && (
+                    <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full inline-flex max-w-max">
+                      {selectedRoom.gallery[currentPhotoIndex].tag}
                     </span>
-                    {selectedRoom.gallery[currentPhotoIndex].tag && (
-                      <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full inline-flex max-w-max">
-                        {selectedRoom.gallery[currentPhotoIndex].tag}
-                      </span>
-                    )}
-                  </div>
-                )}
+                  )}
+                </div>
 
                 <button
                   ref={closeButtonRef}
