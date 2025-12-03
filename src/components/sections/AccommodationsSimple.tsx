@@ -130,7 +130,7 @@ function getRooms(t: (key: string) => string): Room[] {
           tag: 'Master com sacada',
         },
         {
-          src: '/images/rooms/suite-master2.jpg',
+          src: '/images/rooms/Suite-Master-com-sacada2.jpg',
           tag: 'Master especial',
         },
       ],
@@ -249,18 +249,7 @@ export default function AccommodationsSimple() {
                     quality={85}
                     sizes="(min-width: 1024px) 33vw, 100vw"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-gold text-navy text-xs font-semibold px-3 py-1 rounded-full shadow">
-                      {room.type}
-                    </span>
-                  </div>
-                  <div className="absolute top-3 right-3 flex flex-wrap gap-2">
-                    {(room.tags && room.tags.length ? room.tags : [room.type]).map((tag, idx) => (
-                      <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  {null}
                 </div>
 
                 <div className="p-5 flex flex-col gap-4 flex-1">
@@ -352,17 +341,7 @@ export default function AccommodationsSimple() {
                   />
                 )}
 
-                <div className="absolute top-3 left-3 right-24 flex flex-col gap-1">
-                  <span
-                    id="accommodation-gallery-title"
-                    className="bg-black/70 text-white text-xs sm:text-sm px-3 py-1 rounded-full inline-flex max-w-max"
-                  >
-                    {selectedRoom.name}
-                  </span>
-                  <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full inline-flex max-w-max">
-                    {selectedRoom.gallery[currentPhotoIndex].tag || selectedRoom.type}
-                  </span>
-                </div>
+                {null}
 
                 <button
                   ref={closeButtonRef}

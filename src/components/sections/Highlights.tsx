@@ -99,11 +99,7 @@ export default function Highlights() {
                 <div className={reverse ? 'order-2 lg:order-2' : 'order-1 lg:order-1'}>
                   <div className="group card-standard card-standard-hover relative overflow-hidden">
                     <CardImageCarousel images={item.images} fit="cover" className="h-72 md:h-96" />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full shadow chip-dark">
-                        {item.title}
-                      </span>
-                    </div>
+                    {null}
                   </div>
                 </div>
 

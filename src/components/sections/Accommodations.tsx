@@ -47,12 +47,12 @@ const roomsData = (t: (key: string) => string): Room[] => {
       id: 'std-frente-rua',
       name: 'Apartamento Standard',
       type: 'Apartamento Standard',
-      description: 'Apartamento Standard frente rua',
+      description: '',
       image: '/images/rooms/Apartamento-standard-interno2.jpg',
       amenities: commonAmenities,
-      tags: ['Standard'],
+      tags: [''],
       gallery: [
-        { src: '/images/rooms/Apartamento-standard-interno2.jpg', tag: 'Apartamento Standard' },
+        { src: '/images/rooms/Apartamento-standard-interno2.jpg', tag: '' },
       ],
     },
     {
@@ -62,9 +62,9 @@ const roomsData = (t: (key: string) => string): Room[] => {
       description: 'Apartamento Standard com vista interna',
       image: '/images/rooms/Apartamento-standard-interno.jpg',
       amenities: commonAmenities,
-      tags: ['Standard'],
+      tags: [''],
       gallery: [
-        { src: '/images/rooms/Apartamento-standard-interno.jpg', tag: 'Apartamento Standard' },
+        { src: '/images/rooms/Apartamento-standard-interno.jpg', tag: '' },
       ],
     },
     {
@@ -74,7 +74,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       description: 'apto luxo com vista para a piscina ou jardim',
       image: '/images/rooms/Apartamento-luxo2.jpg',
       amenities: commonAmenities,
-      tags: ['Luxo'],
+      tags: ['Luxo com vista piscina/jardim'],
       gallery: [
         { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'apto luxo com vista para a piscina ou jardim' },
       ],
@@ -86,7 +86,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       description: 'Apto Luxo com vista para a piscina ou bosque',
       image: '/images/rooms/Apartamento-luxo.jpg',
       amenities: commonAmenities,
-      tags: ['Luxo'],
+      tags: ['Luxo (quarto)'],
       gallery: [
         { src: '/images/rooms/Apartamento-luxo.jpg', tag: 'Luxo (quarto)' },
         { src: '/images/rooms/Apartamento-luxo2.jpg', tag: 'Luxo com vista piscina/jardim' },
@@ -111,7 +111,7 @@ const roomsData = (t: (key: string) => string): Room[] => {
       description: 'Suíte Luxo com vista para a piscina ou bosque',
       image: '/images/rooms/suite-luxo.jpg',
       amenities: commonAmenities,
-      tags: ['Luxo'],
+      tags: ['Luxo (quarto)', 'Luxo com vista piscina/jardim'],
       gallery: [
         { src: '/images/rooms/suite-luxo.jpg', tag: 'Suíte Luxo' },
         { src: '/images/rooms/suite-luxo2.jpg', tag: 'Suíte Luxo (vista bosque/piscina)' },
@@ -124,10 +124,10 @@ const roomsData = (t: (key: string) => string): Room[] => {
       description: 'Suíte Master com sacada e vista para a piscina',
       image: '/images/rooms/Suite-Master-com-sacada.jpg',
       amenities: commonAmenities,
-      tags: ['Master'],
+      tags: ['Master com sacada'],
       gallery: [
         { src: '/images/rooms/Suite-Master-com-sacada.jpg', tag: 'Suíte Master com sacada' },
-        { src: '/images/rooms/suite-master2.jpg', tag: 'Suíte Master especial' },
+        { src: '/images/rooms/Suite-Master-com-sacada2.jpg', tag: 'Suíte Master especial' },
       ],
     },
     {
@@ -135,11 +135,11 @@ const roomsData = (t: (key: string) => string): Room[] => {
       name: 'Suíte Master',
       type: 'Especial',
       description: 'Suíte Master especial com sacada e vista para a piscina',
-      image: '/images/rooms/suite-master2.jpg',
+      image: '/images/rooms/Suite-Master-com-sacada2.jpg',
       amenities: commonAmenities,
-      tags: ['Master'],
+      tags: ['Master especial'],
       gallery: [
-        { src: '/images/rooms/suite-master2.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
+        { src: '/images/rooms/Suite-Master-com-sacada2.jpg', tag: 'Suíte Master especial com sacada e vista para a piscina' },
       ],
     },
   ];
@@ -365,11 +365,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="card-media-img-cover"
                               />
-                              {room.type && room.name && room.type.toLowerCase() !== room.name.toLowerCase() && (
-                                <div className="absolute top-4 left-4 bg-gold text-navy font-semibold text-xs px-3 py-1 rounded-full">
-                                  {room.type}
-                                </div>
-                              )}
+                              {null}
                             </div>
                             <div className="p-5 sm:p-6 flex-none flex flex-col gap-2">
                               <h3 className="text-2xl md:text-3xl font-serif font-bold text-navy">{room.name}</h3>
@@ -487,16 +483,6 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                           quality={85}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-                        <div className="absolute top-6 left-6 bg-gold text-navy font-semibold text-sm px-4 py-2 rounded-full">
-                          {room.type}
-                        </div>
-                        <div className="absolute top-6 right-6 flex flex-wrap gap-2">
-                          {room.tags?.map((tag, idx) => (
-                            <span key={idx} className="bg-white/90 text-navy text-xs px-3 py-1 rounded-full shadow">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <button
                             onClick={handleOpenGallery}
@@ -581,12 +567,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                           />
                         )}
 
-                        {/* Tag visível */}
-                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                          <span className="bg-navy text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full shadow-md">
-                            {rooms[currentRoom].gallery?.[currentPhotoIndex]?.tag ?? rooms[currentRoom].type}
-                          </span>
-                        </div>
+                        {null}
 
                         {/* Botão fechar */}
                         <button
@@ -712,11 +693,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                       className="object-cover object-center"
                       quality={85}
                     />
-                    <div className="absolute top-2 left-2">
-                      <span className="bg-navy/80 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                        {room.type}
-                      </span>
-                    </div>
+                    {null}
 
                     {/* Botão "Ver fotos" que aparece no hover */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
