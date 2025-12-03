@@ -16,6 +16,7 @@ import BackToTopButton from '@/components/ui/BackToTopButton';
 import Highlights from '@/components/sections/Highlights';
 import WaveDivider from '@/components/ui/WaveDivider';
 import BandSeparator from '@/components/ui/BandSeparator';
+import ChristmasParadeModal from '@/components/ui/ChristmasParadeModal';
 
 function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
@@ -53,6 +54,7 @@ function HomePage() {
       <PopButton onClick={() => setIsEventsModalOpen(true)} />
       <WhatsAppButton />
       <BackToTopButton />
+      <ChristmasParadeModal />
     </main>
   );
 }
