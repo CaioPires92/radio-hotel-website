@@ -467,6 +467,13 @@
   .lucide { stroke: currentColor !important; fill: none !important; }
 }
 
+/* Fallbacks sólidos para botões verdes (WhatsApp) em navegadores antigos */
+.bg-green-500 { background-color: #22c55e !important; }
+.bg-green-600 { background-color: #16a34a !important; }
+.bg-green-700 { background-color: #15803d !important; }
+.hover\:bg-green-600:hover { background-color: #16a34a !important; }
+.hover\:bg-green-700:hover { background-color: #15803d !important; }
+
 /* Fallbacks globais para navegadores sem suporte ao canal alfa com barra (rgb / a) */
 @supports not (color: rgb(0 0 0 / 0.5)) {
   .text-gold { color: #C5A253 !important; }
