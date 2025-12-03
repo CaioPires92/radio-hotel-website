@@ -16,6 +16,7 @@ export default function PasseiosPage() {
       <Navbar />
 
       <section className="relative min-h-[40vh] md:min-h-[50vh] flex items-center justify-center text-center text-white">
+        <div className="absolute inset-0 bg-[url('/images/hero/hero3.jpg')] bg-cover bg-center" aria-hidden />
         <Image src="/images/hero/hero3.jpg" alt="Passeios em Serra Negra" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 max-w-4xl px-6">
