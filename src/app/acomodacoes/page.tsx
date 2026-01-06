@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Conheça todas as opções de acomodações do Radio Hotel.',
 }
 
-export const dynamic = 'force-dynamic'
+// Página exportada estaticamente para hospedagem estática
 
 export default function AcomodacoesPage() {
   return (

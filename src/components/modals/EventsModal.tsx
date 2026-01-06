@@ -54,18 +54,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.gastronomy')
     },
     {
-      id: 'christmas-parade-2025',
-      title: 'Parada de Natal 2025',
-      description:
-        'Em dezembro, Serra Negra se enche de magia com as encantadoras Paradas de Natal, um evento gratuito que promete emocionar toda a família! O espetáculo reúne atores, músicos e personagens natalinos em desfiles repletos de luz, música e emoção, transformando as ruas do centro em um verdadeiro cenário de encantamento.',
-      date: '13, 17, 20, 23, 25 e 27 de dezembro',
-      time: '20h',
-      location: 'Rua Coronel Pedro Penteado, Serra Negra - SP',
-      image: '/images/events/parada-de-natal.jpg',
-      category: t('eventsModal.categories.christmas'),
-      url: 'https://www.serranegra.sp.gov.br/eventos/abertura-do-natal-luzes-da-serra-2025-sera-em-14-de-novembro'
-    },
-    {
       id: 'january-vacation',
       title: t('eventsModal.januaryVacation.title'),
       description: t('eventsModal.januaryVacation.description'),

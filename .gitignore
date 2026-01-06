@@ -74,3 +74,15 @@ next-env.d.ts
 .augment/rules/byterover-rules.md
 # ignore Windows reserved filename
 CON
+
+# project docs and archives (not needed in production)
+/docs/**
+/src/components/_archive/**
+
+# backups and screenshots (do not deploy)
+/public/backup-original/**
+/public/backup-unused-2025-11-15/**
+/public/screenshots/**
+
+# local CI reports and lighthouse cache
+/.lighthouseci/**
