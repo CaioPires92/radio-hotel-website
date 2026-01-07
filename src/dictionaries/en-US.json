@@ -472,8 +472,7 @@
       "nights": "Nights",
       "guests": "Guests",
       "adults": "adults",
-      "children": "children",
-      "estimatedValue": "Estimated Value"
+      "children": "children"
     },
     "whatsapp": {
       "title": "Booking Request - Radio Hotel",
@@ -486,7 +485,6 @@
       "childrenAges": "Children's ages",
       "years": "years old",
       "accommodation": "Accommodation",
-      "estimatedValue": "Estimated Value",
       "observations": "Observations",
       "confirmation": "I await confirmation of availability and final rates"
     },

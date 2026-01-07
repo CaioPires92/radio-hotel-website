@@ -83,13 +83,13 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    
+
     return {
       checkIn: today.toISOString().split('T')[0],
       checkOut: tomorrow.toISOString().split('T')[0]
     };
   };
-  
+
   const [formData, setFormData] = useState(() => {
     const defaultDates = getDefaultDates();
     return {
@@ -161,10 +161,10 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   }, [formData.checkIn, formData.checkOut, isoToDisplay]);
 
   const roomTypes = [
-    { value: 'standard', label: t('booking.roomTypes.standard'), price: 100 },
-    { value: 'deluxe', label: t('booking.roomTypes.deluxe'), price: 150 },
-    { value: 'suite-master', label: t('booking.roomTypes.suiteMaster'), price: 200 },
-    { value: 'suite-familia', label: t('booking.roomTypes.suiteFamily'), price: 250 },
+    { value: 'standard', label: t('booking.roomTypes.standard') },
+    { value: 'deluxe', label: t('booking.roomTypes.deluxe') },
+    { value: 'suite-master', label: t('booking.roomTypes.suiteMaster') },
+    { value: 'suite-familia', label: t('booking.roomTypes.suiteFamily') },
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -208,12 +208,6 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const checkOut = new Date(formData.checkOut);
     const diffTime = Math.abs(checkOut.getTime() - checkIn.getTime());
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  };
-
-  const calculateTotal = () => {
-    const nights = calculateNights();
-    const selectedRoom = roomTypes.find(room => room.value === formData.roomType);
-    return nights * (selectedRoom?.price || 0);
   };
 
   const formatDate = (dateString: string) => {
@@ -429,29 +423,27 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     // Create WhatsApp message
     const selectedRoom = roomTypes.find(room => room.value === formData.roomType);
     const nights = calculateNights();
-    const total = calculateTotal();
 
-    let message = `🏨 *${t('booking.whatsapp.title')}*\n\n`;
+    let message = `*${t('booking.whatsapp.title')}*\n\n`;
     message = message.replace(/\\n/g, "\n");
-    message += `📅 *${t('booking.whatsapp.checkIn')}:* ${formatDate(formData.checkIn)}\n`;
-    message += `📅 *${t('booking.whatsapp.checkOut')}:* ${formatDate(formData.checkOut)}\n`;
-    message += `🌙 *${t('booking.whatsapp.nights')}:* ${nights}\n\n`;
-    message += `👥 *${t('booking.whatsapp.guests')}:*\n`;
-    message += `• ${t('booking.whatsapp.adults')}: ${formData.adults}\n`;
-    message += `• ${t('booking.whatsapp.children')}: ${formData.children}\n`;
+    message += `*${t('booking.whatsapp.checkIn')}:* ${formatDate(formData.checkIn)}\n`;
+    message += `*${t('booking.whatsapp.checkOut')}:* ${formatDate(formData.checkOut)}\n`;
+    message += `*${t('booking.whatsapp.nights')}:* ${nights}\n\n`;
+    message += `*${t('booking.whatsapp.guests')}:*\n`;
+    message += `  ${t('booking.whatsapp.adults')}: ${formData.adults}\n`;
+    message += `  ${t('booking.whatsapp.children')}: ${formData.children}\n`;
 
     if (formData.childrenAges.length > 0 && formData.childrenAges.some(age => age)) {
-      message += `• ${t('booking.whatsapp.childrenAges')}: ${formData.childrenAges.filter(age => age).join(', ')} ${t('booking.whatsapp.years')}\n`;
+      message += `  ${t('booking.whatsapp.childrenAges')}: ${formData.childrenAges.filter(age => age).join(', ')} ${t('booking.whatsapp.years')}\n`;
     }
 
-    message += `\n🛏️ *${t('booking.whatsapp.accommodation')}:* ${selectedRoom?.label}\n`;
-    message += `💰 *${t('booking.whatsapp.estimatedValue')}:* ${t('booking.currency')} ${total.toLocaleString('pt-BR')}\n`;
+    message += `\n*${t('booking.whatsapp.accommodation')}:* ${selectedRoom?.label}\n`;
 
     if (formData.specialRequests) {
-      message += `\n📝 *${t('booking.whatsapp.observations')}:* ${formData.specialRequests}\n`;
+      message += `\n*${t('booking.whatsapp.observations')}:* ${formData.specialRequests}\n`;
     }
 
-    message += `\n✨ ${t('booking.whatsapp.confirmation')}.`;
+    message += `\n${t('booking.whatsapp.confirmation')}.`;
 
     // Normaliza quebras de linha (caso strings tenham sido escapadas como \\n)
     message = message.replace(/\\n/g, "\n");
