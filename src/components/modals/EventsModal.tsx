@@ -54,13 +54,53 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.gastronomy')
     },
     {
-      id: 'january-vacation',
-      title: t('eventsModal.januaryVacation.title'),
-      description: t('eventsModal.januaryVacation.description'),
-      date: t('eventsModal.januaryVacation.date'),
-      time: t('eventsModal.januaryVacation.time'),
-      location: t('eventsModal.januaryVacation.location'),
-      image: '/images/events/ferias-julho.png',
+      id: 'carnival',
+      title: t('eventsModal.carnival.title'),
+      description: t('eventsModal.carnival.description'),
+      date: t('eventsModal.carnival.date'),
+      time: t('eventsModal.carnival.time'),
+      location: t('eventsModal.carnival.location'),
+      image: '/images/events/carnaval.png',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: 'easter',
+      title: t('eventsModal.easter.title'),
+      description: t('eventsModal.easter.description'),
+      date: t('eventsModal.easter.date'),
+      time: t('eventsModal.easter.time'),
+      location: t('eventsModal.easter.location'),
+      image: '/images/events/pascoa.jpg',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: 'tiradentes',
+      title: t('eventsModal.tiradentes.title'),
+      description: t('eventsModal.tiradentes.description'),
+      date: t('eventsModal.tiradentes.date'),
+      time: t('eventsModal.tiradentes.time'),
+      location: t('eventsModal.tiradentes.location'),
+      image: '/images/hero/hero2.jpg',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: 'mayDay',
+      title: t('eventsModal.mayDay.title'),
+      description: t('eventsModal.mayDay.description'),
+      date: t('eventsModal.mayDay.date'),
+      time: t('eventsModal.mayDay.time'),
+      location: t('eventsModal.mayDay.location'),
+      image: '/images/events/trabalho.jpg',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: 'corpusChristi',
+      title: t('eventsModal.corpusChristi.title'),
+      description: t('eventsModal.corpusChristi.description'),
+      date: t('eventsModal.corpusChristi.date'),
+      time: t('eventsModal.corpusChristi.time'),
+      location: t('eventsModal.corpusChristi.location'),
+      image: '/images/facilities/ar-livre-1.jpg',
       category: t('eventsModal.categories.packages')
     }
   ];

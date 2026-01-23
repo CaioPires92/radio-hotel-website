@@ -8,48 +8,60 @@ import { buildWhatsAppUrl } from '@/lib/config';
 
 const packages = [
   {
-    id: 'natal',
-    title: 'Pacote de Natal',
-    date: '23–26 Dez',
-    image: 'https://images.pexels.com/photos/3171207/pexels-photo-3171207.jpeg', // exemplo
+    id: 'carnaval',
+    title: 'Pacote de Carnaval',
+    date: 'Fevereiro',
+    image: '/images/events/carnaval.jpg',
     perks: [
-      'Música ao vivo todas as noites',
-      'Recreação adulto e infantil durante todo o pacote',
-      'Papai Noel',
-      'Coquetel com todos os tipos de bebidas inclusas até o final da ceia'
+      'Música ao vivo à noite',
+      'Recreação adulto e infantil'
     ],
-    // price: 'a partir de R$ 1.890',
   },
   {
-    id: 'reveillon',
-    title: 'Pacote de Réveillon',
-    date: '28 Dez–02 Jan',
-    image: 'https://images.pexels.com/photos/3036525/pexels-photo-3036525.jpeg',
+    id: 'pascoa',
+    title: 'Pacote de Páscoa',
+    date: 'Abril',
+    image: '/images/hero/hero1.jpg',
     perks: [
-      'Música ao vivo todas as noites',
-      'Recreação adulto e infantil durante todo o pacote',
-      'Coquetel com todos os tipos de bebidas inclusas até o final da ceia'
+      'Música ao vivo à noite',
+      'Recreação adulto e infantil'
     ],
-    // price: 'a partir de R$ 2.490',
   },
   {
-    id: 'ferias',
-    title: 'Férias de Janeiro',
-    date: 'Mês Todo',
-    image: 'https://images.pexels.com/photos/61129/pexels-photo-61129.jpeg',
+    id: 'tiradentes',
+    title: 'Pacote Tiradentes',
+    date: 'Abril',
+    image: '/images/hero/hero2.jpg',
     perks: [
-      'Música ao vivo todas as noites',
-      'Recreação adulto e infantil',
-      'Sexta-feira Noite Italiana com degustação de queijos e vinho',
-      'Pensão completa (café da manhã, almoço e jantar)'
+      'Música ao vivo à noite',
+      'Recreação adulto e infantil'
     ],
-    // price: 'a partir de R$ 1.290',
+  },
+  {
+    id: 'maio',
+    title: 'Pacote 1º de Maio',
+    date: 'Maio',
+    image: '/images/hero/hero3.jpg',
+    perks: [
+      'Música ao vivo à noite',
+      'Recreação adulto e infantil'
+    ],
+  },
+  {
+    id: 'corpus',
+    title: 'Pacote Corpus Christi',
+    date: 'Junho',
+    image: '/images/facilities/ar-livre-1.jpg',
+    perks: [
+      'Música ao vivo à noite',
+      'Recreação adulto e infantil'
+    ],
   },
 ];
 
 export default function SeasonalPackages() {
   const handleBookingClick = () => {
-    const msg = 'Olá! Quero informações dos pacotes de Natal/Réveillon/Férias.';
+    const msg = 'Olá! Quero informações dos pacotes de Carnaval e Feriados.';
     window.open(buildWhatsAppUrl(msg), '_blank');
   };
 
@@ -71,7 +83,7 @@ export default function SeasonalPackages() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Natal, Réveillon e Férias de Janeiro — garanta já sua reserva.
+            Carnaval, Páscoa e Feriados — garanta já sua reserva.
           </motion.p>
         </div>
 
@@ -99,9 +111,9 @@ export default function SeasonalPackages() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/20 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                   <div className="flex items-center gap-2">
-                    {pkg.id === 'natal' && <PartyPopper className="w-4 h-4" />}
-                    {pkg.id === 'reveillon' && <Calendar className="w-4 h-4" />}
-                    {pkg.id === 'ferias' && <Sun className="w-4 h-4" />}
+                    {pkg.id === 'carnaval' && <PartyPopper className="w-4 h-4" />}
+                    {pkg.id === 'pascoa' && <Sun className="w-4 h-4" />}
+                    {(pkg.id !== 'carnaval' && pkg.id !== 'pascoa') && <Calendar className="w-4 h-4" />}
                     <span className="font-serif font-bold text-base sm:text-lg md:text-xl drop-shadow">{pkg.title}</span>
                   </div>
                   <span className="text-xs sm:text-sm md:text-base bg-white/25 px-3 py-1.5 rounded-full font-medium ring-1 ring-white/40">{pkg.date}</span>
@@ -136,4 +148,3 @@ export default function SeasonalPackages() {
     </section>
   );
 }
-

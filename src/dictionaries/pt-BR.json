@@ -584,6 +584,41 @@
       "time": "",
       "location": ""
     },
+    "carnival": {
+      "title": "Pacote de Carnaval",
+      "description": "Música ao vivo à noite e recreação adulto e infantil.",
+      "date": "Fevereiro",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
+    "easter": {
+      "title": "Pacote de Páscoa",
+      "description": "Música ao vivo à noite e recreação adulto e infantil.",
+      "date": "Abril",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
+    "tiradentes": {
+      "title": "Pacote Tiradentes",
+      "description": "Música ao vivo à noite e recreação adulto e infantil.",
+      "date": "Abril",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
+    "mayDay": {
+      "title": "Pacote 1º de Maio",
+      "description": "Música ao vivo à noite e recreação adulto e infantil.",
+      "date": "Maio",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
+    "corpusChristi": {
+      "title": "Pacote Corpus Christi",
+      "description": "Música ao vivo à noite e recreação adulto e infantil.",
+      "date": "Junho",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
     "januaryVacation": {
       "title": "Férias de Janeiro",
       "description": "Pacote especial com recreação e música ao vivo durante todo o mês.",

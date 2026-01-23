@@ -9,7 +9,7 @@ const excludedPaths = [
   '/robots.txt',
   '/manifest.json',
   '/sw.js',
-  '/favicon.ico',
+  '/favicon.png',
   '/_next',
   '/images',
   '/icons',

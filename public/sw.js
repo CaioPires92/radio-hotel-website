@@ -6,7 +6,7 @@ const IMAGE_CACHE_NAME = 'radio-hotel-images-v3';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
-  '/favicon.ico',
+  '/favicon.png',
   '/icons/icon-192x192.svg',
   '/icons/icon-512x512.svg',
 ];

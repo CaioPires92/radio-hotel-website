@@ -40,13 +40,23 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const isoToDisplay = useCallback((iso?: string) => {
     if (!iso) return '';
-    const d = new Date(iso);
-    if (isNaN(d.getTime())) return '';
-    const dd = pad2(d.getDate());
-    const mm = pad2(d.getMonth() + 1);
-    const yyyy = d.getFullYear();
+    const parts = iso.split('-');
+    if (parts.length !== 3) return '';
+    const [yyyy, mm, dd] = parts;
     return `${dd}/${mm}/${yyyy}`;
   }, []);
+
+  const formatLocalISO = (date: Date) => {
+    const yyyy = date.getFullYear();
+    const mm = pad2(date.getMonth() + 1);
+    const dd = pad2(date.getDate());
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const parseISOParts = (iso: string) => {
+    const [y, m, d] = iso.split('-').map((v) => parseInt(v, 10));
+    return { y, m, d };
+  };
 
   const displayToISO = (display?: string) => {
     if (!display) return '';
@@ -72,10 +82,11 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const addDaysISO = (iso: string, days: number) => {
     if (!iso) return '';
-    const d = new Date(iso);
-    if (isNaN(d.getTime())) return '';
-    d.setDate(d.getDate() + days);
-    return d.toISOString().split('T')[0];
+    const { y, m, d } = parseISOParts(iso);
+    if (!y || !m || !d) return '';
+    const dt = new Date(y, m - 1, d);
+    dt.setDate(dt.getDate() + days);
+    return formatLocalISO(dt);
   };
 
   // Get today and tomorrow dates in YYYY-MM-DD format
@@ -85,8 +96,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     return {
-      checkIn: today.toISOString().split('T')[0],
-      checkOut: tomorrow.toISOString().split('T')[0]
+      checkIn: formatLocalISO(today),
+      checkOut: formatLocalISO(tomorrow)
     };
   };
 
@@ -153,7 +164,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     if (!formData.checkIn) return;
     const minCheckOut = addDaysISO(formData.checkIn, 1);
     const checkOut = formData.checkOut;
-    if (!checkOut || new Date(checkOut) <= new Date(formData.checkIn)) {
+    // String comparison is sufficient for ISO dates (YYYY-MM-DD)
+    if (!checkOut || checkOut <= formData.checkIn) {
       setFormData(prev => ({ ...prev, checkOut: minCheckOut }));
       setCheckOutDisplay(isoToDisplay(minCheckOut));
       setErrors(prev => { const n = { ...prev }; delete n.checkOut; return n; });
@@ -204,36 +216,32 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const calculateNights = () => {
     if (!formData.checkIn || !formData.checkOut) return 0;
-    const checkIn = new Date(formData.checkIn);
-    const checkOut = new Date(formData.checkOut);
+    const { y: yi, m: mi, d: di } = parseISOParts(formData.checkIn);
+    const { y: yo, m: mo, d: do_ } = parseISOParts(formData.checkOut);
+    const checkIn = new Date(yi, mi - 1, di);
+    const checkOut = new Date(yo, mo - 1, do_);
     const diffTime = Math.abs(checkOut.getTime() - checkIn.getTime());
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
 
   const formatDate = (dateString: string) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
-    const formatted = date.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-    // Sanitiza barras duplicadas caso algum ambiente/localização gere //
-    return formatted.replace(/\/{2,}/g, '/');
+    return isoToDisplay(dateString);
   };
 
   // Validação de intervalo
   const withinRange = (iso: string, minIso?: string, maxIso?: string) => {
     if (!iso) return false;
-    const d = new Date(iso);
-    if (isNaN(d.getTime())) return false;
+    const a = parseISOParts(iso);
+    const toInt = ({ y, m, d }: { y: number; m: number; d: number }) => y * 10000 + m * 100 + d;
+    const ai = toInt(a);
     if (minIso) {
-      const min = new Date(minIso);
-      if (d < min) return false;
+      const mi = toInt(parseISOParts(minIso));
+      if (ai < mi) return false;
     }
     if (maxIso) {
-      const max = new Date(maxIso);
-      if (d > max) return false;
+      const xi = toInt(parseISOParts(maxIso));
+      if (ai > xi) return false;
     }
     return true;
   };
@@ -277,7 +285,17 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     minIso?: string;
     onSelect: (iso: string) => void;
   }) => {
-    const base = selectedIso ? new Date(selectedIso) : (minIso ? new Date(minIso) : new Date());
+    const base = (() => {
+      if (selectedIso) {
+        const { y, m, d } = parseISOParts(selectedIso);
+        return new Date(y, m - 1, d);
+      }
+      if (minIso) {
+        const { y, m, d } = parseISOParts(minIso);
+        return new Date(y, m - 1, d);
+      }
+      return new Date();
+    })();
     const [viewYear, setViewYear] = useState(base.getFullYear());
     const [viewMonth, setViewMonth] = useState(base.getMonth());
 
@@ -295,14 +313,15 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     const isDisabled = (d?: Date | null) => {
       if (!d) return true;
       if (!minIso) return false;
-      const min = new Date(minIso);
+      const { y, m, d: dd } = parseISOParts(minIso);
+      const min = new Date(y, m - 1, dd);
       return d < min;
     };
 
     const isSelected = (d?: Date | null) => {
       if (!d || !selectedIso) return false;
-      const di = new Date(selectedIso);
-      return d.getFullYear() === di.getFullYear() && d.getMonth() === di.getMonth() && d.getDate() === di.getDate();
+      const { y, m, d: dd } = parseISOParts(selectedIso);
+      return d.getFullYear() === y && d.getMonth() === (m - 1) && d.getDate() === dd;
     };
 
     const isToday = (d?: Date | null) => {
@@ -311,7 +330,7 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
       return d.getFullYear() === t.getFullYear() && d.getMonth() === t.getMonth() && d.getDate() === t.getDate();
     };
 
-    const toIso = (d: Date) => d.toISOString().split('T')[0];
+    const toIso = (d: Date) => formatLocalISO(d);
 
     const prevMonth = () => {
       const m = new Date(viewYear, viewMonth - 1, 1);
@@ -389,16 +408,14 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
     // Validate date logic
     if (formData.checkIn && formData.checkOut) {
-      const checkInDate = new Date(formData.checkIn);
-      const checkOutDate = new Date(formData.checkOut);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
+      // Use string comparison for ISO dates (YYYY-MM-DD) to avoid timezone issues
+      const todayISO = getTodayDate();
 
-      if (checkInDate < today) {
+      if (formData.checkIn < todayISO) {
         newErrors.checkIn = t('booking.validation.checkInPastDate');
       }
 
-      if (checkOutDate <= checkInDate) {
+      if (formData.checkOut <= formData.checkIn) {
         newErrors.checkOut = t('booking.validation.checkOutAfterCheckIn');
       }
     }
@@ -431,7 +448,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     message += `*${t('booking.whatsapp.nights')}:* ${nights}\n\n`;
     message += `*${t('booking.whatsapp.guests')}:*\n`;
     message += `  ${t('booking.whatsapp.adults')}: ${formData.adults}\n`;
-    message += `  ${t('booking.whatsapp.children')}: ${formData.children}\n`;
+    if (parseInt(formData.children) > 0) {
+      message += `  ${t('booking.whatsapp.children')}: ${formData.children}\n`;
+    }
 
     if (formData.childrenAges.length > 0 && formData.childrenAges.some(age => age)) {
       message += `  ${t('booking.whatsapp.childrenAges')}: ${formData.childrenAges.filter(age => age).join(', ')} ${t('booking.whatsapp.years')}\n`;
@@ -447,6 +466,8 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
     // Normaliza quebras de linha (caso strings tenham sido escapadas como \\n)
     message = message.replace(/\\n/g, "\n");
+    // Remove qualquer numeração acidental no início das linhas (ex.: "0 *Acomodação:*")
+    message = message.replace(/(^|\n)\s*\d+\s*(?=\*)/g, '$1');
 
     // Open WhatsApp
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -470,13 +491,13 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
 
   const getTodayDate = () => {
     const today = new Date();
-    return today.toISOString().split('T')[0];
+    return formatLocalISO(today);
   };
 
   const getTomorrowDate = () => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
+    return formatLocalISO(tomorrow);
   };
 
   // Removed unused showPicker helpers to comply with lint rules
