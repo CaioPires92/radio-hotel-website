@@ -6,7 +6,7 @@ export const PHONE_RECEPCAO_1 = '+55 19 3892-3311'
 export const PHONE_RECEPCAO_2 = '+55 19 3892-1928'
 export const PHONE_RECEPCAO_MOBILE = '+55 19 99990-3311'
 
-export const EMAIL_RESERVAS = 'reservas@radiohotel.com.br'
+export const EMAIL_RESERVAS = 'reservasradiohotel@gmail.com'
 
 export const ADDRESS = {
   street: 'R. Cel. Pedro Penteado, 387',
