@@ -46,13 +46,13 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
-          username: u103519595
+          server: ftp.radiohotel.com.br
+          username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftp
           local-dir: ./out/
-          server-dir: /public_html/
+          server-dir: /
           dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
           dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_server }}
           exclude: |
@@ -67,13 +67,13 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
-          username: u103519595
+          server: ftp.radiohotel.com.br
+          username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftp
           local-dir: ./out/
-          server-dir: /public_html/
+          server-dir: /
           dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
           dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_server }}
           exclude: |
@@ -88,13 +88,13 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
-          username: u103519595
+          server: ftp.radiohotel.com.br
+          username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftps
           local-dir: ./out/
-          server-dir: /public_html/
+          server-dir: /
           dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
           dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_server }}
           exclude: |
@@ -106,3 +106,26 @@ jobs:
       - name: Fail if all deploy attempts failed
         if: ${{ steps.deploy_ftp_1.outcome == 'failure' && steps.deploy_ftp_2.outcome == 'failure' && steps.deploy_ftps.outcome != 'success' }}
         run: exit 1
+
+      - name: Verify public site reflects deployed build
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) && (steps.deploy_ftp_1.outcome == 'success' || steps.deploy_ftp_2.outcome == 'success' || steps.deploy_ftps.outcome == 'success') }}
+        run: |
+          set -euo pipefail
+
+          expected_build_id="$(sed -n 's/.*<!DOCTYPE html><!--\([^>]*\)-->.*/\1/p' out/index.html | head -n1)"
+          live_html="$(curl -fsSL "https://radiohotel.com.br/?deploy_check=${GITHUB_RUN_ID}")"
+          live_build_id="$(printf '%s' "$live_html" | sed -n 's/.*<!DOCTYPE html><!--\([^>]*\)-->.*/\1/p' | head -n1)"
+
+          echo "Expected build id: ${expected_build_id:-<empty>}"
+          echo "Live build id: ${live_build_id:-<empty>}"
+
+          if [ -z "$expected_build_id" ] || [ -z "$live_build_id" ]; then
+            echo "Could not extract build id from expected or live HTML."
+            exit 1
+          fi
+
+          if [ "$expected_build_id" != "$live_build_id" ]; then
+            echo "Public site is not serving the deployed build."
+            echo "Validate Hostinger domain mapping and FTP account for radiohotel.com.br."
+            exit 1
+          fi
