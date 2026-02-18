@@ -1,14 +1,26 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import BookingForm from '@/components/ui/custom/BookingForm';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import type {
+  ButtonHTMLAttributes,
+  FormHTMLAttributes,
+  HTMLAttributes,
+  OptionHTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react';
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    form: ({ children, ...props }: any) => <form {...props}>{children}</form>,
+    div: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
+      <div {...props}>{children}</div>
+    ),
+    form: ({ children, ...props }: PropsWithChildren<FormHTMLAttributes<HTMLFormElement>>) => (
+      <form {...props}>{children}</form>
+    ),
   },
-  AnimatePresence: ({ children }: any) => children,
+  AnimatePresence: ({ children }: { children?: ReactNode }) => children,
 }));
 
 // Mock lucide-react icons
@@ -26,28 +38,45 @@ vi.mock('lucide-react', () => ({
 
 // Mock UI components
 vi.mock('@/components/ui/button', () => ({
-  Button: ({ children, ...props }: any) => (
+  Button: ({ children, ...props }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => (
     <button {...props}>{children}</button>
   ),
 }));
 
 vi.mock('@/components/ui/card', () => ({
-  Card: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  CardContent: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  CardHeader: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  CardTitle: ({ children, ...props }: any) => <h3 {...props}>{children}</h3>,
+  Card: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
+  CardContent: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
+  CardHeader: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
+  CardTitle: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>) => (
+    <h3 {...props}>{children}</h3>
+  ),
 }));
 
+type MockSelectProps = {
+  children?: ReactNode;
+  onValueChange?: (value: string) => void;
+  value?: string;
+};
+
 vi.mock('@/components/ui/select', () => ({
-  Select: ({ children, onValueChange, value }: any) => (
-    <select onChange={(e) => onValueChange(e.target.value)} value={value} data-testid="select">
+  Select: ({ children, onValueChange, value }: MockSelectProps) => (
+    <select onChange={(e) => onValueChange?.(e.target.value)} value={value} data-testid="select">
       {children}
     </select>
   ),
-  SelectContent: ({ children }: any) => <>{children}</>,
-  SelectItem: ({ children, ...props }: any) => <option {...props}>{children}</option>,
-  SelectTrigger: ({ children }: any) => <button>{children}</button>,
-  SelectValue: ({ placeholder }: any) => <span>{placeholder}</span>,
+  SelectContent: ({ children }: { children?: ReactNode }) => <>{children}</>,
+  SelectItem: ({
+    children,
+    ...props
+  }: PropsWithChildren<OptionHTMLAttributes<HTMLOptionElement>>) => <option {...props}>{children}</option>,
+  SelectTrigger: ({ children }: { children?: ReactNode }) => <button>{children}</button>,
+  SelectValue: ({ placeholder }: { placeholder?: string }) => <span>{placeholder}</span>,
 }));
 
 vi.mock('@/components/ui/LoadingSpinner', () => ({

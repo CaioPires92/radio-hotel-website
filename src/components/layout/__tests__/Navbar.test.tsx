@@ -3,6 +3,12 @@ console.log('Executing Navbar.test.tsx');
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Navbar from '@/components/layout/Navbar';
+import type {
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react';
 
 // Mock dependencies to isolate the component
 vi.mock('@/components/i18n/LanguageSelector', () => ({
@@ -31,11 +37,17 @@ vi.mock('@/components/i18n/I18nProvider', () => ({
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    nav: ({ children, ...props }: any) => <nav {...props}>{children}</nav>,
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    a: ({ children, ...props }: any) => <a {...props}>{children}</a>,
+    nav: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLElement>>) => (
+      <nav {...props}>{children}</nav>
+    ),
+    div: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
+      <div {...props}>{children}</div>
+    ),
+    a: ({ children, ...props }: PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>) => (
+      <a {...props}>{children}</a>
+    ),
   },
-  AnimatePresence: ({ children }: any) => <>{children}</>,
+  AnimatePresence: ({ children }: { children?: ReactNode }) => <>{children}</>,
 }));
 
 describe('Navbar', () => {
