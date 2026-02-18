@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
@@ -5,7 +6,6 @@ const { promisify } = require('util');
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 const copyFile = promisify(fs.copyFile);
-const unlink = promisify(fs.unlink);
 
 const optimizedDir = './public/optimized';
 const publicDir = './public';

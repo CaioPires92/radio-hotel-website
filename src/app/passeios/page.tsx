@@ -6,7 +6,6 @@ export const metadata = {
 
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import Image from 'next/image';
 import PasseiosHero from '@/components/sections/PasseiosHero';
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel';
 import { Button } from '@/components/ui/button';

@@ -80,15 +80,6 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
     return out.replace(/\/{2,}/g, '/');
   };
 
-  const addDaysISO = (iso: string, days: number) => {
-    if (!iso) return '';
-    const { y, m, d } = parseISOParts(iso);
-    if (!y || !m || !d) return '';
-    const dt = new Date(y, m - 1, d);
-    dt.setDate(dt.getDate() + days);
-    return formatLocalISO(dt);
-  };
-
   // Get today and tomorrow dates in YYYY-MM-DD format
   const getDefaultDates = () => {
     const today = new Date();
@@ -162,7 +153,9 @@ const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
   // Garante que o check-out seja sempre após o check-in
   useEffect(() => {
     if (!formData.checkIn) return;
-    const minCheckOut = addDaysISO(formData.checkIn, 1);
+    const [y, m, d] = formData.checkIn.split('-').map((v) => parseInt(v, 10));
+    const minDate = new Date(y, (m || 1) - 1, (d || 1) + 1);
+    const minCheckOut = `${minDate.getFullYear()}-${String(minDate.getMonth() + 1).padStart(2, '0')}-${String(minDate.getDate()).padStart(2, '0')}`;
     const checkOut = formData.checkOut;
     // String comparison is sufficient for ISO dates (YYYY-MM-DD)
     if (!checkOut || checkOut <= formData.checkIn) {

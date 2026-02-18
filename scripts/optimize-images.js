@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
@@ -175,7 +176,7 @@ async function optimizeAllImages() {
 // Verificar se Sharp está instalado
 try {
   require('sharp');
-} catch (error) {
+} catch {
   console.error('❌ Sharp não está instalado. Execute: npm install sharp --save-dev');
   process.exit(1);
 }

@@ -1,12 +1,11 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import HomePage from '@/app/page';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { I18nProvider } from '@/components/i18n/I18nProvider';
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...props }: any) => (
-    <img src={src} alt={alt} {...props} />
+  default: ({ alt }: any) => (
+    <span>{alt}</span>
   ),
 }));
 

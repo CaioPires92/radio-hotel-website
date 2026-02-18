@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /*
   Gera thumbnails padronizadas (4:3, cover) para imagens de quartos.
   Saída: public/images/rooms/thumbs/<arquivo>.jpg e .webp
