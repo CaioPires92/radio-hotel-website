@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Clock, MapPin, Volume2 } from 'lucide-react';
+import { X, Calendar, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/components/i18n/I18nProvider';
@@ -31,8 +31,6 @@ interface EventsModalProps {
 export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   const { t } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const events: Event[] = [
     {
@@ -166,38 +164,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
 
             {/* Content */}
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
-              <div className="mb-6">
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden">
-                  <video
-                    src="/images/events/video.mp4"
-                    autoPlay
-                    muted={isMuted}
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                    ref={el => {
-                      videoRef.current = el
-                    }}
-                  />
-                  {isMuted && (
-                    <button
-                      onClick={() => {
-                        setIsMuted(false)
-                        const v = videoRef.current
-                        if (v) {
-                          v.muted = false
-                          v.play().catch(() => { })
-                        }
-                      }}
-                      aria-label="Ativar som do vídeo"
-                      className="absolute bottom-3 right-3 inline-flex items-center gap-2 bg-navy/80 hover:bg-navy text-white px-3 py-2 rounded-lg"
-                    >
-                      <Volume2 className="w-4 h-4" />
-                      <span>Ativar som</span>
-                    </button>
-                  )}
-                </div>
-              </div>
               {!selectedEvent ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {events.map((event, index) => (
