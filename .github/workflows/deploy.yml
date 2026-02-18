@@ -60,6 +60,8 @@ jobs:
             **/.git*/**
             **/.DS_Store
             **/.htaccess
+            **/backup-original/**
+            **/backup-unused-2025-11-15/**
 
       - name: Deploy to Hostinger (FTP retry)
         id: deploy_ftp_2
@@ -81,6 +83,8 @@ jobs:
             **/.git*/**
             **/.DS_Store
             **/.htaccess
+            **/backup-original/**
+            **/backup-unused-2025-11-15/**
 
       - name: Deploy to Hostinger (FTPS fallback)
         id: deploy_ftps
@@ -102,6 +106,8 @@ jobs:
             **/.git*/**
             **/.DS_Store
             **/.htaccess
+            **/backup-original/**
+            **/backup-unused-2025-11-15/**
 
       - name: Fail if all deploy attempts failed
         if: ${{ steps.deploy_ftp_1.outcome == 'failure' && steps.deploy_ftp_2.outcome == 'failure' && steps.deploy_ftps.outcome != 'success' }}

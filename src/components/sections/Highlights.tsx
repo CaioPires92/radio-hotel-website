@@ -75,7 +75,7 @@ export default function Highlights() {
           >
             <Image src="/about-hotel.svg" alt="Elemento decorativo do hotel" width={224} height={224} />
           </div>
-          <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-gold-on-light font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('highlights.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-4">

@@ -116,11 +116,10 @@ const Footer = () => {
     if (email && !isSubmittingNewsletter) {
       setIsSubmittingNewsletter(true);
       try {
-        // Here you would typically send the email to your newsletter service
-        console.log('Newsletter signup:', email);
+        // Here you would typically send the email to your newsletter service.
+        // Keep silent in the client to avoid logging user PII in browser consoles.
         await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
         setEmail('');
-        // You could show a success message here
       } catch (error) {
         console.error('Newsletter signup error:', error);
       } finally {
