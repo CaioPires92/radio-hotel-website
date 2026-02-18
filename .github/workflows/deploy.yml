@@ -40,8 +40,10 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Deploy to Hostinger
+      - name: Deploy to Hostinger (FTP attempt 1)
+        id: deploy_ftp_1
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: 185.245.180.94
@@ -58,3 +60,49 @@ jobs:
             **/.git*/**
             **/.DS_Store
             **/.htaccess
+
+      - name: Deploy to Hostinger (FTP retry)
+        id: deploy_ftp_2
+        if: ${{ steps.deploy_ftp_1.outcome == 'failure' }}
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: 185.245.180.94
+          username: u103519595
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./out/
+          server-dir: /public_html/
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_server }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store
+            **/.htaccess
+
+      - name: Deploy to Hostinger (FTPS fallback)
+        id: deploy_ftps
+        if: ${{ steps.deploy_ftp_1.outcome == 'failure' && steps.deploy_ftp_2.outcome == 'failure' }}
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: 185.245.180.94
+          username: u103519595
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          port: 21
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: /public_html/
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_server }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store
+            **/.htaccess
+
+      - name: Fail if all deploy attempts failed
+        if: ${{ steps.deploy_ftp_1.outcome == 'failure' && steps.deploy_ftp_2.outcome == 'failure' && steps.deploy_ftps.outcome != 'success' }}
+        run: exit 1
