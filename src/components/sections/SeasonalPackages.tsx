@@ -3,20 +3,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Calendar, PartyPopper, Sun, Phone } from 'lucide-react';
+import { Calendar, Sun, Phone } from 'lucide-react';
 import { buildWhatsAppUrl } from '@/lib/config';
 
 const packages = [
-  {
-    id: 'carnaval',
-    title: 'Pacote de Carnaval',
-    date: 'Fevereiro',
-    image: '/images/events/carnaval.jpg',
-    perks: [
-      'Música ao vivo à noite',
-      'Recreação adulto e infantil'
-    ],
-  },
   {
     id: 'pascoa',
     title: 'Pacote de Páscoa',
@@ -61,7 +51,7 @@ const packages = [
 
 export default function SeasonalPackages() {
   const handleBookingClick = () => {
-    const msg = 'Olá! Quero informações dos pacotes de Carnaval e Feriados.';
+    const msg = 'Olá! Quero informações dos pacotes de Páscoa e Feriados.';
     window.open(buildWhatsAppUrl(msg), '_blank');
   };
 
@@ -83,7 +73,7 @@ export default function SeasonalPackages() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Carnaval, Páscoa e Feriados — garanta já sua reserva.
+            Páscoa e Feriados — garanta já sua reserva.
           </motion.p>
         </div>
 
@@ -111,9 +101,8 @@ export default function SeasonalPackages() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/20 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                   <div className="flex items-center gap-2">
-                    {pkg.id === 'carnaval' && <PartyPopper className="w-4 h-4" />}
                     {pkg.id === 'pascoa' && <Sun className="w-4 h-4" />}
-                    {(pkg.id !== 'carnaval' && pkg.id !== 'pascoa') && <Calendar className="w-4 h-4" />}
+                    {pkg.id !== 'pascoa' && <Calendar className="w-4 h-4" />}
                     <span className="font-serif font-bold text-base sm:text-lg md:text-xl drop-shadow">{pkg.title}</span>
                   </div>
                   <span className="text-xs sm:text-sm md:text-base bg-white/25 px-3 py-1.5 rounded-full font-medium ring-1 ring-white/40">{pkg.date}</span>

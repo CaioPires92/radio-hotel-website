@@ -56,16 +56,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.gastronomy')
     },
     {
-      id: 'carnival',
-      title: t('eventsModal.carnival.title'),
-      description: t('eventsModal.carnival.description'),
-      date: t('eventsModal.carnival.date'),
-      time: t('eventsModal.carnival.time'),
-      location: t('eventsModal.carnival.location'),
-      image: '/images/events/carnaval.png',
-      category: t('eventsModal.categories.packages')
-    },
-    {
       id: 'easter',
       title: t('eventsModal.easter.title'),
       description: t('eventsModal.easter.description'),
