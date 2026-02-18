@@ -1,6 +1,6 @@
-const STATIC_CACHE_NAME = 'radio-hotel-static-v3';
-const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v3';
-const IMAGE_CACHE_NAME = 'radio-hotel-images-v3';
+const STATIC_CACHE_NAME = 'radio-hotel-static-v4';
+const DYNAMIC_CACHE_NAME = 'radio-hotel-dynamic-v4';
+const IMAGE_CACHE_NAME = 'radio-hotel-images-v4';
 
 // Assets to cache imediatamente (coisas críticas, leves)
 const STATIC_ASSETS = [
@@ -91,6 +91,28 @@ self.addEventListener('fetch', (event) => {
 
   if (request.method !== 'GET') return;
   if (url.origin !== location.origin) return;
+
+  // Documentos HTML devem ser network-first para evitar conteúdo antigo após deploy.
+  if (isDocumentRequest(request)) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const responseToCache = response.clone();
+            caches.open(DYNAMIC_CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return response;
+        })
+        .catch(async () => {
+          const cachedResponse = await caches.match(request);
+          if (cachedResponse) return cachedResponse;
+          return caches.match('/offline.html') || createOfflineResponse();
+        })
+    );
+    return;
+  }
 
   // 🔹 BYPASS pro /images/rooms/* → sempre pega da rede
   if (shouldBypassCache(request)) {
@@ -203,6 +225,13 @@ self.addEventListener('notificationclick', (event) => {
 function isImageRequest(request) {
   return request.destination === 'image' ||
     /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(new URL(request.url).pathname);
+}
+
+function isDocumentRequest(request) {
+  const url = new URL(request.url);
+  return request.destination === 'document' ||
+    url.pathname === '/' ||
+    url.pathname.endsWith('.html');
 }
 
 function isStaticAsset(request) {
