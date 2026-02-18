@@ -46,7 +46,7 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ftp.radiohotel.com.br
+          server: 185.245.180.94
           username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
@@ -67,7 +67,7 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ftp.radiohotel.com.br
+          server: 185.245.180.94
           username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
@@ -88,7 +88,7 @@ jobs:
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ftp.radiohotel.com.br
+          server: 185.245.180.94
           username: u103519595.radiohotel
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
@@ -105,7 +105,12 @@ jobs:
 
       - name: Fail if all deploy attempts failed
         if: ${{ steps.deploy_ftp_1.outcome == 'failure' && steps.deploy_ftp_2.outcome == 'failure' && steps.deploy_ftps.outcome != 'success' }}
-        run: exit 1
+        run: |
+          echo "All deploy attempts failed."
+          echo "deploy_ftp_1=${{ steps.deploy_ftp_1.outcome }}"
+          echo "deploy_ftp_2=${{ steps.deploy_ftp_2.outcome }}"
+          echo "deploy_ftps=${{ steps.deploy_ftps.outcome }}"
+          exit 1
 
       - name: Verify public site reflects deployed build
         if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) && (steps.deploy_ftp_1.outcome == 'success' || steps.deploy_ftp_2.outcome == 'success' || steps.deploy_ftps.outcome == 'success') }}
