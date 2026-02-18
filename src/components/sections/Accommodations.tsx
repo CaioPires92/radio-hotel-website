@@ -252,6 +252,8 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
     setCurrentRoom(0);
   };
 
+  const getRoomAlt = (room: Room) => room.description?.trim() || room.name;
+
   // Variante compacta para a Home
   if (compact) {
     return (
@@ -264,7 +266,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
+            <span className="text-gold-on-light font-medium text-sm uppercase tracking-wider mb-4 block">
               {t('accommodations.badge')}
             </span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
@@ -431,7 +433,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-gold-on-light font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('accommodations.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">
@@ -476,7 +478,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                       <div className="lg:col-span-3 relative h-[460px] sm:h-[540px] lg:h-[620px] group bg-black overflow-hidden">
                         <Image
                           src={room.image}
-                          alt={`${room.description}`}
+                          alt={getRoomAlt(room)}
                           fill
                           className="object-cover object-center"
                           priority
@@ -559,7 +561,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                         {rooms[currentRoom].gallery && rooms[currentRoom].gallery.length > 0 && (
                           <Image
                             src={rooms[currentRoom].gallery[currentPhotoIndex].src}
-                            alt={`${rooms[currentRoom].description}`}
+                            alt={getRoomAlt(rooms[currentRoom])}
                             fill
                             className="object-contain"
                             quality={85}
@@ -688,7 +690,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
                   <div className="relative w-full aspect-[4/3] group">
                     <Image
                       src={room.image}
-                      alt={`${room.description}`}
+                      alt={getRoomAlt(room)}
                       fill
                       className="object-cover object-center"
                       quality={85}

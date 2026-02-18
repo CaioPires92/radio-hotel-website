@@ -27,10 +27,6 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ isOpen, onClose }: BookingFormProps) => {
-  // Debug log (development only)
-  if (process.env.NODE_ENV === 'development') {
-    console.log('BookingForm - isOpen:', isOpen);
-  }
   const { t } = useTranslation();
 
   // =====================

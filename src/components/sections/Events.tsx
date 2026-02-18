@@ -80,7 +80,7 @@ const Events = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="text-gold font-medium text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-gold-on-light font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('events.badge')}
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6">

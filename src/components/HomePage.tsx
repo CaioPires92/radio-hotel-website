@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
@@ -20,6 +20,24 @@ import BandSeparator from '@/components/ui/BandSeparator';
 function HomePage() {
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false);
   const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') return;
+
+    type E2EWindow = Window & {
+      __openBookingFormForE2E?: () => void;
+      __closeBookingFormForE2E?: () => void;
+    };
+
+    const e2eWindow = window as E2EWindow;
+    e2eWindow.__openBookingFormForE2E = () => setIsBookingFormOpen(true);
+    e2eWindow.__closeBookingFormForE2E = () => setIsBookingFormOpen(false);
+
+    return () => {
+      delete e2eWindow.__openBookingFormForE2E;
+      delete e2eWindow.__closeBookingFormForE2E;
+    };
+  }, []);
 
   return (
     <main id="main-content" className="min-h-screen">

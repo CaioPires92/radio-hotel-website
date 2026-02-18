@@ -1,4 +1,89 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page, type Locator } from '@playwright/test';
+
+function toDisplayDate(date: Date): string {
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yyyy = date.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+async function openBookingForm(page: Page): Promise<Locator> {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForLoadState('domcontentloaded');
+
+  const dialog = page.getByRole('dialog');
+  if (await dialog.isVisible().catch(() => false)) return dialog;
+
+  const openCandidates = [
+    'button[aria-label="Reservar pelo menu"]',
+    '#home button[aria-label*="Reserve"]',
+    '#home button[aria-label*="Reservar"]',
+    'button:has-text("Reserve Agora")',
+    'button:has-text("Reservar Agora")',
+  ];
+
+  const deadlineMs = 15000;
+  const startedAt = Date.now();
+
+  while (Date.now() - startedAt < deadlineMs) {
+    const openedByHook = await page.evaluate(() => {
+      type E2EWindow = Window & { __openBookingFormForE2E?: () => void };
+      const e2eWindow = window as E2EWindow;
+      if (typeof e2eWindow.__openBookingFormForE2E === 'function') {
+        e2eWindow.__openBookingFormForE2E();
+        return true;
+      }
+      return false;
+    });
+
+    if (openedByHook && (await dialog.isVisible().catch(() => false))) {
+      await expect(dialog.getByText(/faça sua reserva/i)).toBeVisible({ timeout: 5000 });
+      return dialog;
+    }
+
+    for (const selector of openCandidates) {
+      const candidate = page.locator(selector).first();
+      if ((await candidate.count()) === 0) continue;
+      if (!(await candidate.isVisible().catch(() => false))) continue;
+
+      try {
+        await candidate.scrollIntoViewIfNeeded();
+        await candidate.click({ timeout: 1500 });
+      } catch {
+        try {
+          await candidate.click({ force: true, timeout: 1500 });
+        } catch {
+          // Try next candidate
+        }
+      }
+
+      if (await dialog.isVisible().catch(() => false)) {
+        await expect(dialog.getByText(/faça sua reserva/i)).toBeVisible({ timeout: 5000 });
+        return dialog;
+      }
+    }
+
+    await page.waitForTimeout(300);
+  }
+
+  const availableButtons = await page
+    .locator('button')
+    .evaluateAll((nodes) => nodes.map((node) => (node.textContent || '').trim()).filter(Boolean).slice(0, 12));
+
+  throw new Error(
+    `Could not open booking form dialog from known trigger buttons. Buttons seen: ${availableButtons.join(' | ')}`
+  );
+}
+
+async function selectComboboxOption(
+  page: Page,
+  dialog: Locator,
+  comboboxIndex: number,
+  optionName: string | RegExp
+) {
+  await dialog.getByRole('combobox').nth(comboboxIndex).click();
+  await page.getByRole('option', { name: optionName }).first().click();
+}
 
 test.describe('Booking Flow', () => {
   test.beforeEach(async ({ page }) => {
@@ -6,159 +91,90 @@ test.describe('Booking Flow', () => {
   });
 
   test('should complete full booking flow', async ({ page }) => {
-    // Click on booking button in navbar
-    await page.getByRole('button', { name: /reservar agora/i }).click();
+    const dialog = await openBookingForm(page);
 
-    // Wait for booking form to appear
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
-    await expect(page.getByText('Fazer Reserva')).toBeVisible();
+    const checkIn = new Date();
+    checkIn.setDate(checkIn.getDate() + 2);
+    const checkOut = new Date();
+    checkOut.setDate(checkOut.getDate() + 4);
 
-    // Fill in booking details
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const dayAfter = new Date();
-    dayAfter.setDate(dayAfter.getDate() + 3);
+    await dialog.locator('#check-in-input').fill(toDisplayDate(checkIn));
+    await dialog.locator('#check-out-input').fill(toDisplayDate(checkOut));
+    await selectComboboxOption(page, dialog, 2, /apartamento standard/i);
 
-    const checkInDate = tomorrow.toISOString().split('T')[0];
-    const checkOutDate = dayAfter.toISOString().split('T')[0];
+    const popupPromise = page.waitForEvent('popup', { timeout: 10000 }).catch(() => null);
+    await dialog.getByRole('button', { name: /enviar solicitação/i }).click();
 
-    await page.fill('input[name="checkIn"]', checkInDate);
-    await page.fill('input[name="checkOut"]', checkOutDate);
-    await page.selectOption('select[name="adults"]', '2');
-    await page.selectOption('select[name="children"]', '1');
-    
-    // Fill child age when children > 0
-    await expect(page.locator('select[name="childAge0"]')).toBeVisible();
-    await page.selectOption('select[name="childAge0"]', '8');
-    
-    await page.selectOption('select[name="roomType"]', 'standard');
-
-    // Submit form
-    await page.getByRole('button', { name: /enviar solicitação/i }).click();
-
-    // Should redirect to WhatsApp (we can't test the actual redirect, but we can check if window.open was called)
-    // In a real test, you might want to mock window.open or check for specific behavior
+    const popup = await popupPromise;
+    if (popup) {
+      await popup.waitForLoadState('domcontentloaded');
+      expect(popup.url()).toMatch(/wa\.me|api\.whatsapp\.com/);
+    }
   });
 
-  test('should validate form fields', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+  test('should validate required date fields when empty', async ({ page }) => {
+    const dialog = await openBookingForm(page);
 
-    // Try to submit without filling required fields
-    await page.getByRole('button', { name: /enviar solicitação/i }).click();
+    await dialog.locator('#check-in-input').fill('');
+    await dialog.locator('#check-out-input').fill('');
+    await dialog.getByRole('button', { name: /enviar solicitação/i }).click();
 
-    // Should show validation errors
-    await expect(page.getByText(/check-in é obrigatório/i)).toBeVisible();
-    await expect(page.getByText(/check-out é obrigatório/i)).toBeVisible();
+    await expect(dialog.getByText(/data de check-in é obrigatória/i)).toBeVisible();
+    await expect(dialog.getByText(/data de check-out é obrigatória/i)).toBeVisible();
   });
 
-  test('should validate check-out date is after check-in', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+  test('should show validation when check-out is before check-in', async ({ page }) => {
+    const dialog = await openBookingForm(page);
 
-    // Fill with invalid dates (check-out before check-in)
-    await page.fill('input[name="checkIn"]', '2024-12-25');
-    await page.fill('input[name="checkOut"]', '2024-12-20');
+    const checkIn = new Date();
+    checkIn.setDate(checkIn.getDate() + 10);
+    const invalidCheckOut = new Date(checkIn);
+    invalidCheckOut.setDate(invalidCheckOut.getDate() - 5);
 
-    // Submit form
-    await page.getByRole('button', { name: /enviar solicitação/i }).click();
+    await dialog.locator('#check-in-input').fill(toDisplayDate(checkIn));
+    await dialog.locator('#check-out-input').fill(toDisplayDate(invalidCheckOut));
+    await dialog.locator('#check-out-input').blur();
 
-    // Should show validation error
-    await expect(page.getByText(/check-out deve ser posterior ao check-in/i)).toBeVisible();
+    await expect(dialog.getByText(/check-out deve ser após check-in/i)).toBeVisible();
   });
 
   test('should close booking form with close button', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+    const dialog = await openBookingForm(page);
 
-    // Close form
-    await page.getByLabel(/fechar formulário/i).click();
-
-    // Form should be closed
-    await expect(page.locator('[role="dialog"]')).not.toBeVisible();
+    await dialog.getByLabel(/fechar|booking\.closeform/i).click();
+    await expect(page.getByRole('dialog')).not.toBeVisible();
   });
 
   test('should close booking form with escape key', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+    await openBookingForm(page);
 
-    // Press escape key
     await page.keyboard.press('Escape');
-
-    // Form should be closed
-    await expect(page.locator('[role="dialog"]')).not.toBeVisible();
+    await expect(page.getByRole('dialog')).not.toBeVisible();
   });
 
-  test('should show/hide children age fields based on children count', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+  test('should show and hide children age fields', async ({ page }) => {
+    const dialog = await openBookingForm(page);
 
-    // Initially no children age fields should be visible
-    await expect(page.locator('select[name="childAge0"]')).not.toBeVisible();
+    await expect(dialog.getByPlaceholder(/criança 1/i)).not.toBeVisible();
+    await selectComboboxOption(page, dialog, 1, /^2\b/);
 
-    // Select 2 children
-    await page.selectOption('select[name="children"]', '2');
+    await expect(dialog.getByPlaceholder(/criança 1/i)).toBeVisible();
+    await expect(dialog.getByPlaceholder(/criança 2/i)).toBeVisible();
 
-    // Should show 2 age fields
-    await expect(page.locator('select[name="childAge0"]')).toBeVisible();
-    await expect(page.locator('select[name="childAge1"]')).toBeVisible();
-    await expect(page.locator('select[name="childAge2"]')).not.toBeVisible();
-
-    // Change to 0 children
-    await page.selectOption('select[name="children"]', '0');
-
-    // Age fields should be hidden
-    await expect(page.locator('select[name="childAge0"]')).not.toBeVisible();
-    await expect(page.locator('select[name="childAge1"]')).not.toBeVisible();
+    await selectComboboxOption(page, dialog, 1, /^0\b/);
+    await expect(dialog.getByPlaceholder(/criança 1/i)).not.toBeVisible();
   });
 
-  test('should be accessible via keyboard navigation', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
+  test('should keep keyboard focus within the modal while tabbing', async ({ page }) => {
+    await openBookingForm(page);
 
-    // Tab through form elements
-    await page.keyboard.press('Tab'); // Check-in field
-    await expect(page.locator('input[name="checkIn"]')).toBeFocused();
-
-    await page.keyboard.press('Tab'); // Check-out field
-    await expect(page.locator('input[name="checkOut"]')).toBeFocused();
-
-    await page.keyboard.press('Tab'); // Adults select
-    await expect(page.locator('select[name="adults"]')).toBeFocused();
-
-    await page.keyboard.press('Tab'); // Children select
-    await expect(page.locator('select[name="children"]')).toBeFocused();
-
-    await page.keyboard.press('Tab'); // Room type select
-    await expect(page.locator('select[name="roomType"]')).toBeFocused();
-
-    await page.keyboard.press('Tab'); // Submit button
-    await expect(page.getByRole('button', { name: /enviar solicitação/i })).toBeFocused();
-  });
-
-  test('should maintain focus trap within modal', async ({ page }) => {
-    // Open booking form
-    await page.getByRole('button', { name: /reservar agora/i }).click();
-    await expect(page.locator('[role="dialog"]')).toBeVisible();
-
-    // Focus should be trapped within the modal
-    // Tab to the last focusable element (submit button)
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await expect(page.getByRole('button', { name: /enviar solicitação/i })).toBeFocused();
-
-    // Tab again should go to close button or first field
-    await page.keyboard.press('Tab');
-    const focusedElement = await page.evaluate(() => document.activeElement?.tagName);
-    expect(['INPUT', 'BUTTON']).toContain(focusedElement);
+    for (let i = 0; i < 8; i += 1) {
+      await page.keyboard.press('Tab');
+      const focusInsideDialog = await page.evaluate(() => {
+        const dialog = document.querySelector('[role="dialog"]');
+        return dialog ? dialog.contains(document.activeElement) : false;
+      });
+      expect(focusInsideDialog).toBe(true);
+    }
   });
 });

@@ -26,10 +26,10 @@ describe('Accommodations Component', () => {
     expect(screen.getByText('accommodations.title')).toBeInTheDocument();
   });
 
-  it('renders correct alt text for the room image', () => {
+  it('renders non-empty alt text for the room image', () => {
     render(<Accommodations />);
-    const expectedAltText = "Quarto Standard - Vista do quarto com Wi-Fi, Estacionamento, Frigobar, TV, Banheiro Privativo, Ar Condicionado";
-    const image = screen.getByAltText(expectedAltText);
-    expect(image).toBeInTheDocument();
+    const images = screen.getAllByAltText(/apartamento standard/i);
+    expect(images.length).toBeGreaterThan(0);
+    expect(screen.queryAllByAltText('')).toHaveLength(0);
   });
 });

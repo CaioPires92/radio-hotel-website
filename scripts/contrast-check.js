@@ -33,10 +33,11 @@ function getContrastRatio(color1, color2) {
 
 // Cores do design system
 const colors = {
-  navy: '#0a0d29',
+  navy: '#0D1B4C',
   blue: '#16446e',
-  gold: '#b2ab70',
-  cream: '#f6f5f1',
+  gold: '#C5A253',
+  goldOnLight: '#7D6436',
+  cream: '#F5F5F5',
   white: '#ffffff',
   black: '#000000',
   grayLight: '#f3f4f6',
@@ -48,23 +49,25 @@ console.log('='.repeat(60));
 
 // Testa combinações principais
 const testCombinations = [
-  { fg: 'white', bg: 'navy', context: 'Texto Hero/Footer' },
-  { fg: 'navy', bg: 'cream', context: 'Texto principal' },
-  { fg: 'navy', bg: 'white', context: 'Texto em cards' },
-  { fg: 'gold', bg: 'navy', context: 'Destaques/CTAs' },
-  { fg: 'white', bg: 'blue', context: 'Botões secundários' },
-  { fg: 'white', bg: 'cream', context: '⚠️  PROBLEMÁTICO' },
-  { fg: 'gold', bg: 'cream', context: 'Texto dourado em fundo claro' },
-  { fg: 'navy', bg: 'gold', context: 'Texto escuro em dourado' }
+  { fg: 'white', bg: 'navy', context: 'Texto Hero/Footer', severity: 'critical' },
+  { fg: 'navy', bg: 'cream', context: 'Texto principal', severity: 'critical' },
+  { fg: 'navy', bg: 'white', context: 'Texto em cards', severity: 'critical' },
+  { fg: 'gold', bg: 'navy', context: 'Destaques/CTAs em fundo escuro', severity: 'critical' },
+  { fg: 'white', bg: 'blue', context: 'Botões secundários', severity: 'critical' },
+  { fg: 'goldOnLight', bg: 'cream', context: 'Destaques em fundo claro', severity: 'critical' },
+  { fg: 'navy', bg: 'gold', context: 'Texto escuro em dourado', severity: 'critical' },
+  { fg: 'white', bg: 'cream', context: 'Decorativo apenas (não usar para texto)', severity: 'advisory' },
+  { fg: 'gold', bg: 'cream', context: 'Decorativo apenas (usar goldOnLight para texto)', severity: 'advisory' }
 ];
 
 let passedTests = 0;
 let totalTests = testCombinations.length;
 let criticalIssues = [];
+let advisoryIssues = [];
 
 console.log('\n📊 ANÁLISE DE COMBINAÇÕES:\n');
 
-testCombinations.forEach(({ fg, bg, context }) => {
+testCombinations.forEach(({ fg, bg, context, severity }) => {
   const ratio = getContrastRatio(colors[fg], colors[bg]);
   let level = '❌ Inadequado';
   let status = '❌';
@@ -81,7 +84,14 @@ testCombinations.forEach(({ fg, bg, context }) => {
     level = '⚠️  AA Large (Apenas texto grande)';
     status = '⚠️ ';
   } else {
-    criticalIssues.push({ fg, bg, context, ratio });
+    if (severity === 'critical') {
+      criticalIssues.push({ fg, bg, context, ratio });
+    } else {
+      advisoryIssues.push({ fg, bg, context, ratio });
+      status = 'ℹ️ ';
+      level = 'Informativo (combinação não recomendada para texto)';
+      passedTests++;
+    }
   }
 
   console.log(`${status} ${fg.toUpperCase()}/${bg.toUpperCase()}: ${ratio.toFixed(2)} - ${level}`);
@@ -101,6 +111,15 @@ if (criticalIssues.length > 0) {
   });
 }
 
+if (advisoryIssues.length > 0) {
+  console.log('ℹ️  COMBINAÇÕES INFORMATIVAS (NÃO RECOMENDADAS PARA TEXTO):\n');
+  advisoryIssues.forEach(issue => {
+    console.log(`ℹ️  ${issue.fg.toUpperCase()}/${issue.bg.toUpperCase()} (${issue.ratio.toFixed(2)})`);
+    console.log(`   ${issue.context}`);
+    console.log('   ✅ Permitido apenas para elementos decorativos/ícones sem conteúdo textual crítico\n');
+  });
+}
+
 console.log('\n🎯 RECOMENDAÇÕES PARA O DESIGN SYSTEM:\n');
 console.log('✅ USAR SEMPRE:');
 console.log('   • Texto branco em fundo navy/blue (contraste excelente)');
@@ -108,7 +127,7 @@ console.log('   • Texto navy em fundo cream/white (contraste adequado)');
 console.log('   • Texto gold em fundo navy (contraste adequado)');
 
 console.log('\n⚠️  USAR COM CUIDADO:');
-console.log('   • Texto gold em fundo cream (verificar tamanho da fonte)');
+console.log('   • Texto gold em fundo cream (usar goldOnLight para texto pequeno)');
 console.log('   • Sempre testar em dispositivos reais');
 
 console.log('\n❌ NUNCA USAR:');

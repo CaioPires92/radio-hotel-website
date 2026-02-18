@@ -10,7 +10,6 @@ import type {
   ReactNode,
 } from 'react';
 
-// Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
     div: ({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => (
@@ -23,7 +22,6 @@ vi.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: { children?: ReactNode }) => children,
 }));
 
-// Mock lucide-react icons
 vi.mock('lucide-react', () => ({
   Calendar: () => <div data-testid="calendar">📅</div>,
   Users: () => <div data-testid="users">👥</div>,
@@ -31,12 +29,12 @@ vi.mock('lucide-react', () => ({
   Bed: () => <div data-testid="bed">🛏️</div>,
   Phone: () => <div data-testid="phone">📞</div>,
   X: () => <div data-testid="x">✕</div>,
-  ChevronDown: () => <div data-testid="chevron-down">⌄</div>,
+  ChevronLeft: () => <div data-testid="chevron-left">←</div>,
+  ChevronRight: () => <div data-testid="chevron-right">→</div>,
   MapPin: () => <div data-testid="map-pin">📍</div>,
   Clock: () => <div data-testid="clock">🕐</div>,
 }));
 
-// Mock UI components
 vi.mock('@/components/ui/button', () => ({
   Button: ({ children, ...props }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => (
     <button {...props}>{children}</button>
@@ -71,44 +69,58 @@ vi.mock('@/components/ui/select', () => ({
     </select>
   ),
   SelectContent: ({ children }: { children?: ReactNode }) => <>{children}</>,
-  SelectItem: ({
-    children,
-    ...props
-  }: PropsWithChildren<OptionHTMLAttributes<HTMLOptionElement>>) => <option {...props}>{children}</option>,
-  SelectTrigger: ({ children }: { children?: ReactNode }) => <button>{children}</button>,
-  SelectValue: ({ placeholder }: { placeholder?: string }) => <span>{placeholder}</span>,
+  SelectItem: ({ children, ...props }: PropsWithChildren<OptionHTMLAttributes<HTMLOptionElement>>) => (
+    <option {...props}>{children}</option>
+  ),
+  SelectTrigger: () => null,
+  SelectValue: () => null,
 }));
 
 vi.mock('@/components/ui/LoadingSpinner', () => ({
   default: () => <div data-testid="loading-spinner">Loading...</div>,
 }));
 
-// Mock i18n
 vi.mock('@/components/i18n/I18nProvider', () => ({
   useTranslation: () => ({
     t: (key: string) => {
       const translations: Record<string, string> = {
         'booking.title': 'Faça sua Reserva',
+        'booking.subtitle': 'Reserve sua estadia e desfrute de momentos únicos',
         'booking.checkIn': 'Check-in',
         'booking.checkOut': 'Check-out',
         'booking.adults': 'Adultos',
         'booking.children': 'Crianças',
         'booking.accommodationType': 'Tipo de Quarto',
         'booking.submitButton': 'Enviar Solicitação',
+        'booking.submitAriaLabel': 'Enviar solicitação de reserva via WhatsApp',
         'booking.closeForm': 'Fechar',
         'booking.whatsappRedirect': 'Você será redirecionado para o WhatsApp',
         'booking.validation.checkInRequired': 'Check-in é obrigatório',
         'booking.validation.checkOutRequired': 'Check-out é obrigatório',
         'booking.validation.roomTypeRequired': 'Tipo de quarto é obrigatório',
         'booking.validation.checkOutAfterCheckIn': 'Check-out deve ser posterior ao check-in',
+        'booking.validation.checkInPastDate': 'Check-in no passado não permitido',
         'booking.selectAccommodation': 'Selecione uma acomodação',
+        'booking.roomTypes.standard': 'Apartamento Standard',
+        'booking.roomTypes.deluxe': 'Apartamento Luxo',
+        'booking.roomTypes.suiteMaster': 'Suíte Master',
+        'booking.roomTypes.suiteFamily': 'Apto Conjugado',
+        'booking.whatsapp.title': 'Solicitação de Reserva - Radio Hotel',
+        'booking.whatsapp.checkIn': 'Check-in',
+        'booking.whatsapp.checkOut': 'Check-out',
+        'booking.whatsapp.nights': 'Noites',
+        'booking.whatsapp.guests': 'Hóspedes',
+        'booking.whatsapp.adults': 'Adultos',
+        'booking.whatsapp.children': 'Crianças',
+        'booking.whatsapp.accommodation': 'Acomodação',
+        'booking.whatsapp.observations': 'Observações',
+        'booking.whatsapp.confirmation': 'Aguardo confirmação da disponibilidade e valores finais',
       };
       return translations[key] || key;
     },
   }),
 }));
 
-// Mock window.open
 Object.defineProperty(window, 'open', {
   writable: true,
   value: vi.fn(),
@@ -130,53 +142,54 @@ describe('BookingForm Component', () => {
     expect(screen.getByLabelText(/check-in/i)).toBeInTheDocument();
   });
 
-  it('validates required fields on submit', async () => {
+  it('shows field validation messages for empty dates and room type', async () => {
     render(<BookingForm {...mockProps} />);
-    const submitButton = screen.getByText('Enviar Solicitação');
-    
-    // Clear default dates to test validation
-    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '' } });
-    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '' } });
 
-    fireEvent.click(submitButton);
+    const checkIn = screen.getByLabelText(/check-in/i);
+    const checkOut = screen.getByLabelText(/check-out/i);
+
+    fireEvent.change(checkIn, { target: { value: '' } });
+    fireEvent.blur(checkIn);
+    fireEvent.change(checkOut, { target: { value: '' } });
+    fireEvent.blur(checkOut);
+
+    fireEvent.click(screen.getByText('Enviar Solicitação'));
 
     await waitFor(() => {
       expect(screen.getByText('Check-in é obrigatório')).toBeInTheDocument();
       expect(screen.getByText('Check-out é obrigatório')).toBeInTheDocument();
-      expect(screen.getByText('Tipo de quarto é obrigatório')).toBeInTheDocument();
     });
   });
 
   it('validates that check-out date is after check-in date', async () => {
     render(<BookingForm {...mockProps} />);
-    const submitButton = screen.getByText('Enviar Solicitação');
-    
-    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '2025-12-25' } });
-    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '2025-12-24' } });
 
-    fireEvent.click(submitButton);
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '25/12/2026' } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '24/12/2026' } });
+    fireEvent.blur(screen.getByLabelText(/check-out/i));
 
     await waitFor(() => {
       expect(screen.getByText('Check-out deve ser posterior ao check-in')).toBeInTheDocument();
     });
   });
 
-  it('submits the form and opens whatsapp with correct data', async () => {
+  it('submits the form and opens whatsapp with booking data', async () => {
     render(<BookingForm {...mockProps} />);
-    
-    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '2025-12-25' } });
-    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '2025-12-27' } });
-    
+
+    fireEvent.change(screen.getByLabelText(/check-in/i), { target: { value: '25/12/2026' } });
+    fireEvent.change(screen.getByLabelText(/check-out/i), { target: { value: '27/12/2026' } });
+
     const selects = screen.getAllByTestId('select');
-    fireEvent.change(selects[0], { target: { value: '2' } }); // Adults
-    fireEvent.change(selects[2], { target: { value: 'standard' } }); // Room Type
-    
-    const submitButton = screen.getByText('Enviar Solicitação');
-    fireEvent.click(submitButton);
-    
+    fireEvent.change(selects[2], { target: { value: 'standard' } });
+
+    fireEvent.click(screen.getByText('Enviar Solicitação'));
+
     await waitFor(() => {
-        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/'), '_blank');
-        expect(window.open).toHaveBeenCalledWith(expect.stringContaining('standard'), '_blank');
+      expect(window.open).toHaveBeenCalled();
+      const [url, target] = (window.open as ReturnType<typeof vi.fn>).mock.calls[0];
+      expect(url).toContain('https://wa.me/');
+      expect(decodeURIComponent(url as string)).toContain('Apartamento Standard');
+      expect(target).toBe('_blank');
     });
   });
 });

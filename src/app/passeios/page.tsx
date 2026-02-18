@@ -52,9 +52,6 @@ export default function PasseiosPage() {
               </a>
             </div>
 
-            <div className="text-sm text-navy/60">
-              <div>Av. 23 de Setembro - Estância Suíça, Serra Negra - SP</div>
-            </div>
           </div>
         </div>
       </section>
