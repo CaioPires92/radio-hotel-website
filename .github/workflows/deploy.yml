@@ -44,13 +44,13 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
+          server: radiohotel.com.br
           username: u103519595
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftp
           local-dir: ./out/
-          server-dir: ./public_html/
+          server-dir: /public_html/
           dry-run: true
           dangerous-clean-slate: ${{ github.event.inputs.clean_server == 'true' }}
           exclude: |
@@ -63,13 +63,13 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
+          server: radiohotel.com.br
           username: u103519595
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftp
           local-dir: ./out/
-          server-dir: ./public_html/
+          server-dir: /public_html/
           dry-run: false
           dangerous-clean-slate: false
           exclude: |
@@ -82,13 +82,13 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true' }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 185.245.180.94
+          server: radiohotel.com.br
           username: u103519595
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           protocol: ftp
           local-dir: ./out/
-          server-dir: ./public_html/
+          server-dir: /public_html/
           dry-run: false
           dangerous-clean-slate: ${{ github.event.inputs.clean_server == 'true' }}
           exclude: |
