@@ -752,7 +752,7 @@
       },
       "placeholders": {
         "name": "Seu nome",
-        "email": "voce@exemplo.com",
+        "email": "Seu e-mail",
         "phone": "(19) 99999-9999",
         "message": "Como podemos ajudar?"
       },

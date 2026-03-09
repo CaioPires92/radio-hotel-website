@@ -722,7 +722,7 @@
       },
       "placeholders": {
         "name": "Your name",
-        "email": "you@example.com",
+        "email": "Your email",
         "phone": "(19) 99999-9999",
         "message": "How can we help?"
       },

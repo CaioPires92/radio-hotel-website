@@ -142,7 +142,7 @@ O pipeline automatizado inclui:
 
 - **Hotel**: Radio Hotel Serra Negra
 - **Telefone**: +55 19 99999-9999
-- **Email**: contato@radiohotel.com.br
+- **Email**: reservasradiohotel@gmail.com
 - **Endereço**: Serra Negra, SP
 
 ## 📄 Licença
