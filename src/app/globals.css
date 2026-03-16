@@ -377,6 +377,20 @@
   border-radius: 9999px;
 }
 
+.events-modal-carousel .swiper-pagination {
+  bottom: 10px !important;
+}
+
+.events-modal-carousel .swiper-pagination-bullet {
+  background: rgba(13, 27, 76, 0.18);
+  box-shadow: none;
+}
+
+.events-modal-carousel .swiper-pagination-bullet-active {
+  background: #b2ab70;
+  box-shadow: 0 0 0 1px rgba(13, 27, 76, 0.08);
+}
+
 /* ===========================================
    WIN7 / IE11  FALLBACKS PARA OVERLAYS
    Alvo: IE11 / Edge Legacy (inclui Windows 7)
