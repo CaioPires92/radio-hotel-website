@@ -60,16 +60,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       image: '/images/events/sabado-feijoada.png',
       category: t('eventsModal.categories.gastronomy')
     },
-    {
-      id: 'easter',
-      title: t('eventsModal.easter.title'),
-      description: t('eventsModal.easter.description'),
-      date: t('eventsModal.easter.date'),
-      time: t('eventsModal.easter.time'),
-      location: t('eventsModal.easter.location'),
-      image: '/images/events/pascoa.jpg',
-      category: t('eventsModal.categories.packages')
-    },
+
     {
       id: 'tiradentes',
       title: t('eventsModal.tiradentes.title'),
@@ -97,6 +88,16 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       date: t('eventsModal.corpusChristi.date'),
       time: t('eventsModal.corpusChristi.time'),
       location: t('eventsModal.corpusChristi.location'),
+      image: '/images/facilities/ar-livre-1.jpg',
+      category: t('eventsModal.categories.packages')
+    },
+    {
+      id: 'festaJunina',
+      title: t('eventsModal.festaJunina.title'),
+      description: t('eventsModal.festaJunina.description'),
+      date: t('eventsModal.festaJunina.date'),
+      time: t('eventsModal.festaJunina.time'),
+      location: t('eventsModal.festaJunina.location'),
       image: '/images/facilities/ar-livre-1.jpg',
       category: t('eventsModal.categories.packages')
     }

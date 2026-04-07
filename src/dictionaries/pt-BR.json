@@ -56,7 +56,7 @@
     },
     "sitio-bom-retiro-familia-carra": {
       "title": "Sítio Bom Retiro – Família Carra – Produção de Vinhos e Destilados",
-      "description": "Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos (branca, envelhecida, cachaça azul e destilada com flores de laranjeira), grappa, rum e conhaque. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga."
+      "description": "Situado entre belas montanhas, reúne uma produção artesanal de saborosos vinhos de uva e laranja, além de uma variedade de destilados, incluindo cachaças de vários tipos (branca, envelhecida, cachaça azul e destilada com flores de laranjeira), grappa, conhaque e rum. No sítio ainda se produz melado, rapadura, açúcar mascavo e mel, além do cultivo de frutas e exportação de manga."
     },
     "sitio-chapadao-queijos": {
       "title": "Sítio Chapadão – Produção de Queijos",
@@ -584,17 +584,10 @@
       "time": "",
       "location": ""
     },
-    "easter": {
-      "title": "Pacote de Páscoa",
-      "description": "Música ao vivo à noite e recreação adulto e infantil.",
-      "date": "Abril",
-      "time": "",
-      "location": "Radio Hotel Serra Negra"
-    },
     "tiradentes": {
       "title": "Pacote Tiradentes",
       "description": "Música ao vivo à noite e recreação adulto e infantil.",
-      "date": "Abril",
+      "date": "18 a 21 de Abril",
       "time": "",
       "location": "Radio Hotel Serra Negra"
     },
@@ -609,6 +602,13 @@
       "title": "Pacote Corpus Christi",
       "description": "Música ao vivo à noite e recreação adulto e infantil.",
       "date": "Junho",
+      "time": "",
+      "location": "Radio Hotel Serra Negra"
+    },
+    "festaJunina": {
+      "title": "Festa Junina",
+      "description": "Grandes comemorações nos sábados: 06, 13 e 20 de Junho e 04 de Julho.",
+      "date": "Junho | Julho",
       "time": "",
       "location": "Radio Hotel Serra Negra"
     }
