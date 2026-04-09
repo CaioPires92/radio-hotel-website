@@ -98,7 +98,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       date: t('eventsModal.festaJunina.date'),
       time: t('eventsModal.festaJunina.time'),
       location: t('eventsModal.festaJunina.location'),
-      image: '/images/facilities/ar-livre-1.jpg',
+      image: '/images/events/festa-junina.jpg',
       category: t('eventsModal.categories.packages')
     }
   ];
