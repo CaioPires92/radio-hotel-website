@@ -583,6 +583,20 @@
       "time": "",
       "location": ""
     },
+    "festaNacoes": {
+      "title": "Fiesta de las Naciones 2026",
+      "description": "Una programación especial con ambiente de celebración y experiencias para toda la familia.",
+      "date": "1 al 3 de mayo",
+      "time": "",
+      "location": "Praça John F. Kennedy (Av. Deputado Campos Vergal, detrás del Palácio das Águas)."
+    },
+    "festivalCafe": {
+      "title": "Festival del Café & Riquezas de la Serra 2026",
+      "description": "Una celebración de los sabores artesanales de Serra Negra.",
+      "date": "22, 23 y 24 de mayo de 2026",
+      "time": "",
+      "location": "Av. Deputado Campos Vergal (detrás del Palácio das Águas Prefeito Antônio Luigi Ítalo Franchi - Bimbo), Serra Negra - SP."
+    },
     "festaJunina": {
       "title": "Festa Junina",
       "description": "",
