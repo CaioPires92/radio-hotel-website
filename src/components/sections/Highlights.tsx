@@ -4,7 +4,6 @@ import type { ComponentType, SVGProps } from 'react'
 import { useTranslation } from '@/components/i18n/I18nProvider'
 import CardImageCarousel from '@/components/ui/custom/CardImageCarousel'
 import { ArrowRight, Waves, Utensils, Leaf } from 'lucide-react'
-import Image from 'next/image'
 
 type Item = {
   title: string
@@ -63,18 +62,7 @@ export default function Highlights() {
   return (
     <section className="py-16 md:py-20 bg-cream" id="highlights">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Cabeçalho da seção com pattern sutil */}
         <div className="relative text-center mb-12 md:mb-16">
-          <div
-            className="pointer-events-none absolute inset-0 bg-[url('/parallax-bg.svg')] bg-repeat bg-[length:280px] bg-center opacity-10 highlights-pattern-overlay"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -top-6 right-0 translate-x-6 hidden md:block opacity-10"
-            aria-hidden
-          >
-            <Image src="/about-hotel.svg" alt="Elemento decorativo do hotel" width={224} height={224} />
-          </div>
           <span className="text-gold-on-light font-medium text-sm uppercase tracking-wider mb-4 block">
             {t('highlights.badge')}
           </span>

@@ -456,8 +456,7 @@
   /* 5. Pattern overlays decorativos  remove o bg-image se der problema */
   .highlights-pattern-overlay,
   .feature-icons-pattern-overlay {
-    background-image: none !important;
-    background: rgba(0, 0, 0, 0.03) !important; /* vu leve */
+    background-color: rgba(0, 0, 0, 0.03) !important; /* vu leve */
     opacity: 1 !important;
   }
 
@@ -564,7 +563,6 @@
 
 .win7-preview .highlights-pattern-overlay,
 .win7-preview .feature-icons-pattern-overlay {
-  background-image: none;
-  background: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.03);
   opacity: 1;
 }
