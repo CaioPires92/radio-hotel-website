@@ -257,16 +257,7 @@ export function usePWA() {
           userVisibleOnly: true,
           applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
         });
-        
-        // Send subscription to server
-        await fetch('/api/push-subscription', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(subscription),
-        });
-        
+
         return subscription;
       } catch (error) {
         console.error('Error subscribing to push notifications:', error);

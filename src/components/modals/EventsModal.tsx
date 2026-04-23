@@ -147,16 +147,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       category: t('eventsModal.categories.packages'),
     },
     {
-      id: 'tiradentes',
-      title: t('eventsModal.tiradentes.title'),
-      description: t('eventsModal.tiradentes.description'),
-      date: t('eventsModal.tiradentes.date'),
-      time: t('eventsModal.tiradentes.time'),
-      location: t('eventsModal.tiradentes.location'),
-      image: '/images/hero/hero2.jpg',
-      category: t('eventsModal.categories.packages'),
-    },
-    {
       id: 'mayDay',
       title: t('eventsModal.mayDay.title'),
       description: t('eventsModal.mayDay.description'),

@@ -151,7 +151,7 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const { t } = useTranslation();
-  // Substitui variável por state para aceitar dados dinâmicos
+  // Mantém estado local para navegação e filtro, usando apenas os dados estáticos do projeto
   const [rooms, setRooms] = useState<Room[]>(roomsData(t));
   const [allRooms, setAllRooms] = useState<Room[]>(roomsData(t));
   const categories = useMemo(() => ['Apartamento Standard', 'Apartamento Luxo', 'Suíte Master', 'Apto Conjugado', 'Suíte Luxo'], []);
@@ -208,42 +208,11 @@ const Accommodations = ({ onBookingClick, compact }: AccommodationsProps) => {
   };
 
   useEffect(() => {
-    // Monta amenidades comuns usando tradução atual
-    const commonAmenities = [
-      { icon: Wind, name: t('accommodations.amenities.airConditioning') },
-      { icon: Wifi, name: t('accommodations.amenities.wifi') },
-      { icon: Tv, name: t('accommodations.amenities.tv') },
-      { icon: Coffee, name: t('accommodations.amenities.minibar') },
-      { icon: Phone, name: t('accommodations.amenities.phone') },
-    ];
-
-    const fetchRooms = async () => {
-      try {
-        const res = await fetch('/api/rooms');
-        const data = await res.json();
-
-        const apiRooms: Room[] = (data?.rooms ?? []).map((r: Room) => ({
-          ...r,
-          amenities: r.amenities?.length ? r.amenities : commonAmenities,
-          // Garante que a particularidade apareça como tag visível
-          tags: Array.from(new Set([...(r.tags || []), r.description].filter(Boolean)))
-        }));
-
-        // Se encontrou categorias via API, usa elas; senão mantém as atuais
-        if (apiRooms.length) {
-          const ordered = apiRooms.sort((a, b) => categories.indexOf(a.name) - categories.indexOf(b.name));
-          setAllRooms(ordered);
-          const initial = ordered.filter((r) => r.name === activeCategory);
-          setRooms(initial.length ? initial : ordered);
-          setCurrentRoom(0);
-        }
-      } catch {
-        // Silencia erro e mantém fallback estático
-      }
-    };
-
-    fetchRooms();
-  }, [t, activeCategory, categories]);
+    const staticRooms = roomsData(t);
+    setAllRooms(staticRooms);
+    setRooms(staticRooms);
+    setCurrentRoom(0);
+  }, [t]);
 
   const handleCategoryChange = (cat: string) => {
     setActiveCategory(cat);

@@ -71,31 +71,15 @@ Mensagem: ${mensagem || '(sem mensagem)'}`
     setStatusType(null)
     if (!validate()) return
     if (website) return // honeypot preenchido, ignora
-    const payload = { nome, email, telefone, mensagem, website }
+    const subject = encodeURIComponent(t('contactPage.form.mailSubject'))
+    const body = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\n\nMensagem:\n${mensagem}`)
+    const mailtoUrl = `mailto:${EMAIL_RESERVAS}?subject=${subject}&body=${body}`
+
     setIsSubmitting(true)
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then(async (res) => {
-        if (res.status === 501) {
-          // fallback para mailto se serviço não estiver configurado
-          const subject = encodeURIComponent(t('contactPage.form.mailSubject'))
-          const body = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\n\nMensagem:\n${mensagem}`)
-          window.location.href = `mailto:${EMAIL_RESERVAS}?subject=${subject}&body=${body}`
-          return
-        }
-        if (!res.ok) throw new Error('Server error')
-        setStatusMsg(t('contactPage.form.feedback.success'))
-        setStatusType('success')
-        setNome(''); setEmail(''); setTelefone(''); setMensagem('')
-      })
-      .catch(() => {
-        setStatusMsg(t('contactPage.form.feedback.error'))
-        setStatusType('error')
-      })
-      .finally(() => setIsSubmitting(false))
+    window.location.href = mailtoUrl
+    setStatusMsg('Seu aplicativo de e-mail foi aberto.')
+    setStatusType('success')
+    setTimeout(() => setIsSubmitting(false), 300)
   }
 
   return (
