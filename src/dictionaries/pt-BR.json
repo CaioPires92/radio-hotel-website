@@ -587,7 +587,7 @@
     "festaNacoes": {
       "title": "Festa das Nações 2026",
       "description": "Uma programação especial com clima de celebração e experiências para toda a família.",
-      "date": "01 a 03 de maio",
+      "date": "3 dias de evento",
       "time": "",
       "location": "Praça John F. Kennedy (Av. Deputado Campos Vergal, atrás do Palácio das Águas)."
     },
@@ -597,13 +597,6 @@
       "date": "22, 23 e 24 de Maio de 2026",
       "time": "",
       "location": "Av. Deputado Campos Vergal (Atrás do Palácio das Águas Prefeito Antônio Luigi Ítalo Franchi - Bimbo), Serra Negra - SP."
-    },
-    "mayDay": {
-      "title": "Pacote 1º de Maio",
-      "description": "Música ao vivo à noite e recreação adulto e infantil.",
-      "date": "Maio",
-      "time": "",
-      "location": "Radio Hotel Serra Negra"
     },
     "corpusChristi": {
       "title": "Pacote Corpus Christi",

@@ -51,7 +51,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
     'rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75 ring-1 ring-gold/15 shadow-sm';
   const festaNacoesSchedule: DaySchedule[] = [
     {
-      day: '01 de Maio (Sexta-feira)',
+      day: 'Dia 1',
       hours: '11h às 22h',
       location: 'Praça John F. Kennedy',
       items: [
@@ -61,7 +61,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       ],
     },
     {
-      day: '02 de Maio (Sábado)',
+      day: 'Dia 2',
       hours: '10h às 22h',
       location: 'Praça John F. Kennedy',
       items: [
@@ -75,7 +75,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       ],
     },
     {
-      day: '03 de Maio (Domingo)',
+      day: 'Dia 3',
       hours: '10h às 20h',
       location: 'Praça John F. Kennedy',
       items: [
@@ -144,16 +144,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       location: t('eventsModal.festivalCafe.location') || 'Radio Hotel Serra Negra',
       image: '/images/events/festival-cafe.png',
       previewImage: '/images/events/FestivaldoCafe.jpeg',
-      category: t('eventsModal.categories.packages'),
-    },
-    {
-      id: 'mayDay',
-      title: t('eventsModal.mayDay.title'),
-      description: t('eventsModal.mayDay.description'),
-      date: t('eventsModal.mayDay.date'),
-      time: t('eventsModal.mayDay.time'),
-      location: t('eventsModal.mayDay.location'),
-      image: '/images/events/trabalho.jpg',
       category: t('eventsModal.categories.packages'),
     },
     {
@@ -458,9 +448,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                                   A programação abaixo foi organizada para facilitar a leitura e a reserva via WhatsApp.
                                 </p>
                                 <div className="flex flex-wrap gap-2 pt-2">
-                                  <span className={eventChipClass}>
-                                    01 a 03 de maio
-                                  </span>
                                   <span className={eventChipClass}>
                                     3 dias de evento
                                   </span>

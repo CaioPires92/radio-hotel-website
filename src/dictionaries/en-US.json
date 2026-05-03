@@ -587,7 +587,7 @@
     "festaNacoes": {
       "title": "Nations Festival 2026",
       "description": "A special program with a festive atmosphere and experiences for the whole family.",
-      "date": "May 1 to 3",
+      "date": "3 days of event",
       "time": "",
       "location": "Praça John F. Kennedy (Av. Deputado Campos Vergal, behind the Palácio das Águas)."
     },
@@ -597,13 +597,6 @@
       "date": "May 22, 23 and 24, 2026",
       "time": "",
       "location": "Av. Deputado Campos Vergal (behind the Palácio das Águas Prefeito Antônio Luigi Ítalo Franchi - Bimbo), Serra Negra - SP."
-    },
-    "mayDay": {
-      "title": "May Day Package",
-      "description": "Live music in the evening and activities for adults and children.",
-      "date": "May",
-      "time": "",
-      "location": "Radio Hotel Serra Negra"
     },
     "corpusChristi": {
       "title": "Corpus Christi Package",

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Calendar, Sun, Phone } from 'lucide-react';
+import { Calendar, Phone } from 'lucide-react';
 import { buildWhatsAppUrl } from '@/lib/config';
 
 const packages = [
@@ -13,16 +13,6 @@ const packages = [
     title: 'Pacote Tiradentes',
     date: '18 a 21 de Abril',
     image: '/images/hero/hero2.jpg',
-    perks: [
-      'Música ao vivo à noite',
-      'Recreação adulto e infantil'
-    ],
-  },
-  {
-    id: 'maio',
-    title: 'Pacote 1º de Maio',
-    date: 'Maio',
-    image: '/images/hero/hero3.jpg',
     perks: [
       'Música ao vivo à noite',
       'Recreação adulto e infantil'
@@ -42,7 +32,7 @@ const packages = [
 
 export default function SeasonalPackages() {
   const handleBookingClick = () => {
-    const msg = 'Olá! Quero informações dos pacotes de Tiradentes e Feriados.';
+    const msg = 'Olá! Quero informações dos pacotes especiais e feriados.';
     window.open(buildWhatsAppUrl(msg), '_blank');
   };
 
@@ -64,7 +54,7 @@ export default function SeasonalPackages() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Aproveite o feriado com o Pacote Tiradentes — garanta já sua reserva.
+            Aproveite os pacotes especiais da temporada — garanta já sua reserva.
           </motion.p>
         </div>
 
