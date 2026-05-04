@@ -43,51 +43,10 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   const subtitle = t('eventsModal.subtitle');
   const closeLabel = t('common.close');
   const moreLabel = t('common.more');
-  const detailImageSrc =
-    selectedEvent?.id === 'festa-nacoes'
-      ? '/images/events/festa-nacoes-2.png'
-      : selectedEvent?.image;
+  const detailImageSrc = selectedEvent?.image;
   const eventChipClass =
     'rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75 ring-1 ring-gold/15 shadow-sm';
-  const festaNacoesSchedule: DaySchedule[] = [
-    {
-      day: 'Dia 1',
-      hours: '11h às 22h',
-      location: 'Praça John F. Kennedy',
-      items: [
-        '11h: Abertura Oficial',
-        '17h: Lucas e Matheus e Banda',
-        '20h: Renato Mota (Representando a Argentina)',
-      ],
-    },
-    {
-      day: 'Dia 2',
-      hours: '10h às 22h',
-      location: 'Praça John F. Kennedy',
-      items: [
-        '12h: Grupo de Dança Italiana de Cascalho (Itália)',
-        '13h: Cartier Latin (França)',
-        '15h30: "Etnia: Cores e Sons" - Cia de Dança Allegro',
-        '17h: ATS Kung Fu Garra de Águia Lily Lau - Dança de Dragão e Leões Chineses',
-        '18h: Banda Itália Brasil',
-        '19h30: ATS Kung Fu Garra de Águia Lily Lau (Segunda apresentação)',
-        '20h: Banda Ellus',
-      ],
-    },
-    {
-      day: 'Dia 3',
-      hours: '10h às 20h',
-      location: 'Praça John F. Kennedy',
-      items: [
-        '11h: Apresentação de Dança Grupo da Melhor Idade (Fundo Social)',
-        '12h: Pra Ti Sambah',
-        '14h: Ciça Marinho e Trio (Portugal)',
-        '16h: Fiorire Escola de Ballet',
-        '18h: Ray Conniff Tribute (E.U.A)',
-      ],
-      extraLocation: 'Encerramento Especial: 20h - Germano e Geovany | Praça Prefeito João Zelante',
-    },
-  ];
+
 
   const festivalCafeSchedule: DaySchedule[] = [
     {
@@ -125,16 +84,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   ];
 
   const events: Event[] = [
-    {
-      id: 'festa-nacoes',
-      title: t('eventsModal.festaNacoes.title'),
-      description: t('eventsModal.festaNacoes.description'),
-      date: t('eventsModal.festaNacoes.date'),
-      time: t('eventsModal.festaNacoes.time'),
-      location: t('eventsModal.festaNacoes.location') || 'Radio Hotel Serra Negra',
-      image: '/images/events/festa-nacoes.png?v=2',
-      category: t('eventsModal.categories.packages'),
-    },
+
     {
       id: 'festival-cafe',
       title: t('eventsModal.festivalCafe.title'),
@@ -255,7 +205,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
           <motion.div
             className={cn(
               'relative w-full max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl',
-              selectedEvent?.id === 'festival-cafe' || selectedEvent?.id === 'festa-nacoes'
+              selectedEvent?.id === 'festival-cafe'
                 ? 'max-w-[98vw] xl:max-w-[96rem]'
                 : 'max-w-6xl'
             )}
@@ -324,7 +274,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                             fill
                             className={cn(
                               'transition-transform duration-500 group-hover:scale-105',
-                              event.id === 'festa-nacoes' ? 'object-contain bg-[#0b4fa7]' : 'object-cover'
+                              'object-cover'
                             )}
                             sizes="(max-width: 768px) 100vw, 50vw"
                           />
@@ -391,124 +341,14 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                   </button>
 
                   <div className="overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_50px_rgba(13,27,76,0.10)] ring-1 ring-gold/10">
-                    {selectedEvent.id === 'festa-nacoes' ? (
-                      <div className="grid gap-0 lg:grid-cols-[minmax(320px,0.88fr)_minmax(0,1.12fr)]">
-                        <button
-                          type="button"
-                          onClick={() => setIsImageZoomed(true)}
-                          className="group relative overflow-hidden bg-[#0b4fa7] p-4 sm:p-5 lg:p-6"
-                          aria-label={`Ampliar foto de ${selectedEvent.title}`}
-                        >
-                          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-[0_18px_40px_rgba(13,27,76,0.22)] ring-1 ring-white/15">
-                            <Image
-                              src={detailImageSrc || selectedEvent.image}
-                              alt={selectedEvent.title}
-                              fill
-                              className="object-contain object-center bg-[#0b4fa7] transition-transform duration-500 group-hover:scale-[1.01]"
-                              sizes="(max-width: 1024px) 100vw, 42vw"
-                            />
-                          </div>
-                        </button>
-
-                        <div className="flex flex-col gap-6 bg-gradient-to-b from-white to-cream/35 p-6 sm:p-8">
-                          <div className="space-y-3">
-                            <Badge className="border-0 bg-gold text-navy shadow-sm">
-                              Programação Especial
-                            </Badge>
-                            <div className="space-y-2">
-                              <h3 className="text-3xl font-serif font-bold leading-tight text-navy sm:text-4xl">
-                                Festa das Nações 2026
-                              </h3>
-                              <p className="max-w-2xl text-sm leading-relaxed text-navy/70">
-                                Uma celebração das tradições, da gastronomia típica e de atrações para toda a família.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="grid items-stretch gap-4 xl:grid-cols-2">
-                            <div className="h-full space-y-5 rounded-[1.6rem] bg-white p-5 shadow-sm ring-1 ring-gold/10">
-                              <div className="space-y-2">
-                                <h4 className="text-xl font-serif font-semibold text-navy">
-                                  Informações Gerais
-                                </h4>
-                                <div className="space-y-2 text-sm leading-relaxed text-navy/75">
-                                  <p><strong>Evento:</strong> Festa das Nações 2026</p>
-                                  <p><strong>Local Principal:</strong> Praça John F. Kennedy (Av. Deputado Campos Vergal, atrás do Palácio das Águas).</p>
-                                  <p><strong>Atração Gastronômica:</strong> Comidas típicas.</p>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="h-full space-y-5 rounded-[1.6rem] bg-white p-5 shadow-sm ring-1 ring-gold/10">
-                              <div className="space-y-2">
-                                <h4 className="text-xl font-serif font-semibold text-navy">
-                                  Programação por Dia
-                                </h4>
-                                <p className="text-sm text-navy/65">
-                                  A programação abaixo foi organizada para facilitar a leitura e a reserva via WhatsApp.
-                                </p>
-                                <div className="flex flex-wrap gap-2 pt-2">
-                                  <span className={eventChipClass}>
-                                    3 dias de evento
-                                  </span>
-                                  <span className={eventChipClass}>
-                                    Praça John F. Kennedy
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid gap-4 xl:grid-cols-2">
-                            {festaNacoesSchedule.map((day) => (
-                              <div
-                                key={day.day}
-                                className="h-full rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-gold/10"
-                              >
-                                <div className="space-y-1">
-                                  <p className="font-semibold text-navy">{day.day}</p>
-                                  <p className="text-sm text-navy/70">
-                                    Horário: {day.hours} | Local: {day.location}
-                                  </p>
-                                </div>
-
-                                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-navy/80">
-                                  {day.items.map((item) => (
-                                    <li key={item} className="flex gap-2">
-                                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                                      <span>{item}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-
-                                {day.extraLocation && (
-                                  <p className="mt-3 text-sm font-medium text-navy/75">
-                                    {day.extraLocation}
-                                  </p>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="mt-auto border-t border-gold/15 pt-6">
-                            <Button
-                              onClick={() => handleBookEvent(selectedEvent)}
-                              className="h-12 w-full rounded-full bg-gold px-6 font-semibold text-navy shadow-[0_10px_24px_rgba(193,143,33,0.18)] hover:bg-gold/90"
-                            >
-                              {t('eventsModal.buttons.bookWhatsApp')}
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div
-                        className={cn(
-                          'grid gap-0',
-                          selectedEvent.id === 'festival-cafe'
-                            ? 'lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)]'
-                            : 'lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'
-                        )}
-                      >
+                    <div
+                      className={cn(
+                        'grid gap-0',
+                        selectedEvent.id === 'festival-cafe'
+                          ? 'lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)]'
+                          : 'lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'
+                      )}
+                    >
                         <button
                           type="button"
                           onClick={() => setIsImageZoomed(true)}
