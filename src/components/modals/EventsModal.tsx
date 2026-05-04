@@ -551,8 +551,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                             )}
                           </div>
                         </div>
-                      </div>
-                    )}
+                    </div>
                   </div>
                 </motion.div>
               )}
