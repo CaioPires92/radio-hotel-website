@@ -46,56 +46,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   const detailImageSrc = selectedEvent?.image;
   const eventChipClass =
     'rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75 ring-1 ring-gold/15 shadow-sm';
-
-
-  const festivalCafeSchedule: DaySchedule[] = [
-    {
-      day: '22 de maio – Sexta-feira',
-      hours: '17h às 22h',
-      location: 'Av. Deputado Campos Vergal',
-      items: [
-        '17h: Abertura',
-        '18h: Sérgio Estrada e Banda',
-        '20h: Banda Ellus',
-      ],
-    },
-    {
-      day: '23 de maio – Sábado',
-      hours: '11h às 20h',
-      location: 'Av. Deputado Campos Vergal',
-      items: [
-        '11h: Orquestra Esperança de Viola Caipira',
-        '14h: Alexandre Reys e Banda',
-        '17h: Mayara Góis e Banda',
-        '20h: Mario Neto e Banda',
-      ],
-    },
-    {
-      day: '24 de maio – Domingo',
-      hours: '10h às 18h',
-      location: 'Av. Deputado Campos Vergal',
-      items: [
-        '10h: Corporação Musical Lira de Serra Negra',
-        '13h: Tony Marcos e Banda',
-        '16h: Grupo Tradição Caipira (Orquestra de Viola)',
-        '18h: Lucas e Matheus e Banda',
-      ],
-    },
-  ];
-
   const events: Event[] = [
-
-    {
-      id: 'festival-cafe',
-      title: t('eventsModal.festivalCafe.title'),
-      description: t('eventsModal.festivalCafe.description'),
-      date: t('eventsModal.festivalCafe.date'),
-      time: t('eventsModal.festivalCafe.time'),
-      location: t('eventsModal.festivalCafe.location') || 'Radio Hotel Serra Negra',
-      image: '/images/events/festival-cafe.png',
-      previewImage: '/images/events/FestivaldoCafe.jpeg',
-      category: t('eventsModal.categories.packages'),
-    },
     {
       id: 'corpusChristi',
       title: t('eventsModal.corpusChristi.title'),
@@ -203,12 +154,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
           />
 
           <motion.div
-            className={cn(
-              'relative w-full max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl',
-              selectedEvent?.id === 'festival-cafe'
-                ? 'max-w-[98vw] xl:max-w-[96rem]'
-                : 'max-w-6xl'
-            )}
+            className="relative w-full max-h-[90vh] overflow-hidden rounded-[2rem] bg-white shadow-2xl max-w-6xl"
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -341,141 +287,33 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                   </button>
 
                   <div className="overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_50px_rgba(13,27,76,0.10)] ring-1 ring-gold/10">
-                    <div
-                      className={cn(
-                        'grid gap-0',
-                        selectedEvent.id === 'festival-cafe'
-                          ? 'lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)]'
-                          : 'lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'
-                      )}
-                    >
+                    <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                         <button
                           type="button"
                           onClick={() => setIsImageZoomed(true)}
-                          className={cn(
-                            'group relative overflow-hidden',
-                            selectedEvent.id === 'festival-cafe'
-                              ? 'min-h-[260px] sm:min-h-[320px]'
-                              : 'min-h-[320px] sm:min-h-[380px]'
-                          )}
+                          className="group relative overflow-hidden min-h-[320px] sm:min-h-[380px]"
                           aria-label={`Ampliar foto de ${selectedEvent.title}`}
                         >
                           <Image
                             src={detailImageSrc || selectedEvent.image}
                             alt={selectedEvent.title}
                             fill
-                            className={cn(
-                              selectedEvent.id === 'festival-cafe'
-                                ? 'object-contain object-center bg-[#6b3f32]'
-                                : 'object-contain bg-[#0b4fa7]'
-                            )}
+                            className="object-contain bg-[#0b4fa7]"
                             sizes="(max-width: 1024px) 100vw, 55vw"
                           />
-                          {selectedEvent.id !== 'festival-cafe' && (
-                            <>
-                              <div className="absolute inset-0 bg-transparent transition-colors duration-300 group-hover:bg-black/5" />
-                              <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-navy/35 to-transparent" />
-                              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                                <Badge className="mb-4 border-0 bg-gold text-navy shadow-sm">
-                                  {selectedEvent.category}
-                                </Badge>
-                                <h3 className="max-w-xl text-3xl font-serif font-bold leading-tight text-white sm:text-4xl">
-                                  {selectedEvent.title}
-                                </h3>
-                              </div>
-                            </>
-                          )}
+                          <div className="absolute inset-0 bg-transparent transition-colors duration-300 group-hover:bg-black/5" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-navy/35 to-transparent" />
+                          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                            <Badge className="mb-4 border-0 bg-gold text-navy shadow-sm">
+                              {selectedEvent.category}
+                            </Badge>
+                            <h3 className="max-w-xl text-3xl font-serif font-bold leading-tight text-white sm:text-4xl">
+                              {selectedEvent.title}
+                            </h3>
+                          </div>
                         </button>
 
                         <div className="flex flex-col gap-4 bg-gradient-to-b from-white to-cream/35 p-5 sm:p-6">
-                          {selectedEvent.id === 'festival-cafe' && (
-                            <>
-                              <div className="space-y-2">
-                                <Badge className="border-0 bg-gold text-navy shadow-sm">
-                                  Programação Especial
-                                </Badge>
-                                <div className="space-y-1.5">
-                                  <h3 className="text-2xl font-serif font-bold leading-tight text-navy sm:text-[2rem]">
-                                    Festival do Café &amp; Riquezas da Serra 2026
-                                  </h3>
-                                  <p className="max-w-2xl text-sm leading-snug text-navy/70">
-                                    Uma celebração dos sabores artesanais de Serra Negra.
-                                  </p>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2 pt-0.5">
-                                  <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75">
-                                    22, 23 e 24 de Maio de 2026
-                                  </span>
-                                  <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75">
-                                    Av. Deputado Campos Vergal
-                                  </span>
-                                  <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75">
-                                    Serra Negra - SP
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-2">
-                                <div className="space-y-4 rounded-[1.6rem] bg-white p-4 shadow-sm ring-1 ring-gold/10">
-                                  <div className="space-y-1.5">
-                                    <h4 className="text-xl font-serif font-semibold text-navy">
-                                      Informações Gerais
-                                    </h4>
-                                    <div className="space-y-1.5 text-sm leading-relaxed text-navy/75">
-                                      <p><strong>Evento:</strong> Festival do Café &amp; Riquezas da Serra 2026</p>
-                                      <p><strong>Local:</strong> Av. Deputado Campos Vergal (Atrás do Palácio das Águas Prefeito Antônio Luigi Ítalo Franchi - Bimbo), Serra Negra - SP.</p>
-                                      <p><strong>Descrição:</strong> Uma celebração dos sabores artesanais de Serra Negra.</p>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-4 rounded-[1.6rem] bg-white p-4 shadow-sm ring-1 ring-gold/10">
-                                  <div className="space-y-1.5">
-                                    <h4 className="text-xl font-serif font-semibold text-navy">
-                                      Programação Detalhada
-                                    </h4>
-                                    <p className="text-sm leading-snug text-navy/65">
-                                      A programação foi organizada para facilitar a leitura e o acesso via WhatsApp.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="grid gap-3 lg:grid-cols-2">
-                                {festivalCafeSchedule.map((day) => (
-                                  <div
-                                    key={day.day}
-                                    className="h-full rounded-2xl bg-white/95 p-3.5 shadow-sm ring-1 ring-gold/10"
-                                  >
-                                    <div className="space-y-0.5">
-                                      <p className="font-semibold text-navy">{day.day}</p>
-                                      <p className="text-sm text-navy/70">
-                                        Horário: {day.hours} | Local: {day.location}
-                                      </p>
-                                    </div>
-
-                                    <ul className="mt-2.5 space-y-1.5 text-sm leading-relaxed text-navy/80">
-                                      {day.items.map((item) => (
-                                        <li key={item} className="flex gap-2">
-                                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                                          <span>{item}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-
-                                    {day.extraLocation && (
-                                      <p className="mt-2.5 text-sm font-medium text-navy/75">
-                                        {day.extraLocation}
-                                      </p>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                            </>
-                          )}
-
-                          {selectedEvent.id !== 'festival-cafe' && (
                             <div className="grid gap-3 sm:grid-cols-2">
                               {[
                                 {
@@ -525,7 +363,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                                   </div>
                                 ))}
                             </div>
-                          )}
 
                           <div className="mt-auto border-t border-gold/15 pt-4">
                             {selectedEvent.id === 'christmas-parade-2025' ? (
