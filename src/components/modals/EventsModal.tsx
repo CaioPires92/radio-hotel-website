@@ -48,16 +48,6 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
     'rounded-full bg-gold/12 px-3 py-1 text-xs font-medium text-navy/75 ring-1 ring-gold/15 shadow-sm';
   const events: Event[] = [
     {
-      id: 'corpusChristi',
-      title: t('eventsModal.corpusChristi.title'),
-      description: t('eventsModal.corpusChristi.description'),
-      date: t('eventsModal.corpusChristi.date'),
-      time: t('eventsModal.corpusChristi.time'),
-      location: t('eventsModal.corpusChristi.location'),
-      image: '/images/facilities/ar-livre-1.jpg',
-      category: t('eventsModal.categories.packages'),
-    },
-    {
       id: 'festaJunina',
       title: t('eventsModal.festaJunina.title'),
       description: t('eventsModal.festaJunina.description'),

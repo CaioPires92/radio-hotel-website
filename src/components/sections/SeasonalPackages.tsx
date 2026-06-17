@@ -18,16 +18,7 @@ const packages = [
       'Recreação adulto e infantil'
     ],
   },
-  {
-    id: 'corpus',
-    title: 'Pacote Corpus Christi',
-    date: 'Junho',
-    image: '/images/facilities/ar-livre-1.jpg',
-    perks: [
-      'Música ao vivo à noite',
-      'Recreação adulto e infantil'
-    ],
-  },
+
 ];
 
 export default function SeasonalPackages() {
