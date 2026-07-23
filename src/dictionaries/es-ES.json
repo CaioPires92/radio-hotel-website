@@ -555,6 +555,21 @@
       "atTime": "a las",
       "helpRequest": "¿Pueden ayudarme?"
     },
+    "fathersDay2026": {
+      "title": "Día del Padre",
+      "description": "Celebra en familia con noche italiana y degustación de quesos y vino el viernes, feijoada en el almuerzo del sábado, recreación para adultos y niños y música en vivo todas las noches.",
+      "date": "7 y 8 de agosto de 2026",
+      "time": "Viernes por la noche y sábado al almuerzo",
+      "location": "Radio Hotel Serra Negra",
+      "fridayDate": "7 de agosto",
+      "fridayDay": "Viernes",
+      "fridayActivity": "Noche italiana con degustación de quesos y vino",
+      "saturdayDate": "8 de agosto",
+      "saturdayDay": "Sábado",
+      "saturdayActivity": "Almuerzo: Feijoada",
+      "recreation": "Recreación para adultos y niños",
+      "liveMusic": "Música en vivo todas las noches"
+    },
     "italianNight": {
       "title": "Noche Italiana",
       "description": "Una noche especial con lo mejor de la cocina italiana, música en vivo y ambiente romántico.",

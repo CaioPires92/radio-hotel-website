@@ -19,6 +19,7 @@ interface Event {
   location: string;
   image: string;
   previewImage?: string;
+  imageFit?: 'cover' | 'contain';
   category: string;
   url?: string;
 }
@@ -56,6 +57,17 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       location: t('eventsModal.festaJunina.location'),
       image: '/images/events/festa-junina.jpg',
       category: t('eventsModal.categories.packages'),
+    },
+    {
+      id: 'fathersDay2026',
+      title: t('eventsModal.fathersDay2026.title'),
+      description: t('eventsModal.fathersDay2026.description'),
+      date: t('eventsModal.fathersDay2026.date'),
+      time: t('eventsModal.fathersDay2026.time'),
+      location: t('eventsModal.fathersDay2026.location'),
+      image: '/images/events/dia-dos-pais-2026.jpeg',
+      imageFit: 'contain',
+      category: t('eventsModal.categories.family'),
     },
     {
       id: 'italianNight',
@@ -200,17 +212,16 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                         transition={{ duration: 0.35, delay: index * 0.08 }}
                         className="group flex h-full min-h-[420px] w-full flex-col overflow-hidden rounded-[1.6rem] bg-white text-left shadow-[0_18px_38px_rgba(13,27,76,0.10)] ring-1 ring-gold/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_44px_rgba(13,27,76,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white md:h-[620px]"
                       >
-                        <div className={cn(
-                          'relative overflow-hidden',
-                          'h-72 md:h-[320px]'
-                        )}>
+                        <div className="relative h-72 w-full overflow-hidden md:h-[320px]">
                           <Image
                             src={event.previewImage || event.image}
                             alt={event.title}
                             fill
                             className={cn(
-                              'transition-transform duration-500 group-hover:scale-105',
-                              'object-cover'
+                              'transition-transform duration-500',
+                              event.imageFit === 'contain'
+                                ? 'object-contain bg-[#102b36]'
+                                : 'object-cover group-hover:scale-105'
                             )}
                             sizes="(max-width: 768px) 100vw, 50vw"
                           />
@@ -281,29 +292,104 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                         <button
                           type="button"
                           onClick={() => setIsImageZoomed(true)}
-                          className="group relative overflow-hidden min-h-[320px] sm:min-h-[380px]"
+                          className={cn(
+                            'group relative w-full overflow-hidden',
+                            selectedEvent.imageFit === 'contain'
+                              ? 'h-[55vh] max-h-[520px] min-h-[320px] self-start sm:h-[60vh] lg:h-[calc(90vh-270px)]'
+                              : 'min-h-[320px] sm:min-h-[380px]'
+                          )}
                           aria-label={`Ampliar foto de ${selectedEvent.title}`}
                         >
                           <Image
                             src={detailImageSrc || selectedEvent.image}
                             alt={selectedEvent.title}
                             fill
-                            className="object-contain bg-[#0b4fa7]"
+                            className={cn(
+                              'object-contain',
+                              selectedEvent.imageFit === 'contain'
+                                ? 'bg-[#102b36]'
+                                : 'bg-[#0b4fa7]'
+                            )}
                             sizes="(max-width: 1024px) 100vw, 55vw"
                           />
                           <div className="absolute inset-0 bg-transparent transition-colors duration-300 group-hover:bg-black/5" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-navy/35 to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                            <Badge className="mb-4 border-0 bg-gold text-navy shadow-sm">
-                              {selectedEvent.category}
-                            </Badge>
-                            <h3 className="max-w-xl text-3xl font-serif font-bold leading-tight text-white sm:text-4xl">
-                              {selectedEvent.title}
-                            </h3>
-                          </div>
+                          {selectedEvent.imageFit !== 'contain' && (
+                            <>
+                              <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-navy/35 to-transparent" />
+                              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                                <Badge className="mb-4 border-0 bg-gold text-navy shadow-sm">
+                                  {selectedEvent.category}
+                                </Badge>
+                                <h3 className="max-w-xl text-3xl font-serif font-bold leading-tight text-white sm:text-4xl">
+                                  {selectedEvent.title}
+                                </h3>
+                              </div>
+                            </>
+                          )}
                         </button>
 
                         <div className="flex flex-col gap-4 bg-gradient-to-b from-white to-cream/35 p-5 sm:p-6">
+                          {selectedEvent.imageFit === 'contain' && (
+                            <div>
+                              <Badge className="mb-3 border-0 bg-gold text-navy shadow-sm">
+                                {selectedEvent.category}
+                              </Badge>
+                              <h3 className="text-3xl font-serif font-bold leading-tight text-navy">
+                                {selectedEvent.title}
+                              </h3>
+                            </div>
+                          )}
+
+                          {selectedEvent.id === 'fathersDay2026' ? (
+                            <div className="space-y-3">
+                              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-gold/10">
+                                <div className="flex items-start gap-3">
+                                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/12 text-gold">
+                                    <Calendar className="h-5 w-5" />
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold-on-light">
+                                      {t('eventsModal.fathersDay2026.fridayDate')}
+                                    </p>
+                                    <p className="mt-0.5 text-xl font-serif font-bold text-navy">
+                                      {t('eventsModal.fathersDay2026.fridayDay')}
+                                    </p>
+                                    <p className="mt-2 leading-relaxed text-navy/75">
+                                      {t('eventsModal.fathersDay2026.fridayActivity')}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="rounded-2xl bg-white/95 p-4 shadow-sm ring-1 ring-gold/10">
+                                <div className="flex items-start gap-3">
+                                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/12 text-gold">
+                                    <Calendar className="h-5 w-5" />
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold-on-light">
+                                      {t('eventsModal.fathersDay2026.saturdayDate')}
+                                    </p>
+                                    <p className="mt-0.5 text-xl font-serif font-bold text-navy">
+                                      {t('eventsModal.fathersDay2026.saturdayDay')}
+                                    </p>
+                                    <p className="mt-2 leading-relaxed text-navy/75">
+                                      {t('eventsModal.fathersDay2026.saturdayActivity')}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="grid gap-3 sm:grid-cols-2">
+                                <div className="rounded-2xl bg-gold/10 p-4 font-medium leading-relaxed text-navy ring-1 ring-gold/15">
+                                  {t('eventsModal.fathersDay2026.recreation')}
+                                </div>
+                                <div className="rounded-2xl bg-gold/10 p-4 font-medium leading-relaxed text-navy ring-1 ring-gold/15">
+                                  {t('eventsModal.fathersDay2026.liveMusic')}
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
                             <div className="grid gap-3 sm:grid-cols-2">
                               {[
                                 {
@@ -353,6 +439,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
                                   </div>
                                 ))}
                             </div>
+                          )}
 
                           <div className="mt-auto border-t border-gold/15 pt-4">
                             {selectedEvent.id === 'christmas-parade-2025' ? (
