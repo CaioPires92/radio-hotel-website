@@ -22,6 +22,7 @@ interface Event {
   imageFit?: 'cover' | 'contain';
   category: string;
   url?: string;
+  expiresAt?: string;
 }
 
 interface DaySchedule {
@@ -50,6 +51,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
   const events: Event[] = [
     {
       id: 'festaJunina',
+      expiresAt: '2026-07-27T03:00:00.000Z',
       title: t('eventsModal.festaJunina.title'),
       description: t('eventsModal.festaJunina.description'),
       date: t('eventsModal.festaJunina.date'),
@@ -89,7 +91,9 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       image: '/images/events/sabado-feijoada.png',
       category: t('eventsModal.categories.gastronomy'),
     },
-  ];
+  ].filter(
+    (event) => !event.expiresAt || Date.now() < new Date(event.expiresAt).getTime()
+  );
 
   useEffect(() => {
     if (!isOpen) {
