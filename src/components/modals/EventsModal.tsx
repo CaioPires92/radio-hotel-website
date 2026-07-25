@@ -62,6 +62,7 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
     },
     {
       id: 'fathersDay2026',
+      expiresAt: '2026-08-10T03:00:00.000Z',
       title: t('eventsModal.fathersDay2026.title'),
       description: t('eventsModal.fathersDay2026.description'),
       date: t('eventsModal.fathersDay2026.date'),
