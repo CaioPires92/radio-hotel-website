@@ -382,13 +382,53 @@
 }
 
 .events-modal-carousel .swiper-pagination-bullet {
-  background: rgba(13, 27, 76, 0.18);
+  background: rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
 .events-modal-carousel .swiper-pagination-bullet-active {
   background: #b2ab70;
-  box-shadow: 0 0 0 1px rgba(13, 27, 76, 0.08);
+  box-shadow: none;
+}
+
+.events-modal-carousel .swiper-button-prev,
+.events-modal-carousel .swiper-button-next {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: #0d1b4c;
+  box-shadow: 0 4px 14px rgba(13, 27, 76, 0.12);
+  backdrop-filter: blur(8px);
+  opacity: 0.78;
+  transition: opacity 180ms ease, background-color 180ms ease;
+}
+
+.events-modal-carousel .swiper-button-prev {
+  left: 5px;
+}
+
+.events-modal-carousel .swiper-button-next {
+  right: 5px;
+}
+
+.events-modal-carousel .swiper-button-prev:hover,
+.events-modal-carousel .swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.82);
+  opacity: 1;
+}
+
+.events-modal-carousel .swiper-button-prev::after,
+.events-modal-carousel .swiper-button-next::after {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .events-modal-carousel .swiper-button-prev,
+  .events-modal-carousel .swiper-button-next {
+    display: none;
+  }
 }
 
 /* ===========================================

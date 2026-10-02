@@ -531,6 +531,7 @@
   "eventsModal": {
     "title": "Programação Especial",
     "subtitle": "",
+    "carouselInstructions": "Deslize para ver as opções e toque no banner para reservar.",
     "categories": {
       "gastronomy": "Gastronomia",
       "wellness": "Bem-estar",

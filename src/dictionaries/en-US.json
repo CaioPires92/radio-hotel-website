@@ -531,6 +531,7 @@
   "eventsModal": {
     "title": "Special Programming",
     "subtitle": "",
+    "carouselInstructions": "Swipe to see the options and tap a banner to book.",
     "categories": {
       "gastronomy": "Gastronomy",
       "wellness": "Wellness",

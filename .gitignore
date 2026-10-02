@@ -46,6 +46,7 @@ relatorio*.md
 ter
 # Ensure public/images is tracked
 !/public/images/**
+*:Zone.Identifier
 # Still ignore large video files inside public/images
 /public/images/**/*.mp4
 /public/images/**/*.mov
@@ -83,6 +84,7 @@ CON
 /public/backup-original/**
 /public/backup-unused-2025-11-15/**
 /public/screenshots/**
+/public/images/events/arquivo/**
 
 # local CI reports and lighthouse cache
 /.lighthouseci/**

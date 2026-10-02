@@ -530,6 +530,7 @@
   "eventsModal": {
     "title": "Eventos Especiales",
     "subtitle": "",
+    "carouselInstructions": "Desliza para ver las opciones y toca un banner para reservar.",
     "categories": {
       "gastronomy": "Gastronomía",
       "wellness": "Bienestar",
