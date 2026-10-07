@@ -69,6 +69,13 @@ export default function EventsModal({ isOpen, onClose }: EventsModalProps) {
       expiresOn: '2026-11-23',
     },
     {
+      id: 'natal-reveillon-2026',
+      title: 'Natal & Réveillon',
+      image: '/images/events/natal-reveillon.webp',
+      date: 'Natal e Réveillon de 2026',
+      expiresOn: '2027-01-02',
+    },
+    {
       id: 'noite-italiana',
       title: t('eventsModal.italianNight.title'),
       image: '/images/events/noite-italiana.webp',
